@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>HTMLTEMPLATE</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 3mm;
+        }
+
+
+        /* Fonts */
+        @font-face {
+            font-family: 'MonaspaceNeon';
+            src: url('fonts/MonaspaceNeon-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'MonaspaceNeon';
+            src: url('fonts/MonaspaceNeon-Bold.woff2') format('woff2');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'MonaspaceNeon';
+            src: url('fonts/MonaspaceNeon-Italic.woff2') format('woff2');
+            font-weight: normal;
+            font-style: italic;
+        }
+                /* dark mode */
+        body.light-mode {
+            background-color: white;
+            color: black;
+        }
+        body.light-mode table {
+            background-color: white;
+            border: 2px solid white; 
+        }
+        body.light-mode th, body.light-mode td {
+            border: 2px solid white; 
+        }
+        body.dark-mode {
+            background-color: #292929;
+            color: white;
+        }
+        body.dark-mode table {
+            background-color: #292929;
+            border: 2px solid #292929; 
+        }
+        body.dark-mode th, body.dark-mode td {
+            border: 2px solid #292929 
+        }
+        body.dark-mode table.inner {
+            border: 2px solid white; 
+        }
+        body.dark-mode table.inner th, 
+        body.dark-mode table.inner td {
+            border: 2px solid white; 
+        }
+        
+                /* Formats */
+        h1 {
+            font-family: 'MonaspaceNeon', 'Algerian', 'sans-serif';
+            font-weight: 900;
+            height: 31px;
+            text-align: center;
+            font-size: 25px;
+            margin: 31px;
+        }
+
+        h2 {
+            font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
+            font-weight: 700;
+            height: 16px;
+            text-align: center;
+            font-size: 14px;
+            margin: 0px;
+        }
+      	h3 {
+            font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
+            font-weight: 700;
+            height: 14px;
+            text-align: center;
+            font-size: 12px;
+            margin: 0px;
+        }
+
+         th, td {
+            padding: 5px;
+            border:  1px solid white;
+            text-align: left;
+            height: 14px;
+            box-sizing: border-box;
+            font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
+            font-size: 12px;
+            font-weight: 400;
+        }
+        table {
+          border: 0px solid white;
+          outline: none;
+          background-color: white;
+          border-collapse: collapse;
+          border-spacing: 0;
+        }
+        table, th, td {
+            vertical-align: top;
+        }
+
+      	body {
+  				 display: flex;
+          flex-direction: column;
+  				justify-content: center; 
+  				align-items: center; 
+ 					margin: 7; 
+				}
+      	table.inner {
+            width: 100%;
+            border: 2px solid black; 
+            border-collapse: collapse; 
+            cursor: pointer; 
+        }
+        table.inner th, table.inner td {
+            border: 2px solid black;
+        }
+        body.dark-mode table.inner {
+            border: 2px solid white; 
+        }
+        body.dark-mode table.inner th, 
+        body.dark-mode table.inner td {
+            border: 2px solid white; 
+        }
+
+
+        .container1 {
+            border: 6px solid #004080;
+          	border-radius: 7px;
+            padding: 3px;
+          	
+        }
+      	.container2 {
+            border: 6px solid #383e4f; 
+          	border-radius: 7px;
+            padding: 3px;
+          	
+        }
+      	.container3 {
+            border: 6px solid #5474cc;
+          	border-radius: 7px;
+            padding: 3px;
+          	
+        }
+      	.container4 {
+            border: 6px solid #a0b3e8; 
+          	border-radius: 7px;
+            padding: 3px;
+          	
+        }
+        .toggle-button {
+            position: fixed; 
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .toggle-button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .toggle-button:active {
+            background-color: #004494;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .toggle-button .icon {
+            font-size: 20px;
+        }
+        body.light-mode .toggle-button .icon::before {
+            content: '🌙';
+        }
+        body.dark-mode .toggle-button .icon::before {
+            content: '☀️';
+        }
+        .page-break {
+            page-break-before: always;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 60px; 
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .print-button:hover {
+            background-color: #218838;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .print-button:active {
+            background-color: #1e7e34;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .print-button .icon {
+            font-size: 20px;
+        }
+        @media print {
+            .print-button {
+                display: none;
+            }
+            .toggle-button {
+                display: none;
+            }
+            .page-break {
+                height: 20mm;
+            }
+            
+        }
+        .modal {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 1000; 
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative; 
+            line-height: 1.5; 
+        }
+        body.light-mode .modal-content {
+            background-color: white;
+        }
+
+        body.dark-mode .modal-content {
+            background-color: #292929;
+        }
+        .modal-content h1, .modal-content h2, .modal-content h3, .modal-content th, .modal-content td {
+            font-size: 1.2em; 
+            word-wrap: break-word; 
+            white-space: normal; 
+            padding: 10px; 
+        }
+        .modal-close {
+            position: sticky; 
+            top: -15px; 
+            right: -15px; 
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+            z-index: 10; 
+        }
+        .modal-content table {
+            table-layout: auto; 
+            width: 100%; 
+        }
+
+    </style>
+  </head>
+  <body class="light-mode">
+    <!--ICON-->
+    <svg style="display: none;">
+      <symbol id="myBase64Image" viewBox="0 0 1 1">
+        <image href="data:image/png;base64,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"
+
+          width="1" height="1"></image> </symbol> </svg>
+    <svg style="display: none;">
+      <symbol id="redshiftlgo" viewBox="0 0 1 1">
+        <image href="data:image/png;base64,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"
+
+          width="1" height="1"></image> </symbol> </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()">
+      <span class="icon"></span> </button>
+    <button class="print-button" onclick="window.print()">
+      <span class="icon">🖨️</span> </button>
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div id="modal-table-container"></div>
+        </div>
+    </div>
+    <script>
+        //darkmode
+        function toggleMode() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+        }
+        //modal
+        document.addEventListener('DOMContentLoaded', () => {
+
+            document.querySelectorAll('table.inner').forEach(table => {
+                table.addEventListener('click', (event) => {
+                    event.stopPropagation(); 
+                    openModal(table.outerHTML); 
+                });
+            });
+        });
+
+        function openModal(tableHtml) {
+            const modal = document.getElementById('modal');
+            const modalTableContainer = document.getElementById('modal-table-container');
+            modalTableContainer.innerHTML = tableHtml; 
+            modal.style.display = 'flex'; 
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none'; 
+        }
+    </script>
+    <!--HEADER h1-->
+    <h1>REDSHIFT – INTRODUCTION
+      <svg width="55" height="55">
+        <use href="#redshiftlgo"></use> </svg> </h1>
+    <!-- page 1 -->
+    <table style="width: 765px; height:  998px;">
+      <tbody>
+        <tr>
+          <td style="width: 199px; padding-right: 0px;">
+            <!-- left side -->
+            <table style="width: 248px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: space-between; align-items: center; position: relative;">
+                                <span> </span>
+                                <div style="text-align: center;"><span>
+                                    <h2>Redshift keywords 1</h2>
+                                  </span></div>
+                                <span> </span> </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Amazon Redshift is a distributed
+                              database that spreads queries and large volumes of
+                              data across multiple workers (nodes) and is part
+                              of the AWS ecosystem.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3> Keyword </h3>
+                            </td>
+                            <td>
+                              <h3> Description </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>columnar database<br>
+                            </td>
+                            <td>Optimized on individual columns instead or rows.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>PostgreSQL 9 syntax<br>
+                            </td>
+                            <td>Is the sql language used for redshift.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Viewing data types</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>To view columns a data types of a table
+                              SVV_REDSHIFT_COLUMNS can be used to see columns
+                              and datatypes of internal tables. <br>
+                              SVV_ALL_COLUMNS can be used to see columns and
+                              data types of internal and external tables.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3> Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SELECT<br>
+                              column_name, <br> data_type, <br> 
+                              character_maxium_lenght,
+                              numeric_precision, numeric_scale <br>
+                              FROM <br>
+                              <i>SVV_ALL_COLUMNS <br>
+                              </i>where <br>
+                              schema_name = 'spectrumdb' <br>AND <br>
+                              table_name = 'ecommerce_sales'; </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cast()</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Same as t-sql cast can be used to change the
+                              datatype of a field or value.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3> Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SELECT 
+                              cast(2.00 as INTEGER) as our_int
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 367px; padding-left: 0px;">
+            <!-- right side -->
+            <table none="" style="width: 352px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell b1 -->
+                    <div class="container3">
+                      <table class="inner" style="width: 483px; ;">
+                        <tbody>
+                          <tr>
+                            <td style="text-align: center;">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Viewing Redshift schemas</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>To see all databases and the schemas they use
+                              the table SVV_REDSHIFT_SCHEMAS is used to see the
+                              information from internal tables. <br>SVV_ALL_SCHEMAS
+                              is used to see the information from internal and
+                              external tables.</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3> Example </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SELECT database_name, schema_name, schema_type <br>
+                              FROM<br> <i>SVV_REDSHIFT_SCHEMAS</i><br><br>
+                              <span style="color: #666666;"># database_name|
+                                schema_name | schema_type <br>
+                                dev&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                | pg_catalog&nbsp; | local <br>
+                                production &nbsp; &nbsp; | pg_catalog&nbsp; |
+                                local </span><br><br>
+                              SELECT table_name <i><br>FROM <br>SVV_ALL_TABLES</i>
+                              <br>WHERE <br>schma_name = 'spectrumdb' <br><br>
+                              <span style="color: #666666;"># table_name <br>
+                                ecommerce_sales<br>
+                                Idaho_site_id</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell b2 -->
+                    <div class="container4">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td colspan="3">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Data types</h2>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3> Group</h3>
+                            </td>
+                            <td>
+                              <h3> Description</h3>
+                            </td>
+                            <td>
+                              <h3> Data types</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Numeric<br>
+                            </td>
+                            <td>Your average numeric data types.<br>
+                            </td>
+                            <td>smallint, integer, bigint, ect<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Datetime<br>
+                            </td>
+                            <td>Your average datetime data types.<br> With timestamp
+                              being used for combined date and time.<br>
+                            </td>
+                            <td>date, time, timetz, timestamp, timestamptz<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Character<br>
+                            </td>
+                            <td>Your average string data types.<br>
+                            </td>
+                            <td>char, varchar<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Boolean<br>
+                            </td>
+                            <td>Your Boolean datatype.<br>
+                            </td>
+                            <td>boolean<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Super<br>
+                            </td>
+                            <td>For semi structured data (e.g. jsons) max 16mb.<br>
+                            </td>
+                            <td>super<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Varbyte<br>
+                            </td>
+                            <td>For binary data used for blobs images, videos.<br>
+                            </td>
+                            <td>varbyte<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">
+                              <h3> Unsupported SQL types </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>SQLtype</h3>
+                            </td>
+                            <td colspan="2">
+                              <h3> Replacement </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Datetime<br>
+                            </td>
+                            <td colspan="2">timestamp, timestamptz<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Serial<br>
+                            </td>
+                            <td colspan="2">integer, bigint<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Uuid<br>
+                            </td>
+                            <td colspan="2">varchar<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Json<br>
+                            </td>
+                            <td colspan="2">super, varchar<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Array<br>
+                            </td>
+                            <td colspan="2">super, varchar<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 -->
+    <div class="page-break"></div>
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table height="839" width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: space-between; align-items: center; position: relative;">
+                                <span>robin</span>
+                                <svg width="34" height="34" style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <use href="#myBase64Image"></use> </svg> </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: space-between; align-items: center; position: relative;">
+                                <span>robin</span>
+                                <svg width="34" height="34" style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <use href="#myBase64Image"></use> </svg> </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: space-between; align-items: center; position: relative;">
+                                <span>robin</span>
+                                <svg width="34" height="34" style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <use href="#myBase64Image"></use> </svg> </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
