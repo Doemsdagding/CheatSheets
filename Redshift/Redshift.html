@@ -251,6 +251,35 @@
         .print-button .icon {
             font-size: 20px;
         }
+
+        .download-button {
+            position: fixed;
+            top: 110px; /* Position below the print button */
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: #ffc107; /* Yellow color */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .download-button:hover {
+            background-color: #e0a800;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .download-button:active {
+            background-color: #c69500;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
         @media print {
             .print-button {
                 display: none;
@@ -343,6 +372,10 @@
       <span class="icon"></span> </button>
     <button class="print-button" onclick="window.print()">
       <span class="icon">🖨️</span> </button>
+    <!-- Download Button -->
+     <button class="download-button" onclick="downloadTemplate()">
+        ⬇️
+    </button>
     <!-- Modal Structure -->
     <div id="modal" class="modal">
         <div class="modal-content">
@@ -379,6 +412,13 @@
             const modal = document.getElementById('modal');
             modal.style.display = 'none'; 
         }
+        //download html
+        function downloadTemplate() {
+                const link = document.createElement('a');
+                link.href = 'HTMLTEMPLATE.html'; // Path to the file
+                link.download = 'HTMLTEMPLATE.html'; // File name for download
+                link.click();
+            }
     </script>
     <!--HEADER h1-->
     <h1>REDSHIFT – INTRODUCTION
