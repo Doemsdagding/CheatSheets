@@ -12,19 +12,19 @@
         /* Fonts */
         @font-face {
             font-family: 'MonaspaceNeon';
-            src: url('fonts/MonaspaceNeon-Regular.woff2') format('woff2');
+            src: url('/CheatSheets/fonts/MonaspaceNeon-Regular.woff2') format('woff2');
             font-weight: normal;
             font-style: normal;
         }
         @font-face {
             font-family: 'MonaspaceNeon';
-            src: url('fonts/MonaspaceNeon-Bold.woff2') format('woff2');
+            src: url('/CheatSheets/fonts/MonaspaceNeon-Bold.woff2') format('woff2');
             font-weight: bold;
             font-style: normal;
         }
         @font-face {
             font-family: 'MonaspaceNeon';
-            src: url('fonts/MonaspaceNeon-Italic.woff2') format('woff2');
+            src: url('/CheatSheets/fonts/MonaspaceNeon-Italic.woff2') format('woff2');
             font-weight: normal;
             font-style: italic;
         }
@@ -61,7 +61,7 @@
         
                 /* Formats */
         h1 {
-            font-family: 'MonaspaceNeon', 'Algerian', 'sans-serif';
+            font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
             font-weight: 900;
             height: 31px;
             text-align: center;
@@ -193,6 +193,34 @@
         .page-break {
             page-break-before: always;
         }
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #bd0404;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .back-button:active {
+            background-color: #8f0101;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
         .print-button {
             position: fixed;
@@ -296,16 +324,20 @@
     </style>
   </head>
   <body class="light-mode">
+    <!-- Back Button -->
+    <button class="back-button" onclick="window.location.href='../index.html'">
+        ⮜
+    </button>
     <!--ICON-->
     <svg style="display: none;">
       <symbol id="myBase64Image" viewBox="0 0 1 1">
         <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA%0A%20%20%20%20%20%20%20%20%20%20%20%20AAAFCAYAAACNbyblAAAAHElEQVQI12P4%0A%20%20%20%20%20%20%20%20%20%20%20%20//8/w38GIAXDIBKE0DHxgljNBAAO%0A%20%20%20%20%20%20%20%20%20%20%20%209TXL0Y4OHwAAAABJRU5ErkJggg=="
-
           width="1" height="1"></image> </symbol> </svg>
-    <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()">
-        <span class="icon"></span> </button>
+    <!--TOGGLE BUTTON--> 
+        <button class="toggle-button" onclick="toggleMode()">
+            <span class="icon"></span> </button>
         <button class="print-button" onclick="window.print()">
-          <span class="icon">🖨️</span> </button>
+            <span class="icon">🖨️</span> </button>
         <!-- Modal Structure -->
         <div id="modal" class="modal">
             <div class="modal-content">
