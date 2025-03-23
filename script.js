@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const columnA = row.children[0]; // First column (A)
         const columnB = row.children[1]; // Second column (B)
   
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1000) {
           // Move column B content under column A
           if (columnB && !columnA.querySelector(".mobile-content")) {
             const mobileContent = document.createElement("div");
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const tables = document.querySelectorAll('table.inner');
 
         tables.forEach((table) => {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 1000) {
                 // Disable clicks on mobile
                 table.classList.add('unclickable');
             } else {
