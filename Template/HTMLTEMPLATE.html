@@ -8,6 +8,19 @@
             size: A4;
             margin: 3mm;
         }
+       /* mobile supprot */
+        @media (max-width: 768px) {
+            /* Apply the rule only to the main table */
+            table:not(.inner) > tbody > tr > td:nth-child(2) {
+                display: none; /* Hide column B in the main table */
+              }
+        table:not(.inner) {
+                margin: 0 auto; /* Center the table horizontally */
+                text-align: center; /* Center the content inside the table */
+                width: 95%; /* Make the table as wide as the screen */
+                transform: translateX(-1.5%);
+              }
+          }
 
         /* Fonts */
         @font-face {
@@ -428,6 +441,59 @@
             link.download = 'HTMLTEMPLATE.html'; // File name for download
             link.click();
         }
+        //mobile support
+        document.addEventListener("DOMContentLoaded", () => {
+            const rearrangeTable = () => {
+              const rows = document.querySelectorAll("table tbody tr");
+            
+              rows.forEach((row) => {
+                const columnA = row.children[0]; // First column (A)
+                const columnB = row.children[1]; // Second column (B)
+            
+                if (window.innerWidth <= 768) {
+                  // Move column B content under column A
+                  if (columnB && !columnA.querySelector(".mobile-content")) {
+                    const mobileContent = document.createElement("div");
+                    mobileContent.className = "mobile-content";
+                    mobileContent.innerHTML = columnB.innerHTML;
+                    mobileContent.style.marginTop = "10px"; // Add spacing
+                    mobileContent.style.color = "#555"; // Optional styling
+                    columnA.appendChild(mobileContent);
+                  }
+                } else {
+                  // Remove mobile content if screen is resized back to desktop
+                  const mobileContent = columnA.querySelector(".mobile-content");
+                  if (mobileContent) {
+                    mobileContent.remove();
+                  }
+                }
+              });
+            };
+        
+            // Run on page load and on window resize
+            rearrangeTable();
+            window.addEventListener("resize", rearrangeTable);
+          });
+      
+          document.addEventListener('DOMContentLoaded', () => {
+            const updateTableClickability = () => {
+                const tables = document.querySelectorAll('table.inner');
+            
+                tables.forEach((table) => {
+                    if (window.innerWidth <= 768) {
+                        // Disable clicks on mobile
+                        table.classList.add('unclickable');
+                    } else {
+                        // Enable clicks on desktop
+                        table.classList.remove('unclickable');
+                    }
+                });
+            };
+        
+            // Run on page load and on window resize
+            updateTableClickability();
+            window.addEventListener('resize', updateTableClickability);
+        });
     </script>
   </head>
   <body class="light-mode">

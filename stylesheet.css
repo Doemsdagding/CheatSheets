@@ -2,7 +2,25 @@
     size: A4;
     margin: 3mm;
 }
+/* mobile supprot */
+@media (max-width: 768px) {
+    /* Apply the rule only to the main table */
+    table:not(.inner) > tbody > tr > td:nth-child(2) {
+        display: none; /* Hide column B in the main table */
+      }
+      table:not(.inner) {
+        margin: 0 auto; /* Center the table horizontally */
+        text-align: center; /* Center the content inside the table */
+        width: 95%; /* Make the table as wide as the screen */
+        transform: translateX(-1.5%);
+      }
+  }
 
+/* Disable clicks for tables on mobile */
+table.unclickable {
+    pointer-events: none; /* Disable all pointer events */
+    cursor: default; /* Change the cursor to indicate it's not clickable */
+}  
 /* Fonts */
 @font-face {
     font-family: 'MonaspaceNeon';
