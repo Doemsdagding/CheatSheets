@@ -46,6 +46,12 @@ function openModal(tableHtml) {
     const modalTableContainer = document.getElementById('modal-table-container');
     modalTableContainer.innerHTML = tableHtml; 
     modal.style.display = 'flex'; 
+
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
 }
 
 function closeModal() {
