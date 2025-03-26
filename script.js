@@ -71,8 +71,7 @@ function openModal(tableHtml, index) {
     });
 
     //show swipe hint
-    if (isMobileDevice() && !swipeHintShown) {
-        swipeHintShown = true;
+    if (isMobileDevice()) {
         showSwipeHint();
     }
 }
@@ -120,12 +119,13 @@ function downloadTemplate() {
 
 //mobile support on load
 function isMobileDevice() {
-    return window.innerWidth < 1000;
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
 }
 
 // Automatically open the first modal on smaller screens
 document.addEventListener('DOMContentLoaded', () => {
-    if (isMobileDevice() && modalTables.length > 0) {
+    if (window.innerWidth < 1000 && modalTables.length > 0) {
         // Open the first modal
         const firstTableHtml = modalTables[0].outerHTML;
         openModal(firstTableHtml, 0);
@@ -144,7 +144,7 @@ window.addEventListener('resize', () => {
         if (Math.abs(currentWidth - lastWidth) > widthChangeThreshold) {
             lastWidth = currentWidth;
 
-            if (isMobileDevice() && modalTables.length > 0) {
+            if (window.innerWidth < 1000 && modalTables.length > 0) {
                 const modal = document.getElementById('modal');
                 if (modal.style.display === 'none') {
                     const firstTableHtml = modalTables[0].outerHTML;
@@ -188,8 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Show swipe hint on first modal open for mobile devices
-let swipeHintShown = false;
 
 function showSwipeHint() {
     const swipeHint = document.getElementById('swipe-hint');
@@ -198,3 +196,15 @@ function showSwipeHint() {
         swipeHint.style.display = 'none';
     }, 3000); // Display for 3 seconds
 }
+
+// disable click events of the left and right zoens  on mobile
+document.addEventListener('DOMContentLoaded', () => {
+    const modalLeftZone = document.querySelector('.modal-zone.modal-left');
+    const modalRightZone = document.querySelector('.modal-zone.modal-right');
+
+    if (isMobileDevice()) {
+        // Disable click events for left and right zones on mobile
+        modalLeftZone.style.pointerEvents = 'none';
+        modalRightZone.style.pointerEvents = 'none';
+    }
+});

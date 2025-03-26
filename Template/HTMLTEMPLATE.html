@@ -535,10 +535,9 @@
                     closeModal();
                 }
             });
-            //show swipe hint
 
-            if (isMobileDevice() && !swipeHintShown) {
-                swipeHintShown = true;
+            // Show swipe hint 
+            if (isMobileDevice()) {
                 showSwipeHint();
             }
         }
@@ -585,12 +584,13 @@
         }
     //mobile support on load
     function isMobileDevice() {
-        return window.innerWidth < 1000;
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
     }
 
     // Automatically open the first modal on smaller screens
     document.addEventListener('DOMContentLoaded', () => {
-        if (isMobileDevice() && modalTables.length > 0) {
+        if (window.innerWidth < 1000 && modalTables.length > 0) {
             // Open the first modal
             const firstTableHtml = modalTables[0].outerHTML;
             openModal(firstTableHtml, 0);
@@ -609,7 +609,7 @@
             if (Math.abs(currentWidth - lastWidth) > widthChangeThreshold) {
                 lastWidth = currentWidth;
 
-                if (isMobileDevice() && modalTables.length > 0) {
+                if (window.innerWidth < 1000 && modalTables.length > 0) {
                     const modal = document.getElementById('modal');
                     if (modal.style.display === 'none') {
                         const firstTableHtml = modalTables[0].outerHTML;
@@ -653,9 +653,7 @@
         });
     });
 
-    // Show swipe hint on first modal open for mobile devices
-    let swipeHintShown = false;
-
+    // Show swipe hint on modal open
     function showSwipeHint() {
         const swipeHint = document.getElementById('swipe-hint');
         swipeHint.style.display = 'block';
@@ -663,7 +661,17 @@
             swipeHint.style.display = 'none';
         }, 3000); 
     }
+    // disable click events of the left and right zoens  on mobile
+    document.addEventListener('DOMContentLoaded', () => {
+        const modalLeftZone = document.querySelector('.modal-zone.modal-left');
+        const modalRightZone = document.querySelector('.modal-zone.modal-right');
 
+        if (isMobileDevice()) {
+            // Disable click events for left and right zones on mobile
+            modalLeftZone.style.pointerEvents = 'none';
+            modalRightZone.style.pointerEvents = 'none';
+        }
+    });
     </script>
   </head>
   <body class="light-mode">
@@ -701,7 +709,7 @@
         </div>
         
     <!-- Swipe Hint -->
-    <div id="swipe-hint" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; z-index: 2000;">
+    <div id="swipe-hint" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px; border-radius: 10px; font-size: 18px; z-index: 2000;">
         Swipe left or right to navigate
     </div>
 
