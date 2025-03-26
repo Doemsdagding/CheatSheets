@@ -31,6 +31,12 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal()">×</button>
             <div id="modal-table-container"></div>
+            <!--next and back buttons-->
+            <button class="modal-back" onclick="previousModal()"><</button>
+            <button class="modal-next" onclick="nextModal()">></button>
+            <div class="modal-zone modal-left" onclick="previousModal()"></div>
+            <div class="modal-zone modal-middle"></div>
+            <div class="modal-zone modal-right" onclick="nextModal()"></div>
         </div>
     </div>
 

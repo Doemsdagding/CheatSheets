@@ -31,20 +31,37 @@ function toggleMode() {
     }
 }
 //modal
+let modalTables = [];
+let currentModalIndex = 0;
+
+// Initialize modal tables on page load
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('table.inner').forEach(table => {
-        table.addEventListener('click', (event) => {
-            event.stopPropagation(); 
-            openModal(table.outerHTML); 
-        });
-    });
+    modalTables = Array.from(document.querySelectorAll('table.inner'));
 });
 
-function openModal(tableHtml) {
+// Open modal with specific table content
+function openModal(tableHtml, index) {
     const modal = document.getElementById('modal');
     const modalTableContainer = document.getElementById('modal-table-container');
-    modalTableContainer.innerHTML = tableHtml; 
-    modal.style.display = 'flex'; 
+    const nextButton = document.querySelector('.modal-next');
+    const backButton = document.querySelector('.modal-back');
+
+    modalTableContainer.innerHTML = tableHtml;
+    modal.style.display = 'flex';
+    currentModalIndex = index;
+
+    // Hide the "Next" button if it's the last modal
+    if (currentModalIndex === modalTables.length - 1) {
+        nextButton.style.display = 'none';
+    } else {
+        nextButton.style.display = 'block';
+    }
+    // Hide the "Back" button if it's the first modal
+    if (currentModalIndex === 0) {
+        backButton.style.display = 'none';
+    } else {
+        backButton.style.display = 'block';
+    }
 
     modal.addEventListener('click', (event) => {
         if (event.target === modal) {
@@ -53,7 +70,100 @@ function openModal(tableHtml) {
     });
 }
 
+// Close modal
 function closeModal() {
     const modal = document.getElementById('modal');
-    modal.style.display = 'none'; 
+    modal.style.display = 'none';
 }
+
+// Go to the next modal
+function nextModal() {
+    if (currentModalIndex < modalTables.length - 1) {
+        currentModalIndex++;
+        const nextTableHtml = modalTables[currentModalIndex].outerHTML;
+        openModal(nextTableHtml, currentModalIndex);
+    }
+}
+// Go to the previous modal
+function previousModal() {
+    if (currentModalIndex > 0) {
+        currentModalIndex--;
+        const previousTableHtml = modalTables[currentModalIndex].outerHTML;
+        openModal(previousTableHtml, currentModalIndex);
+    }
+}
+
+// Add event listeners to tables
+document.addEventListener('DOMContentLoaded', () => {
+    modalTables.forEach((table, index) => {
+        table.addEventListener('click', (event) => {
+            event.stopPropagation();
+            openModal(table.outerHTML, index);
+        });
+    });
+});
+
+//download html
+function downloadTemplate() {
+    const link = document.createElement('a');
+    link.href = 'HTMLTEMPLATE.html'; // Path to the file
+    link.download = 'HTMLTEMPLATE.html'; // File name for download
+    link.click();
+}
+
+//mobile support on load
+function isMobileDevice() {
+    return window.innerWidth < 1000;
+}
+
+// Automatically open the first modal on smaller screens
+document.addEventListener('DOMContentLoaded', () => {
+    if (isMobileDevice() && modalTables.length > 0) {
+        // Open the first modal
+        const firstTableHtml = modalTables[0].outerHTML;
+        openModal(firstTableHtml, 0);
+    }
+});
+// Resize support
+window.addEventListener('resize', () => {
+if (isMobileDevice() && modalTables.length > 0) {
+    const modal = document.getElementById('modal');
+    if (modal.style.display === 'none') {
+        const firstTableHtml = modalTables[0].outerHTML;
+        openModal(firstTableHtml, 0);
+        }
+    }
+});
+
+//swipe mobile support
+let touchStartX = 0;
+let touchEndX = 0;
+
+// Detect swipe direction
+function handleSwipe() {
+    const swipeThreshold = 50; // Minimum distance for a swipe to be recognized
+    if (touchEndX < touchStartX - swipeThreshold) {
+        // Swipe left: Go to the next modal
+        nextModal();
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+        // Swipe right: Go to the previous modal
+        previousModal();
+    }
+}
+
+// Add touch event listeners to the modal
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('modal');
+
+    modal.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX; // Record the starting X position
+    });
+
+    modal.addEventListener('touchmove', (event) => {
+        touchEndX = event.touches[0].clientX; // Update the ending X position as the user moves
+    });
+
+    modal.addEventListener('touchend', () => {
+        handleSwipe(); // Determine the swipe direction when the touch ends
+    });
+});

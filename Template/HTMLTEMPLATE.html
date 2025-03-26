@@ -9,7 +9,6 @@
             margin: 3mm;
         }
      
-
         /* Fonts */
         @font-face {
             font-family: 'MonaspaceNeon';
@@ -132,7 +131,7 @@
             border: 2px solid white; 
         }
 
-
+        /* Containers */
         .container1 {
             border: 6px solid #004080;
           	border-radius: 7px;
@@ -157,6 +156,7 @@
             padding: 3px;
           	
         }
+        /* Buttons */
         .toggle-button {
             position: fixed; 
             top: 10px;
@@ -254,7 +254,7 @@
 
         .download-button {
             position: fixed;
-            top: 110px; /* Position below the print button */
+            top: 110px; 
             right: 10px;
             width: 40px;
             height: 40px;
@@ -329,6 +329,7 @@
         body.dark-mode .modal-content {
             background-color: #292929;
         }
+        /* Modal content */
         .modal-content h1, .modal-content h2, .modal-content h3, .modal-content th, .modal-content td {
             font-size: 1.2em; 
             word-wrap: break-word; 
@@ -357,13 +358,83 @@
             table-layout: auto; 
             width: 100%; 
         }
-        
+        /* modal navigation buttons */
+        .modal-next {
+            position: absolute;
+            top: 50%;
+            right: 2px;
+            transform: translateY(-50%);
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .modal-next:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-next:active {
+            background-color: #004494;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .modal-back {
+            position: absolute;
+            top: 50%;
+            left: 2px;
+            transform: translateY(-50%);
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .modal-back:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-back:active {
+            background-color: #004494;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .modal-zone {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            cursor: pointer;
+            z-index: 5; 
+        }
+
+        .modal-left {
+            left: 0;
+            width: 30%;
+        }
+
+        .modal-right {
+            right: 0;
+            width: 30%;
+        }
+        .modal-middle {
+            left: 30%;
+            width: 40%;
+            cursor: default; /* Normal cursor */
+        }
 
     </style>
     <script>
         // Apply the saved mode on page load
         document.addEventListener('DOMContentLoaded', () => {
-            const savedMode = localStorage.getItem('theme'); // Get the saved theme from localStorage
+            const savedMode = localStorage.getItem('theme'); 
             if (savedMode === 'dark-mode') {
                 document.body.classList.remove('light-mode');
                 document.body.classList.add('dark-mode');
@@ -394,33 +465,77 @@
             }
         }
         //modal
-        document.addEventListener('DOMContentLoaded', () => {
+        let modalTables = [];
+        let currentModalIndex = 0;
 
-            document.querySelectorAll('table.inner').forEach(table => {
+        // Initialize modal tables on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            modalTables = Array.from(document.querySelectorAll('table.inner'));
+        });
+
+        // Open modal with specific table content
+        function openModal(tableHtml, index) {
+            const modal = document.getElementById('modal');
+            const modalTableContainer = document.getElementById('modal-table-container');
+            const nextButton = document.querySelector('.modal-next');
+            const backButton = document.querySelector('.modal-back');
+        
+            modalTableContainer.innerHTML = tableHtml;
+            modal.style.display = 'flex';
+            currentModalIndex = index;
+        
+            // Hide the "Next" button if it's the last modal
+            if (currentModalIndex === modalTables.length - 1) {
+                nextButton.style.display = 'none';
+            } else {
+                nextButton.style.display = 'block';
+            }
+            // Hide the "Back" button if it's the first modal
+            if (currentModalIndex === 0) {
+                backButton.style.display = 'none';
+            } else {
+                backButton.style.display = 'block';
+            }
+        
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+
+        // Go to the next modal
+        function nextModal() {
+            if (currentModalIndex < modalTables.length - 1) {
+                currentModalIndex++;
+                const nextTableHtml = modalTables[currentModalIndex].outerHTML;
+                openModal(nextTableHtml, currentModalIndex);
+            }
+        }
+        // Go to the previous modal
+        function previousModal() {
+            if (currentModalIndex > 0) {
+                currentModalIndex--;
+                const previousTableHtml = modalTables[currentModalIndex].outerHTML;
+                openModal(previousTableHtml, currentModalIndex);
+            }
+        }
+
+        // Add event listeners to tables
+        document.addEventListener('DOMContentLoaded', () => {
+            modalTables.forEach((table, index) => {
                 table.addEventListener('click', (event) => {
-                    event.stopPropagation(); 
-                    openModal(table.outerHTML); 
+                    event.stopPropagation();
+                    openModal(table.outerHTML, index);
                 });
             });
         });
-
-        function openModal(tableHtml) {
-            const modal = document.getElementById('modal');
-            const modalTableContainer = document.getElementById('modal-table-container');
-            modalTableContainer.innerHTML = tableHtml; 
-            modal.style.display = 'flex'; 
-
-            modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('modal');
-            modal.style.display = 'none'; 
-        }
 
         //download html
         function downloadTemplate() {
@@ -429,7 +544,63 @@
             link.download = 'HTMLTEMPLATE.html'; // File name for download
             link.click();
         }
-        
+    //mobile support on load
+    function isMobileDevice() {
+        return window.innerWidth < 1000;
+    }
+
+    // Automatically open the first modal on smaller screens
+    document.addEventListener('DOMContentLoaded', () => {
+        if (isMobileDevice() && modalTables.length > 0) {
+            // Open the first modal
+            const firstTableHtml = modalTables[0].outerHTML;
+            openModal(firstTableHtml, 0);
+        }
+    });
+    // Resize support
+    window.addEventListener('resize', () => {
+    if (isMobileDevice() && modalTables.length > 0) {
+        const modal = document.getElementById('modal');
+        if (modal.style.display === 'none') {
+            const firstTableHtml = modalTables[0].outerHTML;
+            openModal(firstTableHtml, 0);
+            }
+        }
+    });
+
+    //swipe mobile support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    // Detect swipe direction
+    function handleSwipe() {
+        const swipeThreshold = 50; // Minimum distance for a swipe to be recognized
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left: Go to the next modal
+            nextModal();
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right: Go to the previous modal
+            previousModal();
+        }
+    }
+
+    // Add touch event listeners to the modal
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('modal');
+
+        modal.addEventListener('touchstart', (event) => {
+            touchStartX = event.touches[0].clientX; // Record the starting X position
+        });
+
+        modal.addEventListener('touchmove', (event) => {
+            touchEndX = event.touches[0].clientX; // Update the ending X position as the user moves
+        });
+
+        modal.addEventListener('touchend', () => {
+            handleSwipe(); // Determine the swipe direction when the touch ends
+        });
+    });
+
     </script>
   </head>
   <body class="light-mode">
@@ -457,6 +628,12 @@
             <div class="modal-content">
                 <button class="modal-close" onclick="closeModal()">×</button>
                 <div id="modal-table-container"></div>
+                <!--next and back buttons-->
+                <button class="modal-back" onclick="previousModal()"><</button>
+                <button class="modal-next" onclick="nextModal()">></button>
+                <div class="modal-zone modal-left" onclick="previousModal()"></div>
+                <div class="modal-zone modal-middle"></div>
+                <div class="modal-zone modal-right" onclick="nextModal()"></div>
             </div>
         </div>
         

@@ -4,11 +4,6 @@
 }
 
 
-/* Disable clicks for tables on mobile */
-table.unclickable {
-    pointer-events: none; /* Disable all pointer events */
-    cursor: default; /* Change the cursor to indicate it's not clickable */
-}  
 /* Fonts */
 @font-face {
     font-family: 'MonaspaceNeon';
@@ -131,7 +126,7 @@ body.dark-mode table.inner td {
     border: 2px solid white; 
 }
 
-
+/* Containers */
 .container1 {
     border: 6px solid #004080;
       border-radius: 7px;
@@ -156,6 +151,7 @@ body.dark-mode table.inner td {
     padding: 3px;
       
 }
+/* Buttons */
 .toggle-button {
     position: fixed; 
     top: 10px;
@@ -269,6 +265,7 @@ body.dark-mode .toggle-button .icon::before {
     }
     
 }
+/* Modal content */
 .modal {
     display: none; 
     position: fixed;
@@ -326,4 +323,75 @@ body.dark-mode .modal-content {
 .modal-content table {
     table-layout: auto; 
     width: 100%; 
+}
+/* modal navigation buttons */
+.modal-next {
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    transform: translateY(-50%);
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-next:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-next:active {
+    background-color: #004494;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.modal-back {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-back:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-back:active {
+    background-color: #004494;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.modal-zone {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    cursor: pointer;
+    z-index: 5; 
+}
+
+.modal-left {
+    left: 0;
+    width: 30%;
+}
+
+.modal-right {
+    right: 0;
+    width: 30%;
+}
+.modal-middle {
+    left: 30%;
+    width: 40%;
+    cursor: default; /* Normal cursor */
 }
