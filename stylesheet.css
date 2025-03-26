@@ -393,5 +393,38 @@ body.dark-mode .modal-content {
 .modal-middle {
     left: 30%;
     width: 40%;
-    cursor: default; /* Normal cursor */
+    cursor: default; 
+}
+
+/* mobile support*/
+@media (max-width: 1000px) {
+    .toggle-button,
+    .back-button,
+    .print-button,
+    .modal-close,
+    .download-button {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    .toggle-button {
+        top: 10px;
+        right: 10px;
+    }
+
+    .print-button {
+        top: 80px; 
+        right: 10px;
+    }
+
+    .download-button {
+        top: 150px;
+        right: 10px;
+    }
+
+
+    .toggle-button .icon,
+    .print-button .icon {
+        font-size: 28px;
+    }
 }

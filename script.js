@@ -64,10 +64,17 @@ function openModal(tableHtml, index) {
     }
 
     modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
+        const isModalZone = event.target.classList.contains('modal-zone');
+        if (event.target === modal && !isModalZone) {
             closeModal();
         }
     });
+
+    //show swipe hint
+    if (isMobileDevice() && !swipeHintShown) {
+        swipeHintShown = true;
+        showSwipeHint();
+    }
 }
 
 // Close modal
@@ -124,15 +131,28 @@ document.addEventListener('DOMContentLoaded', () => {
         openModal(firstTableHtml, 0);
     }
 });
-// Resize support
+/// Resize support with significant change detection
+let resizeTimeout;
+let lastWidth = window.innerWidth;
+
 window.addEventListener('resize', () => {
-if (isMobileDevice() && modalTables.length > 0) {
-    const modal = document.getElementById('modal');
-    if (modal.style.display === 'none') {
-        const firstTableHtml = modalTables[0].outerHTML;
-        openModal(firstTableHtml, 0);
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        const currentWidth = window.innerWidth;
+        const widthChangeThreshold = 100;
+
+        if (Math.abs(currentWidth - lastWidth) > widthChangeThreshold) {
+            lastWidth = currentWidth;
+
+            if (isMobileDevice() && modalTables.length > 0) {
+                const modal = document.getElementById('modal');
+                if (modal.style.display === 'none') {
+                    const firstTableHtml = modalTables[0].outerHTML;
+                    openModal(firstTableHtml, 0);
+                }
+            }
         }
-    }
+    }, 200); 
 });
 
 //swipe mobile support
@@ -167,3 +187,14 @@ document.addEventListener('DOMContentLoaded', () => {
         handleSwipe(); // Determine the swipe direction when the touch ends
     });
 });
+
+// Show swipe hint on first modal open for mobile devices
+let swipeHintShown = false;
+
+function showSwipeHint() {
+    const swipeHint = document.getElementById('swipe-hint');
+    swipeHint.style.display = 'block';
+    setTimeout(() => {
+        swipeHint.style.display = 'none';
+    }, 3000); // Display for 3 seconds
+}

@@ -259,7 +259,7 @@
             width: 40px;
             height: 40px;
             cursor: pointer;
-            background-color: #ffc107; /* Yellow color */
+            background-color: #ffc107; 
             color: white;
             border: none;
             border-radius: 50%;
@@ -427,9 +427,41 @@
         .modal-middle {
             left: 30%;
             width: 40%;
-            cursor: default; /* Normal cursor */
+            cursor: default; 
         }
 
+        /* mobile support*/
+        @media (max-width: 1000px) {
+            .toggle-button,
+            .back-button,
+            .modal-close,
+            .print-button,
+            .download-button {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            .toggle-button {
+                top: 10px;
+                right: 10px;
+            }
+        
+            .print-button {
+                top: 80px; 
+                right: 10px;
+            }
+        
+            .download-button {
+                top: 150px;
+                right: 10px;
+            }
+
+            .toggle-button .icon,
+            .print-button .icon {
+                font-size: 28px;
+            }
+
+        }
     </style>
     <script>
         // Apply the saved mode on page load
@@ -498,10 +530,17 @@
             }
         
             modal.addEventListener('click', (event) => {
-                if (event.target === modal) {
+                const isModalZone = event.target.classList.contains('modal-zone');
+                if (event.target === modal && !isModalZone) {
                     closeModal();
                 }
             });
+            //show swipe hint
+
+            if (isMobileDevice() && !swipeHintShown) {
+                swipeHintShown = true;
+                showSwipeHint();
+            }
         }
 
         // Close modal
@@ -540,8 +579,8 @@
         //download html
         function downloadTemplate() {
             const link = document.createElement('a');
-            link.href = 'HTMLTEMPLATE.html'; // Path to the file
-            link.download = 'HTMLTEMPLATE.html'; // File name for download
+            link.href = 'HTMLTEMPLATE.html'; 
+            link.download = 'HTMLTEMPLATE.html'; 
             link.click();
         }
     //mobile support on load
@@ -557,15 +596,28 @@
             openModal(firstTableHtml, 0);
         }
     });
-    // Resize support
+    /// Resize support with significant change detection
+    let resizeTimeout;
+    let lastWidth = window.innerWidth;
+
     window.addEventListener('resize', () => {
-    if (isMobileDevice() && modalTables.length > 0) {
-        const modal = document.getElementById('modal');
-        if (modal.style.display === 'none') {
-            const firstTableHtml = modalTables[0].outerHTML;
-            openModal(firstTableHtml, 0);
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const currentWidth = window.innerWidth;
+            const widthChangeThreshold = 100;
+
+            if (Math.abs(currentWidth - lastWidth) > widthChangeThreshold) {
+                lastWidth = currentWidth;
+
+                if (isMobileDevice() && modalTables.length > 0) {
+                    const modal = document.getElementById('modal');
+                    if (modal.style.display === 'none') {
+                        const firstTableHtml = modalTables[0].outerHTML;
+                        openModal(firstTableHtml, 0);
+                    }
+                }
             }
-        }
+        }, 200); 
     });
 
     //swipe mobile support
@@ -574,7 +626,7 @@
 
     // Detect swipe direction
     function handleSwipe() {
-        const swipeThreshold = 50; // Minimum distance for a swipe to be recognized
+        const swipeThreshold = 50; 
         if (touchEndX < touchStartX - swipeThreshold) {
             // Swipe left: Go to the next modal
             nextModal();
@@ -589,17 +641,28 @@
         const modal = document.getElementById('modal');
 
         modal.addEventListener('touchstart', (event) => {
-            touchStartX = event.touches[0].clientX; // Record the starting X position
+            touchStartX = event.touches[0].clientX; 
         });
 
         modal.addEventListener('touchmove', (event) => {
-            touchEndX = event.touches[0].clientX; // Update the ending X position as the user moves
+            touchEndX = event.touches[0].clientX; 
         });
 
         modal.addEventListener('touchend', () => {
-            handleSwipe(); // Determine the swipe direction when the touch ends
+            handleSwipe(); 
         });
     });
+
+    // Show swipe hint on first modal open for mobile devices
+    let swipeHintShown = false;
+
+    function showSwipeHint() {
+        const swipeHint = document.getElementById('swipe-hint');
+        swipeHint.style.display = 'block';
+        setTimeout(() => {
+            swipeHint.style.display = 'none';
+        }, 3000); 
+    }
 
     </script>
   </head>
@@ -611,7 +674,7 @@
     <!--ICON-->
     <svg style="display: none;">
       <symbol id="myBase64Image" viewBox="0 0 1 1">
-        <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA%0A%20%20%20%20%20%20%20%20%20%20%20%20AAAFCAYAAACNbyblAAAAHElEQVQI12P4%0A%20%20%20%20%20%20%20%20%20%20%20%20//8/w38GIAXDIBKE0DHxgljNBAAO%0A%20%20%20%20%20%20%20%20%20%20%20%209TXL0Y4OHwAAAABJRU5ErkJggg=="
+        <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA%0A%20%20%20%20%20%20%20%20%20%20%20%20AAAFCAYAAACNbyblAAAAHElEQVQI12P4%0A%20%20%20%20%20%20%20%20%20%20%20%20//8/w38GIAXDIBKE0DHxgljNBAAO%0A%20%20%20%20%20%209TXL0Y4OHwAAAABJRU5ErkJggg=="
           width="1" height="1"></image> </symbol> </svg>
     <!--TOGGLE BUTTON--> 
         <button class="toggle-button" onclick="toggleMode()">
@@ -637,6 +700,11 @@
             </div>
         </div>
         
+    <!-- Swipe Hint -->
+    <div id="swipe-hint" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px; z-index: 2000;">
+        Swipe left or right to navigate
+    </div>
+
     <!--HEADER h1-->
     <h1>Note template
         <svg width="55" height="55">
