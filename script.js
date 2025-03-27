@@ -197,17 +197,12 @@ function showSwipeHint() {
     }, 3000); // Display for 3 seconds
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const modalLeftZone = document.querySelector('.modal-zone.modal-left');
-    const modalRightZone = document.querySelector('.modal-zone.modal-right');
-
-    if (isMobileDevice()) {
-        // Disable click events for left and right zones on mobile
-        if (modalLeftZone) {
-            modalLeftZone.addEventListener('click', (event) => event.stopPropagation());
+// Disable modal navigation zones on mobile
+    document.addEventListener('DOMContentLoaded', () => {
+        if (isMobileDevice()) {
+            const modalLeft = document.querySelector('.modal-zone.modal-left');
+            const modalRight = document.querySelector('.modal-zone.modal-right');
+            if (modalLeft) modalLeft.onclick = null;
+            if (modalRight) modalRight.onclick = null;
         }
-        if (modalRightZone) {
-            modalRightZone.addEventListener('click', (event) => event.stopPropagation());
-        }
-    }
-});
+    });
