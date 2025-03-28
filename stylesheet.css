@@ -428,3 +428,13 @@ body.dark-mode .modal-content {
         font-size: 28px;
     }
 }
+
+.disabled {
+    pointer-events: none;    
+}
+
+.disabled:focus,
+.disabled:active {
+    outline: none; 
+    background-color: inherit; 
+}

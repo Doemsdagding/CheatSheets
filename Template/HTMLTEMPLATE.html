@@ -462,6 +462,15 @@
             }
 
         }
+        .disabled {
+            pointer-events: none;    
+        }
+        
+        .disabled:focus,
+        .disabled:active {
+            outline: none; 
+            background-color: inherit; 
+        }
     </style>
     <script>
         // Apply the saved mode on page load
@@ -590,32 +599,36 @@
     };
     //disable modal on mobile
     document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('modal');
-        const modalLeft = document.querySelector('.modal-zone.modal-left');
-        const modalRight = document.querySelector('.modal-zone.modal-right');
+    const modal = document.getElementById('modal');
+    const modalLeft = document.querySelector('.modal-zone.modal-left');
+    const modalRight = document.querySelector('.modal-zone.modal-right');
 
-        if (isMobileDevice()) {
-            // Disable click functionality for modal zones
-            modalLeft.onclick = null;
-            modalRight.onclick = null;
+    console.log('isMobileDevice:', isMobileDevice());
+    console.log('modalLeft:', modalLeft);
+    console.log('modalRight:', modalRight);
 
-            // Optionally, add a class to visually indicate they are disabled
-            modalLeft.classList.add('disabled');
-            modalRight.classList.add('disabled');
-        }
+    if (modal && modalLeft && modalRight && isMobileDevice()) {
+        // Disable click functionality for modal zones
+        modalLeft.onclick = null;
+        modalRight.onclick = null;
 
-        modal.addEventListener('touchstart', (event) => {
-            touchStartX = event.touches[0].clientX; 
-        });
+        // Optionally, add a class to visually indicate they are disabled
+        modalLeft.classList.add('disabled');
+        modalRight.classList.add('disabled');
+    }
 
-        modal.addEventListener('touchmove', (event) => {
-            touchEndX = event.touches[0].clientX; 
-        });
-
-        modal.addEventListener('touchend', () => {
-            handleSwipe(); // 
-        });
+    modal.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX; 
     });
+
+    modal.addEventListener('touchmove', (event) => {
+        touchEndX = event.touches[0].clientX; 
+    });
+
+    modal.addEventListener('touchend', () => {
+        handleSwipe();
+    });
+});
 
 
 

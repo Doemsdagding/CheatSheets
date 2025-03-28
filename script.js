@@ -194,13 +194,17 @@ let touchEndX = 0;
 
 // Detect swipe direction
 function handleSwipe() {
-    const swipeThreshold = 1000; 
+    console.log('touchStartX:', touchStartX, 'touchEndX:', touchEndX); // Debugging log
     if (touchEndX < touchStartX - swipeThreshold) {
         // Swipe left: Go to the next modal
+        console.log('Swipe left detected');
         nextModal();
     } else if (touchEndX > touchStartX + swipeThreshold) {
         // Swipe right: Go to the previous modal
+        console.log('Swipe right detected');
         previousModal();
+    } else {
+        console.log('No swipe detected');
     }
 }
 
@@ -210,14 +214,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modal.addEventListener('touchstart', (event) => {
         touchStartX = event.touches[0].clientX; 
+        touchEndX = touchStartX; // Initialize touchEndX to the same value
     });
 
     modal.addEventListener('touchmove', (event) => {
-        touchEndX = event.touches[0].clientX; 
+        touchEndX = event.touches[0].clientX; // Update touchEndX as the user moves their finger
     });
 
     modal.addEventListener('touchend', () => {
-        handleSwipe(); // 
+        handleSwipe(); // Call the swipe handler when the touch ends
     });
 });
 
