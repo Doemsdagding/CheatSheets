@@ -119,33 +119,38 @@ function downloadTemplate() {
 
 //mobile support on load
 function isMobileDevice() {
-    //const userAgent = navigator.userAgent || window.opera; // Removed navigator.vendor
-   // return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
-    return true
+    const userAgent = navigator.userAgent || window.opera;
+    return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase()) &&
+           !/windows|macintosh|linux|x11/i.test(userAgent.toLowerCase());
 }
 
-// Disable modals on mobile devices
+//disable modal on mobile
 document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('modal');
+    const modalLeft = document.querySelector('.modal-zone.modal-left');
+    const modalRight = document.querySelector('.modal-zone.modal-right');
+
     if (isMobileDevice()) {
-        const modals = document.querySelectorAll('#modal');
-        modals.forEach(modal => {
-            modal.style.pointerEvents = 'none'; // Disable clicks for the modal
+        // Disable click functionality for modal zones
+        modalLeft.onclick = null;
+        modalRight.onclick = null;
 
-            // Re-enable pointer events for the modal close button
-            const closeButtons = modal.querySelectorAll('.modal-close'); // Adjust selector to match your close button
-            closeButtons.forEach(button => {
-                button.style.pointerEvents = 'auto'; // Re-enable clicks for the close button
-            });
-
-            // Allow clicking outside the modal to close it
-            modal.addEventListener('click', (event) => {
-                const isModalZone = event.target.classList.contains('modal-zone');
-                if (event.target === modal && !isModalZone) {
-                    closeModal();
-                }
-            });
-        });
+        // Optionally, add a class to visually indicate they are disabled
+        modalLeft.classList.add('disabled');
+        modalRight.classList.add('disabled');
     }
+
+    modal.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX; 
+    });
+
+    modal.addEventListener('touchmove', (event) => {
+        touchEndX = event.touches[0].clientX; 
+    });
+
+    modal.addEventListener('touchend', () => {
+        handleSwipe(); // 
+    });
 });
 
 // Automatically open the first modal on smaller screens
@@ -219,6 +224,6 @@ function showSwipeHint() {
     swipeHint.style.display = 'block';
     setTimeout(() => {
         swipeHint.style.display = 'none';
-    }, 6000); 
+    }, 3000); 
 }
 
