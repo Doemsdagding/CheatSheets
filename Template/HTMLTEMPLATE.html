@@ -465,7 +465,7 @@
         .disabled {
             pointer-events: none;    
         }
-        
+
         .disabled:focus,
         .disabled:active {
             outline: none; 
@@ -630,10 +630,6 @@
     });
 });
 
-
-
-
-
     // Automatically open the first modal on smaller screens
     document.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth < 1000 && modalTables.length > 0) {
@@ -667,37 +663,43 @@
     });
 
     //swipe mobile support
-    let touchStartX = 0;
-    let touchEndX = 0;
+let touchStartX = 0;
+let touchEndX = 0;
+const swipeThreshold = 100;
 
-    // Detect swipe direction
-    function handleSwipe() {
-        const swipeThreshold = 50; 
-        if (touchEndX < touchStartX - swipeThreshold) {
-            // Swipe left: Go to the next modal
-            nextModal();
-        } else if (touchEndX > touchStartX + swipeThreshold) {
-            // Swipe right: Go to the previous modal
-            previousModal();
-        }
+// Detect swipe direction
+function handleSwipe() {
+    console.log('touchStartX:', touchStartX, 'touchEndX:', touchEndX); // Debugging log
+    if (touchEndX < touchStartX - swipeThreshold) {
+        // Swipe left: Go to the next modal
+        console.log('Swipe left detected');
+        nextModal();
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+        // Swipe right: Go to the previous modal
+        console.log('Swipe right detected');
+        previousModal();
+    } else {
+        console.log('No swipe detected');
     }
+}
 
-    // Add touch event listeners to the modal
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('modal');
+// Add touch event listeners to the modal
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('modal');
 
-        modal.addEventListener('touchstart', (event) => {
-            touchStartX = event.touches[0].clientX; 
-        });
-
-        modal.addEventListener('touchmove', (event) => {
-            touchEndX = event.touches[0].clientX; 
-        });
-
-        modal.addEventListener('touchend', () => {
-            handleSwipe(); 
-        });
+    modal.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX; 
+        touchEndX = touchStartX; 
     });
+
+    modal.addEventListener('touchmove', (event) => {
+        touchEndX = event.touches[0].clientX; 
+    });
+
+    modal.addEventListener('touchend', () => {
+        handleSwipe(); 
+    });
+});
 
     // Show swipe hint on modal open
     function showSwipeHint() {
@@ -725,7 +727,7 @@
         <button class="toggle-button" onclick="toggleMode()">
             <span class="icon"></span> </button>
     <!--PRINT BUTTON-->
-        <button class="print-button" onclick="window.print()">
+    <button class="print-button" onclick="if (document.body.classList.contains('dark-mode')) toggleMode(); window.print();"> 
             <span class="icon">🖨️</span> </button>
      <!-- Download Button -->
      <button class="download-button" onclick="downloadTemplate()">

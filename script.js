@@ -191,6 +191,7 @@ window.addEventListener('resize', () => {
 //swipe mobile support
 let touchStartX = 0;
 let touchEndX = 0;
+const swipeThreshold = 100;
 
 // Detect swipe direction
 function handleSwipe() {
@@ -214,15 +215,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modal.addEventListener('touchstart', (event) => {
         touchStartX = event.touches[0].clientX; 
-        touchEndX = touchStartX; // Initialize touchEndX to the same value
+        touchEndX = touchStartX; 
     });
 
     modal.addEventListener('touchmove', (event) => {
-        touchEndX = event.touches[0].clientX; // Update touchEndX as the user moves their finger
+        touchEndX = event.touches[0].clientX; 
     });
 
     modal.addEventListener('touchend', () => {
-        handleSwipe(); // Call the swipe handler when the touch ends
+        handleSwipe(); 
     });
 });
 
