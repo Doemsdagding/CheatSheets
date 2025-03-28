@@ -129,7 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalLeft = document.querySelector('.modal-zone.modal-left');
     const modalRight = document.querySelector('.modal-zone.modal-right');
 
-    if (isMobileDevice()) {
+    console.log('isMobileDevice:', isMobileDevice());
+    console.log('modalLeft:', modalLeft);
+    console.log('modalRight:', modalRight);
+
+    if (modal && modalLeft && modalRight && isMobileDevice()) {
         // Disable click functionality for modal zones
         modalLeft.onclick = null;
         modalRight.onclick = null;
@@ -148,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     modal.addEventListener('touchend', () => {
-        handleSwipe(); // 
+        handleSwipe();
     });
 });
 
@@ -190,7 +194,7 @@ let touchEndX = 0;
 
 // Detect swipe direction
 function handleSwipe() {
-    const swipeThreshold = 50; 
+    const swipeThreshold = 1000; 
     if (touchEndX < touchStartX - swipeThreshold) {
         // Swipe left: Go to the next modal
         nextModal();
