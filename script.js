@@ -1,6 +1,6 @@
 // Apply the saved mode on page load
 document.addEventListener('DOMContentLoaded', () => {
-    const savedMode = localStorage.getItem('theme'); // Get the saved theme from localStorage
+    const savedMode = localStorage.getItem('theme'); 
     if (savedMode === 'dark-mode') {
         document.body.classList.remove('light-mode');
         document.body.classList.add('dark-mode');
@@ -112,8 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
 //download html
 function downloadTemplate() {
     const link = document.createElement('a');
-    link.href = 'HTMLTEMPLATE.html'; // Path to the file
-    link.download = 'HTMLTEMPLATE.html'; // File name for download
+    link.href = 'HTMLTEMPLATE.html'; 
+    link.download = 'HTMLTEMPLATE.html'; 
     link.click();
 }
 
@@ -161,7 +161,7 @@ let touchEndX = 0;
 
 // Detect swipe direction
 function handleSwipe() {
-    const swipeThreshold = 50; // Minimum distance for a swipe to be recognized
+    const swipeThreshold = 50; 
     if (touchEndX < touchStartX - swipeThreshold) {
         // Swipe left: Go to the next modal
         nextModal();
@@ -176,15 +176,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('modal');
 
     modal.addEventListener('touchstart', (event) => {
-        touchStartX = event.touches[0].clientX; // Record the starting X position
+        touchStartX = event.touches[0].clientX; 
     });
 
     modal.addEventListener('touchmove', (event) => {
-        touchEndX = event.touches[0].clientX; // Update the ending X position as the user moves
+        touchEndX = event.touches[0].clientX; 
     });
 
     modal.addEventListener('touchend', () => {
-        handleSwipe(); // Determine the swipe direction when the touch ends
+        handleSwipe(); // 
     });
 });
 
@@ -194,15 +194,6 @@ function showSwipeHint() {
     swipeHint.style.display = 'block';
     setTimeout(() => {
         swipeHint.style.display = 'none';
-    }, 3000); // Display for 3 seconds
+    }, 6000); 
 }
 
-// Disable modal navigation zones on mobile
-    document.addEventListener('DOMContentLoaded', () => {
-        if (isMobileDevice()) {
-            const modalLeft = document.querySelector('.modal-zone.modal-left');
-            const modalRight = document.querySelector('.modal-zone.modal-right');
-            if (modalLeft) modalLeft.onclick = null;
-            if (modalRight) modalRight.onclick = null;
-        }
-    });
