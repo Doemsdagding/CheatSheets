@@ -661,22 +661,7 @@
             swipeHint.style.display = 'none';
         }, 6000); 
     }
-    //for mobile disable the normal navigation
-    document.addEventListener('DOMContentLoaded', () => {
-        if (isMobileDevice()) {
-            // Disable modal-zone click functionality on mobile
-            const modalLeft = document.querySelector('.modal-zone.modal-left');
-            const modalRight = document.querySelector('.modal-zone.modal-right');
-
-            if (modalLeft) {
-                modalLeft.onclick = null; // Remove the onclick handler
-            }
-
-            if (modalRight) {
-                modalRight.onclick = null; // Remove the onclick handler
-            }
-        }
-    });
+  
 
     </script>
   </head>

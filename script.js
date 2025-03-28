@@ -119,9 +119,34 @@ function downloadTemplate() {
 
 //mobile support on load
 function isMobileDevice() {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+    //const userAgent = navigator.userAgent || window.opera; // Removed navigator.vendor
+   // return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
+    return true
 }
+
+// Disable modals on mobile devices
+document.addEventListener('DOMContentLoaded', () => {
+    if (isMobileDevice()) {
+        const modals = document.querySelectorAll('#modal');
+        modals.forEach(modal => {
+            modal.style.pointerEvents = 'none'; // Disable clicks for the modal
+
+            // Re-enable pointer events for the modal close button
+            const closeButtons = modal.querySelectorAll('.modal-close'); // Adjust selector to match your close button
+            closeButtons.forEach(button => {
+                button.style.pointerEvents = 'auto'; // Re-enable clicks for the close button
+            });
+
+            // Allow clicking outside the modal to close it
+            modal.addEventListener('click', (event) => {
+                const isModalZone = event.target.classList.contains('modal-zone');
+                if (event.target === modal && !isModalZone) {
+                    closeModal();
+                }
+            });
+        });
+    }
+});
 
 // Automatically open the first modal on smaller screens
 document.addEventListener('DOMContentLoaded', () => {
