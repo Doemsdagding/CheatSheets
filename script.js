@@ -143,17 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modalRight.classList.add('disabled');
     }
 
-    modal.addEventListener('touchstart', (event) => {
-        touchStartX = event.touches[0].clientX; 
-    });
-
-    modal.addEventListener('touchmove', (event) => {
-        touchEndX = event.touches[0].clientX; 
-    });
-
-    modal.addEventListener('touchend', () => {
-        handleSwipe();
-    });
 });
 
 // Automatically open the first modal on smaller screens
@@ -188,46 +177,59 @@ window.addEventListener('resize', () => {
     }, 200); 
 });
 
-//swipe mobile support
-let touchStartX = 0;
-let touchEndX = 0;
-const swipeThreshold = 100;
-
-// Detect swipe direction
-function handleSwipe() {
-    console.log('touchStartX:', touchStartX, 'touchEndX:', touchEndX); // Debugging log
-    if (touchEndX < touchStartX - swipeThreshold) {
-        // Swipe left: Go to the next modal
-        console.log('Swipe left detected');
-        nextModal();
-    } else if (touchEndX > touchStartX + swipeThreshold) {
-        // Swipe right: Go to the previous modal
-        console.log('Swipe right detected');
-        previousModal();
-    } else {
-        console.log('No swipe detected');
-    }
-}
-
-// Add touch event listeners to the modal
+// Ensure swipe event listeners are added only once
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('modal');
 
-    modal.addEventListener('touchstart', (event) => {
-        touchStartX = event.touches[0].clientX; 
-        touchEndX = touchStartX; 
-    });
+    if (modal) {
+        // Use a flag to ensure listeners are added only once
+        if (!modal.dataset.listenersAdded) {
+            modal.addEventListener('touchstart', handleTouchStart);
+            modal.addEventListener('touchmove', handleTouchMove);
+            modal.addEventListener('touchend', handleTouchEnd);
 
-    modal.addEventListener('touchmove', (event) => {
-        touchEndX = event.touches[0].clientX; 
-    });
-
-    modal.addEventListener('touchend', () => {
-        handleSwipe(); 
-    });
+            // Mark that listeners have been added
+            modal.dataset.listenersAdded = true;
+        }
+    }
 });
+// Swipe support for modals
+let touchStartX = 0;
+let touchEndX = 0;
+const swipeThreshold = 100;
+let swipeInProgress = false; 
 
+// Handle touchstart event
+function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+    touchEndX = touchStartX;
+}
 
+// Handle touchmove event
+function handleTouchMove(event) {
+    touchEndX = event.touches[0].clientX;
+}
+
+// Handle touchend event
+function handleTouchEnd() {
+    if (!swipeInProgress) {
+        swipeInProgress = true; 
+        handleSwipe();
+        setTimeout(() => {
+            swipeInProgress = false; 
+        }, 300); 
+    }
+}
+
+// Detect swipe direction
+function handleSwipe() {
+    if (touchEndX < touchStartX - swipeThreshold) {
+        nextModal();
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+        previousModal();
+    } 
+}
+//show swipe hint
 function showSwipeHint() {
     const swipeHint = document.getElementById('swipe-hint');
     swipeHint.style.display = 'block';
