@@ -7,44 +7,37 @@
     <script src="../script.js"> </script>
   </head>
   <body class="light-mode">
-    <!-- Back Button -->
-    <button class="back-button" onclick="window.location.href='../'">
-        ×
-    </button>
+    <!-- Back Button --> <button class="back-button" onclick="window.location.href='../'">
+      × </button>
     <!--ICON-->
     <svg style="display: none;">
       <symbol id="myBase64Image" viewBox="0 0 1 1">
         <image href="data:image/png;base64,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"
+
           width="1" height="1"></image> </symbol> </svg>
     <svg style="display: none;">
       <symbol id="redshiftlgo" viewBox="0 0 1 1">
         <image href="data:image/png;base64,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"
+
           width="1" height="1"></image> </symbol> </svg>
-    <!--TOGGLE BUTTON--> 
-    <button class="toggle-button" onclick="toggleMode()">
+    <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()">
       <span class="icon"></span> </button>
-    <!--PRINT BUTTON-->
-    <button class="print-button" onclick="if (document.body.classList.contains('dark-mode')) toggleMode(); window.print();"> 
+    <!--PRINT BUTTON--> <button class="print-button" onclick="if (document.body.classList.contains('dark-mode')) toggleMode(); window.print();">
       <span class="icon">🖨️</span> </button>
     <!-- Modal Structure -->
     <div id="modal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <div id="modal-table-container"></div>
-            <!--next and back buttons-->
-            <button class="modal-back" onclick="previousModal()"><</button>
-            <button class="modal-next" onclick="nextModal()">></button>
-            <div class="modal-zone modal-left" onclick="previousModal()"></div>
-            <div class="modal-zone modal-middle"></div>
-            <div class="modal-zone modal-right" onclick="nextModal()"></div>
-        </div>
+      <div class="modal-content"> <button class="modal-close" onclick="closeModal()">×</button>
+        <div id="modal-table-container"></div>
+        <!--next and back buttons--> <button class="modal-back" onclick="previousModal()">&lt;</button>
+        <button class="modal-next" onclick="nextModal()">&gt;</button>
+        <div class="modal-zone modal-left" onclick="previousModal()"></div>
+        <div class="modal-zone modal-middle"></div>
+        <div class="modal-zone modal-right" onclick="nextModal()"></div>
+      </div>
     </div>
-
     <!-- Swipe Hint -->
     <div id="swipe-hint" style="display: none;  position: fixed;  bottom: 30px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px; border-radius: 10px; font-size: 30px; z-index: 2000; text-align: center; justify-content: center; align-items: center;">
-        Swipe left or right to navigate
-    </div>
-
+      Swipe left or right to navigate </div>
     <!--HEADER h1-->
     <h1>REDSHIFT – INTRODUCTION
       <svg width="55" height="55">
@@ -138,13 +131,15 @@
                           </tr>
                           <tr>
                             <td>SELECT<br>
-                              column_name, <br> data_type, <br> 
-                              character_maxium_lenght,
-                              numeric_precision, numeric_scale <br>
+                              column_name, <br>
+                              data_type, <br>
+                              character_maxium_lenght, numeric_precision,
+                              numeric_scale <br>
                               FROM <br>
                               <i>SVV_ALL_COLUMNS <br>
                               </i>where <br>
-                              schema_name = 'spectrumdb' <br>AND <br>
+                              schema_name = 'spectrumdb' <br>
+                              AND <br>
                               table_name = 'ecommerce_sales'; </td>
                           </tr>
                         </tbody>
@@ -181,9 +176,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <td>SELECT 
-                              cast(2.00 as INTEGER) as our_int
-                            </td>
+                            <td>SELECT cast(2.00 as INTEGER) as our_int </td>
                           </tr>
                         </tbody>
                       </table>
@@ -198,7 +191,7 @@
             <table none="" style="width: 352px; height: 839px;">
               <tbody>
                 <tr>
-                  <th >
+                  <th>
                     <!--cell b1 -->
                     <div class="container3">
                       <table class="inner" style="width: 483px; ;">
@@ -218,9 +211,9 @@
                           <tr>
                             <td>To see all databases and the schemas they use
                               the table SVV_REDSHIFT_SCHEMAS is used to see the
-                              information from internal tables. <br>SVV_ALL_SCHEMAS
-                              is used to see the information from internal and
-                              external tables.</td>
+                              information from internal tables. <br>
+                              SVV_ALL_SCHEMAS is used to see the information
+                              from internal and external tables.</td>
                           </tr>
                           <tr>
                             <td>
@@ -229,15 +222,22 @@
                           </tr>
                           <tr>
                             <td>SELECT database_name, schema_name, schema_type <br>
-                              FROM<br> <i>SVV_REDSHIFT_SCHEMAS</i><br><br>
+                              FROM<br>
+                              <i>SVV_REDSHIFT_SCHEMAS</i><br>
+                              <br>
                               <span style="color: #666666;"># database_name|
                                 schema_name | schema_type <br>
                                 dev&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 | pg_catalog&nbsp; | local <br>
                                 production &nbsp; &nbsp; | pg_catalog&nbsp; |
-                                local </span><br><br>
-                              SELECT table_name <i><br>FROM <br>SVV_ALL_TABLES</i>
-                              <br>WHERE <br>schma_name = 'spectrumdb' <br><br>
+                                local </span><br>
+                              <br>
+                              SELECT table_name <i><br>
+                                FROM <br>
+                                SVV_ALL_TABLES</i> <br>
+                              WHERE <br>
+                              schma_name = 'spectrumdb' <br>
+                              <br>
                               <span style="color: #666666;"># table_name <br>
                                 ecommerce_sales<br>
                                 Idaho_site_id</span></td>
@@ -284,8 +284,9 @@
                           <tr>
                             <td>Datetime<br>
                             </td>
-                            <td>Your average datetime data types.<br> With timestamp
-                              being used for combined date and time.<br>
+                            <td>Your average datetime data types.<br>
+                              With timestamp being used for combined date and
+                              time.<br>
                             </td>
                             <td>date, time, timetz, timestamp, timestamptz<br>
                             </td>
@@ -380,6 +381,613 @@
     </table>
     <!-- page 2 -->
     <div class="page-break"></div>
+    <table style="width: 765px; height:  998px;">
+      <tbody>
+        <tr>
+          <td style="width: 375px; padding-right: 0px;">
+            <!-- left side -->
+            <table style="width: 375px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>To functions</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Where cast() needs the for e.g. date
+                              already be in the correct format order to not
+                              result in an error, the TO functions are leaner
+                              during the conversion.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3> Function</h3>
+                            </td>
+                            <td>
+                              <h3> Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>TO_CHAR(type, string, output)<br>
+                            </td>
+                            <td>Retrieves the output from string. E.g. month
+                              returns the month, ww returns the week number, and
+                              day returns the day of the week.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>TO_DATE(string, input format)<br>
+                            </td>
+                            <td>Converts a string to date field.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>TO_NUMBER()<br>
+                            </td>
+                            <td>Retrieve the number from a date string.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">SELECT <i>TO_CHAR(date
+                                '2024-01-14', 'MONTH')</i> AS month_name<span style="color: #666666;">
+                                #JANUARY </span><br>
+                              <br>
+                              <i>SELECT TO_DATE</i>('14-01-2024 02:36:48',
+                              'DD_MM_YYYY') AS our_date; <span style="color: #666666;">#2024-01-14
+                                </span><br> </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>SUBSTR and SUBSTRING</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3><span style="color: #999999;"></span>Function</h3>
+                            </td>
+                            <td>
+                              <h3>Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SUBSTR(string, int)</td>
+                            <td>Can only be used by the leader node. And returns
+                              a substring of a string starting from the index
+                              indicated by the int.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SUBSTRING(column, int)</td>
+                            <td>Same as SUBSTR but can be used by the compute
+                              node as well.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">SELECT <i>SUBSTR('datacamp', 4)</i>
+                              AS extract; <br>
+                              SELECT <i>SUBSTRING(waterusedescription, 5)</i>
+                              AS extract <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container4">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>CTE with Redshift</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>To create an CTE you can use a WITH statement
+                              just like in t-sql.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3> Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><i>WITH </i>division_by_rev AS ( SELECT
+                              division_id, SUM(revenue) as revenue_total FROM
+                              orders GROUP BY division_id SELECT * from
+                              division_by_rev </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 199px; padding-left: 0px;">
+            <!-- right side -->
+            <table none="" style="width: 316px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell b1 -->
+                    <div class="container3">
+                      <table class="inner" style="width: 343px; height: 395px;">
+                        <tbody>
+                          <tr>
+                            <td style="text-align: center;" colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Redshift keywords 2 warehouse</h2>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Keyword</h3>
+                            </td>
+                            <td>
+                              <h3>Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> Leader node<br>
+                            </td>
+                            <td>Provides <br>
+                              connections, <br>
+                              distribute query <br>
+                              plans, execute <br>
+                              queries.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Compute node</td>
+                            <td>Provides data<br>
+                              &nbsp; storage, executes <br>
+                              code from the <br>
+                              leader node on<br>
+                              &nbsp;local stored data.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Predi cates<br>
+                            </td>
+                            <td>Boolean clauses <br>
+                              like where, having,<br>
+                              &nbsp;on. The leader <br>
+                              can push these<br>
+                              &nbsp;kinds of requests<br>
+                              &nbsp;to compute nodes. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>MetaData Catalog<br>
+                            </td>
+                            <td>Database component<br>
+                              &nbsp;which holds<br>
+                              &nbsp;schema info and <br>
+                              references a storage <br>
+                              location.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Query Engine<br>
+                            </td>
+                            <td>Database component<br>
+                              &nbsp;plans and executes <br>
+                              queries, provides <br>
+                              connections.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Storage<br>
+                            </td>
+                            <td>Database component<br>
+                              &nbsp;hold table data supports <br>
+                              multiple file and table <br>
+                              formats.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>AWS glue data catalog<br>
+                            </td>
+                            <td>Stores information about <br>
+                              external tables.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>AWS s3 bucket<br>
+                            </td>
+                            <td>Stores the file that <br>
+                              represent the table. <br>
+                              E.g. csvs, jsons, text,<br>
+                              &nbsp;parquet ect.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell b2 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td colspan="3">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Viewing partitions</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">To view the data partitions between
+                              separate nodes use the table STV_PARTITIONS.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">select host, (used – tossed) /
+                              capacity * 100 as percent_used FROM <i>STV_PARTITIONS</i>;
+                              <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 3 -->
+    <div class="page-break"></div>
+    <table style="width: 765px; height:  998px;">
+      <tbody>
+        <tr>
+          <td style="width: 199px; padding-right: 0px;">
+            <!-- left side -->
+            <table style="width: 248px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container2">
+                      <table class="inner" style="width: 345px; height: 384px;">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Date functions</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Many of the t-sql date related
+                              functions have equivalents in Redshift.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Function</h3>
+                            </td>
+                            <td>
+                              <h3>Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SYSDATE<br>
+                            </td>
+                            <td>Returns the current datetime of the system.
+                              (runs on both compute as leader and compute
+                              nodes). <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>GETDATE()<br>
+                            </td>
+                            <td>Returns the current datime of the system at the
+                              time of start of the statement. (runs on both
+                              compute as leader and compute nodes). <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>CURRENT_ TIME/ NOW<br>
+                            </td>
+                            <td>Are equivalents of sysdate and get date but only
+                              run the leader node.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>TRUNC( timestamp)<br>
+                            </td>
+                            <td>Truncates the datetime to just the date part.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>DATE_ TRUNC( date part, timestamp)<br>
+                            </td>
+                            <td>Truncates the datetime to the specified date
+                              part. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>DATE_PART( datepart, timestamp)<br>
+                            </td>
+                            <td>Extracts the date part from the timestamp. E.g.
+                              month, day, year, dayofweek, quarter, timezone. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>DATE_CMP( date1, date2)<br>
+                            </td>
+                            <td>Returns -1 if date1 is earlier, returns 0 if
+                              dates are equal and returns 1 if date 1 later than
+                              date2.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>DATEDIFF( datepart, date1, date2)<br>
+                            </td>
+                            <td>Calculates the differences between date values
+                              considering the specified datepart. (Requires the
+                              datepart to be part of the date field). <br>
+                              Returns a negative value if date2 is earlier than
+                              date1. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>DATEADD( datepart, int, date)<br>
+                            </td>
+                            <td>Adds the int too the datepart of the date if int
+                              is negative it will subtract instead.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">SELECT <i>SYSDATE</i> <span style="color: #666666;"><br>
+                                #2024-01-27 20:05:55.97635</span><br>
+                              SELECT <i>TRUNC</i>(GETDATE()) <br>
+                              <span style="color: #666666;">#2024-01-27</span> <br>
+                              SELECT <i>DATE_TRUNC</i>('minute', SYSDATE) <br>
+                              <span style="color: #666666;">#2024-01-27 20:05:55
+                              </span><br>
+                              SELECT <i>DATE_PART</i>(month, SYSDATE)<span style="color: #666666;">
+                                #1 </span><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 367px; padding-left: 0px;">
+            <!-- right side -->
+            <table none="" style="width: 352px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell b1 -->
+                    <div class="container3">
+                      <table class="inner" style="width: 356px; height: 57px;">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Window functions</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">Window function lets you run queries
+                              and calculations over a moving group of rows in a
+                              dataset.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Concept</h3>
+                            </td>
+                            <td>
+                              <h3>Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>partitioning<br>
+                            </td>
+                            <td>Done through (PARTITION BY) which forms the
+                              groups.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Ordering<br>
+                            </td>
+                            <td>Done through (ORDER BY) which orders each
+                              partition.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Framing<br>
+                            </td>
+                            <td>Optional set of restrictions on the rows.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">SELECT division_id, sale_date,
+                              revenue<br>
+                              ,AVG(<br>
+                              &nbsp; revenue <i>OVER</i> (<br>
+                              &nbsp; &nbsp;&nbsp; <i>PARTITION BY</i>
+                              deivisio_id<br>
+                              &nbsp;&nbsp;&nbsp; ,DATE_PART(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'year'<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ,sale_date)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; ,DATE_PART(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              'month'<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ,sale_date)<br>
+                              &nbsp;&nbsp; ) <br>
+                              ) AS month_avg_revenue <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Function</h3>
+                            </td>
+                            <td>
+                              <h3>Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>LAG<br>
+                            </td>
+                            <td>Allows access to any row before current row.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>LEAD<br>
+                            </td>
+                            <td>Allows access to any row after current row.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>RANK()<br>
+                            </td>
+                            <td>Same as t-sql rank functions. A unique number
+                              per group.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">SELECT division_id<br>
+                              ,DATE_PART('year', sale_date) AS sales _year<br>
+                              ,DATE_PART('month', sales_date ) AS sales_month<br>
+                              ,COUNT(*) as current_month_sales<br>
+                              <i>,LAG( </i><br>
+                              &nbsp;&nbsp;&nbsp; COUNT(*)<br>
+                              &nbsp;&nbsp;&nbsp; ,1 ) <br>
+                              OVER ( PARTITION BY division_ID <br>
+                              &nbsp;&nbsp;&nbsp; ORDER BY DATE_PART(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'year',
+                              sale_date)<br>
+                              &nbsp;&nbsp;&nbsp; ,DATE_PART(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              'month', sale_date)<br>
+                              ) AS prior_month_sales <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 -->
+    <div class="page-break"></div>
     <table style="width: 765px; height: 998px;">
       <tbody>
         <tr>
@@ -395,10 +1003,51 @@
                         <tbody>
                           <tr>
                             <td>
-                              <div style="display: flex; justify-content: space-between; align-items: center; position: relative;">
-                                <span>cell a1</span>
-                                <svg width="34" height="34" style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                  <use href="#myBase64Image"></use> </svg> </div>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Transactions</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Transactions wrap a series of SQL statement to
+                              ensure they all operate as one unit. This enables
+                              concurrent operators. (by default every sql
+                              statement is a non-grouped transaction) when
+                              grouped sysdate returns the same output for each
+                              of the grouped transactions. While getdate can
+                              return a different output for each statement in
+                              grouped transactions.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Creating a grouped transaction</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>• Opens with a BEGIN or START TRANSACTION
+                              function. <br>
+                              • Contains one or more SQL statements (thereby
+                              grouping them with a ; after each one. <br>
+                              • Closes with an END or COMMT function. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>BEGIN; <br>
+                              &nbsp;&nbsp;&nbsp; query1;<span style="color: #666666;">
+                                #Or stored procedure.</span> <br>
+                              &nbsp;&nbsp;&nbsp; query2;<br>
+                              END; <br>
                             </td>
                           </tr>
                         </tbody>
@@ -413,30 +1062,126 @@
                       <table class="inner">
                         <tbody>
                           <tr>
-                            <td>
-                              <div style="display: flex; justify-content: space-between; align-items: center; position: relative;">
-                                <span>cell a2</span>
-                                <svg width="34" height="34" style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                  <use href="#myBase64Image"></use> </svg> </div>
+                            <td colspan="3">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Table distribution styles</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
                             </td>
                           </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell a3 -->
-                    <div class="container1">
-                      <table class="inner">
-                        <tbody>
                           <tr>
                             <td>
-                              <div style="display: flex; justify-content: space-between; align-items: center; position: relative;">
-                                <span>cell a3</span>
-                                <svg width="34" height="34" style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                  <use href="#myBase64Image"></use> </svg> </div>
+                              <h3>DISTSTYLE</h3>
+                            </td>
+                            <td>
+                              <h3>Description</h3>
+                            </td>
+                            <td>
+                              <h3>Usage</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>ALL<br>
+                            </td>
+                            <td>Stores the entire table on every node.<br>
+                            </td>
+                            <td>Small fact, translation tables that are often
+                              needed in joins.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>KEY<br>
+                            </td>
+                            <td>Distributed by data in the DISTKEY or PRIMARY
+                              KEY column.<br>
+                            </td>
+                            <td>When we aggregate or join by DISTKEY or
+                              PRIMARYKEY.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>EVEN<br>
+                            </td>
+                            <td>In turn distribution across nodes by row. It
+                              spreads the rows across the nodes.<br>
+                            </td>
+                            <td>Large tables that don’t have keys.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>AUTO<br>
+                            </td>
+                            <td>Uses ALL style for small tables Key as it grows
+                              and has keys or falls back to even.<br>
+                            </td>
+                            <td>Is the default.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Keyword</h3>
+                            </td>
+                            <td colspan="2">
+                              <h3>Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>DISTKEY<br>
+                            </td>
+                            <td colspan="2">Generally, the DISKEY is the primary
+                              key however if regularly aggregate, join or group
+                              on order columns that the primary key we can
+                              designate them as the DISTKEY.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SORTKEY<br>
+                            </td>
+                            <td colspan="2">Controls the order the data is
+                              stored. Can have multiple separated by comma.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3">CREATE TABLE test <br>
+                              ( 'test_id' INTEGER PRIMARY KEY<br>
+                              &nbsp;&nbsp;&nbsp; ,'location' VARCHAR(68)<br>
+                              &nbsp;&nbsp;&nbsp; ,'organization_id' VARCHAR(31)
+                              DISTKEY<br>
+                              &nbsp;&nbsp;&nbsp; ,'organization name'
+                              VARCHAR(16)<br>
+                              <i>DISTSTYLE KEY </i><br>
+                              &nbsp;&nbsp;&nbsp; <i>SORTKEY</i>(location); <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Table</h3>
+                            </td>
+                            <td colspan="2">
+                              <h3>Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SVV_TABLE_INFO<br>
+                            </td>
+                            <td colspan="2">Table containing the distyle of the
+                              tables.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SVV_REDSHIFT_COLUMNS<br>
+                            </td>
+                            <td colspan="2">Table containing schema, table and
+                              their distkey, sortkeys.<br>
                             </td>
                           </tr>
                         </tbody>
@@ -450,20 +1195,609 @@
         </tr>
       </tbody>
     </table>
+    <!-- page 5 -->
+    <div class="page-break"></div>
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;" colspan="2">
+            <!-- top row -->
+            <table height="439" width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Importing External table</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">External tables don’t have DISTKEYS
+                              or SORTKEYS as they don’t support them. Not all
+                              table formats support AWS glue (among other
+                              iceberg and hive).<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Argument</h3>
+                            </td>
+                            <td>
+                              <h3>Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>ROW FORMAT<br>
+                            </td>
+                            <td>Indicates how the file to be imported is build
+                              up. E.g. DELIMITED indicating it has a delimiter.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>FIELDS TERMINATED BY <br>
+                            </td>
+                            <td>Indicates the delimiter.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>STORED AS<br>
+                            </td>
+                            <td>How the files are stored in the LOCATION
+                              directory E.g. TEXTFILE.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>LOCATION<br>
+                            </td>
+                            <td>The directory of the files to be loaded in.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>TABLE PROPERTIES<br>
+                            </td>
+                            <td>Order command that have to be fulfilled while
+                              loading in the data. E.g. if the data has headers
+                              and if those need to be loaded in.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <h3>Example (import a csv)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">CREATE TABLE dev.test (<br>
+                              &nbsp; &nbsp;&nbsp; 'pizza_id' INTEGER PRIMARY KEY
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; ,'toppings' VARCHAR(64)<br>
+                              ) <br>
+                              <i>ROW FORMAT DELIMITED</i> <br>
+                              FIELD TERMINATED BY ',' <br>
+                              STORED AS TEXTFILE <br>
+                              <i>LOCATION</i> 's3://spectrum_id/pizzas_files/' <br>
+                              <i>TABLE PROPERTIES</i> ( 'skip.header.line.count'
+                              = '1') <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Pseudo column</h3>
+                            </td>
+                            <td>
+                              <h3>Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>$path<br>
+                            </td>
+                            <td>Where is the external file stored.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>$size<br>
+                            </td>
+                            <td>How many lines does the external file have.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 199px; padding-right: 0px;">
+            <!-- left side -->
+            <table style="width: 248px; height: 359px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container4">
+                      <table class="inner" style="width: 345px;">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Is_valid_json()</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Is_valid_json( json ) retursn true if the json
+                              provided is valid and readable.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SELECT <br>
+                              <i>IS_VALID_JSON</i>('{"one":1, "two":2}');<span style="color: #666666;">
+                                #TRUE</span><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <th>
+                    <!--cell B2 -->
+                    <div class="container2">
+                      <table class="inner" style="width: 345px;">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Json_extra_array_element</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>To extract a value from a list using an index
+                              JSON_EXTRACT_ARRAY_ ELEMENT_TEXT can be used.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SELECT <i><br>
+                                JSON_EXTRACT_ARRAY_ ELEMNT_TEXT</i>('[1.1,400,13]'),
+                              0); <span style="color: #666666;">#1.1</span><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 367px; padding-left: 0px;">
+            <!-- right side -->
+            <table none="" style="width: 352px; height: 359px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell C1 -->
+                    <div class="container3">
+                      <table class="inner" style="width: 356px;">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Extracting from a json object</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>To extract specific data from a json object
+                              JSON_EXTRACT_PATH_TEXT(json, key) can be used. It
+                              accepts two arguments the json and the key you
+                              want the value from. the key can also be multiple
+                              keys when you want to extract a value from a
+                              nested json. The Json needs to be valid. If the
+                              key does not exist it returns null. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Example<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SELECT <br>
+                              <i>JSON_EXTRACT_PATH_TEXT</i> ('{"ONE":1,
+                              "two":2}', 'one'); <span style="color: #666666;">#1</span>
+                              <br>
+                              <br>
+                              SELECT <br>
+                              <i>JSON_EXTRACT_PATH_TEXT</i>('{"one_object":{<br>
+                              &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              "nested_three":3<br>
+                              &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+                              ,"nested_four":4}<br>
+                              &nbsp;&nbsp;&nbsp; , "two":2}'<br>
+                              , 'one_object'<br>
+                              , 'nested_three') <span style="color: #666666;">#3
+                                </span><br> </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 6 -->
+    <div class="page-break"></div>
+    <table style="width: 765px; height:  998px;">
+      <tbody>
+        <tr>
+          <td style="width: 375px; padding-right: 0px;">
+            <!-- left side -->
+            <table style="width: 375px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner" style="width: 400px; height: 156px;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Casting a super</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>To cast a json you ::SUPER :: and then the
+                              object type your casting from. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>with location_details as ( select '{"location":
+                              "lisse",}' <br>
+                              <i>::SUPER::</i> VARCHAR as data<br>
+                              <span style="color: #666666;">#Now accessible as
+                                location_details.data.</span><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container3">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>EXPLAIN</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Running the explain command returns the relative
+                              costs and estimating the number of rows to
+                              process.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><i>EXPLAIN </i>WITH top_ten_division_by_rev AS
+                              (<br>
+                              &nbsp;&nbsp;&nbsp; Select division_id<br>
+                              &nbsp;&nbsp; ,SUM(revenue) AS revenue_total <br>
+                              &nbsp;&nbsp;&nbsp; FROM sales_data <br>
+                              &nbsp;&nbsp;&nbsp; GROUP BY division_id <br>
+                              &nbsp;&nbsp;&nbsp; ORDER BY revenue_total DESC
+                              limit 10 <br>
+                              ) <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container4">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Setting row-level security</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Row-level security can be set through the CREATE
+                              RLS POLCITY command which prefilters the table on
+                              the USING query. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><i>CREATE RLS POLICY</i> policy_books <br>
+                              WITH (category VARCHAR(255)) <br>
+                              <i>USING</i> (category = 'Dark Academia'); <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a4 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Security log</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Admins have another table available to them to
+                              see a log when a policy affected a query called
+                              SVV_RLS_APPLIED_POLICY.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SELECT username, command, relschema, relname,
+                              polname FROM <i>SVV_RLS_APPLIED_POLICY</i>; <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 199px; padding-left: 0px;">
+            <!-- right side -->
+            <table none="" style="width: 247px; height: 639px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell b1 -->
+                    <div class="container4">
+                      <table class="inner" style="width: 283px; height: 186px;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>STL_ALERT_EVENT_LOG table </h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>The STL_ALERT_EVENT_LOG table contains a <br>
+                              log from each query that ran and any warnings it
+                              might <br>
+                              have produced.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>select * from <i>stl_alert_event_log</i> where
+                              query = 1447;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell b2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Column level security table</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Security in redshift is by default arranged on
+                              column level. <br>
+                              To verify you can query the SVV_COLUMN _PRIVILEGES
+                              <br>
+                              table. It can be in the form of making the columns
+                              <br>
+                              un available or masking them using XXXXs. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SELECT * <br>
+                              <i>FROM SVV_COLUMN_PREVILEGES </i><br>
+                              WHERE relation_name = 'products'; <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell b3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Row level security table</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>To check which row level security policies
+                              exists the SVV_RLS_POLICY table can be queried.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>SELECT polname AS policy_name<br>
+                              ,polatts AS column_details<br>
+                              ,polqual AS condition <br>
+                              FROM <i>SVV_RLS_POLICY</i>; <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <footer style="text-align: center; margin-top: 20px;">
+      <p style="text-align: center;"> This website is a collection of my
+        personal study notes, created to help me and others learn and organize
+        information effectively. Feel free to <strong>download</strong>, <strong>print</strong>,
+        or <strong>use</strong> any of the notes for your own purposes. </p>
+      <p style="text-align: center;"> <br>
+        Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE"
+
+          style="color: #1E90FF; text-decoration: underline;">Notes Template</a>!
+      </p>
+      <p style="text-align: center;"> Interested in forking this website? Visit
+        my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank"
+
+          style="color: #1E90FF; text-decoration: underline;">GitHub Repository</a>
+        to get the full source code. </p>
+      <p style="text-align: center;"> Happy learning and dont forget to share,
+        follow and star the repository! -DoemsDagDing </p>
+    </footer>
   </body>
-  <footer style="text-align: center; margin-top: 20px;">
-    <p style="text-align: center;">
-        This website is a collection of my personal study notes, created to help me and others learn and organize information effectively. 
-        Feel free to <strong>download</strong>, <strong>print</strong>, or <strong>use</strong> any of the notes for your own purposes.
-    </p>
-    <p style="text-align: center;">
-        <br>Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE" style="color: #1E90FF; text-decoration: underline;">Notes Template</a>!
-    </p>
-    <p style="text-align: center;">
-        Interested in forking this website? Visit my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank" style="color: #1E90FF; text-decoration: underline;">GitHub Repository</a> to get the full source code.
-    </p>
-    <p style="text-align: center;">
-        Happy learning and dont forget to share, follow and star the repository! -DoemsDagDing
-    </p>
-  </footer>
 </html>

@@ -272,6 +272,9 @@ body.dark-mode .toggle-button .icon::before {
     .download-button {
         display: none;
     }
+    footer {
+        display: none;
+    }
     
 }
 /* Modal content */
