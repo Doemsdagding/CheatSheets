@@ -738,7 +738,7 @@
   </head>
   <body class="light-mode">
     <!-- Back Button -->
-    <button class="back-button" onclick="window.location.href='../'">
+    <button class="back-button" onclick="window.location.href='../'" title="Back to Home page">
         ×
     </button>
     <!--ICON-->
@@ -747,23 +747,23 @@
         <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA%0A%20%20%20%20%20%20%20%20%20%20%20%20AAAFCAYAAACNbyblAAAAHElEQVQI12P4%0A%20%20%20%20%20%20%20%20%20%20%20%20//8/w38GIAXDIBKE0DHxgljNBAAO%0A%20%20%20%20%20%209TXL0Y4OHwAAAABJRU5ErkJggg=="
           width="1" height="1"></image> </symbol> </svg>
     <!--TOGGLE BUTTON--> 
-        <button class="toggle-button" onclick="toggleMode()">
+        <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode">
             <span class="icon"></span> </button>
     <!--PRINT BUTTON-->
-    <button class="print-button" onclick="if (document.body.classList.contains('dark-mode')) toggleMode(); window.print();"> 
+    <button class="print-button" onclick="if (document.body.classList.contains('dark-mode')) toggleMode(); window.print();" title="Print this page"> 
             <span class="icon">🖨️</span> </button>
      <!-- Download Button -->
-     <button class="download-button" onclick="downloadTemplate()">
+     <button class="download-button" onclick="downloadTemplate()" title="Download HTML code">
         ⬇️
     </button>
         <!-- Modal Structure -->
         <div id="modal" class="modal">
             <div class="modal-content">
-                <button class="modal-close" onclick="closeModal()">×</button>
+                <button class="modal-close" onclick="closeModal()" title="close modal">×</button>
                 <div id="modal-table-container"></div>
                 <!--next and back buttons-->
-                <button class="modal-back" onclick="previousModal()"><</button>
-                <button class="modal-next" onclick="nextModal()">></button>
+                <button class="modal-back" onclick="previousModal()" title="previous modal"><</button>
+                <button class="modal-next" onclick="nextModal()" title="next modal">></button>
                 <div class="modal-zone modal-left" onclick="previousModal()"></div>
                 <div class="modal-zone modal-middle"></div>
                 <div class="modal-zone modal-right" onclick="nextModal()"></div>
@@ -780,6 +780,7 @@
         <svg width="55" height="55">
         <use href="#myBase64Image"></use> </svg> </h1>
     <!-- page 1 -->
+    <div class="page-break"></div>
     <table style="width: 765px; height:  998px;">
       <tbody>
         <tr>
