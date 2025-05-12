@@ -80,6 +80,15 @@ h2 {
     font-size: 12px;
     margin: 0px;
 }
+h4 {
+    font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
+    font-weight: 400;
+    height: 7px;
+    font-size: 1px;
+    margin: 0px;
+    line-height: 7px;
+    visibility: hidden;
+}
 
  th, td {
     padding: 5px;
@@ -135,31 +144,6 @@ body.dark-mode table.inner td {
     border: 2px solid white; 
 }
 
-/* Containers */
-.container1 {
-    border: 6px solid #004080;
-      border-radius: 7px;
-    padding: 3px;
-      
-}
-  .container2 {
-    border: 6px solid #383e4f; 
-      border-radius: 7px;
-    padding: 3px;
-      
-}
-  .container3 {
-    border: 6px solid #5474cc;
-      border-radius: 7px;
-    padding: 3px;
-      
-}
-  .container4 {
-    border: 6px solid #a0b3e8; 
-      border-radius: 7px;
-    padding: 3px;
-      
-}
 /* Buttons */
 .toggle-button {
     position: fixed; 

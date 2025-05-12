@@ -737,54 +737,52 @@
     </script>
   </head>
   <body class="light-mode">
-    <!-- Back Button -->
-    <button class="back-button" onclick="window.location.href='../'" title="Back to Home page">
-        ×
-    </button>
+    <!-- Back Button --> <button class="back-button" onclick="window.location.href='../'"
+
+      title="Back to Home page"> × </button>
     <!--ICON-->
     <svg style="display: none;">
       <symbol id="myBase64Image" viewBox="0 0 1 1">
         <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA%0A%20%20%20%20%20%20%20%20%20%20%20%20AAAFCAYAAACNbyblAAAAHElEQVQI12P4%0A%20%20%20%20%20%20%20%20%20%20%20%20//8/w38GIAXDIBKE0DHxgljNBAAO%0A%20%20%20%20%20%209TXL0Y4OHwAAAABJRU5ErkJggg=="
+
           width="1" height="1"></image> </symbol> </svg>
-    <!--TOGGLE BUTTON--> 
-        <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode">
-            <span class="icon"></span> </button>
-    <!--PRINT BUTTON-->
-    <button class="print-button" onclick="if (document.body.classList.contains('dark-mode')) toggleMode(); window.print();" title="Print this page"> 
-            <span class="icon">🖨️</span> </button>
-     <!-- Download Button -->
-     <button class="download-button" onclick="downloadTemplate()" title="Download HTML code">
-        ⬇️
-    </button>
-        <!-- Modal Structure -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <button class="modal-close" onclick="closeModal()" title="close modal">×</button>
-                <div id="modal-table-container"></div>
-                <!--next and back buttons-->
-                <button class="modal-back" onclick="previousModal()" title="previous modal"><</button>
-                <button class="modal-next" onclick="nextModal()" title="next modal">></button>
-                <div class="modal-zone modal-left" onclick="previousModal()"></div>
-                <div class="modal-zone modal-middle"></div>
-                <div class="modal-zone modal-right" onclick="nextModal()"></div>
-            </div>
-        </div>
-        
+    <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode">
+      <span class="icon"></span> </button>
+    <!--PRINT BUTTON--> <button class="print-button" onclick="if (document.body.classList.contains('dark-mode')) toggleMode(); window.print();"
+
+      title="Print this page"> <span class="icon">🖨️</span> </button>
+    <!-- Download Button --> <button class="download-button" onclick="downloadTemplate()"
+
+      title="Download HTML code"> ⬇️ </button>
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+      <div class="modal-content"> <button class="modal-close" onclick="closeModal()"
+
+          title="close modal">×</button>
+        <div id="modal-table-container"></div>
+        <!--next and back buttons--> <button class="modal-back" onclick="previousModal()"
+
+          title="previous modal">&lt;</button> <button class="modal-next" onclick="nextModal()"
+
+          title="next modal">&gt;</button>
+        <div class="modal-zone modal-left" onclick="previousModal()"></div>
+        <div class="modal-zone modal-middle"></div>
+        <div class="modal-zone modal-right" onclick="nextModal()"></div>
+      </div>
+    </div>
     <!-- Swipe Hint -->
     <div id="swipe-hint" style="display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px; border-radius: 10px; font-size: 30px; z-index: 2000; text-align: center; justify-content: center; align-items: center;">
-        Swipe left or right to navigate
-    </div>
-
+      Swipe left or right to navigate </div>
     <!--HEADER h1-->
     <h1>Note template
-        <svg width="55" height="55">
+      <svg width="55" height="55">
         <use href="#myBase64Image"></use> </svg> </h1>
     <!-- page 1 -->
     <div class="page-break"></div>
     <table style="width: 765px; height:  998px;">
       <tbody>
         <tr>
-            <td style="width: 199px; padding-right: 0px;">
+          <td style="width: 199px; padding-right: 0px;">
             <!-- left side -->
             <table style="width: 248px; height: 839px;">
               <tbody>
@@ -801,7 +799,10 @@
                                   <h2>Cell a1</h2>
                                 </div>
                                 <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                    <svg width="34" height="34">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
                                     <use href="#myBase64Image"></use> </svg> </div>
                               </div>
                             </td>
@@ -824,7 +825,10 @@
                                   <h2>cell a2</h2>
                                 </div>
                                 <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                    <svg width="34" height="34">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
                                     <use href="#myBase64Image"></use> </svg> </div>
                               </div>
                             </td>
@@ -847,7 +851,10 @@
                                   <h2>cell a3</h2>
                                 </div>
                                 <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                    <svg width="34" height="34">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
                                     <use href="#myBase64Image"></use> </svg> </div>
                               </div>
                             </td>
@@ -868,16 +875,19 @@
                   <th>
                     <!--cell b1 -->
                     <div class="container3">
-                        <table class="inner" style="width: 483px; ;">
+                      <table class="inner" style="width: 483px; ;">
                         <tbody>
                           <tr>
                             <td>
-                             <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
                                 <div style="text-align: center;">
                                   <h2>cell b1</h2>
                                 </div>
                                 <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                    <svg width="34" height="34">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
                                     <use href="#myBase64Image"></use> </svg> </div>
                               </div>
                             </td>
@@ -900,7 +910,10 @@
                                   <h2>cell b2 </h2>
                                 </div>
                                 <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                    <svg width="34" height="34">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
                                     <use href="#myBase64Image"></use> </svg> </div>
                               </div>
                             </td>
@@ -923,7 +936,10 @@
                                   <h2>cell b3</h2>
                                 </div>
                                 <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                    <svg width="34" height="34">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
                                     <use href="#myBase64Image"></use> </svg> </div>
                               </div>
                             </td>
@@ -944,7 +960,7 @@
     <table style="width: 765px; height: 998px;">
       <tbody>
         <tr>
-            <td style="width: 765px;">
+          <td style="width: 765px;">
             <!-- single row -->
             <table height="839" width="765">
               <tbody>
@@ -961,7 +977,10 @@
                                   <h2>cell a1</h2>
                                 </div>
                                 <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                    <svg width="34" height="34">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
                                     <use href="#myBase64Image"></use> </svg> </div>
                               </div>
                             </td>
@@ -984,7 +1003,10 @@
                                   <h2>cell a2</h2>
                                 </div>
                                 <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                    <svg width="34" height="34">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
                                     <use href="#myBase64Image"></use> </svg> </div>
                               </div>
                             </td>
@@ -1007,7 +1029,10 @@
                                   <h2>cell a3 </h2>
                                 </div>
                                 <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                    <svg width="34" height="34">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
                                     <use href="#myBase64Image"></use> </svg> </div>
                               </div>
                             </td>
@@ -1023,120 +1048,133 @@
         </tr>
       </tbody>
     </table>
-<!-- page 3 -->
-<div class="page-break"></div>
-<table style="width: 765px; height: 998px;">
-  <tbody>
-    <tr>
-      <td style="width: 765px;" colspan="2">
-        <!-- top row -->
-        <table height="439" width="765">
-          <tbody>
-            <tr>
-              <th>
-                <!--cell a1 -->
-                <div class="container1">
-                  <table class="inner">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div style="display: flex; justify-content: center; align-items: center; position: relative;">
-                            <div style="text-align: center;">
-                              <h2>Cell A1</h2>
-                            </div>
-                            <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                              <svg width="34" height="34">
-                                <use href="#myBase64Image"></use> </svg> </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </th>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td style="width: 199px; padding-right: 0px;">
-        <!-- left side -->
-        <table style="width: 248px; height: 559px;">
-          <tbody>
-            <tr>
-              <th>
-                <!--cell B1 -->
-                <div class="container2">
-                  <table class="inner" style="width: 345px;">
-                    <tbody>
-                      <tr>
-                        <td colspan="2">
-                          <div style="display: flex; justify-content: center; align-items: center; position: relative;">
-                            <div style="text-align: center;">
-                              <h2>Cell B1</h2>
-                            </div>
-                            <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                              <svg width="34" height="34">
-                                <use href="#myBase64Image"></use> </svg> </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </th>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-      <td style="width: 367px; padding-left: 0px;">
-        <!-- right side -->
-        <table none="" style="width: 352px; height: 559px;">
-          <tbody>
-            <tr>
-              <th>
-                <!--cell C1 -->
-                <div class="container3">
-                  <table class="inner" style="width: 356px;">
-                    <tbody>
-                      <tr>
-                        <td colspan="2">
-                          <div style="display: flex; justify-content: center; align-items: center; position: relative;">
-                            <div style="text-align: center;">
-                              <h2>Cell C1</h2>
-                            </div>
-                            <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                              <svg width="34" height="34">
-                                <use href="#myBase64Image"></use> </svg> </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </th>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
+    <!-- page 3 -->
+    <div class="page-break"></div>
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;" colspan="2">
+            <!-- top row -->
+            <table height="439" width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell A1</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 199px; padding-right: 0px;">
+            <!-- left side -->
+            <table style="width: 248px; height: 559px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container2">
+                      <table class="inner" style="width: 345px;">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B1</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 367px; padding-left: 0px;">
+            <!-- right side -->
+            <table none="" style="width: 352px; height: 559px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell C1 -->
+                    <div class="container3">
+                      <table class="inner" style="width: 356px;">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex; justify-content: center; align-items: center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell C1</h2>
+                                </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                                <div style="position: absolute; right: 15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <footer style="text-align: center; margin-top: 20px;">
+      <p style="text-align: center;"> This website is a collection of my
+        personal study notes, created to help me and others learn and organize
+        information effectively. Feel free to <strong>download</strong>, <strong>print</strong>,
+        or <strong>use</strong> any of the notes for your own purposes. </p>
+      <p style="text-align: center;"> <br>
+        Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE"
+
+          style="color: #1E90FF; text-decoration: underline;">Notes Template</a>!
+      </p>
+      <p style="text-align: center;"> Interested in forking this website? Visit
+        my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank"
+
+          style="color: #1E90FF; text-decoration: underline;">GitHub Repository</a>
+        to get the full source code. </p>
+      <p style="text-align: center;"> Happy learning and dont forget to share,
+        follow and star the repository! -DoemsDagDing </p>
+    </footer>
+    
   </body>
-  <footer style="text-align: center; margin-top: 20px;">
-    <p style="text-align: center;">
-        This website is a collection of my personal study notes, created to help me and others learn and organize information effectively. 
-        Feel free to <strong>download</strong>, <strong>print</strong>, or <strong>use</strong> any of the notes for your own purposes.
-    </p>
-    <p style="text-align: center;">
-        <br>Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE" style="color: #1E90FF; text-decoration: underline;">Notes Template</a>!
-    </p>
-    <p style="text-align: center;">
-        Interested in forking this website? Visit my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank" style="color: #1E90FF; text-decoration: underline;">GitHub Repository</a> to get the full source code.
-    </p>
-    <p style="text-align: center;">
-        Happy learning and dont forget to share, follow and star the repository! -DoemsDagDing
-    </p>
-</footer>
 </html>
