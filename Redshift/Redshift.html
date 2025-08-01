@@ -57,12 +57,19 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
     </button>
     <!-- Modal Structure -->
     <div id="modal" class="modal">
-      <div class="modal-content"> <button class="modal-close"
-          onclick="closeModal()" title="close modal">×</button>
-        <!--next and back buttons--> <button class="modal-back"
-          onclick="previousModal()" title="previous modal">&lt;</button>
-        <button class="modal-next" onclick="nextModal()" title="next
-          modal">&gt;</button> </div>
+      <div class="modal-content"> <button class="modal-close" onclick="closeModal()"
+
+          title="close modal">×</button>
+        <div id="modal-table-container"></div>
+        <!--next and back buttons--> <button class="modal-back" onclick="previousModal()"
+
+          title="previous modal">&lt;</button> <button class="modal-next" onclick="nextModal()"
+
+          title="next modal">&gt;</button>
+        <div class="modal-zone modal-left" onclick="previousModal()"></div>
+        <div class="modal-zone modal-middle"></div>
+        <div class="modal-zone modal-right" onclick="nextModal()"></div>
+      </div>
     </div>
     <!-- Swipe Hint -->
     <div id="swipe-hint" style="display: none; position: fixed; bottom:
