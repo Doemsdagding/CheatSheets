@@ -3,31 +3,9 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>HTMLTEMPLATE</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="../script.js"> </script>
     <style>
-        @page {
-            size: A4;
-            margin: 3mm;
-        }
-        
-        /* Fonts */
-        @font-face {
-            font-family: 'MonaspaceNeon';
-            src: url('fonts/MonaspaceNeon-Regular.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'MonaspaceNeon';
-            src: url('fonts/MonaspaceNeon-Bold.woff2') format('woff2');
-            font-weight: bold;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'MonaspaceNeon';
-            src: url('fonts/MonaspaceNeon-Italic.woff2') format('woff2');
-            font-weight: normal;
-            font-style: italic;
-        }
                 /* dark mode */
         body.light-mode {
             background-color: white;
@@ -179,6 +157,23 @@
           	border-radius: 7px;
             padding: 3px;
           	
+        }
+        .back-button {
+            position: fixed; 
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
         .toggle-button {
             position: fixed; 
@@ -387,6 +382,8 @@
     </script>
   </head>
   <body class="light-mode">
+    <!-- Back Button --> <button class="back-button" onclick="window.location.href='../'"
+     title="Back to Home page"> × </button>
     <!--ICON-->
     <svg style="display: none;">
       <symbol id="redshiftlogo" viewBox="0 0 1 1">
@@ -394,8 +391,8 @@
 
           width="1" height="1"></image> </symbol> </svg>
     <svg style="display: none;">
-      <symbol id="airflowlogo" viewBox="0 0 1 1">
-        <image href="data:image/png;base64,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"
+      <symbol id="linuxlogo" viewBox="0 0 1 1">
+        <image href="data:image/png;base64,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"
 
           width="1" height="1"></image> </symbol> </svg>
     <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode">
@@ -422,93 +419,28 @@
                 <tr>
                   <th>
                     <!--cell a1 -->
-                    <div class="container3">
-                      <table class="inner" data-content="&lt;table class='inner'&gt;&lt;tr&gt;&lt;td&gt; &lt;h3&gt;Airflow &lt;/h3&gt; 
-                           &lt;a href = 'Airflow/Airflow' &gt; Chapter 1: &lt;u&gt;AIRFLOW– INTRODUCTION &lt;/u&gt; &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex; justify-content: left; align-items: center; position: relative;">
-                                <div style="text-align: start;">
-                                  <h3><u>AIRFLOW</u></h3>
-                                </div>
-                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                  <svg width="50" height="50">
-                                    <use href="#airflowlogo"></use> </svg> </div>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <!--cell a2 -->
-                    <div class="container1">
-                      <table class="inner" data-content="&lt;table class='inner'&gt;&lt;tr&gt;&lt;td&gt; &lt;h3&gt;Redshift &lt;/h3&gt; 
-                           &lt;a href = 'Redshift/Redshift' &gt; Chapter 1: &lt;u&gt;REDSHIFT – INTRODUCTION &lt;/u&gt; &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex; justify-content: left; align-items: center; position: relative;">
-                                <div style="text-align: start;">
-                                  <h3><u>Redshift</u></h3>
-                                </div>
-                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                  <svg width="50" height="50">
-                                    <use href="#redshiftlogo"></use> </svg> </div>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell a3 -->
                     <div class="container4">
-                      <table class="inner" data-content="&lt;table class='inner'&gt;&lt;tr&gt;&lt;td&gt; &lt;h3&gt;Other Notes &lt;/h3&gt;
-                            Find my notes for other stuff e.g. linux &lt;/br&gt;                            &lt;a href = 'Other\otherindex.html' &gt; Other notes &lt;u&gt;&lt;/u&gt; &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
+                      <table class="inner" data-content="&lt;table class='inner'&gt;&lt;tr&gt;&lt;td&gt; &lt;h3&gt;Linux &lt;/h3&gt; 
+                           &lt;a href = 'Linux\Linux.html' &gt; Linux: &lt;u&gt;Arch &lt;/u&gt; &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
                         <tbody>
                           <tr>
                             <td>
                               <div style="display: flex; justify-content: left; align-items: center; position: relative;">
                                 <div style="text-align: start;">
-                                  <h3><u>Other Notes</u></h3>
+                                  <h3><u>Linux</u></h3>
                                 </div>
+                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
+                                  <svg width="50" height="50">
+                                    <use href="#linuxlogo"></use> </svg> </div>
                               </div>
                             </td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
-                  </td>
+                  </th>
                 </tr>
-                <tr>
-                  <td>
-                    <!--cell a4 -->
-                    <div class="container2">
-                      <table class="inner" data-content="&lt;table class='inner'&gt;&lt;tr&gt;&lt;td&gt; &lt;h3&gt;Notes Template &lt;/h3&gt; 
-                            Keep your own notes using my html template &lt;/br&gt;                            &lt;a href = 'Template/HTMLTEMPLATE' &gt; Chapter 1: &lt;u&gt;TEMPLATE&lt;/u&gt; &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex; justify-content: left; align-items: center; position: relative;">
-                                <div style="text-align: start;">
-                                  <h3><u>Notes Template</u></h3>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
+                
               </tbody>
             </table>
           </td>
