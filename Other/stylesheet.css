@@ -1,0 +1,442 @@
+@page {
+    size: A4;
+    margin: 3mm;
+}
+
+
+/* Fonts */
+@font-face {
+    font-family: 'MonaspaceNeon';
+    src: url('/CheatSheets/fonts/MonaspaceNeon-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MonaspaceNeon';
+    src: url('/CheatSheets/fonts/MonaspaceNeon-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MonaspaceNeon';
+    src: url('/CheatSheets/fonts/MonaspaceNeon-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+}
+        /* dark mode */
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+body.light-mode table {
+    background-color: white;
+    border: 2px solid white; 
+}
+body.light-mode th, body.light-mode td {
+    border: 2px solid white; 
+}
+body.dark-mode {
+    background-color: #292929;
+    color: white;
+}
+body.dark-mode table {
+    background-color: #292929;
+    border: 2px solid #292929; 
+}
+body.dark-mode th, body.dark-mode td {
+    border: 2px solid #292929 
+}
+body.dark-mode table.inner {
+    border: 2px solid white; 
+}
+body.dark-mode table.inner th, 
+body.dark-mode table.inner td {
+    border: 2px solid white; 
+}
+
+        /* Formats */
+h1 {
+    font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
+    font-weight: 900;
+    height: 31px;
+    text-align: center;
+    font-size: 25px;
+    margin: 31px;
+}
+
+h2 {
+    font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
+    font-weight: 700;
+    height: 16px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0px;
+}
+  h3 {
+    font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
+    font-weight: 700;
+    height: 14px;
+    text-align: center;
+    font-size: 12px;
+    margin: 0px;
+}
+h4 {
+    font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
+    font-weight: 400;
+    height: 7px;
+    font-size: 1px;
+    margin: 0px;
+    line-height: 7px;
+    visibility: hidden;
+}
+
+ th, td {
+    padding: 5px;
+    border:  1px solid white;
+    text-align: left;
+    height: 14px;
+    box-sizing: border-box;
+    font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
+    font-size: 12px;
+    font-weight: 400;
+}
+p {
+    padding: 5px;
+    text-align: left;
+    height: 14px;
+    box-sizing: border-box;
+    font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
+    font-size: 12px;
+    font-weight: 400;
+}
+table {
+  border: 0px solid white;
+  outline: none;
+  background-color: white;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+table, th, td {
+    vertical-align: top;
+}
+
+  body {
+           display: flex;
+  flex-direction: column;
+          justify-content: center; 
+          align-items: center; 
+             margin: 7; 
+        }
+  table.inner {
+    width: 100%;
+    border: 2px solid black; 
+    border-collapse: collapse; 
+    cursor: pointer; 
+}
+table.inner th, table.inner td {
+    border: 2px solid black;
+}
+body.dark-mode table.inner {
+    border: 2px solid white; 
+}
+body.dark-mode table.inner th, 
+body.dark-mode table.inner td {
+    border: 2px solid white; 
+}
+
+/* Buttons */
+.toggle-button {
+    position: fixed; 
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.toggle-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.toggle-button:active {
+    background-color: #004494;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.toggle-button .icon {
+    font-size: 20px;
+}
+body.light-mode .toggle-button .icon::before {
+    content: '🌙';
+}
+body.dark-mode .toggle-button .icon::before {
+    content: '☀️';
+}
+.page-break {
+    page-break-before: always;
+}
+.back-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #bd0404;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-button:active {
+    background-color: #8f0101;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.print-button {
+    position: fixed;
+    top: 60px; 
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.print-button:hover {
+    background-color: #218838;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.print-button:active {
+    background-color: #1e7e34;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.print-button .icon {
+    font-size: 20px;
+}
+
+@media print {
+    .print-button {
+        display: none;
+    }
+    .toggle-button {
+        display: none;
+    }
+    .page-break {
+        height: 20mm;
+    }
+    .back-button {
+        display: none;
+    }
+    .download-button {
+        display: none;
+    }
+    footer {
+        display: none;
+    }
+    
+}
+/* Modal content */
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1000; 
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative; 
+    line-height: 1.5; 
+}
+body.light-mode .modal-content {
+    background-color: white;
+}
+
+body.dark-mode .modal-content {
+    background-color: #292929;
+}
+.modal-content h1, .modal-content h2, .modal-content h3, .modal-content th, .modal-content td {
+    font-size: 1.2em; 
+    word-wrap: break-word; 
+    white-space: normal; 
+    padding: 10px; 
+}
+.modal-close {
+    position: sticky; 
+    top: -15px; 
+    right: -15px; 
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    z-index: 10; 
+}
+.modal-content table {
+    table-layout: auto; 
+    width: 100%; 
+}
+/* modal navigation buttons */
+.modal-next {
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    transform: translateY(-50%);
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-next:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-next:active {
+    background-color: #004494;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.modal-back {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-back:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-back:active {
+    background-color: #004494;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.modal-zone {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    cursor: pointer;
+    z-index: 5; 
+}
+
+.modal-left {
+    left: 0;
+    width: 30%;
+}
+
+.modal-right {
+    right: 0;
+    width: 30%;
+}
+.modal-middle {
+    left: 30%;
+    width: 40%;
+    cursor: default; 
+}
+
+/* mobile support*/
+@media (max-width: 1000px) {
+    .toggle-button,
+    .back-button,
+    .print-button,
+    .modal-close,
+    .download-button {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    .toggle-button {
+        top: 10px;
+        right: 10px;
+    }
+
+    .print-button {
+        top: 80px; 
+        right: 10px;
+    }
+
+    .download-button {
+        top: 150px;
+        right: 10px;
+    }
+
+
+    .toggle-button .icon,
+    .print-button .icon {
+        font-size: 28px;
+    }
+    p {
+        padding: 35px;
+        height: 25px;
+        font-size: 20px;
+        font-weight: 400;
+    }
+}
+
+.disabled {
+    pointer-events: none;    
+}
+
+.disabled:focus,
+.disabled:active {
+    outline: none; 
+    background-color: inherit; 
+}
