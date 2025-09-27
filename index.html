@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>HTMLTEMPLATE</title>
     <style>
@@ -8,7 +9,7 @@
             size: A4;
             margin: 3mm;
         }
-        
+
         /* Fonts */
         @font-face {
             font-family: 'MonaspaceNeon';
@@ -16,50 +17,62 @@
             font-weight: normal;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'MonaspaceNeon';
             src: url('fonts/MonaspaceNeon-Bold.woff2') format('woff2');
             font-weight: bold;
             font-style: normal;
         }
+
         @font-face {
             font-family: 'MonaspaceNeon';
             src: url('fonts/MonaspaceNeon-Italic.woff2') format('woff2');
             font-weight: normal;
             font-style: italic;
         }
-                /* dark mode */
+
+        /* dark mode */
         body.light-mode {
             background-color: white;
             color: black;
         }
+
         body.light-mode table {
             background-color: white;
-            border: 2px solid white; 
+            border: 2px solid white;
         }
-        body.light-mode th, body.light-mode td {
-            border: 2px solid white; 
+
+        body.light-mode th,
+        body.light-mode td {
+            border: 2px solid white;
         }
+
         body.dark-mode {
             background-color: #292929;
             color: white;
         }
+
         body.dark-mode table {
             background-color: #292929;
-            border: 2px solid #292929; 
+            border: 2px solid #292929;
         }
-        body.dark-mode th, body.dark-mode td {
-            border: 2px solid #292929 
+
+        body.dark-mode th,
+        body.dark-mode td {
+            border: 2px solid #292929
         }
+
         body.dark-mode table.inner {
-            border: 2px solid white; 
+            border: 2px solid white;
         }
-        body.dark-mode table.inner th, 
+
+        body.dark-mode table.inner th,
         body.dark-mode table.inner td {
-            border: 2px solid white; 
+            border: 2px solid white;
         }
-        
-                /* Formats */
+
+        /* Formats */
         h1 {
             font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
             font-weight: 900;
@@ -68,7 +81,7 @@
             font-size: 50px;
             margin: 31px;
         }
-        
+
         h2 {
             font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
             font-weight: 700;
@@ -77,7 +90,8 @@
             font-size: 35px;
             margin: 0px;
         }
-      	h3 {
+
+        h3 {
             font-family: 'MonaspaceNeon', 'Arial', 'sans-serif';
             font-weight: 700;
             height: 25px;
@@ -86,9 +100,10 @@
             margin: 6px;
         }
 
-         th, td  {
+        th,
+        td {
             padding: 5px;
-            border:  1px solid white;
+            border: 1px solid white;
             text-align: left;
             height: 14px;
             box-sizing: border-box;
@@ -96,6 +111,7 @@
             font-size: 12px;
             font-weight: 400;
         }
+
         p {
             padding: 5px;
             text-align: left;
@@ -105,83 +121,98 @@
             font-size: 12px;
             font-weight: 400;
         }
+
         /* mobile support */
         @media (max-width: 1000px) {
             h1 {
-            font-weight: 900;
-            height: 45px;
-            font-size: 35px;
-            
+                font-weight: 900;
+                height: 45px;
+                font-size: 35px;
+
+            }
+
+            p {
+                padding: 35px;
+                height: 25px;
+                font-size: 20px;
+                font-weight: 400;
+            }
         }
-        p {
-            padding: 35px;
-            height: 25px;
-            font-size: 20px;
-            font-weight: 400;
-        }
-        }
+
         table {
-          border: 0px solid white;
-          outline: none;
-          background-color: white;
-          border-collapse: collapse;
-          border-spacing: 0;
+            border: 0px solid white;
+            outline: none;
+            background-color: white;
+            border-collapse: collapse;
+            border-spacing: 0;
         }
-        table, th, td {
+
+        table,
+        th,
+        td {
             vertical-align: top;
         }
 
-      	body {
-  				 display: flex;
-          flex-direction: column;
-  				justify-content: center; 
-  				align-items: center; 
- 					margin: 7; 
-				}
-      	table.inner {
-            width: 100%;
-            border: 2px solid black; 
-            border-collapse: collapse; 
-            cursor: pointer; 
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 7;
         }
-        table.inner th, table.inner td {
+
+        table.inner {
+            width: 100%;
+            border: 2px solid black;
+            border-collapse: collapse;
+            cursor: pointer;
+        }
+
+        table.inner th,
+        table.inner td {
             border: 2px solid black;
         }
+
         body.dark-mode table.inner {
-            border: 2px solid white; 
+            border: 2px solid white;
         }
-        body.dark-mode table.inner th, 
+
+        body.dark-mode table.inner th,
         body.dark-mode table.inner td {
-            border: 2px solid white; 
+            border: 2px solid white;
         }
 
 
         .container1 {
             border: 6px solid #004080;
-          	border-radius: 7px;
+            border-radius: 7px;
             padding: 3px;
-          	
+
         }
-      	.container2 {
-            border: 6px solid #383e4f; 
-          	border-radius: 7px;
+
+        .container2 {
+            border: 6px solid #383e4f;
+            border-radius: 7px;
             padding: 3px;
-          	
+
         }
-      	.container3 {
+
+        .container3 {
             border: 6px solid #C00000;
-          	border-radius: 7px;
+            border-radius: 7px;
             padding: 3px;
-          	
+
         }
-      	.container4 {
-            border: 6px solid #a0b3e8; 
-          	border-radius: 7px;
+
+        .container4 {
+            border: 6px solid #a0b3e8;
+            border-radius: 7px;
             padding: 3px;
-          	
+
         }
+
         .toggle-button {
-            position: fixed; 
+            position: fixed;
             top: 10px;
             right: 10px;
             width: 40px;
@@ -197,30 +228,36 @@
             justify-content: center;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
+
         .toggle-button:hover {
             background-color: #0056b3;
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
+
         .toggle-button:active {
             background-color: #004494;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
+
         .toggle-button .icon {
             font-size: 20px;
         }
+
         body.light-mode .toggle-button .icon::before {
             content: '🌙';
         }
+
         body.dark-mode .toggle-button .icon::before {
             content: '☀️';
         }
+
         .page-break {
             page-break-before: always;
         }
 
         .print-button {
             position: fixed;
-            top: 60px; 
+            top: 60px;
             right: 10px;
             width: 40px;
             height: 40px;
@@ -235,51 +272,60 @@
             justify-content: center;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
+
         .print-button:hover {
             background-color: #218838;
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
+
         .print-button:active {
             background-color: #1e7e34;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
+
         .print-button .icon {
             font-size: 20px;
         }
+
         @media print {
             .print-button {
                 display: none;
             }
+
             .toggle-button {
                 display: none;
             }
+
             .page-break {
                 height: 20mm;
             }
         }
+
         .modal {
-            display: none; 
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); 
-            z-index: 1000; 
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
             justify-content: center;
             align-items: center;
         }
+
         .modal-content {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             max-width: 90%;
             max-height: 90%;
-            overflow: auto; 
+            overflow: auto;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            position: relative; 
-            line-height: 1.5; 
+            position: relative;
+            line-height: 1.5;
         }
+
         body.light-mode .modal-content {
             background-color: white;
         }
@@ -289,22 +335,29 @@
         }
 
         body.dark-mode a {
-            color: #1E90FF; 
-             text-decoration: underline; 
+            color: #1E90FF;
+            text-decoration: underline;
         }
+
         body.dark-mode a:hover {
-            color: #00BFFF; 
+            color: #00BFFF;
         }
-        .modal-content h1, .modal-content h2, .modal-content h3, .modal-content th, .modal-content td {
-            font-size: 1.2em; 
-            word-wrap: break-word; 
-            white-space: normal; 
-            padding: 10px; 
+
+        .modal-content h1,
+        .modal-content h2,
+        .modal-content h3,
+        .modal-content th,
+        .modal-content td {
+            font-size: 1.2em;
+            word-wrap: break-word;
+            white-space: normal;
+            padding: 10px;
         }
+
         .modal-close {
-            position: sticky; 
-            top: -15px; 
-            right: -15px; 
+            position: sticky;
+            top: -15px;
+            right: -15px;
             background-color: red;
             color: white;
             border: none;
@@ -316,12 +369,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
-            z-index: 10; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 10;
         }
+
         .modal-content table {
-            table-layout: auto; 
-            width: 100%; 
+            table-layout: auto;
+            width: 100%;
         }
     </style>
     <script>
@@ -336,14 +390,14 @@
                 document.body.classList.add('light-mode');
             }
 
-        // Add event listeners for table modals (if needed)
-        document.querySelectorAll('table.inner').forEach(table => {
-            table.addEventListener('click', (event) => {
-                event.stopPropagation();
-                openModal(table.outerHTML);
+            // Add event listeners for table modals (if needed)
+            document.querySelectorAll('table.inner').forEach(table => {
+                table.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    openModal(table.outerHTML);
+                });
             });
         });
-    });
         //darkmode
         function toggleMode() {
             const body = document.body;
@@ -354,15 +408,15 @@
                 localStorage.setItem('theme', 'dark-mode');
             } else {
                 localStorage.setItem('theme', 'light-mode');
-        }
+            }
         }
         //modal
         document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('table.inner').forEach(table => {
-        table.addEventListener('click', (event) => {
-            event.stopPropagation();
-            const content = table.getAttribute('data-content'); // Get unique content
-            openModal(content); // Pass content to modal
+            document.querySelectorAll('table.inner').forEach(table => {
+                table.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const content = table.getAttribute('data-content'); // Get unique content
+                    openModal(content); // Pass content to modal
                 });
             });
         });
@@ -374,10 +428,10 @@
             modal.style.display = 'flex';
 
             modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
         }
 
         function closeModal() {
@@ -385,153 +439,227 @@
             modal.style.display = 'none';
         }
     </script>
-  </head>
-  <body class="light-mode">
+</head>
+
+<body class="light-mode">
     <!--ICON-->
     <svg style="display: none;">
-      <symbol id="redshiftlogo" viewBox="0 0 1 1">
-        <image href="data:image/png;base64,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"
-
-          width="1" height="1"></image> </symbol> </svg>
+        <symbol id="redshiftlogo" viewBox="0 0 1 1">
+            <image
+                href="data:image/png;base64,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"
+                width="1" height="1"></image>
+        </symbol>
+    </svg>
     <svg style="display: none;">
-      <symbol id="airflowlogo" viewBox="0 0 1 1">
-        <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAYAAACo29JGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAALEoAACxKAXd6dE0AAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuN4vW9zkAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAACmUEAOgDAAAKZQQA6AMAAFBhaW50Lk5FVCA1LjEuNwADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAAAJW54+1ezNqwAACxRJREFUaEPNmntwVNUdxz/n3M1j84IsICCJIYoisICADKw4SKcQquKDAQGtxbaOWl/VjlW0zahTQ0VHxxZHp9qZSjtC5BG0Iq9YRZ3SFa2KslgsSniExkhIICHZ572nf+zdZHOy2d1souNn5s7s/X3P3b3fPb97zrnnHFHvKb8UWAa0ASEgCPiBduAM0AqcBk7ZRyvQVuKts/i+4vX9CKgX9Z5yD7ALyNHLaJhAh23uBFAPfAV8DuwHDpZ4677RL/rO8foWAZuAXwqAek/5DOANYKhetg+ctI2+B+wEPizx1gX0Qt8qXt9VtrFs4GYRi9d7yqcBW4Hh3a/ImP/aP7SmxFt3UBcHHK/vcuDVuAxc3mmOqMGLbINnx8f7SQfwMlBV4q07posDgtc3D3gNyIuLLpVxJ5R46/YCFcBA3kQecCvwSb2n/CZd7Dde32XAZs0YQKCbOaIG99sG63StnwwB1tR7ylfpQsZ4fZcCfwcKdAno6GGOqMEDtsEvdW0AWNFYMekPerDPeH0zbGODdMmmPaE5oga/BOYBB3StXyiFGQjc03HLFc/rUtp4fVPt1t2lSzZmUnNEDR4G5gM+XcsYITD9foKnW29XK65/UZdT4vVNBral6LaCQFtSc0QNHrUNfqprmSIMSeDESaxw+Bb1wLI1ut4rXt+ENLurDuBMt64gGfWe8uF2KlysaxmhFMOmTiK7IA+UWodguXhyvakX68TrGwu8CZTqUgIOARNT1lyMEm9dI3A58L6uZYIyTcxwGKJ/7w0o1qn7lzj0cgB4fWOA7WkaA2jC407cWvZGibeuCbgC2K1rmaDMbmPvJSA2qvuXZgO88cqGqG2vb7T9jJXHF05BA0CfzBE12GIb3AUgrADCbAbVe0b1iujxVFwL1IQfusm5YNkSNeJf+0rtGjtfL5iCw2RijqjBVjPnrGuMQN12M3so/iGzkaGjGP4+9PtCIB0GKF1ggSPYuuGZrW+6v5Zyi4AL9QJpcJBMzb389Lui7J09bRtu+/T+p36x03/XrdW8dMcBjk9/FEdbHcIKEnuYekMYBkZWlh6OoswFc4/u/xCY3NN7WnxByjtIQslWa3i9FNsRTEFF/6aREYvVe3cwq+ZKlGMoyigiUdWgFNLpZPiUCYlrzwzy9fAJjJy9LJNbbAfceNyHM6q5gm1q2CkhthYophRYUKCgyIQGKbnu4ivYunw3WE0Iq12/FABlWWQV5CONBMYAzBAHh58HMnHjmYLDwHEyScv8baoY2AJMi49bQKECacIt4y7hraVvI/2NiRsaZZEzqAhkglqxwnQMKuWFMjeojGYyPsLjDtNXcwXb1CARNTZD17ATMJ+o0+UTf8DeBS/jaD3aI7WE4SCnqKBnrSkLEKydejVr8woxlF4gLXbFPqRtrmCbKrRfCGfpWjzKrkEUPDLzOhqn3YfhP9RpUFkWjqIisvJyIf7mlQlWhNemL+XWkeeCZZKgzlPRYU9zQLrmCmpVHoLNSOYg7aviDy27FFCk4IOcbKrn3k3EORph+aOiZeIc5kIYcT9thlDCwQbPT1hYPhEsU//KdPHicR+KnaQ0N/SIyiXCJstvzo00hQgfDxA66id0zE+4IYjZHMbym2CpqEnbrAXkmbBqRBl75z2J0dYAgMjKxukabKekgnA7bUWjeOaym1l6zrhOYxklJKyNP0n6Bw05qLLP/DO40WwJX222hCGS4CeFAAOkUyILHRjFWRiFDkS2RIjoZOg17W089dJPyTu+mZzS6Qy58FyIhACFb8wcHhs/iw3Ogv4aOwZMxOM+HQsY3fUuxG9bHIEvguvNptC1qt2MmpAJDvvvUSGF1RrBPBEi0hTC6jBBCpxZks/yc5jpHM6Yj//K4AvdGFnQNHQsf5u+mCvPn8p+RzaGsjI1FeP3eNxvxwd6T0uhXlIBa2G0g05awVEEYAgwBCqkiDQECew7Q8e+NvhfhDV5w9g4dDJ1rtG8PnM582f/mNtHjAalEMrKpPGI53PgOT2Y0JyobH4AuFGPp03MqATrlIL/dHDmg7fZ1HiKa0tncs25E/nYMJBW1FI/a8wC7sTj7jFi6JGWorLZDawDMhoedGIJiBiIkSdRl/wDY9IucoqH0TT354Tzi8A0MU0z2h30fDvoC3fgcW/SgyQ0N3vFc8AkPd4nwgbkB5AzdiOn/hmjeA/NwQjHcxsJF88gb/Bosp25ZOfkIKTEsiyUFTcaSWbWbmWFYWAYxn1qxvhn9SIxun2LqGyeAnyYyHRaKAERiRhzBDllIxT+G6xCMCWRQ6cg2I50TqJofCXC4YzeJGBZFmYoRDgYJBIKYUYiUbP6CEUIpGGQ7XSSlZPzYNsFI5/oXqA7urlngbviY2ljCRAKOX0P4oI1IINgOUEI1Okg5rHWaMNkNpJb+jB5JfNQVqTreiGi3YBSKMvCMk0s0+ysUSEl0jCQDgfSMB5uLh38WNfFiek0Jyqbi+wpvHTnKbqwJDgiyNnbEKWvgFUAyq58AeaxNtTpYNScioDMp2jckxj5ZyceWNOVmrEb7KxDpX7XUuZ6JHaajPjW0pORMSXAMJFzXkeUrgOzqJsxFbJQ7eGu7kQ4wPyGjqOvoMxg78+XUqBUtCbtzyi1Kl1jaObmx31OH1MgPe8iRm0As1jLdIHqCENEe3WRg4icfg3/8Vq7fC8Gu/N0S5nrIT2YjHhzSUf7CYkYiDFHEOVrwUw0Za9QZ8J6MIpxFsGG1QQb30fIlO3X6pYy16/1YCok0edtFDBWF1NiWIix74IIJR4PmArlD/eSegJkAR1HHifQuAek0Us5/tRS5rpHD6ZD7I7GJlktSYwlIC+AKPwKVILldAEqbEHYSpJ1DsCg4/Cj+I/tRJlhhHSAkLZZ+UJLmet2/ap0iZkbr8VTIxT4c1DtoxsQcU16VwEI2a9CyRAOEE4Cxx+n7cAzBJv2Yvq/IdS0r+HUJ7/6jV68L8TMjdPiqRGAKf9C+wg3KnubLgMovSHpFQlyGGb7e7R/eR+tvrtp/+qBkSp8uJrNCwr10ukSM3eeFk+HterxwTebFdc3KzNvsT1p1B0zRa3piHyQxdHlNZEPIqsCFXqdmoq+PTI2UlQ2O4BRupCC9URYHjsx3Wv8KBbbuwm60IdPadNt7mIOsJWaiuLuZVIjgUJ7vTpdXgVuVKtc3XIuMqE6hCWWAOs7g/HzJP1jFrCdmophupAMabeSRbrQC1uUUstUlStRC0LEvS5iwg2xuQyRNWDmsKcTt1NTkWrhsRMJDAacupCAHSiWsHJISBfiUeOrrcj46htBrRG5DnAMqMFpQC01FWntk4nVXKo7eAtYpFa60t7uFBlX/TOy5YuiICt1d9A3JtkGz9EFnZi5ZLwDLFRVrg5dSEVkXPVtIj/7+QGuPYAJtsGkC5IyxfO2G8VCVeVq04V0sS7ZfCeG+KMeHwCia+Q1Fb0uTMpedt8AfABcpVa6TulCn7l6x73ASj08AJwH7KSmIuECpUywZwrgI2CBqnK16ELGLKqtBJbGlpcGkHI7RSfogkzQUn5mGzuhxfvPotoNwBTgCXt/5kBRaqfoRfFBqe2Q3Q9crqpcX8fFBpZFtSdYVPsg4Abutbd+JO1e0mQksIOais59MkJUNq8CVtjryPNVletI92u+A2oqxtvDrDnAZOAcIFcvliYngQUsqn1fiMrm1cBiYJaqcvVhO8K3RE1Frp1m59st4higDBhhDxML7XYiJ0n/HABmCFHZPA4IqipX57rW95KNPxRII89u3eOPfLvdyLUNZ9mft/wfqMXu686v8oEAAAAASUVORK5CYII="
-
-          width="1" height="1"></image> </symbol> </svg>
-    <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode">
-      <span class="icon"></span> </button>
+        <symbol id="airflowlogo" viewBox="0 0 1 1">
+            <image
+                href="data:image/png;base64,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"
+                width="1" height="1"></image>
+        </symbol>
+    </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+            class="icon"></span> </button>
     <!-- Modal Structure -->
     <div id="modal" class="modal">
-      <div class="modal-content"> <button class="modal-close" onclick="closeModal()"
-
-          title="close modal">×</button>
-        <div id="modal-table-container"></div>
-      </div>
+        <div class="modal-content"> <button class="modal-close" onclick="closeModal()" title="close modal">×</button>
+        </div>
     </div>
     <!--HEADER h1-->
     <h1>DOEMSDAGDING's CheatSheets </h1>
     <h2>TOPICS:</h2>
     <!-- page 1 -->
     <table style="width: 300px; height: 998px;">
-      <tbody>
-        <tr>
-          <td style="width: 300px;">
-            <!-- single row -->
-            <table width="300">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell a1 -->
-                    <div class="container3">
-                      <table class="inner" data-content="&lt;table class='inner'&gt;&lt;tr&gt;&lt;td&gt; &lt;h3&gt;Airflow &lt;/h3&gt; 
-                           &lt;a href = 'Airflow/Airflow' &gt; Chapter 1: &lt;u&gt;AIRFLOW– INTRODUCTION &lt;/u&gt; &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
+        <tbody>
+            <tr>
+                <td style="width: 300px;">
+                    <!-- single row -->
+                    <table width="300">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex; justify-content: left; align-items: center; position: relative;">
-                                <div style="text-align: start;">
-                                  <h3><u>AIRFLOW</u></h3>
-                                </div>
-                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                  <svg width="50" height="50">
-                                    <use href="#airflowlogo"></use> </svg> </div>
-                              </div>
-                            </td>
-                          </tr>
+                            <tr>
+                                <th>
+                                    <!--cell a1 -->
+                                    <div class="container3">
+                                        <table class="inner" data-content="&lt;table
+                        class='inner'&gt;&lt;tr&gt;&lt;td&gt;
+                        &lt;h3&gt;Airflow &lt;/h3&gt; &lt;a href =
+                        'Airflow/Airflow' &gt; Chapter 1:
+                        &lt;u&gt;AIRFLOW– INTRODUCTION &lt;/u&gt;
+                        &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
+                                justify-content: left; align-items:
+                                center; position: relative;">
+                                                            <div style="text-align: start;">
+                                                                <h3><u>AIRFLOW</u></h3>
+                                                            </div>
+                                                            <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                                                <svg width="50" height="50">
+                                                                    <use href="#airflowlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <!--cell a2 -->
+                                    <div class="container1">
+                                        <table class="inner" data-content="&lt;table
+                        class='inner'&gt;&lt;tr&gt;&lt;td&gt;
+                        &lt;h3&gt;Redshift &lt;/h3&gt; &lt;a href =
+                        'Redshift/Redshift' &gt; Chapter 1:
+                        &lt;u&gt;REDSHIFT – INTRODUCTION &lt;/u&gt;
+                        &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
+                                justify-content: left; align-items:
+                                center; position: relative;">
+                                                            <div style="text-align: start;">
+                                                                <h3><u>Redshift</u></h3>
+                                                            </div>
+                                                            <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                                                <svg width="50" height="50">
+                                                                    <use href="#redshiftlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <!--cell a3 -->
+                                    <div class="container2">
+                                        <table class="inner" data-content="&lt;table
+                        class='inner'&gt;&lt;tr&gt;&lt;td&gt;
+                        &lt;h3&gt;Linux &lt;/h3&gt; &lt;a href =
+                        '../Linuxnotes\archnotes' &gt; Linux:
+                        &lt;u&gt;Arch &lt;/u&gt;
+                        &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
+                                justify-content: left; align-items:
+                                center; position: relative;">
+                                                            <div style="text-align: start;">
+                                                                <h3><u>Linux</u></h3>
+                                                            </div>
+                                                            <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                                                <svg width="50" height="50">
+                                                                    <use href="#linuxlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <!--cell a4 -->
+                                    <div class="container4">
+                                        <table class="inner"
+                                            data-content="&lt;table
+                        class='inner'&gt;&lt;tr&gt;&lt;td&gt;
+                        &lt;h3&gt;AI &lt;/h3&gt; &lt;a href =
+                        '../ai\prompt_engineering' &gt; AI:
+                        &lt;u&gt;prompt engineering &lt;/u&gt;
+                        &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;a href = 'ai/langraph.html' &gt; AI:&lt;u&gt;Langraph &lt;/u&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
+                                justify-content: left; align-items:
+                                center; position: relative;">
+                                                            <div style="text-align: start;">
+                                                                <h3><u>Ai</u><br>
+                                                                </h3>
+                                                            </div>
+                                                            <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                                                <svg width="50" height="50">
+                                                                    <use href="#ailogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--cell a5 -->
+                                    <div class="container2">
+                                        <table class="inner" data-content="&lt;table
+                        class='inner'&gt;&lt;tr&gt;&lt;td&gt;
+                        &lt;h3&gt;Notes Template &lt;/h3&gt; Keep your
+                        own notes using my html template &lt;/br&gt;
+                        &lt;a href = 'Template/HTMLTEMPLATE' &gt;
+                        Chapter 1: &lt;u&gt;TEMPLATE&lt;/u&gt;
+                        &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
+                                justify-content: left; align-items:
+                                center; position: relative;">
+                                                            <div style="text-align: start;">
+                                                                <h3><u>Notes Template</u></h3>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <!--cell a2 -->
-                    <div class="container1">
-                      <table class="inner" data-content="&lt;table class='inner'&gt;&lt;tr&gt;&lt;td&gt; &lt;h3&gt;Redshift &lt;/h3&gt; 
-                           &lt;a href = 'Redshift/Redshift' &gt; Chapter 1: &lt;u&gt;REDSHIFT – INTRODUCTION &lt;/u&gt; &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex; justify-content: left; align-items: center; position: relative;">
-                                <div style="text-align: start;">
-                                  <h3><u>Redshift</u></h3>
-                                </div>
-                                <div style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                  <svg width="50" height="50">
-                                    <use href="#redshiftlogo"></use> </svg> </div>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell a3 -->
-                    <div class="container4">
-                      <table class="inner" data-content="&lt;table class='inner'&gt;&lt;tr&gt;&lt;td&gt; &lt;h3&gt;Other Notes &lt;/h3&gt;
-                            Find my notes for other stuff e.g. linux &lt;/br&gt;                            &lt;a href = 'Other\otherindex.html' &gt; Other notes &lt;u&gt;&lt;/u&gt; &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex; justify-content: left; align-items: center; position: relative;">
-                                <div style="text-align: start;">
-                                  <h3><u>Other Notes</u></h3>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell a4 -->
-                    <div class="container2">
-                      <table class="inner" data-content="&lt;table class='inner'&gt;&lt;tr&gt;&lt;td&gt; &lt;h3&gt;Notes Template &lt;/h3&gt; 
-                            Keep your own notes using my html template &lt;/br&gt;                            &lt;a href = 'Template/HTMLTEMPLATE' &gt; Chapter 1: &lt;u&gt;TEMPLATE&lt;/u&gt; &lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex; justify-content: left; align-items: center; position: relative;">
-                                <div style="text-align: start;">
-                                  <h3><u>Notes Template</u></h3>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <footer style="text-align: center; margin-top: 20px;">
-      <p style="text-align: center;"> This website is a collection of my
-        personal study notes, created to help me and others learn and organize
-        information effectively. Feel free to <strong>download</strong>, <strong>print</strong>,
-        or <strong>use</strong> any of the notes for your own purposes. </p>
-      <p style="text-align: center;"> <br>
-        Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE"
-
-          style="color: #1E90FF; text-decoration: underline;">Notes Template</a>!
-      </p>
-      <p style="text-align: center;"> Interested in forking this website? Visit
-        my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank"
-
-          style="color: #1E90FF; text-decoration: underline;">GitHub Repository</a>
-        to get the full source code. </p>
-      <p style="text-align: center;"> Happy learning and dont forget to share,
-        follow and star the repository! -DoemsDagDing </p>
+        <p style="text-align: center;"> This website is a collection of my
+            personal study notes, created to help me and others learn and
+            organize information effectively. Feel free to <strong>download</strong>,
+            <strong>print</strong>, or <strong>use</strong> any of the
+            notes for your own purposes.
+        </p>
+        <p style="text-align: center;"> <br>
+            Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+          text-decoration: underline;">Notes Template</a>! </p>
+        <p style="text-align: center;"> Interested in forking this
+            website? Visit my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank" style="color: #1E90FF; text-decoration:
+          underline;">GitHub Repository</a> to get the full source code.
+        </p>
+        <p style="text-align: center;"> Happy learning and dont forget to
+            share, follow and star the repository! -DoemsDagDing </p>
     </footer>
-  </body>
+</body>
+
 </html>
