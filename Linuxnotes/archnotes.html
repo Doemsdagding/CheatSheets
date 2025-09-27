@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Arch Linux</title>
     <link rel="stylesheet" href="../stylesheet.css">
@@ -9,420 +10,430 @@
         /* Containers */
         .container1 {
             border: 6px solid #33a6f9;
-              border-radius: 7px;
+            border-radius: 7px;
             padding: 3px;
 
         }
-          .container2 {
+
+        .container2 {
             border: 6px solid #2b00ff;
-              border-radius: 7px;
+            border-radius: 7px;
             padding: 3px;
 
         }
-          .container3 {
+
+        .container3 {
             border: 6px solid #33519c;
-              border-radius: 7px;
+            border-radius: 7px;
             padding: 3px;
 
         }
-          .container4 {
-            border: 6px solid #00B0F0; 
-              border-radius: 7px;
+
+        .container4 {
+            border: 6px solid #00B0F0;
+            border-radius: 7px;
             padding: 3px;
 
         }
     </style>
-  </head>
-  <body class="light-mode">
-    <!-- Back Button --> <button class="back-button" onclick="window.location.href='../other/otherindex'"
+</head>
 
-      title="Back to Home page"> × </button>
+<body class="light-mode">
+    <!-- Back Button --> <button class="back-button" onclick="window.location.href='../other/otherindex.html'"
+        title="Back to Home page"> × </button>
     <!--ICON-->
     <svg style="display: none;">
-      <symbol id="headerimg" viewBox="0 0 1 1">
-        <image href="data:image/png;base64,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"
-
-          width="1" height="1"></image> </symbol> </svg>
+        <symbol id="headerimg" viewBox="0 0 1 1">
+            <image
+                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAYAAACo29JGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuN4vW9zkAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAYAAAAAEAAABgAAAAAQAAAFBhaW50Lk5FVCA1LjEuNwADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAAAlR56NozS1xQAAC/FJREFUaEPNmmlwHMUVx3/ds5e0klYryVrr8IUsGyFsy5wmBBtzhctc5jCBpIorweWYkEBSKYgx5aRSKSqQpGwq+ULyIamEEI5gEiqBFIWLooojNlYODBiDiS3rsCVZsq69pvNhundnZ3d1rB3g/2V3+r3ufv9+3e/19LRgEsS2dgKgUAgECoWlLGxhe1XdiAKLgTOADqAVaATqgQqtMwL0AYeAfcAuYCfwHoJBlKdFDYkgjY1AgILee5Z5VXIgvAUA/Gw3MUtAWoHlVREOXaUQIiOr1mSuAC4G2gCZW29K2MAe4GXgReBt4CiuwS0EM9CHv7HcKypSQ8N4LgOl0IzM2MaAq4CbgZWAlVsBNVUfRXTSwGvA74HngV5dnu17pp6Lbe00BJyCgp4D27allPJWYD2wwiUypPMqWcChtCNutARpr4KDQvXfAH6hlPqtEPnrwXhOKolfSVLY9GjSOVOnd+MyTUz3IbN9qOxCaJVSPgk84SLmNiqPmNTE7qwPcWd9iENpVWzOuuubNlcATwghngQWASiVXZQyJZBKglIkSaNcvef3oVyzxKWo5/zVek3cAPiy0nxCbkiApM0ty2r5yvI6SKrJKzhwq/h0ny8DV7vWepaBEPixEK5glNHKW185EID6NvBjwO+VTgYJdKcVq8M+nl7XiiUFt/5hL38eStLoKzo9J0MK+B6IRzPOLbRqDe/Y1t2Ohu2iraHstAC1BXh0psQwESZhc0trFTUVASLlfm4+OQIJu5A904EP+AmoLeNHhp0S4ZrEevIJlTMtRc4aAycwCmk9BGzSRfnsJ4EADtoKgpJzWiKZ8rMXRFhU6aOr+NqbDMaGTWV1VZszM9S9hAQokUPO8Zx0RUel1Abg4azCzAbbeO2BuWHm1ZVnyptry7nrpIpSvef208NKscEIpJQopZywkRtQHM/Z6Uy8uQR4RP+fMTEB9Csn4q5eGCEcysafoF+ysqUagpJD9rSCixdugo9oW7FtWwghMplMk8twNJUagG1AeSnE0BUmUjbrZgVpb6r0ilncWMG9jWWQKokcLlvLta0NXls1q8xSUpr2j/SekFKIAcSVs6H60vxKGqIhr5hIuZ+LWiIgBYMzWsk5MLa1aptxk3HIuXObUlcB64xCqRiwFauqfJy7sNoryuCMkyKsjfqZ0DuX48Q6vRXMMHbIZXclYeAeIH+oZwpbsTJWRsts8yKQj1gkxHWtEbBd+5/SEQI2AmHTlstzAKwBzjcPpULgBJI9RxO836VzURGsbqtlRYWPvgI5tgScD1xpHlyeowy4qcDOfkaQQE9K8dCCCu47J8ZvdvbR+cmQVy2DhmiIr7dVQ1Ll7OdKhA+4CeXMPHcOXQZc4HouCWmcmXDd0jpWtNawcWUz7/WMsmv/UdcEycXF7bW0l1t0lZYWvLgQQQcechcBVa7nGcMH9CVsHlhQQVuzE/4boiFuOKuBaLmfAwPjBQk21ZRx/6lRiNsnwntVmkuGXLlJhO5QOhMIYEAH3bXL6gj4suMmhWBBfZjmmlDRxi9sq+GsKj8HU+p41oVp/hKg3FgwX593UGpes4DxeJrNCytpK5C00SQ929cMmmrL2NBeDUmbvDfS6cO03gHMN+Q6gMIWTQMC6LIVBCRr2msoC8x87KUQrFwU5YJogJ7j8x6aS4chd7r+LTZrpkZSseWkSk5pLn3ZzpsV5quLI5BWTHiF04fhcJoh1+YSzggC6LEVs0OSy9qiJXnNQAhYtTjKJdV+Bkrfcxq0GXLN+nfG7dkAKcX6uWGWzMu+s5WK+fVh1rVWga1IeoXTg+HQbMjVu4QzwoCCkF9y1ZI6gq4I6YWtYHAkwcBIArtQPnDh4vY6zqv00X98u5Z6Y03UI5gWLCCVtNnUUsGSucXX2ngizfadPdzx9Ifc/vSHPPNWN6PxlFctg+baMr52SvR4dy1RQy7gEUwJAYwqwC+5fnk9VpEYrxS82NnHta9089xAgucHEtz4ai/P7ewlPYlnLllSx6qIny67pKMIgICpl/AIpoQPGErYbGuPsKih+M5//+FRHtnVD37BnKBkTlBCUHL/O/3s7R7xqmdQXxXk3uW1kLBLJZcw9QY8gkkhgYNpxbKwxZqls7ziHPzzwDHeGkoy2y9JKEgoaPIJekfSvL1/qNCBWwYrF9dwU32IrqRdSt4bNOQOewRTI2HznaU1zHEd/HgRT9r8u2cMZIFXDZ/g7UNjjHnWntLBB6CmIsCdy+ucvKdmHMr7DLmD+neScXRgAd1Jmyvqgpx/cs2kHcZTaT4eToIUOQ3bOOTeHU4yFvccyyroG47zQfcIR8eSdMyP8K35FQwkp31SZro6aMjtcQmLQgAjyrHutlOjNNWUeVVykEorjibsPHIKp7GuhE0ilbuTFAJmR4KUBSxeebefN/cN0lITAJ9gbMqhz8EeQ26n/p10cAQwnLK5NRbii4umzh5+S1DpF6BydxsCh2GFFPgKfEUCmFNbxpUd9YR8ktcPjUPa2W8W1s6BUdllyO0GjrkUCmJIOUO7rj1KLDL1MYuQglkhS89DDxQ0B2VRcgABn+TCU2fx8AVNrG8sYyA17TeGY8BuC6Di8vWj+gVvnp41BXs8mlbcEQtx17mNhPx5IQJ0wt7XM8qO9wfY3nmEHX0THEARdn+ZAWwhULZiuH+cgaE4QkFFyIffyg/8tZVBzpxTyUjvKDuGU1QUyaku298EtgmyX3i+D/zAq21gA4eTNq9e2syqtjqvmO7BCd7YN8iLe4d5rj9Of9IGIQhbgiqR7zyhk+tASoFSVPsla2uDXL6wihULozQWOOt8e98gZ73wX2p9Yqqdyybgh8Zz6L5uBIJeTR/Qk7T55pxybju3CZ8euVRa8VHfKE++1c3GHd1s+/AYu8bTIARVlqBSCoLOt/mCsICwFAQtQVzBWyMpnvp4hBffH4ThCaJlPqrKfZndT6w6RLpvhJf641RbIm/ANIaBLcBBt+fKgN8B17g1BTCuYCil6Fw7n6VzIyTTio96R/jrf/q5971hiKcJBC3qtIeKkZkKQm8QBhRMxG0ISn56chWXnlJLy+wwfkuyp+sYpzz9EWEpqCw8cH/S3+gnLIDwZesRApNNr3UfHFnAkbjN4x1RLl1Wz/6+MZ7d2cPdr/Xy5IExsATNfkmwwNQrBQooE1DtEwwrxd+6xtm+b4jKsQQ15T5aYmGa4gmePTBKlU96yaW01zqVidCur6phzfwi9Ej22IqzQxY//EKMwdEkv/zXIK8MJiAgadYf7k8EqUIQekkcTCtI2KyOBrh7SZS6igAPvt7DGxNpZufm0L+juAbBqKlP/dbd7nsea4CngJAABhWcFpQ0BiXPDCZBKWJ+ifw/kvLC9NWbcmhcF/XTE7fZGbeJZqfmhI4ZL6DfRryec0oUvwJuM48p4EhaUaHn+adFygsJHFMwYitqLYE/d33/Grjdq+9OasbHDwIf4FRWFhCzBOHPkBjae2Hh2OLTtmnRB9pm3HQkuexNEuzWX0zGMr78/MHYOqZt7fbamrMdSGETUNKccLwEfFeLPm8EDTG0jS8BYEmFTeZCUIacAiwkcZF9tRBCPA5sNo+fE4JuYpsF4vGMJG2DJBMcJeZalIZT7HBQStHbvW+Lzh1Z8WcLY8OWxMDwlkKfLQ2fjOf6Ni6jL0MyyyHW0AKIzcB9UOpR4glFErhPwOZAjT5xy+cH3jUHOLdT8qAAHgOuBz7xSj9FfKLvgD2Ww0ebPCzS2C6m+eRccN+O0wep2/Vl0T/q9JdRdf0/UXC3mdJ9Xgw873zk02Jjo1JUqlw6eeR671ma+S+Vk9WUE1xM8V5bqXXAHfouJK557Oq1JLjrmzbfAG5Xyl4H7HUk2dklrOx7pVBweKP5EjdFgJj9810oaeWEJ0/UjOnt2peB8zzXFDHj4inzopDO1DdlTYF0/NOzYYm7mNjWzrxGC6K+kKJy3aiFCHAmcLn+qnlyCRcHbNcd578A/8jccTZd5VHLjfRuTJscmSvC2uQiezDdt7mdfjqw3HU7fZbrA+cxfVZ6CPgQeEeTeR8Y9DSbhdQ+FQ6p2NbOouRmbd3N/wAVEgZQNN8b2QAAAABJRU5ErkJggg=="
+                width="1" height="1"></image>
+        </symbol>
+    </svg>
     <svg style="display: none;">
-      <symbol id="archlogo" viewBox="0 0 1 1">
-        <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuN4vW9zkAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAYAAAAAEAAABgAAAAAQAAAFBhaW50Lk5FVCA1LjEuNwADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAAAlR56NozS1xQAABX1JREFUWEe1mG1sU1UYx3/ntl23dlu7dlvLpkNgU9628ar4siCZmaJmkpiQIHFAIkZQyFziBxPBRBLxk5LMSGJMIBFfYtQ4PkggQoBE+GLUARHNWIhu0HWbe2HdurW99/ih93bt7e1Wo/ySJXfPc889//s8T895zhWYCHR2m03p1ALNwEagHqgCPLpvHAgBV4HzwDmgxzQ+iYTw/sYMk0j/x0qEQCCRLcBeXUTxrA8iMnldLEC/NIgAZ4GjAnFamr1AeN+smJSQQOevZl0Ay4D3gFazA2BawhJHckxvXFKYNTzFSeBN4LcMq5SE968CY2arSAC7gPcBr9mBPnAgpnHioQoUBV64PESwQLF47xTjwOvAMbMjvK8RkUPEO8ABszGdiIRJ4K9ttdhsgjWf9TAmwZs7KgaHgINmo2I25CNCAJMJjbdqXFT7XVSVFdG+uJiZuGb5QBMH9DkyMI/bNZ8IAJVk5T+z3IeiR+DpFX4QMDNHbtI4oM+VIl3Icr0m5kQAQ6pkW4WT+prSlH1pdQn7ql2MqDK75K35QJ8TDCEiOfRwrsLMIiFpa/DhdtpTpgK7wtYGP6gSLePmnHiAw4ZoBTDWCcufqJmYBGyCuJqdgzWLvLQFChnMPyqtElpIS83eTL81CjAS0/hyQwU1/iJ+/ONv4onZ93c5bbSt8kM8W+Qc7EV/trFsz0tIkzxcYqd5hZ/GhR5W3lvK6GQcmTbvhroytgWcDFhELAfNQK1iXrZzYSOZl/YGH+UlTgA8LgeVHiciLQ9up52XVpdDXGb9JHNQDDQr+gY2L7c1yUaPneYV5WZXFhvqfLwYLCSUf61sVIAGs9WMAhCXtK/24y8pMLuzcDlt7F5bDom801OvAAvMVjMhVdLqK2DT8uxoxBMasbSCNVhfW8Yr1UUMJPKKSpWS1k9YIkiuG6+uLcfjcmT4boYn6fj2Bu3f9NATimT4Ch02dq6tAC2vdcUzZz0JYECV7AwW8tgDvgxfNKby7rl+Puyb4mh/lLd/6CMynci4Z81iL2/c52Ywj6go+vZsiQqgSnavq8CVtooC3BiI8EkoStCpsMCp8MXgDNf7J1J+CThsCjvWB4B596BxRW/vshDAUFyjY6Gb9UvKzG76R6ZTLZkxx83haMqvapL+kShet4NDdSWMzr2u3FaAK2YreveFEOxYV4nDnp1Bq8cmtFmrXRFUljoZnogxEdNAm3NduaoAF8xWBRiLaxy+v5T6muxavhONMx5NZO7dCkzMqNyZiqdMBXaFxoUeXmuqYk91EaHctXJBBDq7a4Ff0lfXEQluAT9vXcKiSjcAkekE1/rucL5njFO3prgYVQkqIhUZAQxIaCpU2Fzt4vFaL/U1pRQXJmurb3iKTV/10pvQCBhNTJIIsNpoFb8DnkOPRmhG4/iD5exouoexyRgXfx/h02ujfD08k7zBJqhU9OYhDQkMahJUCRo8X15A20ofTUt9lLkL+PzSLbZfHiLozOhtu4AthpAW4DRAWJM8W+LgyOYaegenOPLTEKdG42AXLLAlI2BVH+kI/S+kSkhInvI6aF9XQV3QTcf3f9I1EU+PypPAGV2IAGQX0BrWJNt9Ttx2wce3ouAQGSn4twhgQJMQl7xcVcSUKjkxMmMI6RKCLVKS0cUvAy4p4A1LiaZBwGYO/n8jrEqEAkEh0GAMeAS4jqlnvQ50aECFEP+7CEi+WGVSBECHIQKLLv6Yfu642xwyH7QUi+I7eJfFWB6wBLmPnDv1lj+/zn5+xvR0WB45FePCguPAo/oB+r9yUi/MTBFSpubOqMhAZzfSbBSApAXYAzyRT3+rY3yW+EjAmcz0J2ex/CxhUNnZnW2cJZ8PNVf0/esscMM0PoU5C/8AWIXQ06NJsbEAAAAASUVORK5CYII="
-
-          width="1" height="1"></image> </symbol> </svg>
+        <symbol id="archlogo" viewBox="0 0 1 1">
+            <image
+                href="data:image/png;base64,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"
+                width="1" height="1"></image>
+        </symbol>
+    </svg>
     <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode">
-      <span class="icon"></span> </button>
-    <!--PRINT BUTTON--> <button class="print-button" onclick="if (document.body.classList.contains('dark-mode')) toggleMode(); window.print();"
-
-      title="Print this page"> <span class="icon">🖨️</span> </button>
+        <span class="icon"></span> </button>
+    <!--PRINT BUTTON--> <button class="print-button"
+        onclick="if (document.body.classList.contains('dark-mode')) toggleMode(); window.print();"
+        title="Print this page"> <span class="icon">🖨️</span> </button>
     <!-- Modal Structure -->
     <div id="modal" class="modal">
-      <div class="modal-content"> <button class="modal-close" onclick="closeModal()"
-
-          title="close modal">×</button>
-        <div id="modal-table-container"></div>
-        <!--next and back buttons--> <button class="modal-back" onclick="previousModal()"
-
-          title="previous modal">&lt;</button> <button class="modal-next" onclick="nextModal()"
-
-          title="next modal">&gt;</button>
-        <div class="modal-zone modal-left" onclick="previousModal()"></div>
-        <div class="modal-zone modal-middle"></div>
-        <div class="modal-zone modal-right" onclick="nextModal()"></div>
-      </div>
+        <div class="modal-content"> <button class="modal-close" onclick="closeModal()" title="close modal">×</button>
+            <div id="modal-table-container"></div>
+            <!--next and back buttons--> <button class="modal-back" onclick="previousModal()"
+                title="previous modal">&lt;</button> <button class="modal-next" onclick="nextModal()"
+                title="next modal">&gt;</button>
+            <div class="modal-zone modal-left" onclick="previousModal()"></div>
+            <div class="modal-zone modal-middle"></div>
+            <div class="modal-zone modal-right" onclick="nextModal()"></div>
+        </div>
     </div>
     <!-- Swipe Hint -->
-    <div id="swipe-hint" style="display: none;  position: fixed;  bottom: 30px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px; border-radius: 10px; font-size: 30px; z-index: 2000; text-align: center; justify-content: center; align-items: center;">
-      Swipe left or right to navigate </div>
+    <div id="swipe-hint"
+        style="display: none;  position: fixed;  bottom: 30px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px; border-radius: 10px; font-size: 30px; z-index: 2000; text-align: center; justify-content: center; align-items: center;">
+        Swipe left or right to navigate </div>
     <!--HEADER h1-->
     <h1>LINUX – ARCH
-      <svg width="55" height="55">
-        <use href="#headerimg"></use> </svg> </h1>
+        <svg width="55" height="55">
+            <use href="#headerimg"></use>
+        </svg>
+    </h1>
     <!-- page 1 -->
     <table style="width: 765px; height: 898px;">
-      <tbody>
-        <tr>
-          <td style="width: 375px; padding-right: 0px;">
-            <!-- left side -->
-            <table style="width: 375px; height: 839px;">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell a1 -->
-                    <div class="container2">
-                      <table class="inner">
+        <tbody>
+            <tr>
+                <td style="width: 375px; padding-right: 0px;">
+                    <!-- left side -->
+                    <table style="width: 375px; height: 839px;">
                         <tbody>
-                          <tr>
-                            <td colspan="2">
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell a1 -->
+                                    <div class="container2">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Update</h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Update</h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#archlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                          </tr>
-                          <tr>
-                            <td>
-                              <h3> Description</h3>
-                              <h3> </h3>
-                            </td>
-                            <td>
-                              <h3>Command</h3>
-                              <h3> </h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Update system<br>
-                            </td>
-                            <td>sudo pacman -Syu<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Update AUR packages + repo<br>
-                            </td>
-                            <td>yay -Syu<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><br>
-                            </td>
-                            <td><br>
-                            </td>
-                          </tr>
-                          <tr>
-                          </tr>
-                          <tr>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell a2 -->
-                    <div class="container1">
-                      <table class="inner" width="345" height="140">
-                        <tbody>
-                          <tr>
-                            <td colspan="2">
-                              <div style="display: flex;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#archlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h3> Description</h3>
+                                                        <h3> </h3>
+                                                    </td>
+                                                    <td>
+                                                        <h3>Command</h3>
+                                                        <h3> </h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Update system<br>
+                                                    </td>
+                                                    <td>sudo pacman -Syu<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Update AUR packages + repo<br>
+                                                    </td>
+                                                    <td>yay -Syu<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><br>
+                                                    </td>
+                                                    <td><br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--cell a2 -->
+                                    <div class="container1">
+                                        <table class="inner" width="345" height="140">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Installed packages<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Installed packages<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#archlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <h3><span style="color: #999999;"></span>Description</h3>
-                            </td>
-                            <td>
-                              <h3>Command</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>list installed packages<br>
-                            </td>
-                            <td>pacman -Q<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">show package info</td>
-                            <td valign="top">pacman -Qi
-                              &lt;package_name&gt;</td>
-                          </tr>
-                          <tr>
-                            <td valign="top">list orphaned packages<br>
-                            </td>
-                            <td valign="top">pacman -Qdt<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><br>
-                            </td>
-                            <td><br>
-                            </td>
-                          </tr>
-                          <tr>
-                          </tr>
-                          <tr>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell a3 -->
-                    <div class="container4">
-                      <table class="inner">
-                        <tbody>
-                          <tr>
-                            <td rowspan="1" colspan="2">
-                              <div style="display: flex;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#archlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h3><span style="color: #999999;"></span>Description</h3>
+                                                    </td>
+                                                    <td>
+                                                        <h3>Command</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>list installed packages<br>
+                                                    </td>
+                                                    <td>pacman -Q<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">show package info</td>
+                                                    <td valign="top">pacman -Qi
+                                                        &lt;package_name&gt;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">list orphaned packages<br>
+                                                    </td>
+                                                    <td valign="top">pacman -Qdt<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><br>
+                                                    </td>
+                                                    <td><br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--cell a3 -->
+                                    <div class="container4">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td rowspan="1" colspan="2">
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Log<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Log<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#archlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <h3>Description</h3>
-                              <h3> </h3>
-                            </td>
-                            <td valign="top">
-                              <h3>Command</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td> view pacman log<br>
-                            </td>
-                            <td valign="top">less /var/log/pacman.log<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#archlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h3>Description</h3>
+                                                        <h3> </h3>
+                                                    </td>
+                                                    <td valign="top">
+                                                        <h3>Command</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> view pacman log<br>
+                                                    </td>
+                                                    <td valign="top">less /var/log/pacman.log<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><br>
+                                                    </td>
+                                                    <td valign="top"><br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td style="width: 199px; padding-left: 0px;">
-            <!-- right side -->
-            <table none="" style="width: 316px; height: 839px;">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell b1 -->
-                    <div class="container3">
-                      <table class="inner" style="width: 357px; height:
+                    </table>
+                </td>
+                <td style="width: 199px; padding-left: 0px;">
+                    <!-- right side -->
+                    <table none="" style="width: 316px; height: 839px;">
+                        <tbody>
+                            <tr>
+                                <th>
+                                    <!--cell b1 -->
+                                    <div class="container3">
+                                        <table class="inner" style="width: 357px; height:
                         684px;">
-                        <tbody>
-                          <tr>
-                            <td style="text-align: center;" colspan="2">
-                              <div style="display: flex;
+                                            <tbody>
+                                                <tr>
+                                                    <td style="text-align: center;" colspan="2">
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>(un)install<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>(un)install<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#archlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <h3> Description</h3>
-                              <h3> </h3>
-                            </td>
-                            <td>
-                              <h3>Command<br>
-                              </h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>install package<br>
-                            </td>
-                            <td>sudo pacman -S &lt;package_name&gt;<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>search if package exists<br>
-                            </td>
-                            <td>pacman -Ss &lt;search&gt;<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>uninstall package<br>
-                            </td>
-                            <td>sudo pacman -R &lt;package_name&gt;<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>remove cache of uninstalled packages<br>
-                            </td>
-                            <td>sudo pacman -Sc<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>remove orphaned packages<br>
-                            </td>
-                            <td>sudo pacman -Rns $(pacman -Qdtq)<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>install AUR package<br>
-                            </td>
-                            <td>yay -S &lt;package_name&gt;<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>uninstall AUR package<br>
-                            </td>
-                            <td>yay -Rns &lt;package_name&gt;<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">sear for AUR package<br>
-                            </td>
-                            <td valign="top">yay -Ss &lt;keyword&gt;<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><br>
-                            </td>
-                            <td><br>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell b2 -->
-                    <div class="container1">
-                      <table class="inner">
-                        <tbody>
-                          <tr>
-                            <td colspan="3">
-                              <div style="display: flex;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#archlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h3> Description</h3>
+                                                        <h3> </h3>
+                                                    </td>
+                                                    <td>
+                                                        <h3>Command<br>
+                                                        </h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>install package<br>
+                                                    </td>
+                                                    <td>sudo pacman -S &lt;package_name&gt;<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>search if package exists<br>
+                                                    </td>
+                                                    <td>pacman -Ss &lt;search&gt;<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>uninstall package<br>
+                                                    </td>
+                                                    <td>sudo pacman -R &lt;package_name&gt;<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>remove cache of uninstalled packages<br>
+                                                    </td>
+                                                    <td>sudo pacman -Sc<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>remove orphaned packages<br>
+                                                    </td>
+                                                    <td>sudo pacman -Rns $(pacman -Qdtq)<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>install AUR package<br>
+                                                    </td>
+                                                    <td>yay -S &lt;package_name&gt;<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>uninstall AUR package<br>
+                                                    </td>
+                                                    <td>yay -Rns &lt;package_name&gt;<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">sear for AUR package<br>
+                                                    </td>
+                                                    <td valign="top">yay -Ss &lt;keyword&gt;<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><br>
+                                                    </td>
+                                                    <td><br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--cell b2 -->
+                                    <div class="container1">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>A</h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>A</h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#archlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td colspan="3"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td colspan="3"> <br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td colspan="3"><br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#archlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"> <br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3"><br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
     </table>
-    
+
     <footer style="text-align: center; margin-top: 20px;">
-      <p style="text-align: center;"> This website is a collection of my
-        personal study notes, created to help me and others learn and
-        organize information effectively. Feel free to <strong>download</strong>,
-        <strong>print</strong>, or <strong>use</strong> any of the
-        notes for your own purposes. </p>
-      <p style="text-align: center;"> <br>
-        Want to keep your own notes in the same format? Check out the <a
-          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+        <p style="text-align: center;"> This website is a collection of my
+            personal study notes, created to help me and others learn and
+            organize information effectively. Feel free to <strong>download</strong>,
+            <strong>print</strong>, or <strong>use</strong> any of the
+            notes for your own purposes.
+        </p>
+        <p style="text-align: center;"> <br>
+            Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE" style="color: #1E90FF;
           text-decoration: underline;">Notes Template</a>! </p>
-      <p style="text-align: center;"> Interested in forking this
-        website? Visit my <a
-          href="https://github.com/Doemsdagding/CheatSheets"
-          target="_blank" style="color: #1E90FF; text-decoration:
+        <p style="text-align: center;"> Interested in forking this
+            website? Visit my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank" style="color: #1E90FF; text-decoration:
           underline;">GitHub Repository</a> to get the full source code.
-      </p>
-      <p style="text-align: center;"> Happy learning and dont forget to
-        share, follow and star the repository! -DoemsDagDing </p>
+        </p>
+        <p style="text-align: center;"> Happy learning and dont forget to
+            share, follow and star the repository! -DoemsDagDing </p>
     </footer>
-  </body>
+</body>
+
 </html>
