@@ -95,7 +95,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                   <th>
                     <!--cell a1 -->
                     <div class="container1">
-                      <table class="inner" width="187" height="90">
+                      <table class="inner" height="90" width="187">
                         <tbody>
                           <tr>
                             <td>
@@ -133,7 +133,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                   <td>
                     <!--cell a2 -->
                     <div class="container2">
-                      <table class="inner" width="177" height="145">
+                      <table class="inner" height="145" width="177">
                         <tbody>
                           <tr>
                             <td>
@@ -175,7 +175,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                   <td>
                     <!--cell a3 -->
                     <div class="container1">
-                      <table class="inner" width="276" height="106">
+                      <table class="inner" height="106" width="276">
                         <tbody>
                           <tr>
                             <td rowspan="1" colspan="2">
@@ -235,6 +235,62 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                     </div>
                   </td>
                 </tr>
+                <tr>
+                  <th>
+                    <!--cell a4 -->
+                    <div class="container2">
+                      <table class="inner" height="90" width="187">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Chatbot function<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#pythonlogo"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The general prompt query
+                              can be made as function which than returns
+                              the output of the prompt.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">def get_response()<br>
+                              &nbsp;&nbsp; response =
+                              client.chat.completions.create()<br>
+                              &nbsp;&nbsp;&nbsp; model = ""gpt-4-nano"<br>
+                              &nbsp;&nbsp; messages=[{"role": "user",
+                              "content": prompt}])<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; return
+                              response.choices[0].message.content<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
               </tbody>
             </table>
           </td>
@@ -246,7 +302,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                   <th>
                     <!--cell b1 -->
                     <div class="container3">
-                      <table class="inner" width="388" height="890">
+                      <table class="inner" height="890" width="388">
                         <tbody>
                           <tr>
                             <td>
@@ -254,7 +310,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Making a request to chatbot<br>
+                                  <h2>User role (making a request)<br>
                                   </h2>
                                 </div>
                                 <div style="position: absolute; right:
@@ -326,6 +382,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
 
 
 
+
+
+
+
                               <br>
                             </td>
                           </tr>
@@ -384,13 +444,13 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
         <tr>
           <td style="width: 765px;" colspan="2">
             <!-- top row -->
-            <table width="765" height="439">
+            <table height="439" width="765">
               <tbody>
                 <tr>
                   <th>
                     <!--cell a1 -->
                     <div class="container1">
-                      <table class="inner" width="736" height="363">
+                      <table class="inner" height="363" width="736">
                         <tbody>
                           <tr>
                             <td>
@@ -398,7 +458,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>system role use<br>
+                                  <h2>system role use (role playing +
+                                    guardrails)<br>
                                   </h2>
                                 </div>
                                 <div style="position: absolute; right:
@@ -423,14 +484,16 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                               more specific and specified knowledge
                               base..<br>
                               <br>
-                              * within the system role content value you
-                              can through prompting build guard rails
-                              against misuse of the chat bot<br>
+                              Furthermore within the system role content
+                              value you can through prompting build
+                              guard rails against misuse of the chat bot<br>
                               &nbsp;&nbsp;&nbsp; you can tell to the
                               chatbot what its purposes aren't and what
                               he is forbidden from answer and how to
                               respond if a user still tries to use the
-                              chatbot for that purpose.<br>
+                              chatbot for that purpose. The guardrails
+                              should always be in the form of an if
+                              statement.<br>
                             </td>
                           </tr>
                           <tr>
@@ -452,11 +515,19 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
 
 
 
+
+
+
+
                               "content":"""you are a python programming
                               tutor who speak
                               concisely.&nbsp;&nbsp;&nbsp;&nbsp; <font
                                 color="#999999">#role play role</font><br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
 
 
 
@@ -468,9 +539,17 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
 
 
 
+
+
+
+
                               im sorry i am not allowed to provide
                               financial advice <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
 
 
 
@@ -479,8 +558,16 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
 
 
 
+
+
+
+
                               {"role": "user",<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
 
 
 
@@ -516,7 +603,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Assistant role use<br>
+                                  <h2>Assistant role use (examples style
+                                    and tone)<br>
                                   </h2>
                                 </div>
                                 <div style="position: absolute; right:
@@ -566,6 +654,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                               {"role":"user",<br>
                               &nbsp;"content":"how do you define a
                               python list?"}, <font color="#999999">#the
+
+
+
+
 
 
 
