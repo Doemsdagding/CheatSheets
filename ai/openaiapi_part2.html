@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>OpenAI_API</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="../script.js"> </script>
+    <style>
+        /* Containers */
+        .container1 {
+            border: 6px solid #80a89d;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container2 {
+            border: 6px solid #79a877;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container3 {
+            border: 6px solid #204231;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container4 {
+            border: 6px solid #081b17;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+    </style>
+  </head>
+  <body class="light-mode">
+    <!-- Back Button --> <button class="back-button"
+      onclick="window.location.href='../'" title="Back to Home page"> ×
+    </button>
+    <!--ICON-->
+    <svg style="display: none;">
+      <symbol id="myBase64Image" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <svg style="display: none;">
+      <symbol id="pythonlogo" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <svg style="display: none;">
+      <symbol id="redshiftlgo" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button"
+      onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+        class="icon"></span> </button>
+    <!--PRINT BUTTON--> <button class="print-button" onclick="if
+      (document.body.classList.contains('dark-mode')) toggleMode();
+      window.print();" title="Print this page"> <span class="icon">🖨️</span>
+    </button>
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+      <div class="modal-content"> <button class="modal-close"
+          onclick="closeModal()" title="close modal">×</button>
+        <!--next and back buttons--> <button class="modal-back"
+          onclick="previousModal()" title="previous modal">&lt;</button>
+        <button class="modal-next" onclick="nextModal()" title="next
+          modal">&gt;</button> </div>
+    </div>
+    <!-- Swipe Hint -->
+    <div id="swipe-hint" style="display: none; position: fixed; bottom:
+      30px; left: 50%; transform: translateX(-50%); background-color:
+      rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px;
+      border-radius: 10px; font-size: 30px; z-index: 2000; text-align:
+      center; justify-content: center; align-items: center;"> Swipe left
+      or right to navigate </div>
+    <!--HEADER h1-->
+    <h1>OPENAI_API -&nbsp;
+      <svg width="55" height="55">
+        <use href="#redshiftlgo"></use> </svg> </h1>
+    <!-- page 1 -->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 199px; padding-right: 0px;">
+            <!-- left side -->
+            <table style="width: 248px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner" height="90" width="187">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>header1<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#no"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner" height="145" width="177">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>header 2<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#no"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner" height="106" width="276">
+                        <tbody>
+                          <tr>
+                            <td rowspan="1" colspan="2">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>header3<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#no"></use> </svg> </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Roles</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>Explanation</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>
+                    <!--cell a4 -->
+                    <div class="container2">
+                      <table class="inner" height="90" width="187">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>header4<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#pythonlogo"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 367px; padding-left: 0px;">
+            <!-- right side -->
+            <table none="" style="width: 352px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell b1 -->
+                    <div class="container3">
+                      <table class="inner" height="890" width="388">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>header5<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#pythonlogo"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <footer style="text-align: center; margin-top: 20px;">
+      <p style="text-align: center;"> This website is a collection of my
+        personal study notes, created to help me and others learn and
+        organize information effectively. Feel free to <strong>download</strong>,
+        <strong>print</strong>, or <strong>use</strong> any of the
+        notes for your own purposes. </p>
+      <p style="text-align: center;"> <br>
+        Want to keep your own notes in the same format? Check out the <a
+          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+          text-decoration: underline;">Notes Template</a>! </p>
+      <p style="text-align: center;"> Interested in forking this
+        website? Visit my <a
+          href="https://github.com/Doemsdagding/CheatSheets"
+          target="_blank" style="color: #1E90FF; text-decoration:
+          underline;">GitHub Repository</a> to get the full source code.
+      </p>
+      <p style="text-align: center;"> Happy learning and dont forget to
+        share, follow and star the repository! -DoemsDagDing </p>
+    </footer>
+  </body>
+</html>
