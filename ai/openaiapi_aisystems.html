@@ -80,22 +80,22 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
       center; justify-content: center; align-items: center;"> Swipe left
       or right to navigate </div>
     <!--HEADER h1-->
-    <h1>OPENAI_API -&nbsp;
+    <h1>OPENAI_API - Advanced use
       <svg width="55" height="55">
         <use href="#redshiftlgo"></use> </svg> </h1>
     <!-- page 1 -->
     <table style="width: 765px; height: 998px;">
       <tbody>
         <tr>
-          <td style="width: 199px; padding-right: 0px;">
-            <!-- left side -->
-            <table style="width: 248px; height: 839px;">
+          <td style="width: 50%; padding-right: 0px;">
+            <!-- left column -->
+            <table style="width: 100%;">
               <tbody>
                 <tr>
                   <th>
-                    <!--cell a1 -->
+                    <!--cell D1 -->
                     <div class="container1">
-                      <table class="inner" height="90" width="187">
+                      <table class="inner">
                         <tbody>
                           <tr>
                             <td>
@@ -103,7 +103,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>header1<br>
+                                  <h2>Response format<br>
                                   </h2>
                                 </div>
                                 <div style="position: absolute; right:
@@ -114,8 +114,744 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                                 <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
                                   <svg width="34" height="34">
-                                    <use href="#no"></use> </svg> </div>
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The OpenAi api allows the
+                              indiciation of the output strcuture of the
+                              response of a prompt. <br>
+                              <br>
+                              This can be done through specificing the
+                              response_format parameter of the resposne
+                              class. eg json_object will result in the
+                              response to be an json opbject as the
+                              message.content<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from openai impor OpenAi<br>
+                              <br>
+                              client =
+                              OpenAi(api_key="********************"<br>
+                              <br>
+                              response = client.chat.completions.create(<br>
+                              &nbsp;&nbsp;&nbsp; model="gpt-40-mini",<br>
+                              &nbsp;&nbsp;&nbsp; message= [<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; {"role": "user",<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "content":
+                              "Please write down five trees with their
+                              scientific&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; names
+                              in json format."}<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              response_format ={"type": "json_boject"}<br>
+                              )<br>
+                              print(response.choices[0].message.content)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell D2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Batching</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Ratelimit errors can
+                              occurse due to too many requests being
+                              send at a time or the number of tokens
+                              within a request being to high. To avoid
+                              to many requests error&nbsp; multiple
+                              requests can be sent in batches at more
+                              staggered time itnervals.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">countries = ["united
+                              states", "ireland", "india"]<br>
+                              <br>
+                              message = [ { "role": "system",<br>
+                              &nbsp;&nbsp;&nbsp; "content": """you are
+                              given a series of countries and are asked
+                              to return country and capitcal city
+                              rpvoide each of the questions with an
+                              ansser in the response as separate
+                              content"""<br>
+                              <br>
+                              [message.append({"role":"user", "content":
+                              i }) for i in countries]<br>
+                              <br>
+                              response = client.chat.completion.create(
+                              model"gpt-40-mini",<br>
+                              &nbsp;&nbsp;&nbsp; messages.message)<br>
+print(response.choices[0]].message.content)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell D2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Reducing tokens<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">When a ratelimit eror
+                              occcurs due to the fact the prompt being
+                              to large, what can be tried is reducing
+                              the token usage by making the prompt
+                              smaller. <br>
+                              To help with this the tiktoken library can
+                              be used which is the tokenizer library
+                              openai uses. by checken the len the number
+                              of tokens can be retrieved. (this can be
+                              used to set tokenlimits)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import tiktoken<br>
+                              encoding =
+                              tiktoken.encoding_for_model("gpt-4o-mini")<br>
+                              prompt = "tokens can be full words or
+                              grouped word"<br>
+                              num_tokens = len(encoding.encode(prompt))<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px;">
+            <!-- right column -->
+            <table style="width: 100%; ">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell E1 -->
+                    <div class="container3">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Error handeling<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the open ai api can run
+                              into errors and will in that case n return
+                              a python error relating to the occured
+                              problem for example:<br>
+                              * Connection errors ( caused by connection
+                              issueseither on user or service side) e.g.
+                              InternalServerError, APIConnectionerror,
+                              APITimeoutError. General retrying after a
+                              few minutes will solve the problem.<br>
+                              <br>
+                              * Resource limits error (caused by limits
+                              on frequence of request or size of prompt)
+                              e.g. ConflictError, RateLimitError.
+                              generally fixed by changing the prompt.<br>
+                              <br>
+                              * Authentication error. (ccaused by
+                              invalid api key or token is
+                              invalid,expired) e.g. AuthenticationError.
+                              (to solve this the api key needs to be
+                              checked)<br>
+                              <br>
+                              * Bad request errors ( caused by malformed
+                              or incomplete api request like one with a
+                              missing or invalid a paramter e.g.
+                              BadRequestError (to fix generaly the code
+                              has to be reviewed and checked with the
+                              documentation)<br>
+                              <br>
+                              as their python erros you can use try
+                              catch method to handle the errors.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">try:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; response =
+                              client.chat.compeletion.create(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; model =
+                              "gpt-40-mini"<br>
+                              &nbsp;&nbsp;&nbsp; messages=[{"role":
+                              "user",&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp; "content::" list five
+                              data science professions"}])<br>
+                              except openai.AutheticationError as e:<br>
+                              &nbsp;&nbsp;&nbsp; print(f"OpenAi APi
+                              ffailed to authenticate: {e}")<br>
+                              &nbsp;&nbsp;&nbsp; pass <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell E2 -->
+                    <div class="container4">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Retrying</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">If a call is being rate
+                              limited another way to re send the prompt
+                              after teh ratelimit error occrus thsi can
+                              be done using the tenacity python library.<br>
+                              using tenacity a retry decorator can be
+                              made. in wich using the wait paratemer it
+                              can be indiated how long the wait time
+                              between tries should be and using teh stop
+                              paratemer when to stop. using the
+                              stop_after_attempt function an specific
+                              amount of tries can be set.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from tenacity import
+                              (retry, stop_after_attempt,w
+                              wait_random_exponential)<br>
+                              <br>
+                              @retry(wait=wait_random_exponential(min=1,
+                              max=60), stop = stop_after_attempt(6))<br>
+                              def get_reponse(model, message)<br>
+                              &nbsp;&nbsp;&nbsp; response =
+                              cient.chat.completions.create(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              model = model, messages=[messages] )<br>
+                              &nbsp;&nbsp;&nbsp; return
+                              response.choices[0].message.content<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 -->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px;">
+            <!-- left column -->
+            <table style="width: 100%; ">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell D1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Function calling<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">While giving the Openai API
+                              a resposne format ensures the format type
+                              of the ouput it doesnt ensure that the
+                              ouput is exactly formatted the same.
+                              Function calling can be used to generate
+                              consistent structured output.This ensure
+                              the output can be used for calling other
+                              apis or when a fixed structured
+                              information schema is needed like
+                              controlling devices.<br>
+                              <br>
+                              This can be achieved through the tools
+                              paramater in the create class. The tool
+                              paramater takes a function_defintion in
+                              the form of a list of dictionaries.<br>
+                              <br>
+                              the functiondefition requires multiple key
+                              value paris being:<br>
+                              *&nbsp; type = for example a function
+                              (which is used when an own defined
+                              function needs to be called)<br>
+                              * function = on its own is a dictionary
+                              containing the name of the function, a
+                              short description and the parameters the
+                              function takes which again is a dicionary
+                              on its own. with each key inside the
+                              paramaters being an key that will bie in
+                              the outputed json schema.<br>
+                              <br>
+                              when using tools the response is located
+                              under a differnt key in the response
+                              dictionary being
+                              response.choices[0].message.tool_calls[0].function.arguments)
+                              as you can have mutliple tools in a
+                              message the message.tool_calls is a list.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from openai import Openai<br>
+                              <br>
+                              cleint = OpenAi(api_key="***************")<br>
+                              <br>
+                              function_defintion = [{ "name" :
+                              "extract_job_info",<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              "descripption": ""get the job information
+                              from the body of hte input text",
+                              "paramters" : { "type": "object", <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              "properties":<br>
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; "job": {"type":
+                              "string", <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              "description": "job title"},<br>
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              "location":{"type": "string",<br>
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              "description" : "office location" },<br>
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+                              }}]<br>
+                              <br>
+                              response = client.chat.completions.create(
+                              <br>
+                              &nbsp;&nbsp;&nbsp; model =&nbsp;
+                              "gpt-4o-mini",<br>
+                              &nbsp;&nbsp;&nbsp; messages=messages,<br>
+                              &nbsp;&nbsp;&nbsp; tools=
+                              function_definition,<br>
+                              )<br>
+print(response.choices[0].message.tool_calls[0].function.arguments)</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">when giving multiple
+                              functions (in the form of a list of
+                              functions in the tools paramter) an
+                              adational paramater becomes required being
+                              tool_choice when set to "auto" the prompt
+                              will decide which tool is used (the ai
+                              decides which) <br>
+                              other wise a dictionary contining type =
+                              the type of function e.g "function" and
+                              function = dictionary containing name =
+                              name of function.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">response =
+                              client.chat.completions.create( model =
+                              "gpt-4o-mini", messages=messages, tools =
+                              function_definition, tool_choic = {"type":
+                              "function", "function":
+                              {"name":"extract_job_info"} } )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px;">
+            <!-- right column -->
+            <table style="width: 100%; ">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell E1 -->
+                    <div class="container3">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Calling external Apis<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Function calling can also
+                              be used with exteranl apis, to do this the
+                              python requests library can be used, which
+                              requires an api url and a querystring. <br>
+                              <br>
+                              this can than be combined with a
+                              function_definition and used in the open
+                              ai api call<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import requests<br>
+                              <br>
+                              def get_atwork(keyword)<br>
+                              &nbsp;&nbsp;&nbsp; url =
+                              "https://api.artic.edu/api/v1/artworks/search"<br>
+                              &nbsp;&nbsp;&nbsp; querystring =
+                              {"q":keyword}<br>
+                              &nbsp;&nbsp;&nbsp; response =
+                              requests.request("GET", url,
+                              params=querystring)<br>
+                              &nbsp;&nbsp;&nbsp; return response.text<br>
+                              <br>
+                              function_defintion = [{ "type":
+                              "function", <br>
+                              &nbsp;&nbsp;&nbsp; "function" : { <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              "name": "get_artwork",<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              "description": "this function call the art
+                              insitute of chicago api to find atwork
+                              that matches a keyword", <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              "paramters": {<br>
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; "type" :
+                              "objects", <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              "properties" : { <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              "artwork keyword" : { <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              "type" : "string",<br>
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                              "description" : "the keyword to be passed
+                              to the new get_atwork function" }}},<br>
+                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                              &nbsp; &nbsp; "result" : { "type":
+                              "string"}}<br>
+                              }} ] )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; ">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell E2 -->
+                    <div class="container4">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Moderation</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Moderation in the context
+                              of the OpenAI API refers to the process of
+                              analyzing input to determine if it
+                              contains any content that violates
+                              predefined policies or guidelines. OpenAI
+                              provides a moderations endpoint as part of
+                              its API. it is used to evaluate if the
+                              output. it checks for hate,harassment,
+                              self-harm sexual and violence. <br>
+                              <br>
+                              to caclulate the probability for these
+                              catogiries the moderations.create class
+                              can be used which takes in paramter the
+                              input. from this for each category the
+                              probability can be retrieved.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">moderation_response =
+                              client.moderation.create( input= """
+                              ...until someone dras an explodign kitten.
+                              when that happens, that person exploders.
+                              they are now dead. this process continues
+                              until... """<br>
+                              <br>
+print(moderation_response.results[0].categories.violence)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 -->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765" height="839">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Moderation<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
@@ -131,7 +867,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                   <td>
                     <!--cell a2 -->
                     <div class="container2">
-                      <table class="inner" height="145" width="177">
+                      <table class="inner">
                         <tbody>
                           <tr>
                             <td>
@@ -139,8 +875,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>header 2<br>
-                                  </h2>
+                                  <h2>cell a2</h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -150,12 +885,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                                 <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
                                   <svg width="34" height="34">
-                                    <use href="#no"></use> </svg> </div>
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
                               </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
                             </td>
                           </tr>
                         </tbody>
@@ -167,16 +899,15 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                   <td>
                     <!--cell a3 -->
                     <div class="container1">
-                      <table class="inner" height="106" width="276">
+                      <table class="inner">
                         <tbody>
                           <tr>
-                            <td rowspan="1" colspan="2">
+                            <td>
                               <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>header3<br>
-                                  </h2>
+                                  <h2>cell a3 </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -186,153 +917,15 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
                                 <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
                                   <svg width="34" height="34">
-                                    <use href="#no"></use> </svg> </div>
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
                               </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Roles</h3>
-                            </td>
-                            <td valign="top">
-                              <h3>Explanation</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
                             </td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                   </td>
-                </tr>
-                <tr>
-                  <th>
-                    <!--cell a4 -->
-                    <div class="container2">
-                      <table class="inner" height="90" width="187">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
-                                justify-content: center; align-items:
-                                center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>header4<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
-                                  -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
-                                  15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#pythonlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td style="width: 367px; padding-left: 0px;">
-            <!-- right side -->
-            <table none="" style="width: 352px; height: 839px;">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell b1 -->
-                    <div class="container3">
-                      <table class="inner" height="890" width="388">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
-                                justify-content: center; align-items:
-                                center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>header5<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
-                                  -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
-                                  15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#pythonlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </th>
                 </tr>
               </tbody>
             </table>
