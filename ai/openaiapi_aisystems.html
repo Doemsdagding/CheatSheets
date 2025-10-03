@@ -563,6 +563,14 @@ print(response.choices[0]].message.content)<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
+
+
+
+
+
+
+
+
                               "properties":<br>
                               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -570,6 +578,14 @@ print(response.choices[0]].message.content)<br>
                               &nbsp; &nbsp; &nbsp; "job": {"type":
                               "string", <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
 
 
                               "description": "job title"},<br>
@@ -698,13 +714,37 @@ print(response.choices[0].message.tool_calls[0].function.arguments)</td>
                               &nbsp;&nbsp;&nbsp; "function" : { <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+
+
+
+
+
+
+
+
                               "name": "get_artwork",<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
 
                               "description": "this function call the art
                               insitute of chicago api to find atwork
                               that matches a keyword", <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
 
                               "paramters": {<br>
                               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -712,11 +752,35 @@ print(response.choices[0].message.tool_calls[0].function.arguments)</td>
                               "objects", <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+
+
+
+
+
+
+
+
                               "properties" : { <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+
+
+
+
+
+
+
+
                               "artwork keyword" : { <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
 
                               "type" : "string",<br>
                               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -829,7 +893,7 @@ print(moderation_response.results[0].categories.violence)</td>
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Moderation<br>
+                                  <h2>Embeddings<br>
                                   </h2>
                                 </div>
                                 <div style="position: absolute; right:
@@ -846,7 +910,31 @@ print(moderation_response.results[0].categories.violence)</td>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Embeddings are a numerical
+                              representation of text that can be used to
+                              measure relatdness between two pieces of
+                              text. Embeddings are mostly found in
+                              semantic search engines where the results
+                              not necessarly uses the exact words used
+                              in the search prompt but words close to
+                              it. e.g. when searching images of
+                              runningshoes semantic search engines also
+                              return images of sneakers.<br>
+                              this is done through converting the text
+                              through an embedding model into numbers
+                              and placing it on a multiple dimensional
+                              spectrum to see which numbers are closed
+                              related to it.<br>
+                              <br>
+                              To use embeddings with openai the
+                              embeddigns endpoint is used, called
+                              through the client.embeddings.create()
+                              class. which requires 2 paramters.<br>
+                              model = which is the model used.<br>
+                              input = which is the to be embedded
+                              string. or a list of strings<br>
+                              as most endpoints it returns a dictonary
+                              retrieved through response.model_dump()<br>
                             </td>
                           </tr>
                           <tr>
@@ -855,7 +943,51 @@ print(moderation_response.results[0].categories.violence)</td>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">from openai import OpenAi<br>
+                              <br>
+                              client = OpenAi(api_key= "*********"<br>
+                              response = client.embeddings.create(<br>
+                              &nbsp;&nbsp;&nbsp; model=
+                              "text-embedding-3-small",<br>
+                              &nbsp;&nbsp;&nbsp; input="Embeddings are a
+                              numerical representation of text that can
+                              be used to measure relatdness between two
+                              pieces of text"<br>
+                              )<br>
+                              response_dict= response.model_dump()<br>
+                              print(response.model_dump())<br>
+print(response_dict["data"][0]["embedding"])<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">articles = [
+                              {"headlines":"econigrowth continues amdi
+                              global uncertation", "topic":"business"},<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              {headlines"."interest rates flal to
+                              historic lows", "topic: "business"},&nbsp;
+                              .....<br>
+                              ]<br>
+                              headlines_text = [article["headline"] for
+                              article in articles]<br>
+                              <br>
+                              response = client.embeddings.create(<br>
+                              &nbsp;&nbsp;&nbsp;
+                              model="text-embedding-3small",&nbsp; input
+                              = headline_text<br>
+                              )<br>
+                              response_dict = response.model_dump()<br>
+                              <br>
+                              for i, article in enumerate(articles):<br>
+                              &nbsp;&nbsp;&nbsp; article["embedding"] =
+                              response_dict["date"][i]["embedding"]<br>
                             </td>
                           </tr>
                         </tbody>
@@ -875,7 +1007,9 @@ print(moderation_response.results[0].categories.violence)</td>
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>cell a2</h2>
+                                  <h2>Embedding 2: Dimensionality
+                                    reduction<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -890,14 +1024,85 @@ print(moderation_response.results[0].categories.violence)</td>
                               </div>
                             </td>
                           </tr>
+                          <tr>
+                            <td valign="top">OPAI api embedding always
+                              returns a number with the len() of 1536
+                              meaning it returns 1536 dimensions
+                              indicating the inputs position in&nbsp;
+                              the vector space.<br>
+                              There are various techniques to reduce the
+                              number of dimensions so the embedding
+                              becomes more managable. e.g t-SENE
+                              (t-distrubted Stoachistic Neighbor
+                              Embedding) which can be found in the
+                              sckit-learn python library sklearn.<br>
+                              <br>
+                              from this library the TSNE function is
+                              used which requires two paramters being:<br>
+                              n_components = the resulting number of
+                              dimensions<br>
+                              perplexity: used by the algorthm, must be
+                              less than the number of data points in the
+                              list<br>
+                              after this to perform the transformation
+                              the fit_transform is called.<br>
+                              <br>
+                              to visuale the result matplotlib.pyplot
+                              can be used to visual the relation in a
+                              scatter plot (when having reduce the
+                              embedings to 2 dimensions)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from sklearn.manifold
+                              import TSNE<br>
+                              import numpy as np<br>
+                              <br>
+                              embeddings = [articles["embjedding"] for
+                              article in articles]<br>
+                              tsne = TSNE(n_components=2, perplexity = 5
+                              ) <br>
+                              embeddings_2d =
+                              tsne.fit_transform(np.array(embeddings))<br>
+                              <br>
+                              plt.scatter(embeddings_2d[:, 0],
+                              embeddings_2d[:, 1])<br>
+                              topics =[article["topic"] for article in
+                              articles ]<br>
+                              for i, topic in enumerate(topics):<br>
+                              &nbsp;&nbsp;&nbsp; plt.annotate(topic,
+                              (embeddings_2d[i, 0], embeddigns_2d[i, 1
+                              ]))<br>
+                              plt.show()<br>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
                   </td>
                 </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 -->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765" height="839">
+              <tbody>
                 <tr>
-                  <td>
-                    <!--cell a3 -->
+                  <th>
+                    <!--cell a1 -->
                     <div class="container1">
                       <table class="inner">
                         <tbody>
@@ -907,7 +1112,8 @@ print(moderation_response.results[0].categories.violence)</td>
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>cell a3 </h2>
+                                  <h2>Embedding 3: Measuring similarity<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -922,10 +1128,372 @@ print(moderation_response.results[0].categories.violence)</td>
                               </div>
                             </td>
                           </tr>
+                          <tr>
+                            <td valign="top">To measure similarity many
+                              differnt metrics can be used, one of them
+                              is measuring cosien distance being the
+                              distance between two points.<br>
+                              for the this distnace function of the
+                              scipy python library can be used.<br>
+                              <br>
+                              measaring similiraties can than also be
+                              used to lable/tag items like adding
+                              predefined topic tags to articles and
+                              sentiment analysis<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from scipy.spatial import
+                              distance<br>
+                              import numpy as np<br>
+                              <br>
+                              <font color="#666666"># simple example</font><br>
+                              distance.cosine[0, 1], [1, 0]) <font
+                                color="#c0c0c0"><font color="#666666">#1</font>
+                              </font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">def create_embddings(text):<br>
+                              &nbsp;&nbsp;&nbsp; response =
+                              client.embeddings.create(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              model="text-embdding-3-small",<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+                              input=texts)<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; response_dict =
+                              response.model_dump()<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; return
+                              [data["embedding"] for data in
+                              response_dict["data"]]<br>
+                              <br>
+                              search_text = "computer"<br>
+                              search_embedding =
+                              ceate_embeddings(search_text)[0]<br>
+                              <br>
+                              distinaces = []<br>
+                              for article in articles <br>
+                              &nbsp;&nbsp;&nbsp; dist =
+                              distance.cosine)search_embedding,
+                              articles["embedding"])<br>
+                              &nbsp;&nbsp; distances.append(dist)<br>
+                              <br>
+                              <font color="#666666"># return index of
+                                the smalles value in the list </font><br>
+                              min_dist_ind = np.argmin(distances) <br>
+                              print(artciles[min_dist_ind]["headlien"])<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"># function to find the n
+                              number of closets <br>
+                              def find_n_closets(query_vect, embeddings,
+                              n=3):<br>
+                              &nbsp;&nbsp; distances = []<br>
+                              &nbsp;&nbsp; for index, embedding in
+                              enumerate(embeddings):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              dist = distance.cosine(query_vector,
+                              embedding_<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              distances.append({"distance": dist,
+                              ïndex": idnex})<br>
+                              &nbsp;&nbsp;&nbsp; distances_sorted =
+                              sorted(distances , key=lambda x:
+                              x["distance"])<br>
+                              &nbsp;&nbsp;&nbsp; retrun
+                              distances_sorted[0:n]<br>
+                              <br>
+                              query_text = "ai"<br>
+                              query_vector =
+                              create_embeddings(query_text)[0]<br>
+                              hits = find_n_closets(query_vect,
+                              article_embeddings)<br>
+                              <br>
+                              for hit in hits:<br>
+                              &nbsp;&nbsp;&nbsp; article =
+                              articles[hit["index"]]<br>
+                              &nbsp;&nbsp; print(article["headline"])<br>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
-                  </td>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+      <!-- page 2 -->
+    </table>
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765" height="839">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Recommendation systems<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Recommendation systems work
+                              almost exactly the same as semantic search
+                              engine. it uses embeddings within a set of
+                              datapoints and a single point data point
+                              that we want to recommend based on.
+                              calculate cosine distance and recommend
+                              the item or tiems that are closed.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">articles = [
+                              {"headlines":"econigrowth continues amdi
+                              global uncertation", "topic":"business"},<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              {headlines"."interest rates flal to
+                              historic lows", "topic: "business"},&nbsp;
+                              .....<br>
+                              ]<br>
+                              current_article {"headline":"how nivdia
+                              gpu could decide who wins the ai race",
+                              "topic"; "tech",
+                              "keywords":[äi","business,"computers"]}<br>
+                              <br>
+                              def create_article_text(article):<br>
+                              &nbsp;&nbsp; return f"""headline:
+                              {article["headline"]} topic:
+                              {article["topic"]} Keywords: {',
+                              ".join(article["keywords"])}"""<br>
+                              <br>
+                              article_texts =
+                              [create_article_text(artlicle) for article
+                              in articles]<br>
+                              current_article_text =
+                              create_article_text(current_article)<br>
+                              <br>
+                              def create_embddings(text):<br>
+                              &nbsp;&nbsp;&nbsp; response =
+                              client.embeddings.create(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              model="text-embdding-3-small",<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+                              input=texts)<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; response_dict =
+                              response.model_dump()<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; return
+                              [data["embedding"] for data in
+                              response_dict["data"]]<br>
+                              current_article_embeddigns =
+                              create_embeddigns(current_article_text)[0]<br>
+                              article_embbeddigns =
+                              create_embeddings(article_texts)<br>
+                              <br>
+                              # function to find the n number of closets
+                              <br>
+                              def find_n_closets(query_vect, embeddings,
+                              n=3):<br>
+                              &nbsp;&nbsp; distances = []<br>
+                              &nbsp;&nbsp; for index, embedding in
+                              enumerate(embeddings):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              dist = distance.cosine(query_vector,
+                              embedding_<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              distances.append({"distance": dist,
+                              ïndex": idnex})<br>
+                              &nbsp;&nbsp;&nbsp; distances_sorted =
+                              sorted(distances , key=lambda x:
+                              x["distance"])<br>
+                              &nbsp;&nbsp;&nbsp; retrun
+                              distances_sorted[0:n]<br>
+                              <br>
+                              hits =
+                              find_n_closet(current_article_embeddings,
+                              article_embeddings)<br>
+                              <br>
+                              for hit in hits:<br>
+                              &nbsp;&nbsp;&nbsp; article =
+                              articles[hit["index"]]<br>
+                              &nbsp;&nbsp;&nbsp;
+                              print(article["headline"])<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Recommended systems also
+                              need to be able to deal with mutliple data
+                              points (mutliple current articles) and
+                              with that the user allready has seen other
+                              datapoints have to taken out of the
+                              results. this is achieved through a few
+                              small changes<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">def
+                              create_aticle_text(article)<br>
+                              &nbsp;.....<br>
+                              <br>
+                              history_texts =
+                              [create_articles_text(article) for article
+                              in user_history]<br>
+                              history_embeddigns = create_embeddings (
+                              history_texts)<br>
+                              mena_history_embedings =
+                              np.mean(history_embeddigns, axis=0)<br>
+                              <br>
+                              articles_filtered = [article for article
+                              in articles if article not in
+                              user_history]<br>
+                              article_texts [
+                              create_article_text(article) for article
+                              in articles_filtred]<br>
+                              article_embeddigns =
+                              create_embeddings(article_texts)<br>
+                              <br>
+                              hits =
+                              find_n_closest(mean_history_embeddings,
+                              article_embeddings)<br>
+                              <br>
+                              for hit in hits:<br>
+                              &nbsp;&nbsp;&nbsp; article =
+                              articles_filtered[hit["index"]]<br>
+                              &nbsp;&nbsp;&nbsp;
+                              print(article["headline"])<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765" height="839">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Embedding 4: vector database<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">each embeding consist out
+                              of 1536 int characters meaning it takes
+                              about 13kb per mebbed record with large
+                              sets this becomes imprtactical and
+                              requires the embedigns to be sored outside
+                              of the work memory. for thsi a vector
+                              databse can be used. generally this is
+                              done using a NoSQL database consiting out
+                              of key value pairs with the keys
+                              referencing the documents and its meta
+                              data, some vector databases also allow for
+                              storage of the text of documents. example
+                              are PostgreSQL (it supports vector
+                              searching) and chromaDB (has a local model
+                              and server model and provides allot of
+                              support for embeders see chromadb notes)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
                 </tr>
               </tbody>
             </table>
