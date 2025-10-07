@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>hugging face</title>
     <link rel="stylesheet" href="../stylesheet.css">
@@ -35,42 +36,47 @@
 
         }
     </style>
-  </head>
-  <body class="light-mode">
-    <!-- Back Button --> <button class="back-button"
-      onclick="window.location.href='../'" title="Back to Home page"> ×
+</head>
+
+<body class="light-mode">
+    <!-- Back Button --> <button class="back-button" onclick="window.location.href='../'" title="Back to Home page"> ×
     </button>
     <!--ICON-->
     <svg style="display: none;">
-      <symbol id="myBase64Image" viewBox="0 0 1 1">
-        <image
-href="data:image/png;base64,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"
-          width="1" height="1"></image> </symbol> </svg>
+        <symbol id="myBase64Image" viewBox="0 0 1 1">
+            <image
+                href="data:image/png;base64,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"
+                width="1" height="1"></image>
+        </symbol>
+    </svg>
     <svg style="display: none;">
-      <symbol id="pythonlogo" viewBox="0 0 1 1">
-        <image
-href="data:image/png;base64,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"
-          width="1" height="1"></image> </symbol> </svg>
+        <symbol id="pythonlogo" viewBox="0 0 1 1">
+            <image
+                href="data:image/png;base64,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"
+                width="1" height="1"></image>
+        </symbol>
+    </svg>
     <svg style="display: none;">
-      <symbol id="redshiftlgo" viewBox="0 0 1 1">
-        <image
-href="data:image/png;base64,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"
-          width="1" height="1"></image> </symbol> </svg>
-    <!--TOGGLE BUTTON--> <button class="toggle-button"
-      onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
-        class="icon"></span> </button>
+        <symbol id="redshiftlgo" viewBox="0 0 1 1">
+            <image
+                href="data:image/png;base64,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"
+                width="1" height="1"></image>
+        </symbol>
+    </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+            class="icon"></span> </button>
     <!--PRINT BUTTON--> <button class="print-button" onclick="if
       (document.body.classList.contains('dark-mode')) toggleMode();
       window.print();" title="Print this page"> <span class="icon">🖨️</span>
     </button>
     <!-- Modal Structure -->
     <div id="modal" class="modal">
-      <div class="modal-content"> <button class="modal-close"
-          onclick="closeModal()" title="close modal">×</button>
-        <!--next and back buttons--> <button class="modal-back"
-          onclick="previousModal()" title="previous modal">&lt;</button>
-        <button class="modal-next" onclick="nextModal()" title="next
-          modal">&gt;</button> </div>
+        <div class="modal-content"> <button class="modal-close" onclick="closeModal()" title="close modal">×</button>
+            <!--next and back buttons--> <button class="modal-back" onclick="previousModal()"
+                title="previous modal">&lt;</button>
+            <button class="modal-next" onclick="nextModal()" title="next
+          modal">&gt;</button>
+        </div>
     </div>
     <!-- Swipe Hint -->
     <div id="swipe-hint" style="display: none; position: fixed; bottom:
@@ -78,301 +84,317 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
       rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px;
       border-radius: 10px; font-size: 30px; z-index: 2000; text-align:
       center; justify-content: center; align-items: center;"> Swipe left
-      or right to navigate </div>
+        or right to navigate </div>
     <!--HEADER h1-->
     <h1>HUGGING FACE - INTRODUCTION&nbsp;
-      <svg width="55" height="55">
-        <use href="#redshiftlgo"></use> </svg> </h1>
+        <svg width="55" height="55">
+            <use href="#redshiftlgo"></use>
+        </svg>
+    </h1>
     <!-- page 1 -->
     <table style="width: 765px; height: 998px;">
-      <tbody>
-        <tr>
-          <td style="width: 199px; padding-right: 0px;">
-            <!-- left side -->
-            <table style="width: 248px; height: 839px;">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell a1 -->
-                    <div class="container1">
-                      <table class="inner" width="344" height="237">
+        <tbody>
+            <tr>
+                <td style="width: 199px; padding-right: 0px;">
+                    <!-- left side -->
+                    <table style="width: 248px; height: 839px;">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell a1 -->
+                                    <div class="container1">
+                                        <table class="inner" width="344" height="237">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Hugging face<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Hugging face<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#no"></use> </svg> </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">hugging face is a platform
-                              where the ai community can access/
-                              download, collaborate, and stay informed
-                              on the latest open-source models, datasets
-                              and applications.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Hugging face provides
-                              library for python to train models, deploy
-                              applications and explore the hugging face
-                              hub (where you can find all these things
-                              on)<br>
-                              <br>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell a2 -->
-                    <div class="container2">
-                      <table class="inner" width="177" height="145">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#no"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">hugging face is a platform
+                                                        where the ai community can access/
+                                                        download, collaborate, and stay informed
+                                                        on the latest open-source models, datasets
+                                                        and applications.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Hugging face provides
+                                                        library for python to train models, deploy
+                                                        applications and explore the hugging face
+                                                        hub (where you can find all these things
+                                                        on)<br>
+                                                        <br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--cell a2 -->
+                                    <div class="container2">
+                                        <table class="inner" width="177" height="145">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Models<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Models<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#no"></use> </svg> </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">All the models found on the
-                              hub are opensource and from their model
-                              card you can get information like, its
-                              use, supported languages, and among other
-                              things its license.<br>
-                              <br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Use this model button you
-                              can choose among other methods, vllm
-                              and&nbsp; transformers wich will provide
-                              python code to loade the model for
-                              inference or training</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell a3 -->
-                    <div class="container1">
-                      <table class="inner" width="276" height="106">
-                        <tbody>
-                          <tr>
-                            <td rowspan="1" colspan="2">
-                              <div style="display: flex;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#no"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">All the models found on the
+                                                        hub are opensource and from their model
+                                                        card you can get information like, its
+                                                        use, supported languages, and among other
+                                                        things its license.<br>
+                                                        <br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Use this model button you
+                                                        can choose among other methods, vllm
+                                                        and&nbsp; transformers wich will provide
+                                                        python code to loade the model for
+                                                        inference or training</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--cell a3 -->
+                                    <div class="container1">
+                                        <table class="inner" width="276" height="106">
+                                            <tbody>
+                                                <tr>
+                                                    <td rowspan="1" colspan="2">
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Running models<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Running models<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#no"></use> </svg> </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td rowspan="1" colspan="2" valign="top"> to
-                              run a model there are 2 options. 1 local
-                              inference (running it on local hardware to
-                              run the computations be it own cumputer or
-                              cloud-based-development-environment) or 2
-                              an inference provider via hugging face api
-                              (there are partner organisation that
-                              provide access to hihg pefromance
-                              machines)<br>
-                              <br>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>
-                    <!--cell a4 -->
-                    <div class="container2">
-                      <table class="inner" width="187" height="90">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#no"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td rowspan="1" colspan="2" valign="top"> to
+                                                        run a model there are 2 options. 1 local
+                                                        inference (running it on local hardware to
+                                                        run the computations be it own cumputer or
+                                                        cloud-based-development-environment) or 2
+                                                        an inference provider via hugging face api
+                                                        (there are partner organisation that
+                                                        provide access to hihg pefromance
+                                                        machines)<br>
+                                                        <br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <!--cell a4 -->
+                                    <div class="container2">
+                                        <table class="inner" width="187" height="90">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Datasets<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Datasets<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#non"></use> </svg> </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Datasets found on hugging
-                              face can be individually maniulated
-                              through sql queries from the hugging face
-                              hub before being used for training in
-                              python .<br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#non"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Datasets found on hugging
+                                                        face can be individually maniulated
+                                                        through sql queries from the hugging face
+                                                        hub before being used for training in
+                                                        python .<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td style="width: 367px; padding-left: 0px;">
-            <!-- right side -->
-            <table none="" style="width: 352px; height: 839px;">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell b1 -->
-                    <div class="container3">
-                      <table class="inner" width="602" height="890">
+                    </table>
+                </td>
+                <td style="width: 567px; padding-left: 0px; word-break: break-word;">
+                    <!-- right side -->
+                    <table none="" style="width: 510px; height: 839px;">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell b1 -->
+                                    <div class="container3">
+                                        <table class="inner" width="352" height="890">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Transformers library<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Transformers library<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#pythonlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">The hugging face
-                              transformers python library simplifies
-                              working with pre-trained models both for
-                              inference and training.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>local inference</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">The pipeline class can be
-                              used for performing local inference for
-                              any models and tasks available on hugging
-                              face.<br>
-                              <br>
-                              It requires 2 variables being the task
-                              (being its purpose (eg text generation,
-                              chramatical checking, text classification
-                              and category assignement ect ect)) and the
-                              model (being the ai model used written as
-                              uploader/ model name).<br>
-                              <br>
-                              <br>
-                              after which the defined class becomes a
-                              function on its own taking a prompt and
-                              returning the models output.<br>
-                              in the form of a dictionary the value
-                              being the returned output of the model.<br>
-                              <br>
-                              to the function additional paramaters can
-                              be given like:<br>
-                              * max_new_tokens = which limits the
-                              response to the set amount of tokes<br>
-                              * num_return_sequences = which indicates
-                              the amount of responses requested thereby
-                              adding additional key value paris to the
-                              output dictonary<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example </h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from transformers import
-                              pipeline<br>
-                              <br>
-                              gpt2_pipeline =
-                              pipeline(task="text-generation",
-                              model="openai-community/gpt2")<br>
-                              <br>
-                              prompt = gpt2_pipeline("what if ai",
-                              max_new_tokens=10, num_return_sequences=2)<br>
-                              <br>
-                              for result in prompt:<br>
-                              &nbsp;&nbsp;&nbsp;
-                              print(result['generated_text'])<br>
-                              <font color="#999999">#what if ai had
-                                never existed?<br>
-                                #what if ai could be really smarter than
-                                us?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#pythonlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">The hugging face
+                                                        transformers python library simplifies
+                                                        working with pre-trained models both for
+                                                        inference and training.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>local inference</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">The pipeline class can be
+                                                        used for performing local inference for
+                                                        any models and tasks available on hugging
+                                                        face.<br>
+                                                        <br>
+                                                        It requires 2 variables being the task
+                                                        (being its purpose (eg text generation,
+                                                        chramatical checking, text classification
+                                                        and category assignement ect ect)) and the
+                                                        model (being the ai model used written as
+                                                        uploader/ model name).<br>
+                                                        <br>
+                                                        <br>
+                                                        after which the defined class becomes a
+                                                        function on its own taking a prompt and
+                                                        returning the models output.<br>
+                                                        in the form of a dictionary the value
+                                                        being the returned output of the model.<br>
+                                                        <br>
+                                                        to the function additional paramaters can
+                                                        be given like:<br>
+                                                        * max_new_tokens = which limits the
+                                                        response to the set amount of tokes<br>
+                                                        * num_return_sequences = which indicates
+                                                        the amount of responses requested thereby
+                                                        adding additional key value paris to the
+                                                        output dictonary<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example </h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from transformers import
+                                                        pipeline<br>
+                                                        <br>
+                                                        gpt2_pipeline =
+                                                        pipeline(task="text-generation",
+                                                        model="openai-community/gpt2")<br>
+                                                        <br>
+                                                        prompt = gpt2_pipeline("what if ai",
+                                                        max_new_tokens=10, num_return_sequences=2)<br>
+                                                        <br>
+                                                        for result in prompt:<br>
+                                                        &nbsp;&nbsp;&nbsp;
+                                                        print(result['generated_text'])<br>
+                                                        <font color="#999999">#what if ai had
+                                                            never existed?<br>
+                                                            #what if ai could be really smarter than
+                                                            us?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -392,168 +414,171 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
-                              </font><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Inference providers</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">You can also use an
-                              inference provider from the python library
-                              using the inference client class.<br>
-                              <br>
-                              the InferenceClient class takes 2
-                              mandatory variables being provider
-                              (refernce to the inference provider) and
-                              api_key (reference to the api key) after
-                              which the prompt can be done in the same
-                              fashion as using the OPAI API<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">import os<br>
-                              from huggingface_hub import <br>
-                              <br>
-                              InferenceClient(<br>
-                              &nbsp;&nbsp;&nbsp; provider="together",<br>
-                              &nbsp;&nbsp;&nbsp;
-                              api_key=os.environ["HF_TOKEN"].<br>
-                              )<br>
-                              <br>
-                              completion =
-                              inferenceClient.chat.completions.create(<br>
-                              &nbsp;&nbsp;&nbsp;
-                              model="deepseek-ai/deepseek-v3"<br>
-                              &nbsp;&nbsp; messages =[<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp; { "role": "user",<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "content":
-                              "what is the capital of france?" } ],)<br>
-                            </td>
-                          </tr>
+                                                        </font><br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Inference providers</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">You can also use an
+                                                        inference provider from the python library
+                                                        using the inference client class.<br>
+                                                        <br>
+                                                        the InferenceClient class takes 2
+                                                        mandatory variables being provider
+                                                        (refernce to the inference provider) and
+                                                        api_key (reference to the api key) after
+                                                        which the prompt can be done in the same
+                                                        fashion as using the OPAI API<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">import os<br>
+                                                        from huggingface_hub import <br>
+                                                        <br>
+                                                        InferenceClient(<br>
+                                                        &nbsp;&nbsp;&nbsp; provider="together",<br>
+                                                        &nbsp;&nbsp;&nbsp;
+                                                        api_key=os.environ["HF_TOKEN"].<br>
+                                                        )<br>
+                                                        <br>
+                                                        completion =
+                                                        inferenceClient.chat.completions.create(<br>
+                                                        &nbsp;&nbsp;&nbsp;
+                                                        model="deepseek-ai/deepseek-v3"<br>
+                                                        &nbsp;&nbsp; messages =[<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp; { "role": "user",<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "content":
+                                                        "what is the capital of france?" } ],)<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <!-- page 2 -->
     <table style="width: 765px; height: 998px;">
-      <tbody>
-        <tr>
-          <td style="width: 765px;">
-            <!-- single row -->
-            <table width="765" height="839">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell a1 -->
-                    <div class="container1">
-                      <table class="inner">
+        <tbody>
+            <tr>
+                <td style="width: 765px;">
+                    <!-- single row -->
+                    <table width="765" height="839">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell a1 -->
+                                    <div class="container1">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Datasets library<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Datasets library<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#pythonlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">The dataset library allows
-                              us to access,download,use and share
-                              datasets using python. <br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Downloading datasets</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">to download and access a
-                              dataset from hugging face the load_dasaset
-                              can be used it takes the name of the
-                              dataset in the form of uploaduser /
-                              datasename as variable.<br>
-                              <br>
-                              additional paramters canbe given like
-                              split to specify partitions to donwload
-                              like (train, test, validate) <br>
-                              this can be used developing models (which
-                              splits are vaiable is written on the
-                              dataset card on hugging face.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from datasets import
-                              load_dataset<br>
-                              <br>
-                              data =
-                              load_dataset("IVN_RIN/BioBert_Italian",
-                              split="train")<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Data manipulation<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Most datasets use appache
-                              arrow format rather tha ncolumn based
-                              formats. <br>
-                              to filter the dataset the .filter()
-                              function can be used on the prefdefined
-                              data variable together with a&nbsp; lambda
-                              function&nbsp; to define the filter
-                              criteria.<br>
-                              <br>
-                              To select rows based on indices the
-                              .select() function can be used on the data
-                              variable. this can be done by cominibng
-                              select() with the python range function.<br>
-                              the select() functio ncan also be used to
-                              print the text value of a specific row<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><font color="#999999">#filter
+                                                                <svg width="34" height="34">
+                                                                    <use href="#pythonlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">The dataset library allows
+                                                        us to access,download,use and share
+                                                        datasets using python. <br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Downloading datasets</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">to download and access a
+                                                        dataset from hugging face the load_dasaset
+                                                        can be used it takes the name of the
+                                                        dataset in the form of uploaduser /
+                                                        datasename as variable.<br>
+                                                        <br>
+                                                        additional paramters canbe given like
+                                                        split to specify partitions to donwload
+                                                        like (train, test, validate) <br>
+                                                        this can be used developing models (which
+                                                        splits are vaiable is written on the
+                                                        dataset card on hugging face.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from datasets import
+                                                        load_dataset<br>
+                                                        <br>
+                                                        data =
+                                                        load_dataset("IVN_RIN/BioBert_Italian",
+                                                        split="train")<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Data manipulation<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Most datasets use appache
+                                                        arrow format rather tha ncolumn based
+                                                        formats. <br>
+                                                        to filter the dataset the .filter()
+                                                        function can be used on the prefdefined
+                                                        data variable together with a&nbsp; lambda
+                                                        function&nbsp; to define the filter
+                                                        criteria.<br>
+                                                        <br>
+                                                        To select rows based on indices the
+                                                        .select() function can be used on the data
+                                                        variable. this can be done by cominibng
+                                                        select() with the python range function.<br>
+                                                        the select() functio ncan also be used to
+                                                        print the text value of a specific row<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <font color="#999999">#filter
 
 
 
@@ -566,131 +591,133 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
-                                the data to just rows that contain the
-                                word sabra</font><br>
-                              filtred = data.filter(lambda row: " sabra
-                              " in row['text'])<br>
-                              print(filtered)<br>
-                              <br>
-                              <font color="#999999">#select the first
-                                two rows</font><br>
-                              sliced = filtered.select(range(2))<br>
-                              <br>
-                              <font color="#999999">#print value of
-                                first row</font><br>
-                              print(sliced[0]['text'])<br>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell a2 -->
-                    <div class="container2">
-                      <table class="inner">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                                                            the data to just rows that contain the
+                                                            word sabra</font><br>
+                                                        filtred = data.filter(lambda row: " sabra
+                                                        " in row['text'])<br>
+                                                        print(filtered)<br>
+                                                        <br>
+                                                        <font color="#999999">#select the first
+                                                            two rows</font><br>
+                                                        sliced = filtered.select(range(2))<br>
+                                                        <br>
+                                                        <font color="#999999">#print value of
+                                                            first row</font><br>
+                                                        print(sliced[0]['text'])<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--cell a2 -->
+                                    <div class="container2">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Auto classes<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Auto classes<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#pythonlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">auto classes are a more
-                              flexible way to load models,tokenizers and
-                              other ai components without manual setup.<br>
-                              they offer more control compared to
-                              pipelines.&nbsp; (eg pipelines
-                              automatically retrieves the paired
-                              tokenizer while autoclasses you can choose
-                              your own)<br>
-                              <br>
-                              so where pipelines can be used for
-                              experiments auto classes offer more
-                              cstomization.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Automodels</h3>
-                              <h3> </h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">To download a model the
-                              AutoModel class is used there are specific
-                              functions for specific tasks (eg for text
-                              clasifiction the
-                              automodelforsequencelassifiction is used)
-                              aferwhich (how it is called you can see on
-                              the modelcard) the name of the model is
-                              given.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from transformers import
-                              AutoModelForSequenceClassification<br>
-                              <br>
-                              model =
-AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english"<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Autotokenizers</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">To prepare input for use in
-                              a model a tokenizer is used (it is
-                              recommned to use the tokenizer that was
-                              paired with the model so it performs the
-                              same as durring its training, but it is
-                              not mandatory) the retrieval method is
-                              smiliar to the model retrieval method when
-                              the paired tokenizer is used.<br>
-                              <br>
-                              after which to tokenize a prompt the
-                              tokenize() function is used which take the
-                              prompt and returns the tokens in a list.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from transformers import
-                              AutoTokenizer<br>
-                              <br>
-                              #retrieve paired tokenizer<br>
-                              tokenizer =
-                              AutoTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
+                                                                <svg width="34" height="34">
+                                                                    <use href="#pythonlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">auto classes are a more
+                                                        flexible way to load models,tokenizers and
+                                                        other ai components without manual setup.<br>
+                                                        they offer more control compared to
+                                                        pipelines.&nbsp; (eg pipelines
+                                                        automatically retrieves the paired
+                                                        tokenizer while autoclasses you can choose
+                                                        your own)<br>
+                                                        <br>
+                                                        so where pipelines can be used for
+                                                        experiments auto classes offer more
+                                                        cstomization.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Automodels</h3>
+                                                        <h3> </h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">To download a model the
+                                                        AutoModel class is used there are specific
+                                                        functions for specific tasks (eg for text
+                                                        clasifiction the
+                                                        automodelforsequencelassifiction is used)
+                                                        aferwhich (how it is called you can see on
+                                                        the modelcard) the name of the model is
+                                                        given.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from transformers import
+                                                        AutoModelForSequenceClassification<br>
+                                                        <br>
+                                                        model =
+                                                        AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english"<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Autotokenizers</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">To prepare input for use in
+                                                        a model a tokenizer is used (it is
+                                                        recommned to use the tokenizer that was
+                                                        paired with the model so it performs the
+                                                        same as durring its training, but it is
+                                                        not mandatory) the retrieval method is
+                                                        smiliar to the model retrieval method when
+                                                        the paired tokenizer is used.<br>
+                                                        <br>
+                                                        after which to tokenize a prompt the
+                                                        tokenize() function is used which take the
+                                                        prompt and returns the tokens in a list.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from transformers import
+                                                        AutoTokenizer<br>
+                                                        <br>
+                                                        #retrieve paired tokenizer<br>
+                                                        tokenizer =
+                                                        AutoTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
 
 
 
@@ -702,122 +729,123 @@ AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-fine
 
 
 
-                              <br>
-                              <br>
-                              #tokenize<br>
-                              tokens - tokenizer.tokenize("aiL heping
-                              robots think and humans overthink:)") <br>
-                              print(tokens)<br>
-                            </td>
-                          </tr>
+                                                        <br>
+                                                        <br>
+                                                        #tokenize<br>
+                                                        tokens - tokenizer.tokenize("aiL heping
+                                                        robots think and humans overthink:)") <br>
+                                                        print(tokens)<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <!-- page 3 -->
     <table style="width: 765px; height: 998px;">
-      <tbody>
-        <tr>
-          <td style="width: 765px;">
-            <!-- single row -->
-            <table width="765" height="839">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell a1 -->
-                    <div class="container1">
-                      <table class="inner">
+        <tbody>
+            <tr>
+                <td style="width: 765px;">
+                    <!-- single row -->
+                    <table width="765" height="839">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell a1 -->
+                                    <div class="container1">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Aut class 2: building a pipeline
-                                    with autoclass<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Aut class 2: building a pipeline
+                                                                    with autoclass<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#pythonlogo"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">To create a pipeline using
-                              autoclasses both the model and tokenizer
-                              need to be combined using the pipeline()
-                              class by given it a task= (the intended
-                              task of the ai) the model= the donwloaded
-                              model using the fuction appropiate to the
-                              task and the tokenizer= the downloaded
-                              tokenizer<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from transformers import
-                              AutoModelForSequenceClassification,
-                              AutoTokenizer, pipeline<br>
-                              <br>
-                              my_model =
-AutoModelForSequenceClassification.from_pretrained("distiblert-base-uncased-finetuned-sst-2-english")<br>
-                              my_tokenizer=
-AutoTokenizer.from_pretrained("distibert-base-uncased-finetuned-sst-2-english")<br>
-                              <br>
-                              my_pipeline =
-                              pipeline(task="sentiment-analysis", model=
-                              my_model, tokenizer= my_tokenizer)<br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#pythonlogo"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">To create a pipeline using
+                                                        autoclasses both the model and tokenizer
+                                                        need to be combined using the pipeline()
+                                                        class by given it a task= (the intended
+                                                        task of the ai) the model= the donwloaded
+                                                        model using the fuction appropiate to the
+                                                        task and the tokenizer= the downloaded
+                                                        tokenizer<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from transformers import
+                                                        AutoModelForSequenceClassification,
+                                                        AutoTokenizer, pipeline<br>
+                                                        <br>
+                                                        my_model =
+                                                        AutoModelForSequenceClassification.from_pretrained("distiblert-base-uncased-finetuned-sst-2-english")<br>
+                                                        my_tokenizer=
+                                                        AutoTokenizer.from_pretrained("distibert-base-uncased-finetuned-sst-2-english")<br>
+                                                        <br>
+                                                        my_pipeline =
+                                                        pipeline(task="sentiment-analysis", model=
+                                                        my_model, tokenizer= my_tokenizer)<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <footer style="text-align: center; margin-top: 20px;">
-      <p style="text-align: center;"> This website is a collection of my
-        personal study notes, created to help me and others learn and
-        organize information effectively. Feel free to <strong>download</strong>,
-        <strong>print</strong>, or <strong>use</strong> any of the
-        notes for your own purposes. </p>
-      <p style="text-align: center;"> <br>
-        Want to keep your own notes in the same format? Check out the <a
-          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+        <p style="text-align: center;"> This website is a collection of my
+            personal study notes, created to help me and others learn and
+            organize information effectively. Feel free to <strong>download</strong>,
+            <strong>print</strong>, or <strong>use</strong> any of the
+            notes for your own purposes.
+        </p>
+        <p style="text-align: center;"> <br>
+            Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE" style="color: #1E90FF;
           text-decoration: underline;">Notes Template</a>! </p>
-      <p style="text-align: center;"> Interested in forking this
-        website? Visit my <a
-          href="https://github.com/Doemsdagding/CheatSheets"
-          target="_blank" style="color: #1E90FF; text-decoration:
+        <p style="text-align: center;"> Interested in forking this
+            website? Visit my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank" style="color: #1E90FF; text-decoration:
           underline;">GitHub Repository</a> to get the full source code.
-      </p>
-      <p style="text-align: center;"> Happy learning and dont forget to
-        share, follow and star the repository! -DoemsDagDing </p>
+        </p>
+        <p style="text-align: center;"> Happy learning and dont forget to
+            share, follow and star the repository! -DoemsDagDing </p>
     </footer>
-  </body>
+</body>
+
 </html>

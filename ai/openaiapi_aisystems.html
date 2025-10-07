@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>OpenAI_API</title>
     <link rel="stylesheet" href="../stylesheet.css">
@@ -35,42 +36,47 @@
 
         }
     </style>
-  </head>
-  <body class="light-mode">
-    <!-- Back Button --> <button class="back-button"
-      onclick="window.location.href='../'" title="Back to Home page"> ×
+</head>
+
+<body class="light-mode">
+    <!-- Back Button --> <button class="back-button" onclick="window.location.href='../'" title="Back to Home page"> ×
     </button>
     <!--ICON-->
     <svg style="display: none;">
-      <symbol id="myBase64Image" viewBox="0 0 1 1">
-        <image
-href="data:image/png;base64,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"
-          width="1" height="1"></image> </symbol> </svg>
+        <symbol id="myBase64Image" viewBox="0 0 1 1">
+            <image
+                href="data:image/png;base64,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"
+                width="1" height="1"></image>
+        </symbol>
+    </svg>
     <svg style="display: none;">
-      <symbol id="pythonlogo" viewBox="0 0 1 1">
-        <image
-href="data:image/png;base64,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"
-          width="1" height="1"></image> </symbol> </svg>
+        <symbol id="pythonlogo" viewBox="0 0 1 1">
+            <image
+                href="data:image/png;base64,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"
+                width="1" height="1"></image>
+        </symbol>
+    </svg>
     <svg style="display: none;">
-      <symbol id="redshiftlgo" viewBox="0 0 1 1">
-        <image
-href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJnUExURf///+vr66urq3JyclBQUERERExMTGpqaqCgoOLi4urq6nh4eBkZGQAAABAQEGZmZt7e3rq6uiMjIxUVFaSkpKKiogQEBA0NDUNDQ3FxcYKCgnV1dUpKShMTE4mJiff39/r6+rOzswICAgYGBnBwcNzc3OTk5IGBgQEBATk5OSkpKS0tLUVFRXd3d8DAwPv7++bm5hwcHLm5uf7+/rCwsAMDAzs7O7a2tmhoaMXFxZ+fn2xsbPn5+d3d3ZOTk9HR0UlJSRISElNTU5aWlm5ubi4uLvj4+Ht7ezIyMvLy8nx8fAoKCggICHZ2duPj47GxsSwsLGBgYOHh4SoqKpSUlM/Pz/Hx8VRUVJ2dnQcHB9TU1FlZWRsbG5ycnP39/UZGRiAgIO3t7V5eXh4eHpqamhEREefn59/f346OjlpaWhQUFFFRUTc3N8PDw0BAQL6+vjQ0NPz8/IaGhj4+PtPT09DQ0IuLi+zs7AUFBWlpaejo6Nra2tjY2NLS0gkJCUtLS8vLy56enq2tre7u7hYWFpeXlysrK83NzV1dXY+PjwwMDK6urhgYGPX19VtbW3p6eoODg7W1tWtraygoKGJiYoCAgDY2Nre3t5KSkvb29iYmJqOjo8HBwSQkJG9vb19fXzExMb+/v/T09LS0tG1tbYWFhUdHR+Xl5QsLC42NjczMzMrKyq+vr9nZ2UhISISEhD8/P5CQkE9PT3l5eRcXFzAwMMTExCUlJbi4uKWlpWFhYWNjY5iYmDg4OOnp6YyMjFJSUuDg4PDw8B0dHR8fH1VVVZGRkX19fSIiIsLCwmdnZ9vb24iIiNmDUYoAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuN4vW9zkAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAYAAAAAEAAABgAAAAAQAAAFBhaW50Lk5FVCA1LjEuNwADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAAAlR56NozS1xQAABI1JREFUSEuFlftbVFUUhpcKXnkRGz2jNggOpiMghjBoOAQGaqMYqIGEk6KJinkBDR1UEKUwUcB7Woql5a2yLO1u93v9UT1773Nmzkz09P1y1trr+/btrLW2yL8wYuSolNTRY8aOSw78F8ZPSMMgfWJGcnBYTHrMFih4JieHh8EUC/BOnTb9cV+mEs0QycpOJiVgph9yZj2h7dlz0iHgm5ublz+vYH4y08GTheBZYOwikeJgbIslC5O5NhaB96mYV+o+FotDCVQbZV542nHKKxRxyTMzSiurliozZVkiW2M5PGtvOrxiJVC96jntZdfUAqsT2SJrVqz1w/PGKc5V8+bXxaL164CGOFvhaY8ivdCo7Iz1yo68uMEVD22Epk3ugc3mjC/Vi8iWZiCwaKsrLiLbPLA97m5oAXa8bFGbLZJRDewsMJFdqbv32KTp0NoWk+wF9pW94icvW6TdYsl+czsHZkUh2HFQO4dWUn3YUXR2wZEs6bYlAa997MlNZruFR7W7E445khZY2yMxCWlhPZEPXn2tpleJUo+LyOtwwlaU9cFJcUlO9Yj0z+kjOpAhUj/YBXQtD0sVnLYlldCq7jMuCcuZPOCszjSp26gWOrfgPOy3JQNwQX1jkkjdefB6iW5eowlFDRHA8oJdP0UX4Q23JJiTCb7GRh94LpkEOrjIr1aKthvJ5TcJatORWND0lhpQN1ayy7Cu7ASa7XbQfxWrM2EVOsab0PiOANGhEdpeNgq4Zsbb3oZ33BJOXTcRkeuqdTTZJxgEbhgzxb7v7gBLxblkg55TwXcj4NO7kArYZ8bfg5vqezhIerFIXYIkcOhWC9y+o7xuC3+3Hr/rx3pfGXdWQsutwwkSykU+SMf6ULn34CMT+BjuaaPcB5GzwbQkSVGePft9+MQEzgCfGlNnYlr8+A8C5SKhXvx3lVsAD+1KXw1MM/k+YihKIH7JWG5JZ5Sr/SY0TtXhxSvG+azE/Sujbkm7xeeXDas9qtLBb9du2yWPkzCZOQmrfAEXVaKKyJfgVc040mAG1myOqrTkq7qIOn5MMgcGjEL2w9cLzqmVNqqCLBJZDOTdkLC+MUeyoRUqbclpGJLwcl1Lg/Ui2wZy6LvQ71yyIzkJfWW25IRJuOP5aqHemm8egK9cBcJpLklPLqy3FXIMHmnjaKFpEE4m1nn9MUnWEegyyaayq5rb5lH5tiMI1tAB7YS+W4LVLhKqxd9Ytg/Y6yikrTWWPLJn91Snqh6pTr5NJLQW6/sdQIur5W4Hzw9xV2Grrt3mLSLy409mu9fcT+Cmn+Gme8B0CNbrN7lT/2mP/So4aAB+0R1Pw/Sh3GLj/Qr+3t9Mt3FBZWZtjVlo9jz9h1bYU2Q/hMFEtsayFDXv0qrK0hnr9PNdoX+Mwn3wOn8wASGVIzH8XhoL/NEHfyZQ41hYElMEi01vVaOZUHgrmetgfsG8/LzcuRUBaJ5uWH9VRcE/M5mZgOysIvlbLZR5ZNXpaVP7VDOekkwaBpP1W+sca1JyeFhkTEy3BWkT7D7w/xg3dszo1JRRI01DTsA/hjkVJHgZ0FwAAAAASUVORK5CYII="
-          width="1" height="1"></image> </symbol> </svg>
-    <!--TOGGLE BUTTON--> <button class="toggle-button"
-      onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
-        class="icon"></span> </button>
+        <symbol id="redshiftlgo" viewBox="0 0 1 1">
+            <image
+                href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJnUExURf///+vr66urq3JyclBQUERERExMTGpqaqCgoOLi4urq6nh4eBkZGQAAABAQEGZmZt7e3rq6uiMjIxUVFaSkpKKiogQEBA0NDUNDQ3FxcYKCgnV1dUpKShMTE4mJiff39/r6+rOzswICAgYGBnBwcNzc3OTk5IGBgQEBATk5OSkpKS0tLUVFRXd3d8DAwPv7++bm5hwcHLm5uf7+/rCwsAMDAzs7O7a2tmhoaMXFxZ+fn2xsbPn5+d3d3ZOTk9HR0UlJSRISElNTU5aWlm5ubi4uLvj4+Ht7ezIyMvLy8nx8fAoKCggICHZ2duPj47GxsSwsLGBgYOHh4SoqKpSUlM/Pz/Hx8VRUVJ2dnQcHB9TU1FlZWRsbG5ycnP39/UZGRiAgIO3t7V5eXh4eHpqamhEREefn59/f346OjlpaWhQUFFFRUTc3N8PDw0BAQL6+vjQ0NPz8/IaGhj4+PtPT09DQ0IuLi+zs7AUFBWlpaejo6Nra2tjY2NLS0gkJCUtLS8vLy56enq2tre7u7hYWFpeXlysrK83NzV1dXY+PjwwMDK6urhgYGPX19VtbW3p6eoODg7W1tWtraygoKGJiYoCAgDY2Nre3t5KSkvb29iYmJqOjo8HBwSQkJG9vb19fXzExMb+/v/T09LS0tG1tbYWFhUdHR+Xl5QsLC42NjczMzMrKyq+vr9nZ2UhISISEhD8/P5CQkE9PT3l5eRcXFzAwMMTExCUlJbi4uKWlpWFhYWNjY5iYmDg4OOnp6YyMjFJSUuDg4PDw8B0dHR8fH1VVVZGRkX19fSIiIsLCwmdnZ9vb24iIiNmDUYoAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAFBhaW50Lk5FVCA1LjEuN4vW9zkAAAC2ZVhJZklJKgAIAAAABQAaAQUAAQAAAEoAAAAbAQUAAQAAAFIAAAAoAQMAAQAAAAIAAAAxAQIAEAAAAFoAAABphwQAAQAAAGoAAAAAAAAAYAAAAAEAAABgAAAAAQAAAFBhaW50Lk5FVCA1LjEuNwADAACQBwAEAAAAMDIzMAGgAwABAAAAAQAAAAWgBAABAAAAlAAAAAAAAAACAAEAAgAEAAAAUjk4AAIABwAEAAAAMDEwMAAAAAAlR56NozS1xQAABI1JREFUSEuFlftbVFUUhpcKXnkRGz2jNggOpiMghjBoOAQGaqMYqIGEk6KJinkBDR1UEKUwUcB7Woql5a2yLO1u93v9UT1773Nmzkz09P1y1trr+/btrLW2yL8wYuSolNTRY8aOSw78F8ZPSMMgfWJGcnBYTHrMFih4JieHh8EUC/BOnTb9cV+mEs0QycpOJiVgph9yZj2h7dlz0iHgm5ublz+vYH4y08GTheBZYOwikeJgbIslC5O5NhaB96mYV+o+FotDCVQbZV542nHKKxRxyTMzSiurliozZVkiW2M5PGtvOrxiJVC96jntZdfUAqsT2SJrVqz1w/PGKc5V8+bXxaL164CGOFvhaY8ivdCo7Iz1yo68uMEVD22Epk3ugc3mjC/Vi8iWZiCwaKsrLiLbPLA97m5oAXa8bFGbLZJRDewsMJFdqbv32KTp0NoWk+wF9pW94icvW6TdYsl+czsHZkUh2HFQO4dWUn3YUXR2wZEs6bYlAa997MlNZruFR7W7E445khZY2yMxCWlhPZEPXn2tpleJUo+LyOtwwlaU9cFJcUlO9Yj0z+kjOpAhUj/YBXQtD0sVnLYlldCq7jMuCcuZPOCszjSp26gWOrfgPOy3JQNwQX1jkkjdefB6iW5eowlFDRHA8oJdP0UX4Q23JJiTCb7GRh94LpkEOrjIr1aKthvJ5TcJatORWND0lhpQN1ayy7Cu7ASa7XbQfxWrM2EVOsab0PiOANGhEdpeNgq4Zsbb3oZ33BJOXTcRkeuqdTTZJxgEbhgzxb7v7gBLxblkg55TwXcj4NO7kArYZ8bfg5vqezhIerFIXYIkcOhWC9y+o7xuC3+3Hr/rx3pfGXdWQsutwwkSykU+SMf6ULn34CMT+BjuaaPcB5GzwbQkSVGePft9+MQEzgCfGlNnYlr8+A8C5SKhXvx3lVsAD+1KXw1MM/k+YihKIH7JWG5JZ5Sr/SY0TtXhxSvG+azE/Sujbkm7xeeXDas9qtLBb9du2yWPkzCZOQmrfAEXVaKKyJfgVc040mAG1myOqrTkq7qIOn5MMgcGjEL2w9cLzqmVNqqCLBJZDOTdkLC+MUeyoRUqbclpGJLwcl1Lg/Ui2wZy6LvQ71yyIzkJfWW25IRJuOP5aqHemm8egK9cBcJpLklPLqy3FXIMHmnjaKFpEE4m1nn9MUnWEegyyaayq5rb5lH5tiMI1tAB7YS+W4LVLhKqxd9Ytg/Y6yikrTWWPLJn91Snqh6pTr5NJLQW6/sdQIur5W4Hzw9xV2Grrt3mLSLy409mu9fcT+Cmn+Gme8B0CNbrN7lT/2mP/So4aAB+0R1Pw/Sh3GLj/Qr+3t9Mt3FBZWZtjVlo9jz9h1bYU2Q/hMFEtsayFDXv0qrK0hnr9PNdoX+Mwn3wOn8wASGVIzH8XhoL/NEHfyZQ41hYElMEi01vVaOZUHgrmetgfsG8/LzcuRUBaJ5uWH9VRcE/M5mZgOysIvlbLZR5ZNXpaVP7VDOekkwaBpP1W+sca1JyeFhkTEy3BWkT7D7w/xg3dszo1JRRI01DTsA/hjkVJHgZ0FwAAAAASUVORK5CYII="
+                width="1" height="1"></image>
+        </symbol>
+    </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+            class="icon"></span> </button>
     <!--PRINT BUTTON--> <button class="print-button" onclick="if
       (document.body.classList.contains('dark-mode')) toggleMode();
       window.print();" title="Print this page"> <span class="icon">🖨️</span>
     </button>
     <!-- Modal Structure -->
     <div id="modal" class="modal">
-      <div class="modal-content"> <button class="modal-close"
-          onclick="closeModal()" title="close modal">×</button>
-        <!--next and back buttons--> <button class="modal-back"
-          onclick="previousModal()" title="previous modal">&lt;</button>
-        <button class="modal-next" onclick="nextModal()" title="next
-          modal">&gt;</button> </div>
+        <div class="modal-content"> <button class="modal-close" onclick="closeModal()" title="close modal">×</button>
+            <!--next and back buttons--> <button class="modal-back" onclick="previousModal()"
+                title="previous modal">&lt;</button>
+            <button class="modal-next" onclick="nextModal()" title="next
+          modal">&gt;</button>
+        </div>
     </div>
     <!-- Swipe Hint -->
     <div id="swipe-hint" style="display: none; position: fixed; bottom:
@@ -78,489 +84,503 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNS
       rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px;
       border-radius: 10px; font-size: 30px; z-index: 2000; text-align:
       center; justify-content: center; align-items: center;"> Swipe left
-      or right to navigate </div>
+        or right to navigate </div>
     <!--HEADER h1-->
     <h1>OPENAI_API - Advanced use
-      <svg width="55" height="55">
-        <use href="#redshiftlgo"></use> </svg> </h1>
+        <svg width="55" height="55">
+            <use href="#redshiftlgo"></use>
+        </svg>
+    </h1>
     <!-- page 1 -->
     <table style="width: 765px; height: 998px;">
-      <tbody>
-        <tr>
-          <td style="width: 50%; padding-right: 0px;">
-            <!-- left column -->
-            <table style="width: 100%;">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell D1 -->
-                    <div class="container1">
-                      <table class="inner">
+        <tbody>
+            <tr>
+                <td style="width: 50%; padding-right: 0px;">
+                    <!-- left column -->
+                    <table style="width: 100%;">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell D1 -->
+                                    <div class="container1">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Response format<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Response format<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">The OpenAi api allows the
-                              indiciation of the output strcuture of the
-                              response of a prompt. <br>
-                              <br>
-                              This can be done through specificing the
-                              response_format parameter of the resposne
-                              class. eg json_object will result in the
-                              response to be an json opbject as the
-                              message.content<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from openai impor OpenAi<br>
-                              <br>
-                              client =
-                              OpenAi(api_key="********************"<br>
-                              <br>
-                              response = client.chat.completions.create(<br>
-                              &nbsp;&nbsp;&nbsp; model="gpt-40-mini",<br>
-                              &nbsp;&nbsp;&nbsp; message= [<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp; {"role": "user",<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "content":
-                              "Please write down five trees with their
-                              scientific&nbsp; <br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; names
-                              in json format."}<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              response_format ={"type": "json_boject"}<br>
-                              )<br>
-                              print(response.choices[0].message.content)<br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">The OpenAi api allows the
+                                                        indiciation of the output strcuture of the
+                                                        response of a prompt. <br>
+                                                        <br>
+                                                        This can be done through specificing the
+                                                        response_format parameter of the resposne
+                                                        class. eg json_object will result in the
+                                                        response to be an json opbject as the
+                                                        message.content<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from openai impor OpenAi<br>
+                                                        <br>
+                                                        client =
+                                                        OpenAi(api_key="********************"<br>
+                                                        <br>
+                                                        response = client.chat.completions.create(<br>
+                                                        &nbsp;&nbsp;&nbsp; model="gpt-40-mini",<br>
+                                                        &nbsp;&nbsp;&nbsp; message= [<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp; {"role": "user",<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "content":
+                                                        "Please write down five trees with their
+                                                        scientific&nbsp; <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; names
+                                                        in json format."}<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        response_format ={"type": "json_boject"}<br>
+                                                        )<br>
+                                                        print(response.choices[0].message.content)<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-            <table style="width: 100%;">
-              <tbody>
-                <tr>
-                  <td>
-                    <!--cell D2 -->
-                    <div class="container2">
-                      <table class="inner">
+                    </table>
+                    <table style="width: 100%;">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <td>
+                                    <!--cell D2 -->
+                                    <div class="container2">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Batching</h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Batching</h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Ratelimit errors can
-                              occurse due to too many requests being
-                              send at a time or the number of tokens
-                              within a request being to high. To avoid
-                              to many requests error&nbsp; multiple
-                              requests can be sent in batches at more
-                              staggered time itnervals.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">countries = ["united
-                              states", "ireland", "india"]<br>
-                              <br>
-                              message = [ { "role": "system",<br>
-                              &nbsp;&nbsp;&nbsp; "content": """you are
-                              given a series of countries and are asked
-                              to return country and capitcal city
-                              rpvoide each of the questions with an
-                              ansser in the response as separate
-                              content"""<br>
-                              <br>
-                              [message.append({"role":"user", "content":
-                              i }) for i in countries]<br>
-                              <br>
-                              response = client.chat.completion.create(
-                              model"gpt-40-mini",<br>
-                              &nbsp;&nbsp;&nbsp; messages.message)<br>
-print(response.choices[0]].message.content)<br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Ratelimit errors can
+                                                        occurse due to too many requests being
+                                                        send at a time or the number of tokens
+                                                        within a request being to high. To avoid
+                                                        to many requests error&nbsp; multiple
+                                                        requests can be sent in batches at more
+                                                        staggered time itnervals.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">countries = ["united
+                                                        states", "ireland", "india"]<br>
+                                                        <br>
+                                                        message = [ { "role": "system",<br>
+                                                        &nbsp;&nbsp;&nbsp; "content": """you are
+                                                        given a series of countries and are asked
+                                                        to return country and capitcal city
+                                                        rpvoide each of the questions with an
+                                                        ansser in the response as separate
+                                                        content"""<br>
+                                                        <br>
+                                                        [message.append({"role":"user", "content":
+                                                        i }) for i in countries]<br>
+                                                        <br>
+                                                        response = client.chat.completion.create(
+                                                        model"gpt-40-mini",<br>
+                                                        &nbsp;&nbsp;&nbsp; messages.message)<br>
+                                                        print(response.choices[0]].message.content)<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <table style="width: 100%;">
-              <tbody>
-                <tr>
-                  <td>
-                    <!--cell D2 -->
-                    <div class="container2">
-                      <table class="inner">
+                    </table>
+                    <table style="width: 100%;">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <td>
+                                    <!--cell D2 -->
+                                    <div class="container2">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Reducing tokens<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Reducing tokens<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">When a ratelimit eror
-                              occcurs due to the fact the prompt being
-                              to large, what can be tried is reducing
-                              the token usage by making the prompt
-                              smaller. <br>
-                              To help with this the tiktoken library can
-                              be used which is the tokenizer library
-                              openai uses. by checken the len the number
-                              of tokens can be retrieved. (this can be
-                              used to set tokenlimits)<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">import tiktoken<br>
-                              encoding =
-                              tiktoken.encoding_for_model("gpt-4o-mini")<br>
-                              prompt = "tokens can be full words or
-                              grouped word"<br>
-                              num_tokens = len(encoding.encode(prompt))<br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">When a ratelimit eror
+                                                        occcurs due to the fact the prompt being
+                                                        to large, what can be tried is reducing
+                                                        the token usage by making the prompt
+                                                        smaller. <br>
+                                                        To help with this the tiktoken library can
+                                                        be used which is the tokenizer library
+                                                        openai uses. by checken the len the number
+                                                        of tokens can be retrieved. (this can be
+                                                        used to set tokenlimits)<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">import tiktoken<br>
+                                                        encoding =
+                                                        tiktoken.encoding_for_model("gpt-4o-mini")<br>
+                                                        prompt = "tokens can be full words or
+                                                        grouped word"<br>
+                                                        num_tokens = len(encoding.encode(prompt))<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td style="width: 50%; padding-left: 0px;">
-            <!-- right column -->
-            <table style="width: 100%; ">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell E1 -->
-                    <div class="container3">
-                      <table class="inner">
+                    </table>
+                </td>
+                <td style="width: 50%; padding-left: 0px;">
+                    <!-- right column -->
+                    <table style="width: 100%; ">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell E1 -->
+                                    <div class="container3">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Error handeling<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Error handeling<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">the open ai api can run
-                              into errors and will in that case n return
-                              a python error relating to the occured
-                              problem for example:<br>
-                              * Connection errors ( caused by connection
-                              issueseither on user or service side) e.g.
-                              InternalServerError, APIConnectionerror,
-                              APITimeoutError. General retrying after a
-                              few minutes will solve the problem.<br>
-                              <br>
-                              * Resource limits error (caused by limits
-                              on frequence of request or size of prompt)
-                              e.g. ConflictError, RateLimitError.
-                              generally fixed by changing the prompt.<br>
-                              <br>
-                              * Authentication error. (ccaused by
-                              invalid api key or token is
-                              invalid,expired) e.g. AuthenticationError.
-                              (to solve this the api key needs to be
-                              checked)<br>
-                              <br>
-                              * Bad request errors ( caused by malformed
-                              or incomplete api request like one with a
-                              missing or invalid a paramter e.g.
-                              BadRequestError (to fix generaly the code
-                              has to be reviewed and checked with the
-                              documentation)<br>
-                              <br>
-                              as their python erros you can use try
-                              catch method to handle the errors.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">try:<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp; response =
-                              client.chat.compeletion.create(<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp; model =
-                              "gpt-40-mini"<br>
-                              &nbsp;&nbsp;&nbsp; messages=[{"role":
-                              "user",&nbsp; <br>
-                              &nbsp;&nbsp;&nbsp; "content::" list five
-                              data science professions"}])<br>
-                              except openai.AutheticationError as e:<br>
-                              &nbsp;&nbsp;&nbsp; print(f"OpenAi APi
-                              ffailed to authenticate: {e}")<br>
-                              &nbsp;&nbsp;&nbsp; pass <br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">the open ai api can run
+                                                        into errors and will in that case n return
+                                                        a python error relating to the occured
+                                                        problem for example:<br>
+                                                        * Connection errors ( caused by connection
+                                                        issueseither on user or service side) e.g.
+                                                        InternalServerError, APIConnectionerror,
+                                                        APITimeoutError. General retrying after a
+                                                        few minutes will solve the problem.<br>
+                                                        <br>
+                                                        * Resource limits error (caused by limits
+                                                        on frequence of request or size of prompt)
+                                                        e.g. ConflictError, RateLimitError.
+                                                        generally fixed by changing the prompt.<br>
+                                                        <br>
+                                                        * Authentication error. (ccaused by
+                                                        invalid api key or token is
+                                                        invalid,expired) e.g. AuthenticationError.
+                                                        (to solve this the api key needs to be
+                                                        checked)<br>
+                                                        <br>
+                                                        * Bad request errors ( caused by malformed
+                                                        or incomplete api request like one with a
+                                                        missing or invalid a paramter e.g.
+                                                        BadRequestError (to fix generaly the code
+                                                        has to be reviewed and checked with the
+                                                        documentation)<br>
+                                                        <br>
+                                                        as their python erros you can use try
+                                                        catch method to handle the errors.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">try:<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp; response =
+                                                        client.chat.compeletion.create(<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp; model =
+                                                        "gpt-40-mini"<br>
+                                                        &nbsp;&nbsp;&nbsp; messages=[{"role":
+                                                        "user",&nbsp; <br>
+                                                        &nbsp;&nbsp;&nbsp; "content::" list five
+                                                        data science professions"}])<br>
+                                                        except openai.AutheticationError as e:<br>
+                                                        &nbsp;&nbsp;&nbsp; print(f"OpenAi APi
+                                                        ffailed to authenticate: {e}")<br>
+                                                        &nbsp;&nbsp;&nbsp; pass <br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-            <table style="width: 100%;">
-              <tbody>
-                <tr>
-                  <td>
-                    <!--cell E2 -->
-                    <div class="container4">
-                      <table class="inner">
+                    </table>
+                    <table style="width: 100%;">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <td>
+                                    <!--cell E2 -->
+                                    <div class="container4">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Retrying</h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Retrying</h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">If a call is being rate
-                              limited another way to re send the prompt
-                              after teh ratelimit error occrus thsi can
-                              be done using the tenacity python library.<br>
-                              using tenacity a retry decorator can be
-                              made. in wich using the wait paratemer it
-                              can be indiated how long the wait time
-                              between tries should be and using teh stop
-                              paratemer when to stop. using the
-                              stop_after_attempt function an specific
-                              amount of tries can be set.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from tenacity import
-                              (retry, stop_after_attempt,w
-                              wait_random_exponential)<br>
-                              <br>
-                              @retry(wait=wait_random_exponential(min=1,
-                              max=60), stop = stop_after_attempt(6))<br>
-                              def get_reponse(model, message)<br>
-                              &nbsp;&nbsp;&nbsp; response =
-                              cient.chat.completions.create(<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              model = model, messages=[messages] )<br>
-                              &nbsp;&nbsp;&nbsp; return
-                              response.choices[0].message.content<br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">If a call is being rate
+                                                        limited another way to re send the prompt
+                                                        after teh ratelimit error occrus thsi can
+                                                        be done using the tenacity python library.<br>
+                                                        using tenacity a retry decorator can be
+                                                        made. in wich using the wait paratemer it
+                                                        can be indiated how long the wait time
+                                                        between tries should be and using teh stop
+                                                        paratemer when to stop. using the
+                                                        stop_after_attempt function an specific
+                                                        amount of tries can be set.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from tenacity import
+                                                        (retry, stop_after_attempt,w
+                                                        wait_random_exponential)<br>
+                                                        <br>
+                                                        @retry(wait=wait_random_exponential(min=1,
+                                                        max=60), stop = stop_after_attempt(6))<br>
+                                                        def get_reponse(model, message)<br>
+                                                        &nbsp;&nbsp;&nbsp; response =
+                                                        cient.chat.completions.create(<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        model = model, messages=[messages] )<br>
+                                                        &nbsp;&nbsp;&nbsp; return
+                                                        response.choices[0].message.content<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <!-- page 2 -->
     <table style="width: 765px; height: 998px;">
-      <tbody>
-        <tr>
-          <td style="width: 50%; padding-right: 0px;">
-            <!-- left column -->
-            <table style="width: 100%; ">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell D1 -->
-                    <div class="container1">
-                      <table class="inner">
+        <tbody>
+            <tr>
+                <td style="width: 50%; padding-right: 0px; word-break: break-word; ">
+                    <!-- left column -->
+                    <table style="width: 100%; ">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell D1 -->
+                                    <div class="container1">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Function calling<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Function calling<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">While giving the Openai API
-                              a resposne format ensures the format type
-                              of the ouput it doesnt ensure that the
-                              ouput is exactly formatted the same.
-                              Function calling can be used to generate
-                              consistent structured output.This ensure
-                              the output can be used for calling other
-                              apis or when a fixed structured
-                              information schema is needed like
-                              controlling devices.<br>
-                              <br>
-                              This can be achieved through the tools
-                              paramater in the create class. The tool
-                              paramater takes a function_defintion in
-                              the form of a list of dictionaries.<br>
-                              <br>
-                              the functiondefition requires multiple key
-                              value paris being:<br>
-                              *&nbsp; type = for example a function
-                              (which is used when an own defined
-                              function needs to be called)<br>
-                              * function = on its own is a dictionary
-                              containing the name of the function, a
-                              short description and the parameters the
-                              function takes which again is a dicionary
-                              on its own. with each key inside the
-                              paramaters being an key that will bie in
-                              the outputed json schema.<br>
-                              <br>
-                              when using tools the response is located
-                              under a differnt key in the response
-                              dictionary being
-                              response.choices[0].message.tool_calls[0].function.arguments)
-                              as you can have mutliple tools in a
-                              message the message.tool_calls is a list.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from openai import Openai<br>
-                              <br>
-                              cleint = OpenAi(api_key="***************")<br>
-                              <br>
-                              function_defintion = [{ "name" :
-                              "extract_job_info",<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              "descripption": ""get the job information
-                              from the body of hte input text",
-                              "paramters" : { "type": "object", <br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">While giving the Openai API
+                                                        a resposne format ensures the format type
+                                                        of the ouput it doesnt ensure that the
+                                                        ouput is exactly formatted the same.
+                                                        Function calling can be used to generate
+                                                        consistent structured output.This ensure
+                                                        the output can be used for calling other
+                                                        apis or when a fixed structured
+                                                        information schema is needed like
+                                                        controlling devices.<br>
+                                                        <br>
+                                                        This can be achieved through the tools
+                                                        paramater in the create class. The tool
+                                                        paramater takes a function_defintion in
+                                                        the form of a list of dictionaries.<br>
+                                                        <br>
+                                                        the functiondefition requires multiple key
+                                                        value paris being:<br>
+                                                        *&nbsp; type = for example a function
+                                                        (which is used when an own defined
+                                                        function needs to be called)<br>
+                                                        * function = on its own is a dictionary
+                                                        containing the name of the function, a
+                                                        short description and the parameters the
+                                                        function takes which again is a dicionary
+                                                        on its own. with each key inside the
+                                                        paramaters being an key that will bie in
+                                                        the outputed json schema.<br>
+                                                        <br>
+                                                        when using tools the response is located
+                                                        under a differnt key in the response
+                                                        dictionary being
+                                                        response.choices[0].message.tool_calls[0].function.arguments)
+                                                        as you can have mutliple tools in a
+                                                        message the message.tool_calls is a list.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from openai import Openai<br>
+                                                        <br>
+                                                        cleint = OpenAi(api_key="***************")<br>
+                                                        <br>
+                                                        function_defintion = [{ "name" :
+                                                        "extract_job_info",<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        "descripption": ""get the job information
+                                                        from the body of hte input text",
+                                                        "paramters" : { "type": "object", <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -571,13 +591,13 @@ print(response.choices[0]].message.content)<br>
 
 
 
-                              "properties":<br>
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; "job": {"type":
-                              "string", <br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        "properties":<br>
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; "job": {"type":
+                                                        "string", <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -588,131 +608,134 @@ print(response.choices[0]].message.content)<br>
 
 
 
-                              "description": "job title"},<br>
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              "location":{"type": "string",<br>
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              "description" : "office location" },<br>
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-                              }}]<br>
-                              <br>
-                              response = client.chat.completions.create(
-                              <br>
-                              &nbsp;&nbsp;&nbsp; model =&nbsp;
-                              "gpt-4o-mini",<br>
-                              &nbsp;&nbsp;&nbsp; messages=messages,<br>
-                              &nbsp;&nbsp;&nbsp; tools=
-                              function_definition,<br>
-                              )<br>
-print(response.choices[0].message.tool_calls[0].function.arguments)</td>
-                          </tr>
-                          <tr>
-                            <td valign="top">when giving multiple
-                              functions (in the form of a list of
-                              functions in the tools paramter) an
-                              adational paramater becomes required being
-                              tool_choice when set to "auto" the prompt
-                              will decide which tool is used (the ai
-                              decides which) <br>
-                              other wise a dictionary contining type =
-                              the type of function e.g "function" and
-                              function = dictionary containing name =
-                              name of function.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">response =
-                              client.chat.completions.create( model =
-                              "gpt-4o-mini", messages=messages, tools =
-                              function_definition, tool_choic = {"type":
-                              "function", "function":
-                              {"name":"extract_job_info"} } )<br>
-                            </td>
-                          </tr>
+                                                        "description": "job title"},<br>
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        "location":{"type": "string",<br>
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        "description" : "office location" },<br>
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+                                                        }}]<br>
+                                                        <br>
+                                                        response = client.chat.completions.create(
+                                                        <br>
+                                                        &nbsp;&nbsp;&nbsp; model =&nbsp;
+                                                        "gpt-4o-mini",<br>
+                                                        &nbsp;&nbsp;&nbsp; messages=messages,<br>
+                                                        &nbsp;&nbsp;&nbsp; tools=
+                                                        function_definition,<br>
+                                                        )<br>
+                                                        print(response.choices[0].message.tool_calls[0].function.arguments)
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">when giving multiple
+                                                        functions (in the form of a list of
+                                                        functions in the tools paramter) an
+                                                        adational paramater becomes required being
+                                                        tool_choice when set to "auto" the prompt
+                                                        will decide which tool is used (the ai
+                                                        decides which) <br>
+                                                        other wise a dictionary contining type =
+                                                        the type of function e.g "function" and
+                                                        function = dictionary containing name =
+                                                        name of function.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">response =
+                                                        client.chat.completions.create( model =
+                                                        "gpt-4o-mini", messages=messages, tools =
+                                                        function_definition, tool_choic = {"type":
+                                                        "function", "function":
+                                                        {"name":"extract_job_info"} } )<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-          <td style="width: 50%; padding-left: 0px;">
-            <!-- right column -->
-            <table style="width: 100%; ">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell E1 -->
-                    <div class="container3">
-                      <table class="inner">
+                    </table>
+                </td>
+                <td style="width: 50%; padding-left: 0px; word-break: break-word;">
+                    <!-- right column -->
+                    <table style="width: 100%; ">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell E1 -->
+                                    <div class="container3">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Calling external Apis<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Calling external Apis<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Function calling can also
-                              be used with exteranl apis, to do this the
-                              python requests library can be used, which
-                              requires an api url and a querystring. <br>
-                              <br>
-                              this can than be combined with a
-                              function_definition and used in the open
-                              ai api call<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">import requests<br>
-                              <br>
-                              def get_atwork(keyword)<br>
-                              &nbsp;&nbsp;&nbsp; url =
-                              "https://api.artic.edu/api/v1/artworks/search"<br>
-                              &nbsp;&nbsp;&nbsp; querystring =
-                              {"q":keyword}<br>
-                              &nbsp;&nbsp;&nbsp; response =
-                              requests.request("GET", url,
-                              params=querystring)<br>
-                              &nbsp;&nbsp;&nbsp; return response.text<br>
-                              <br>
-                              function_defintion = [{ "type":
-                              "function", <br>
-                              &nbsp;&nbsp;&nbsp; "function" : { <br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Function calling can also
+                                                        be used with exteranl apis, to do this the
+                                                        python requests library can be used, which
+                                                        requires an api url and a querystring. <br>
+                                                        <br>
+                                                        this can than be combined with a
+                                                        function_definition and used in the open
+                                                        ai api call<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">import requests<br>
+                                                        <br>
+                                                        def get_atwork(keyword)<br>
+                                                        &nbsp;&nbsp;&nbsp; url =
+                                                        "https://api.artic.edu/api/v1/artworks/search"<br>
+                                                        &nbsp;&nbsp;&nbsp; querystring =
+                                                        {"q":keyword}<br>
+                                                        &nbsp;&nbsp;&nbsp; response =
+                                                        requests.request("GET", url,
+                                                        params=querystring)<br>
+                                                        &nbsp;&nbsp;&nbsp; return response.text<br>
+                                                        <br>
+                                                        function_defintion = [{ "type":
+                                                        "function", <br>
+                                                        &nbsp;&nbsp;&nbsp; "function" : { <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -722,8 +745,8 @@ print(response.choices[0].message.tool_calls[0].function.arguments)</td>
 
 
 
-                              "name": "get_artwork",<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        "name": "get_artwork",<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -733,10 +756,10 @@ print(response.choices[0].message.tool_calls[0].function.arguments)</td>
 
 
 
-                              "description": "this function call the art
-                              insitute of chicago api to find atwork
-                              that matches a keyword", <br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        "description": "this function call the art
+                                                        insitute of chicago api to find atwork
+                                                        that matches a keyword", <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -746,11 +769,11 @@ print(response.choices[0].message.tool_calls[0].function.arguments)</td>
 
 
 
-                              "paramters": {<br>
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; "type" :
-                              "objects", <br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        "paramters": {<br>
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; "type" :
+                                                        "objects", <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -760,8 +783,8 @@ print(response.choices[0].message.tool_calls[0].function.arguments)</td>
 
 
 
-                              "properties" : { <br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        "properties" : { <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -771,8 +794,8 @@ print(response.choices[0].message.tool_calls[0].function.arguments)</td>
 
 
 
-                              "artwork keyword" : { <br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        "artwork keyword" : { <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -782,188 +805,194 @@ print(response.choices[0].message.tool_calls[0].function.arguments)</td>
 
 
 
-                              "type" : "string",<br>
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                              "description" : "the keyword to be passed
-                              to the new get_atwork function" }}},<br>
-                              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                              &nbsp; &nbsp; "result" : { "type":
-                              "string"}}<br>
-                              }} ] )<br>
-                            </td>
-                          </tr>
+                                                        "type" : "string",<br>
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                                                        "description" : "the keyword to be passed
+                                                        to the new get_atwork function" }}},<br>
+                                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        &nbsp; &nbsp; "result" : { "type":
+                                                        "string"}}<br>
+                                                        }} ] )<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-            <table style="width: 100%; ">
-              <tbody>
-                <tr>
-                  <td>
-                    <!--cell E2 -->
-                    <div class="container4">
-                      <table class="inner">
+                    </table>
+                    <table style="width: 100%; ">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <td>
+                                    <!--cell E2 -->
+                                    <div class="container4">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Moderation</h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Moderation</h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Moderation in the context
-                              of the OpenAI API refers to the process of
-                              analyzing input to determine if it
-                              contains any content that violates
-                              predefined policies or guidelines. OpenAI
-                              provides a moderations endpoint as part of
-                              its API. it is used to evaluate if the
-                              output. it checks for hate,harassment,
-                              self-harm sexual and violence. <br>
-                              <br>
-                              to caclulate the probability for these
-                              catogiries the moderations.create class
-                              can be used which takes in paramter the
-                              input. from this for each category the
-                              probability can be retrieved.</td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">moderation_response =
-                              client.moderation.create( input= """
-                              ...until someone dras an explodign kitten.
-                              when that happens, that person exploders.
-                              they are now dead. this process continues
-                              until... """<br>
-                              <br>
-print(moderation_response.results[0].categories.violence)</td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Moderation in the context
+                                                        of the OpenAI API refers to the process of
+                                                        analyzing input to determine if it
+                                                        contains any content that violates
+                                                        predefined policies or guidelines. OpenAI
+                                                        provides a moderations endpoint as part of
+                                                        its API. it is used to evaluate if the
+                                                        output. it checks for hate,harassment,
+                                                        self-harm sexual and violence. <br>
+                                                        <br>
+                                                        to caclulate the probability for these
+                                                        catogiries the moderations.create class
+                                                        can be used which takes in paramter the
+                                                        input. from this for each category the
+                                                        probability can be retrieved.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">moderation_response =
+                                                        client.moderation.create( input= """
+                                                        ...until someone dras an explodign kitten.
+                                                        when that happens, that person exploders.
+                                                        they are now dead. this process continues
+                                                        until... """<br>
+                                                        <br>
+                                                        print(moderation_response.results[0].categories.violence)
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <!-- page 2 -->
     <table style="width: 765px; height: 998px;">
-      <tbody>
-        <tr>
-          <td style="width: 765px;">
-            <!-- single row -->
-            <table width="765" height="839">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell a1 -->
-                    <div class="container1">
-                      <table class="inner">
+        <tbody>
+            <tr>
+                <td style="width: 765px;">
+                    <!-- single row -->
+                    <table width="765" height="839">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell a1 -->
+                                    <div class="container1">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Embeddings<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Embeddings<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Embeddings are a numerical
-                              representation of text that can be used to
-                              measure relatdness between two pieces of
-                              text. Embeddings are mostly found in
-                              semantic search engines where the results
-                              not necessarly uses the exact words used
-                              in the search prompt but words close to
-                              it. e.g. when searching images of
-                              runningshoes semantic search engines also
-                              return images of sneakers.<br>
-                              this is done through converting the text
-                              through an embedding model into numbers
-                              and placing it on a multiple dimensional
-                              spectrum to see which numbers are closed
-                              related to it.<br>
-                              <br>
-                              To use embeddings with openai the
-                              embeddigns endpoint is used, called
-                              through the client.embeddings.create()
-                              class. which requires 2 paramters.<br>
-                              model = which is the model used.<br>
-                              input = which is the to be embedded
-                              string. or a list of strings<br>
-                              as most endpoints it returns a dictonary
-                              retrieved through response.model_dump()<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from openai import OpenAi<br>
-                              <br>
-                              client = OpenAi(api_key= "*********"<br>
-                              response = client.embeddings.create(<br>
-                              &nbsp;&nbsp;&nbsp; model=
-                              "text-embedding-3-small",<br>
-                              &nbsp;&nbsp;&nbsp; input="Embeddings are a
-                              numerical representation of text that can
-                              be used to measure relatdness between two
-                              pieces of text"<br>
-                              )<br>
-                              response_dict= response.model_dump()<br>
-                              print(response.model_dump())<br>
-print(response_dict["data"][0]["embedding"])<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">articles = [
-                              {"headlines":"econigrowth continues amdi
-                              global uncertation", "topic":"business"},<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Embeddings are a numerical
+                                                        representation of text that can be used to
+                                                        measure relatdness between two pieces of
+                                                        text. Embeddings are mostly found in
+                                                        semantic search engines where the results
+                                                        not necessarly uses the exact words used
+                                                        in the search prompt but words close to
+                                                        it. e.g. when searching images of
+                                                        runningshoes semantic search engines also
+                                                        return images of sneakers.<br>
+                                                        this is done through converting the text
+                                                        through an embedding model into numbers
+                                                        and placing it on a multiple dimensional
+                                                        spectrum to see which numbers are closed
+                                                        related to it.<br>
+                                                        <br>
+                                                        To use embeddings with openai the
+                                                        embeddigns endpoint is used, called
+                                                        through the client.embeddings.create()
+                                                        class. which requires 2 paramters.<br>
+                                                        model = which is the model used.<br>
+                                                        input = which is the to be embedded
+                                                        string. or a list of strings<br>
+                                                        as most endpoints it returns a dictonary
+                                                        retrieved through response.model_dump()<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from openai import OpenAi<br>
+                                                        <br>
+                                                        client = OpenAi(api_key= "*********"<br>
+                                                        response = client.embeddings.create(<br>
+                                                        &nbsp;&nbsp;&nbsp; model=
+                                                        "text-embedding-3-small",<br>
+                                                        &nbsp;&nbsp;&nbsp; input="Embeddings are a
+                                                        numerical representation of text that can
+                                                        be used to measure relatdness between two
+                                                        pieces of text"<br>
+                                                        )<br>
+                                                        response_dict= response.model_dump()<br>
+                                                        print(response.model_dump())<br>
+                                                        print(response_dict["data"][0]["embedding"])<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">articles = [
+                                                        {"headlines":"econigrowth continues amdi
+                                                        global uncertation", "topic":"business"},<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -971,330 +1000,336 @@ print(response_dict["data"][0]["embedding"])<br>
 
 
 
-                              {headlines"."interest rates flal to
-                              historic lows", "topic: "business"},&nbsp;
-                              .....<br>
-                              ]<br>
-                              headlines_text = [article["headline"] for
-                              article in articles]<br>
-                              <br>
-                              response = client.embeddings.create(<br>
-                              &nbsp;&nbsp;&nbsp;
-                              model="text-embedding-3small",&nbsp; input
-                              = headline_text<br>
-                              )<br>
-                              response_dict = response.model_dump()<br>
-                              <br>
-                              for i, article in enumerate(articles):<br>
-                              &nbsp;&nbsp;&nbsp; article["embedding"] =
-                              response_dict["date"][i]["embedding"]<br>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    <!--cell a2 -->
-                    <div class="container2">
-                      <table class="inner">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                                                        {headlines"."interest rates flal to
+                                                        historic lows", "topic: "business"},&nbsp;
+                                                        .....<br>
+                                                        ]<br>
+                                                        headlines_text = [article["headline"] for
+                                                        article in articles]<br>
+                                                        <br>
+                                                        response = client.embeddings.create(<br>
+                                                        &nbsp;&nbsp;&nbsp;
+                                                        model="text-embedding-3small",&nbsp; input
+                                                        = headline_text<br>
+                                                        )<br>
+                                                        response_dict = response.model_dump()<br>
+                                                        <br>
+                                                        for i, article in enumerate(articles):<br>
+                                                        &nbsp;&nbsp;&nbsp; article["embedding"] =
+                                                        response_dict["date"][i]["embedding"]<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!--cell a2 -->
+                                    <div class="container2">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Embedding 2: Dimensionality
-                                    reduction<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Embedding 2: Dimensionality
+                                                                    reduction<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">OPAI api embedding always
-                              returns a number with the len() of 1536
-                              meaning it returns 1536 dimensions
-                              indicating the inputs position in&nbsp;
-                              the vector space.<br>
-                              There are various techniques to reduce the
-                              number of dimensions so the embedding
-                              becomes more managable. e.g t-SENE
-                              (t-distrubted Stoachistic Neighbor
-                              Embedding) which can be found in the
-                              sckit-learn python library sklearn.<br>
-                              <br>
-                              from this library the TSNE function is
-                              used which requires two paramters being:<br>
-                              n_components = the resulting number of
-                              dimensions<br>
-                              perplexity: used by the algorthm, must be
-                              less than the number of data points in the
-                              list<br>
-                              after this to perform the transformation
-                              the fit_transform is called.<br>
-                              <br>
-                              to visuale the result matplotlib.pyplot
-                              can be used to visual the relation in a
-                              scatter plot (when having reduce the
-                              embedings to 2 dimensions)<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from sklearn.manifold
-                              import TSNE<br>
-                              import numpy as np<br>
-                              <br>
-                              embeddings = [articles["embjedding"] for
-                              article in articles]<br>
-                              tsne = TSNE(n_components=2, perplexity = 5
-                              ) <br>
-                              embeddings_2d =
-                              tsne.fit_transform(np.array(embeddings))<br>
-                              <br>
-                              plt.scatter(embeddings_2d[:, 0],
-                              embeddings_2d[:, 1])<br>
-                              topics =[article["topic"] for article in
-                              articles ]<br>
-                              for i, topic in enumerate(topics):<br>
-                              &nbsp;&nbsp;&nbsp; plt.annotate(topic,
-                              (embeddings_2d[i, 0], embeddigns_2d[i, 1
-                              ]))<br>
-                              plt.show()<br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">OPAI api embedding always
+                                                        returns a number with the len() of 1536
+                                                        meaning it returns 1536 dimensions
+                                                        indicating the inputs position in&nbsp;
+                                                        the vector space.<br>
+                                                        There are various techniques to reduce the
+                                                        number of dimensions so the embedding
+                                                        becomes more managable. e.g t-SENE
+                                                        (t-distrubted Stoachistic Neighbor
+                                                        Embedding) which can be found in the
+                                                        sckit-learn python library sklearn.<br>
+                                                        <br>
+                                                        from this library the TSNE function is
+                                                        used which requires two paramters being:<br>
+                                                        n_components = the resulting number of
+                                                        dimensions<br>
+                                                        perplexity: used by the algorthm, must be
+                                                        less than the number of data points in the
+                                                        list<br>
+                                                        after this to perform the transformation
+                                                        the fit_transform is called.<br>
+                                                        <br>
+                                                        to visuale the result matplotlib.pyplot
+                                                        can be used to visual the relation in a
+                                                        scatter plot (when having reduce the
+                                                        embedings to 2 dimensions)<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from sklearn.manifold
+                                                        import TSNE<br>
+                                                        import numpy as np<br>
+                                                        <br>
+                                                        embeddings = [articles["embjedding"] for
+                                                        article in articles]<br>
+                                                        tsne = TSNE(n_components=2, perplexity = 5
+                                                        ) <br>
+                                                        embeddings_2d =
+                                                        tsne.fit_transform(np.array(embeddings))<br>
+                                                        <br>
+                                                        plt.scatter(embeddings_2d[:, 0],
+                                                        embeddings_2d[:, 1])<br>
+                                                        topics =[article["topic"] for article in
+                                                        articles ]<br>
+                                                        for i, topic in enumerate(topics):<br>
+                                                        &nbsp;&nbsp;&nbsp; plt.annotate(topic,
+                                                        (embeddings_2d[i, 0], embeddigns_2d[i, 1
+                                                        ]))<br>
+                                                        plt.show()<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <!-- page 2 -->
     <table style="width: 765px; height: 998px;">
-      <tbody>
-        <tr>
-          <td style="width: 765px;">
-            <!-- single row -->
-            <table width="765" height="839">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell a1 -->
-                    <div class="container1">
-                      <table class="inner">
+        <tbody>
+            <tr>
+                <td style="width: 765px;">
+                    <!-- single row -->
+                    <table width="765" height="839">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell a1 -->
+                                    <div class="container1">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Embedding 3: Measuring similarity<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Embedding 3: Measuring similarity<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">To measure similarity many
-                              differnt metrics can be used, one of them
-                              is measuring cosien distance being the
-                              distance between two points.<br>
-                              for the this distnace function of the
-                              scipy python library can be used.<br>
-                              <br>
-                              measaring similiraties can than also be
-                              used to lable/tag items like adding
-                              predefined topic tags to articles and
-                              sentiment analysis<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">from scipy.spatial import
-                              distance<br>
-                              import numpy as np<br>
-                              <br>
-                              <font color="#666666"># simple example</font><br>
-                              distance.cosine[0, 1], [1, 0]) <font
-                                color="#c0c0c0"><font color="#666666">#1</font>
-                              </font><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">def create_embddings(text):<br>
-                              &nbsp;&nbsp;&nbsp; response =
-                              client.embeddings.create(<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              model="text-embdding-3-small",<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">To measure similarity many
+                                                        differnt metrics can be used, one of them
+                                                        is measuring cosien distance being the
+                                                        distance between two points.<br>
+                                                        for the this distnace function of the
+                                                        scipy python library can be used.<br>
+                                                        <br>
+                                                        measaring similiraties can than also be
+                                                        used to lable/tag items like adding
+                                                        predefined topic tags to articles and
+                                                        sentiment analysis<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">from scipy.spatial import
+                                                        distance<br>
+                                                        import numpy as np<br>
+                                                        <br>
+                                                        <font color="#666666"># simple example</font><br>
+                                                        distance.cosine[0, 1], [1, 0]) <font color="#c0c0c0">
+                                                            <font color="#666666">#1</font>
+                                                        </font><br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">def create_embddings(text):<br>
+                                                        &nbsp;&nbsp;&nbsp; response =
+                                                        client.embeddings.create(<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        model="text-embdding-3-small",<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
 
 
-                              input=texts)<br>
-                              <br>
-                              &nbsp;&nbsp;&nbsp; response_dict =
-                              response.model_dump()<br>
-                              <br>
-                              &nbsp;&nbsp;&nbsp;&nbsp; return
-                              [data["embedding"] for data in
-                              response_dict["data"]]<br>
-                              <br>
-                              search_text = "computer"<br>
-                              search_embedding =
-                              ceate_embeddings(search_text)[0]<br>
-                              <br>
-                              distinaces = []<br>
-                              for article in articles <br>
-                              &nbsp;&nbsp;&nbsp; dist =
-                              distance.cosine)search_embedding,
-                              articles["embedding"])<br>
-                              &nbsp;&nbsp; distances.append(dist)<br>
-                              <br>
-                              <font color="#666666"># return index of
-                                the smalles value in the list </font><br>
-                              min_dist_ind = np.argmin(distances) <br>
-                              print(artciles[min_dist_ind]["headlien"])<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"># function to find the n
-                              number of closets <br>
-                              def find_n_closets(query_vect, embeddings,
-                              n=3):<br>
-                              &nbsp;&nbsp; distances = []<br>
-                              &nbsp;&nbsp; for index, embedding in
-                              enumerate(embeddings):<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              dist = distance.cosine(query_vector,
-                              embedding_<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              distances.append({"distance": dist,
-                              ïndex": idnex})<br>
-                              &nbsp;&nbsp;&nbsp; distances_sorted =
-                              sorted(distances , key=lambda x:
-                              x["distance"])<br>
-                              &nbsp;&nbsp;&nbsp; retrun
-                              distances_sorted[0:n]<br>
-                              <br>
-                              query_text = "ai"<br>
-                              query_vector =
-                              create_embeddings(query_text)[0]<br>
-                              hits = find_n_closets(query_vect,
-                              article_embeddings)<br>
-                              <br>
-                              for hit in hits:<br>
-                              &nbsp;&nbsp;&nbsp; article =
-                              articles[hit["index"]]<br>
-                              &nbsp;&nbsp; print(article["headline"])<br>
-                            </td>
-                          </tr>
+                                                        input=texts)<br>
+                                                        <br>
+                                                        &nbsp;&nbsp;&nbsp; response_dict =
+                                                        response.model_dump()<br>
+                                                        <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp; return
+                                                        [data["embedding"] for data in
+                                                        response_dict["data"]]<br>
+                                                        <br>
+                                                        search_text = "computer"<br>
+                                                        search_embedding =
+                                                        ceate_embeddings(search_text)[0]<br>
+                                                        <br>
+                                                        distinaces = []<br>
+                                                        for article in articles <br>
+                                                        &nbsp;&nbsp;&nbsp; dist =
+                                                        distance.cosine)search_embedding,
+                                                        articles["embedding"])<br>
+                                                        &nbsp;&nbsp; distances.append(dist)<br>
+                                                        <br>
+                                                        <font color="#666666"># return index of
+                                                            the smalles value in the list </font><br>
+                                                        min_dist_ind = np.argmin(distances) <br>
+                                                        print(artciles[min_dist_ind]["headlien"])<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top"># function to find the n
+                                                        number of closets <br>
+                                                        def find_n_closets(query_vect, embeddings,
+                                                        n=3):<br>
+                                                        &nbsp;&nbsp; distances = []<br>
+                                                        &nbsp;&nbsp; for index, embedding in
+                                                        enumerate(embeddings):<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        dist = distance.cosine(query_vector,
+                                                        embedding_<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        distances.append({"distance": dist,
+                                                        ïndex": idnex})<br>
+                                                        &nbsp;&nbsp;&nbsp; distances_sorted =
+                                                        sorted(distances , key=lambda x:
+                                                        x["distance"])<br>
+                                                        &nbsp;&nbsp;&nbsp; retrun
+                                                        distances_sorted[0:n]<br>
+                                                        <br>
+                                                        query_text = "ai"<br>
+                                                        query_vector =
+                                                        create_embeddings(query_text)[0]<br>
+                                                        hits = find_n_closets(query_vect,
+                                                        article_embeddings)<br>
+                                                        <br>
+                                                        for hit in hits:<br>
+                                                        &nbsp;&nbsp;&nbsp; article =
+                                                        articles[hit["index"]]<br>
+                                                        &nbsp;&nbsp; print(article["headline"])<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-      <!-- page 2 -->
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+        <!-- page 2 -->
     </table>
     <table style="width: 765px; height: 998px;">
-      <tbody>
-        <tr>
-          <td style="width: 765px;">
-            <!-- single row -->
-            <table width="765" height="839">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell a1 -->
-                    <div class="container1">
-                      <table class="inner">
+        <tbody>
+            <tr>
+                <td style="width: 765px;">
+                    <!-- single row -->
+                    <table width="765" height="839">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell a1 -->
+                                    <div class="container1">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Recommendation systems<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Recommendation systems<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Recommendation systems work
-                              almost exactly the same as semantic search
-                              engine. it uses embeddings within a set of
-                              datapoints and a single point data point
-                              that we want to recommend based on.
-                              calculate cosine distance and recommend
-                              the item or tiems that are closed.<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">articles = [
-                              {"headlines":"econigrowth continues amdi
-                              global uncertation", "topic":"business"},<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Recommendation systems work
+                                                        almost exactly the same as semantic search
+                                                        engine. it uses embeddings within a set of
+                                                        datapoints and a single point data point
+                                                        that we want to recommend based on.
+                                                        calculate cosine distance and recommend
+                                                        the item or tiems that are closed.<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">articles = [
+                                                        {"headlines":"econigrowth continues amdi
+                                                        global uncertation", "topic":"business"},<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
@@ -1302,223 +1337,224 @@ print(response_dict["data"][0]["embedding"])<br>
 
 
 
-                              {headlines"."interest rates flal to
-                              historic lows", "topic: "business"},&nbsp;
-                              .....<br>
-                              ]<br>
-                              current_article {"headline":"how nivdia
-                              gpu could decide who wins the ai race",
-                              "topic"; "tech",
-                              "keywords":[äi","business,"computers"]}<br>
-                              <br>
-                              def create_article_text(article):<br>
-                              &nbsp;&nbsp; return f"""headline:
-                              {article["headline"]} topic:
-                              {article["topic"]} Keywords: {',
-                              ".join(article["keywords"])}"""<br>
-                              <br>
-                              article_texts =
-                              [create_article_text(artlicle) for article
-                              in articles]<br>
-                              current_article_text =
-                              create_article_text(current_article)<br>
-                              <br>
-                              def create_embddings(text):<br>
-                              &nbsp;&nbsp;&nbsp; response =
-                              client.embeddings.create(<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              model="text-embdding-3-small",<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        {headlines"."interest rates flal to
+                                                        historic lows", "topic: "business"},&nbsp;
+                                                        .....<br>
+                                                        ]<br>
+                                                        current_article {"headline":"how nivdia
+                                                        gpu could decide who wins the ai race",
+                                                        "topic"; "tech",
+                                                        "keywords":[äi","business,"computers"]}<br>
+                                                        <br>
+                                                        def create_article_text(article):<br>
+                                                        &nbsp;&nbsp; return f"""headline:
+                                                        {article["headline"]} topic:
+                                                        {article["topic"]} Keywords: {',
+                                                        ".join(article["keywords"])}"""<br>
+                                                        <br>
+                                                        article_texts =
+                                                        [create_article_text(artlicle) for article
+                                                        in articles]<br>
+                                                        current_article_text =
+                                                        create_article_text(current_article)<br>
+                                                        <br>
+                                                        def create_embddings(text):<br>
+                                                        &nbsp;&nbsp;&nbsp; response =
+                                                        client.embeddings.create(<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        model="text-embdding-3-small",<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
 
 
-                              input=texts)<br>
-                              <br>
-                              &nbsp;&nbsp;&nbsp; response_dict =
-                              response.model_dump()<br>
-                              <br>
-                              &nbsp;&nbsp;&nbsp;&nbsp; return
-                              [data["embedding"] for data in
-                              response_dict["data"]]<br>
-                              current_article_embeddigns =
-                              create_embeddigns(current_article_text)[0]<br>
-                              article_embbeddigns =
-                              create_embeddings(article_texts)<br>
-                              <br>
-                              # function to find the n number of closets
-                              <br>
-                              def find_n_closets(query_vect, embeddings,
-                              n=3):<br>
-                              &nbsp;&nbsp; distances = []<br>
-                              &nbsp;&nbsp; for index, embedding in
-                              enumerate(embeddings):<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              dist = distance.cosine(query_vector,
-                              embedding_<br>
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              distances.append({"distance": dist,
-                              ïndex": idnex})<br>
-                              &nbsp;&nbsp;&nbsp; distances_sorted =
-                              sorted(distances , key=lambda x:
-                              x["distance"])<br>
-                              &nbsp;&nbsp;&nbsp; retrun
-                              distances_sorted[0:n]<br>
-                              <br>
-                              hits =
-                              find_n_closet(current_article_embeddings,
-                              article_embeddings)<br>
-                              <br>
-                              for hit in hits:<br>
-                              &nbsp;&nbsp;&nbsp; article =
-                              articles[hit["index"]]<br>
-                              &nbsp;&nbsp;&nbsp;
-                              print(article["headline"])<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">Recommended systems also
-                              need to be able to deal with mutliple data
-                              points (mutliple current articles) and
-                              with that the user allready has seen other
-                              datapoints have to taken out of the
-                              results. this is achieved through a few
-                              small changes<br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">
-                              <h3>Example</h3>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">def
-                              create_aticle_text(article)<br>
-                              &nbsp;.....<br>
-                              <br>
-                              history_texts =
-                              [create_articles_text(article) for article
-                              in user_history]<br>
-                              history_embeddigns = create_embeddings (
-                              history_texts)<br>
-                              mena_history_embedings =
-                              np.mean(history_embeddigns, axis=0)<br>
-                              <br>
-                              articles_filtered = [article for article
-                              in articles if article not in
-                              user_history]<br>
-                              article_texts [
-                              create_article_text(article) for article
-                              in articles_filtred]<br>
-                              article_embeddigns =
-                              create_embeddings(article_texts)<br>
-                              <br>
-                              hits =
-                              find_n_closest(mean_history_embeddings,
-                              article_embeddings)<br>
-                              <br>
-                              for hit in hits:<br>
-                              &nbsp;&nbsp;&nbsp; article =
-                              articles_filtered[hit["index"]]<br>
-                              &nbsp;&nbsp;&nbsp;
-                              print(article["headline"])<br>
-                            </td>
-                          </tr>
+                                                        input=texts)<br>
+                                                        <br>
+                                                        &nbsp;&nbsp;&nbsp; response_dict =
+                                                        response.model_dump()<br>
+                                                        <br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp; return
+                                                        [data["embedding"] for data in
+                                                        response_dict["data"]]<br>
+                                                        current_article_embeddigns =
+                                                        create_embeddigns(current_article_text)[0]<br>
+                                                        article_embbeddigns =
+                                                        create_embeddings(article_texts)<br>
+                                                        <br>
+                                                        # function to find the n number of closets
+                                                        <br>
+                                                        def find_n_closets(query_vect, embeddings,
+                                                        n=3):<br>
+                                                        &nbsp;&nbsp; distances = []<br>
+                                                        &nbsp;&nbsp; for index, embedding in
+                                                        enumerate(embeddings):<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        dist = distance.cosine(query_vector,
+                                                        embedding_<br>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        distances.append({"distance": dist,
+                                                        ïndex": idnex})<br>
+                                                        &nbsp;&nbsp;&nbsp; distances_sorted =
+                                                        sorted(distances , key=lambda x:
+                                                        x["distance"])<br>
+                                                        &nbsp;&nbsp;&nbsp; retrun
+                                                        distances_sorted[0:n]<br>
+                                                        <br>
+                                                        hits =
+                                                        find_n_closet(current_article_embeddings,
+                                                        article_embeddings)<br>
+                                                        <br>
+                                                        for hit in hits:<br>
+                                                        &nbsp;&nbsp;&nbsp; article =
+                                                        articles[hit["index"]]<br>
+                                                        &nbsp;&nbsp;&nbsp;
+                                                        print(article["headline"])<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">Recommended systems also
+                                                        need to be able to deal with mutliple data
+                                                        points (mutliple current articles) and
+                                                        with that the user allready has seen other
+                                                        datapoints have to taken out of the
+                                                        results. this is achieved through a few
+                                                        small changes<br>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">
+                                                        <h3>Example</h3>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">def
+                                                        create_aticle_text(article)<br>
+                                                        &nbsp;.....<br>
+                                                        <br>
+                                                        history_texts =
+                                                        [create_articles_text(article) for article
+                                                        in user_history]<br>
+                                                        history_embeddigns = create_embeddings (
+                                                        history_texts)<br>
+                                                        mena_history_embedings =
+                                                        np.mean(history_embeddigns, axis=0)<br>
+                                                        <br>
+                                                        articles_filtered = [article for article
+                                                        in articles if article not in
+                                                        user_history]<br>
+                                                        article_texts [
+                                                        create_article_text(article) for article
+                                                        in articles_filtred]<br>
+                                                        article_embeddigns =
+                                                        create_embeddings(article_texts)<br>
+                                                        <br>
+                                                        hits =
+                                                        find_n_closest(mean_history_embeddings,
+                                                        article_embeddings)<br>
+                                                        <br>
+                                                        for hit in hits:<br>
+                                                        &nbsp;&nbsp;&nbsp; article =
+                                                        articles_filtered[hit["index"]]<br>
+                                                        &nbsp;&nbsp;&nbsp;
+                                                        print(article["headline"])<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <table style="width: 765px; height: 998px;">
-      <tbody>
-        <tr>
-          <td style="width: 765px;">
-            <!-- single row -->
-            <table width="765" height="839">
-              <tbody>
-                <tr>
-                  <th>
-                    <!--cell a1 -->
-                    <div class="container1">
-                      <table class="inner">
+        <tbody>
+            <tr>
+                <td style="width: 765px;">
+                    <!-- single row -->
+                    <table width="765" height="839">
                         <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
+                            <tr>
+                                <th>
+                                    <!--cell a1 -->
+                                    <div class="container1">
+                                        <table class="inner">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Embedding 4: vector database<br>
-                                  </h2>
-                                </div>
-                                <div style="position: absolute; right:
+                                                            <div style="text-align: center;">
+                                                                <h2>Embedding 4: vector database<br>
+                                                                </h2>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                            <div style="position: absolute; right:
                                   15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top">each embeding consist out
-                              of 1536 int characters meaning it takes
-                              about 13kb per mebbed record with large
-                              sets this becomes imprtactical and
-                              requires the embedigns to be sored outside
-                              of the work memory. for thsi a vector
-                              databse can be used. generally this is
-                              done using a NoSQL database consiting out
-                              of key value pairs with the keys
-                              referencing the documents and its meta
-                              data, some vector databases also allow for
-                              storage of the text of documents. example
-                              are PostgreSQL (it supports vector
-                              searching) and chromaDB (has a local model
-                              and server model and provides allot of
-                              support for embeders see chromadb notes)<br>
-                            </td>
-                          </tr>
+                                                                <svg width="34" height="34">
+                                                                    <use href="#myBase64Image"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="top">each embeding consist out
+                                                        of 1536 int characters meaning it takes
+                                                        about 13kb per mebbed record with large
+                                                        sets this becomes imprtactical and
+                                                        requires the embedigns to be sored outside
+                                                        of the work memory. for thsi a vector
+                                                        databse can be used. generally this is
+                                                        done using a NoSQL database consiting out
+                                                        of key value pairs with the keys
+                                                        referencing the documents and its meta
+                                                        data, some vector databases also allow for
+                                                        storage of the text of documents. example
+                                                        are PostgreSQL (it supports vector
+                                                        searching) and chromaDB (has a local model
+                                                        and server model and provides allot of
+                                                        support for embeders see chromadb notes)<br>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </th>
+                            </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <footer style="text-align: center; margin-top: 20px;">
-      <p style="text-align: center;"> This website is a collection of my
-        personal study notes, created to help me and others learn and
-        organize information effectively. Feel free to <strong>download</strong>,
-        <strong>print</strong>, or <strong>use</strong> any of the
-        notes for your own purposes. </p>
-      <p style="text-align: center;"> <br>
-        Want to keep your own notes in the same format? Check out the <a
-          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+        <p style="text-align: center;"> This website is a collection of my
+            personal study notes, created to help me and others learn and
+            organize information effectively. Feel free to <strong>download</strong>,
+            <strong>print</strong>, or <strong>use</strong> any of the
+            notes for your own purposes.
+        </p>
+        <p style="text-align: center;"> <br>
+            Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE" style="color: #1E90FF;
           text-decoration: underline;">Notes Template</a>! </p>
-      <p style="text-align: center;"> Interested in forking this
-        website? Visit my <a
-          href="https://github.com/Doemsdagding/CheatSheets"
-          target="_blank" style="color: #1E90FF; text-decoration:
+        <p style="text-align: center;"> Interested in forking this
+            website? Visit my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank" style="color: #1E90FF; text-decoration:
           underline;">GitHub Repository</a> to get the full source code.
-      </p>
-      <p style="text-align: center;"> Happy learning and dont forget to
-        share, follow and star the repository! -DoemsDagDing </p>
+        </p>
+        <p style="text-align: center;"> Happy learning and dont forget to
+            share, follow and star the repository! -DoemsDagDing </p>
     </footer>
-  </body>
+</body>
+
 </html>
