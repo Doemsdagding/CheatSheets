@@ -189,7 +189,7 @@
                               additional parameters like:<br>
                               max_completion_tokes = maximum output
                               tokes.<br>
-                              temperature = creativity and differential<br>
+                              temperature = creativity and differential.<br>
                               <br>
                               To prompt this model the .invoke function
                               is used taking the prompt in the form of a
@@ -512,14 +512,18 @@
                               ChatPromptTemplate.from_messages(<br>
                               &nbsp;&nbsp; [<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               ("system", ÿou are a calculator that
                               responds with math."),<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               ("human", "Answer this math question: What
                               is two plus two ?"),<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               ("ai" , "2+2=4"),<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               ("human", Änswer this math question:
                               {math}")<br>
                               &nbsp;&nbsp; ] )<br>
