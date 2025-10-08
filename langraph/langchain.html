@@ -239,7 +239,9 @@
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">Example<br>
+                            <td valign="top">
+                              <h3>Example</h3>
+                              <h3> </h3>
                             </td>
                           </tr>
                           <tr>
@@ -281,7 +283,8 @@
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell B1</h2>
+                                  <h2>Prompt templates 1: from_template<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -294,6 +297,60 @@
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Prompt templates are a
+                              fundamental LangChain component that act
+                              as reusable recipes for defining prompts
+                              for LLMs. Prompt templates can include
+                              instructions or questions, examples for
+                              the model to draw on, and any additional
+                              context that might help the model complete
+                              the task. (think chatbot building with
+                              openai api)<br>
+                              <br>
+                              Prompt templates are created using
+                              LangChain's PromptTemplate class. when
+                              using the from_template function only one
+                              paramterer is required being:<br>
+                              &nbsp;template= a template pront formated
+                              like an f string but without it actually
+                              being one<br>
+                              <br>
+                              to fill the f string variables when invoke
+                              is called instead of a propt a dictonary
+                              is required contain in the key the
+                              variablename found in the template and in
+                              the value e.g. the concept that needs to
+                              be explained. Invoking th template alone
+                              result in the creation of the prompt
+                              rather than invoking it to an llm.<br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from langchain_core.prompt
+                              import promptTemplate<br>
+                              <br>
+                              <font color="#666666">#Example of a chat
+                                bot that explains the concept of things</font><br>
+                              template = "Explain this concept simple
+                              and consiely: {concept}"<br>
+                              prompt_template =
+                              PromptTemplate.from_template( <br>
+                              &nbsp;&nbsp;&nbsp; template=template<br>
+                              )<br>
+                              <br>
+                              prompt =
+                              prompt_template.invoke({"conccept" :
+                              "Prompting LLMS"})<br>
+                              <br>
                             </td>
                           </tr>
                         </tbody>
@@ -317,7 +374,8 @@
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell B2</h2>
+                                  <h2>Chains 1: Introduction <br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -330,6 +388,404 @@
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Chains are another
+                              fundamental LangChain component. Chains
+                              connect a series of calls to different
+                              components into a sequence. The chain is
+                              written in Langchain Expression
+                              Language&nbsp; (LCEL) with | being the
+                              connecting operator&nbsp; that creates the
+                              chain connecting it into a left to right
+                              sequence e.g the user input will be passed
+                              into the prompt template to populate it,
+                              then the prompt will be inserted into the
+                              LLM.<br>
+                              <br>
+                              to pass the input to the chain the input
+                              to the first chackle of the chain is given
+                              through an .invoke() function<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">llm =
+                              HuggingFacePipeline.from_model_id(<br>
+                              &nbsp;&nbsp;&nbsp; model_id =
+                              "meta-llama/Llama-3.2-3B-Instruct",<br>
+                              &nbsp;&nbsp;&nbsp; task="text-generation")<br>
+                              <br>
+                              template = "Explain this concept simple
+                              and consiely: {concept}"<br>
+                              prompt_template =
+                              PromptTemplate.from_template( <br>
+                              &nbsp;&nbsp;&nbsp; template=template<br>
+                              )<br>
+                              <br>
+                              llm_chain prompt_template | llm<br>
+                              <br>
+                              print(llm_chain.invoke({"concept":
+                              concept}))<br>
+                              <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Prompt templates 2: from_messages<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Most chat models ( see
+                              Opain notes for more info) support
+                              prompting with roles. Using the
+                              .from_messages() function from the
+                              ChatPromptTemplate class it allows to
+                              specificy a sersies of messages from
+                              theses roles as the prompt template.. <br>
+                              the from_messages() function takes a list
+                              of tuples in the format of
+                              "role","message" <br>
+                              this can be combined with f string like
+                              method used in prompt templates 1.&nbsp;
+                              The response can than be extracted using
+                              the .content attribute.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from langchain_core.prompt
+                              import ChatPrompttemplate<br>
+                              <br>
+                              template =
+                              ChatPromptTemplate.from_messages(<br>
+                              &nbsp;&nbsp; [<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ("system", ÿou are a calculator that
+                              responds with math."),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ("human", "Answer this math question: What
+                              is two plus two ?"),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ("ai" , "2+2=4"),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ("human", Änswer this math question:
+                              {math}")<br>
+                              &nbsp;&nbsp; ] )<br>
+                              <br>
+                              llm = ChatOpenAi(model"gpt-4o-mini",
+                              api_key = '********')<br>
+                              <br>
+                              llm_chain = template | llm <br>
+                              math = "what is five times five?"<br>
+                              reponse = llm_chain.invoke({"math": math})<br>
+                              print(response.content)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Prompt templates 3: Few-shot
+                                    prompting<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Where from_messages excel
+                              in handeling small number of examples it
+                              doesnt scale when more examples need to be
+                              given (to make the bot further fail
+                              proof). For this the FewShotPromptTemplate
+                              can be used.<br>
+                              <br>
+                              the FewShotPromptTemplates requires two
+                              parameters:<br>
+                              examples = the examples in the form of a
+                              list of dictonaries<br>
+                              example_prompt = an example prompt in the
+                              form a promptempalte made using the
+                              from_template() function (see prompt
+                              templates 1) <br>
+                              optionally:<br>
+                              suffix = which is what to be added to the
+                              user input. in the form of a f string like
+                              string.<br>
+                              input_variables= a list to specificy what
+                              the keyis the user input will be assinged
+                              to.<br>
+                              <br>
+                              this template can than be used in a chain
+                              and invoked by providng the invoke with a
+                              dictonary containing the input key and the
+                              question. The response can than be
+                              extracted using the .content attribute.<br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import pandas as pd<br>
+                              from lanchain_core.prompts import
+                              FewShotPromptTemplate, PromptTemplate<br>
+                              <br>
+                              <font color="#666666">#an csv containing 2
+                                columns "question"and "awnser"</font><br>
+                              df = pd.read_csv("example_questions.csv"<br>
+                              <font color="#666666"><br>
+                                #convert the dataframe to a list of
+                                dicts</font><br>
+                              examples = df.to_dict(orient="records")<br>
+                              <br>
+                              example_prompt =
+                              PromptTemplate.from_template("Question:
+                              {question}\n{answer}")<br>
+                              <br>
+                              prompt_template = FewShotPromptTemplate(<br>
+                              &nbsp;&nbsp;&nbsp; examples= examples,<br>
+                              &nbsp;&nbsp;&nbsp; example_prompt =
+                              example_prompt,<br>
+                              &nbsp;&nbsp;&nbsp; suffix = "Question:
+                              {input}",<br>
+                              &nbsp;&nbsp;&nbsp; input_variables =
+                              ["input"] )<br>
+                              <br>
+                              llm = ChatOpenAi(model"gpt-4o-mini",
+                              api_key = '********')<br>
+                              llm_chain = template | llm <br>
+                              <br>
+                              response = llm_chain.invoke({"input":
+                              "what is teh name of henry campbells
+                              dog?"})<br>
+                              print(response.content)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Chains 2: sequential chains<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A prime example of when a
+                              sequential chain should be used is when
+                              there is more than one call to an llm is
+                              needed.In sequential chains, the output
+                              from one chain becomes the input to
+                              another.<br>
+                              <br>
+                              this achieved by wrapping the first
+                              prompts chain sequence to create the
+                              second input prompt disctonary with the
+                              key being the secodns prompt key and the
+                              value being the result of the first prompt
+                              (making sure itt's output is parsered
+                              using the StrOutputParser() function<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from langchain_core.prompt
+                              import promptTemplate<br>
+                              <span class="hljs-keyword">from</span>
+                              langchain.output_parsers <span
+                                class="hljs-keyword">import</span>
+                              StrOutputParset<br>
+                              <br>
+                              destination_prompt = PromptTemplate(<br>
+                              &nbsp;&nbsp;&nbsp; input_variables=
+                              ["destination"],<br>
+                              &nbsp;&nbsp;&nbsp; ,template="i am
+                              planning a trip to {destination]. can you
+                              suggest some activities to do there?"<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; )<br>
+                              activities_pompt = PromptTemplate(<br>
+                              &nbsp;&nbsp;&nbsp;
+                              input_variables=["activties"],<br>
+                              &nbsp;&nbsp;&nbsp; template= "I only have
+                              one day, so can you create an intinerary
+                              from your top three activities:
+                              {activities}."<br>
+                              &nbsp;&nbsp;&nbsp; )<br>
+                              <br>
+                              lllm = ChatOpenAI(model="gpt-4o-mini",
+                              api_key=openai_api_key)<br>
+                              <br>
+                              <font color="#666666">#sequential chain</font><br>
+                              seq_chain = ({"activities":
+                              destination_prompt | llm |
+                              StrOutputParser{}} <br>
+                              &nbsp;&nbsp;&nbsp; |
+                              activities_prompt&nbsp; | llm&nbsp; |
+                              SStrOutputParser())<br>
+                              <br>
+                              print(seq_chain.invoke({"destination":
+                              "Rome"}))<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>B2<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                              <br>
                             </td>
                           </tr>
                         </tbody>

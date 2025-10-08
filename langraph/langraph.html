@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>REDSHIFT</title>
+    <title>LANGGRAPH</title>
     <link rel="stylesheet" href="../stylesheet.css">
     <script src="../script.js"> </script>
     <style>
@@ -36,39 +35,35 @@
 
         }
     </style>
-</head>
-
-<body class="light-mode">
-    <!-- Back Button --> <button class="back-button" onclick="window.location.href='../'" title="Back to Home page"> ×
+  </head>
+  <body class="light-mode">
+    <!-- Back Button --> <button class="back-button"
+      onclick="window.location.href='../'" title="Back to Home page"> ×
     </button>
     <!--ICON-->
     <svg style="display: none;">
-        <symbol id="myBase64Image" viewBox="0 0 1 1">
-            <image href="data:image/png;base64,smalllangraphlogohere" width="1" height="1"></image>
-        </symbol>
-    </svg>
+      <symbol id="myBase64Image" viewBox="0 0 1 1">
+        <image href="data:image/png;base64,smalllangraphlogohere"
+          width="1" height="1"></image> </symbol> </svg>
     <svg style="display: none;">
-        <symbol id="redshiftlgo" viewBox="0 0 1 1">
-            <image href="data:image/png;base64,50by50langraphlogohere" width="1" height="1"></image>
-        </symbol>
-    </svg>
-    <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
-            class="icon"></span> </button>
+      <symbol id="redshiftlgo" viewBox="0 0 1 1">
+        <image href="data:image/png;base64,50by50langraphlogohere"
+          width="1" height="1"></image> </symbol> </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button"
+      onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+        class="icon"></span> </button>
     <!--PRINT BUTTON--> <button class="print-button" onclick="if
       (document.body.classList.contains('dark-mode')) toggleMode();
       window.print();" title="Print this page"> <span class="icon">🖨️</span>
     </button>
     <!-- Modal Structure -->
     <div id="modal" class="modal">
-        <div class="modal-content"> <button class="modal-close" onclick="closeModal()" title="close modal">×</button>
-            <div id="modal-table-container"></div>
-            <!--next and back buttons--> <button class="modal-back" onclick="previousModal()"
-                title="previous modal">&lt;</button> <button class="modal-next" onclick="nextModal()"
-                title="next modal">&gt;</button>
-            <div class="modal-zone modal-left" onclick="previousModal()"></div>
-            <div class="modal-zone modal-middle"></div>
-            <div class="modal-zone modal-right" onclick="nextModal()"></div>
-        </div>
+      <div class="modal-content"> <button class="modal-close"
+          onclick="closeModal()" title="close modal">×</button>
+        <!--next and back buttons--> <button class="modal-back"
+          onclick="previousModal()" title="previous modal">&lt;</button>
+        <button class="modal-next" onclick="nextModal()" title="next
+          modal">&gt;</button> </div>
     </div>
     <!-- Swipe Hint -->
     <div id="swipe-hint" style="display: none; position: fixed; bottom:
@@ -76,250 +71,469 @@
       rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px;
       border-radius: 10px; font-size: 30px; z-index: 2000; text-align:
       center; justify-content: center; align-items: center;"> Swipe left
-        or right to navigate </div>
+      or right to navigate </div>
     <!--HEADER h1-->
-    <h1>Title – INTRODUCTION
-        <svg width="55" height="55">
-            <use href="#redshiftlgo"></use>
-        </svg>
-    </h1>
+    <h1>LangGraph – INTRODUCTION
+      <svg width="55" height="55">
+        <use href="#redshiftlgo"></use> </svg> </h1>
     <!-- page 1 -->
-    <div class="page-break"></div>
-    <table style="width: 765px; height:  998px;">
-        <tbody>
-            <tr>
-                <td style="width: 199px; padding-right: 0px;">
-                    <!-- left side -->
-                    <table style="width: 248px; height: 839px;">
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 199px; padding-right: 0px;">
+            <!-- left side -->
+            <table style="width: 248px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
                         <tbody>
-                            <tr>
-                                <th>
-                                    <!--cell a1 -->
-                                    <div class="container1">
-                                        <table class="inner">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div
-                                                            style="display: flex; justify-content: center; align-items: center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>Cell a1</h2>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: 15px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <!--cell a2 -->
-                                    <div class="container2">
-                                        <table class="inner">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div
-                                                            style="display: flex; justify-content: center; align-items: center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>cell a2</h2>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: 15px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <!--cell a3 -->
-                                    <div class="container1">
-                                        <table class="inner">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div
-                                                            style="display: flex; justify-content: center; align-items: center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>cell a3</h2>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: 15px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>LangGraph</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">LangGraph is an branch of
+                              the LangChain ecosystem. specifically for
+                              designing agentic systems, or systems
+                              including agents.<br>
+                            </td>
+                          </tr>
                         </tbody>
-                    </table>
-                </td>
-                <td style="width: 367px; padding-left: 0px;">
-                    <!-- right side -->
-                    <table none="" style="width: 352px; height: 839px;">
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
                         <tbody>
-                            <tr>
-                                <th>
-                                    <!--cell b1 -->
-                                    <div class="container3">
-                                        <table class="inner" style="width: 483px; ;">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div
-                                                            style="display: flex; justify-content: center; align-items: center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>cell b1</h2>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: 15px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <!--cell b2 -->
-                                    <div class="container4">
-                                        <table class="inner">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div
-                                                            style="display: flex; justify-content: center; align-items: center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>cell b2 </h2>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: 15px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <!--cell b3 -->
-                                    <div class="container3">
-                                        <table class="inner">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div
-                                                            style="display: flex; justify-content: center; align-items: center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>cell b3</h2>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: -28px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                            <div
-                                                                style="position: absolute; right: 15px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Agent</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Agents use llms to take
+                              actions.AI agents exhibit a degree of
+                              autonomy, memory. making it a software
+                              system that uses artificial intelligence
+                              to autonomously pursue goals and complete
+                              complex, multistep tasks on behalf of a
+                              user or system.</td>
+                          </tr>
                         </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Tools<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Agents often use
+                              tools.Tools are functions called by the
+                              agent (like run code, load document, call
+                              upon an api ect).</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 367px; padding-left: 0px;">
+            <!-- right side -->
+            <table none="" style="width: 352px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell b1 -->
+                    <div class="container3">
+                      <table class="inner" style="width: 483px; ;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>ReAct agent<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">ReAct stand for reasoning
+                              and acting. a ReAct agent prompts the
+                              model using a repeated loop of thinking,
+                              acting, and observing. e.g. asking the
+                              weather to an agent it first interpertrs
+                              the questions than use its tool to call
+                              for the weather api, than observers the
+                              results and then gives the awnser.<br>
+                              <br>
+                              besides making your own agents provide
+                              langgraph a variaty of prebuilt agents
+                              among which a ReAct agent in the form of
+                              the create_react_agent() function.<br>
+                              the create_react_agents() requires
+                              variables 1 containing the llm and the
+                              tools to be used<br>
+                              <br>
+                              The langchain community allready made
+                              toolkits for a variety of pruposes among
+                              which doing math, these can be imported
+                              using the load_tools() function which
+                              takes 2 variables a list of tools and the
+                              llm to use these tools.<br>
+                              <br>
+                              just like chains agents can be executed
+                              using the .invoke() function. the invoke
+                              methord returns a dictonary containing the
+                              key value pair messages and a list of
+                              messages that are retruned among wihich
+                              the input (humanMessage), the ais
+                              translation of the message to the tool
+                              (AiMessage), the tools response
+                              (ToolMessage) and the final output message
+                              of the ai (AiMessage) to <br>
+                              retrieve the response
+                              messages["messages'][-1].content) can be
+                              used to retrieve the content of the last
+                              message (aka the Ai response Message)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from langgraph.prebuilt
+                              import create_react_agent<br>
+                              from
+                              langchain_community.agent_tooolkits.load_tools
+                              import load_tools.<br>
+                              from langchain_openai import ChatOpenAI<br>
+                              <br>
+                              llm = ChatOpenAi(model="gpt-4o-mini",
+                              api_key = "**********")<br>
+                              tools = load_tools(["llm-math"], llm=llm)<br>
+                              <br>
+                              message = agent.invoke({"messages":
+                              [("human", "what is the square root of
+                              101&gt;")]})<br>
+                              <br>
+                              print(tools[0].description)<br>
+                              <br>
+                              print(messages["messages"][-1].content)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A1 -->
+                    <div class="container4">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Custom tools<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Tools in LangChain must be
+                              formatted in a specific way to be
+                              compatible with agents. They must have: <br>
+                              * a name, accessible via the .name
+                              attribute. ( by default this is the
+                              function name)<br>
+                              * a description, which is used by the LLM
+                              to determine when to call the tool. For
+                              example In case the of a math tool, if the
+                              LLM interprets the task as being a math
+                              problem, it will likely call this tool
+                              based on its description. (by default this
+                              is the docstring)<br>
+                              * return_direct paramater which indicates
+                              whether the agent should stop after
+                              invoking this too (set to default by
+                              default)<br>
+                              <br>
+                              you can also print the argument names
+                              which shows the names an expected
+                              datatypes using the .args attribute<br>
+                              <br>
+                              To turn a python function into a tool the
+                              @tool decorator is used<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from langchain_core.tools
+                              import tool <br>
+                              from langgraph.prebuit import
+                              create_react_agent<br>
+                              rom langchain_openai import ChatOpenAI<br>
+                              <br>
+                              @tool<br>
+                              def financial_report( company_name: str,
+                              revenue: int, expenses: int) -&gt; str: <br>
+                              &nbsp;&nbsp; """ Generate a financial
+                              report for a company that calcualtes net
+                              income. """<br>
+                              &nbsp;&nbsp;&nbsp; net_income = revenue -
+                              expenses<br>
+                              &nbsp;&nbsp;&nbsp; report = f"Financial
+                              report for {company_name}:\n"<br>
+                              &nbsp;&nbsp;&nbsp; report += f"Revenue:
+                              ${revenue}\n"<br>
+                              &nbsp;&nbsp;&nbsp; report += f"Expenses:
+                              ${exppenses}\n"<br>
+                              &nbsp;&nbsp;&nbsp; report += f"net income:
+                              ${net_income}\n"<br>
+                              &nbsp;&nbsp;&nbsp; return report<br>
+                              <br>
+                              print(financial_report.name)<br>
+                              print(financial_report.description)<br>
+                              print financial_report.return-direct)<br>
+                              print(financial_report.args)<br>
+                              <br>
+                              llm = ChatOpenAI(model="gpt-4o-mini",
+                              api_key = "*******", temperature = 0)<br>
+                              agent = create_react_agent(llm,
+                              [financial-report])<br>
+                              <br>
+                              messages =
+                              agent.invoke({"messages":[("human",,
+                              "techStack generated made $10 million with
+                              $8 million of costs. generate a financial
+                              report.")])<br>
+                              print(messages["messages"][-1].content)<br>
+                              <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B1</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
     </table>
     <footer style="text-align: center; margin-top: 20px;">
-        <p style="text-align: center;"> This website is a collection of my
-            personal study notes, created to help me and others learn and
-            organize information effectively. Feel free to <strong>download</strong>,
-            <strong>print</strong>, or <strong>use</strong> any of the
-            notes for your own purposes.
-        </p>
-        <p style="text-align: center;"> <br>
-            Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+      <p style="text-align: center;"> This website is a collection of my
+        personal study notes, created to help me and others learn and
+        organize information effectively. Feel free to <strong>download</strong>,
+        <strong>print</strong>, or <strong>use</strong> any of the
+        notes for your own purposes. </p>
+      <p style="text-align: center;"> <br>
+        Want to keep your own notes in the same format? Check out the <a
+          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
           text-decoration: underline;">Notes Template</a>! </p>
-        <p style="text-align: center;"> Interested in forking this
-            website? Visit my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank" style="color: #1E90FF; text-decoration:
+      <p style="text-align: center;"> Interested in forking this
+        website? Visit my <a
+          href="https://github.com/Doemsdagding/CheatSheets"
+          target="_blank" style="color: #1E90FF; text-decoration:
           underline;">GitHub Repository</a> to get the full source code.
-        </p>
-        <p style="text-align: center;"> Happy learning and dont forget to
-            share, follow and star the repository! -DoemsDagDing </p>
+      </p>
+      <p style="text-align: center;"> Happy learning and dont forget to
+        share, follow and star the repository! -DoemsDagDing </p>
     </footer>
-</body>
-
+  </body>
 </html>
