@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>LANGCHAIN</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="../script.js"> </script>
+    <style>
+        /* Containers */
+        .container1 {
+            border: 6px solid #004080;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container2 {
+            border: 6px solid #383e4f;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container3 {
+            border: 6px solid #5474cc;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container4 {
+            border: 6px solid #1C3C3C;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+    </style>
+  </head>
+  <body class="light-mode">
+    <!-- Back Button --> <button class="back-button"
+      onclick="window.location.href='../'" title="Back to Home page"> ×
+    </button>
+    <!--ICON-->
+    <svg style="display: none;">
+      <symbol id="myBase64Image" viewBox="0 0 1 1">
+        <image href="data:image/png;base64,smalllangraphlogohere"
+          width="1" height="1"></image> </symbol> </svg>
+    <svg style="display: none;">
+      <symbol id="redshiftlgo" viewBox="0 0 1 1">
+        <image href="data:image/png;base64,50by50langraphlogohere"
+          width="1" height="1"></image> </symbol> </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button"
+      onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+        class="icon"></span> </button>
+    <!--PRINT BUTTON--> <button class="print-button" onclick="if
+      (document.body.classList.contains('dark-mode')) toggleMode();
+      window.print();" title="Print this page"> <span class="icon">🖨️</span>
+    </button>
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+      <div class="modal-content"> <button class="modal-close"
+          onclick="closeModal()" title="close modal">×</button>
+        <!--next and back buttons--> <button class="modal-back"
+          onclick="previousModal()" title="previous modal">&lt;</button>
+        <button class="modal-next" onclick="nextModal()" title="next
+          modal">&gt;</button> </div>
+    </div>
+    <!-- Swipe Hint -->
+    <div id="swipe-hint" style="display: none; position: fixed; bottom:
+      30px; left: 50%; transform: translateX(-50%); background-color:
+      rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px;
+      border-radius: 10px; font-size: 30px; z-index: 2000; text-align:
+      center; justify-content: center; align-items: center;"> Swipe left
+      or right to navigate </div>
+    <!--HEADER h1-->
+    <h1>LANGCHAIN – RAG
+      <svg width="55" height="55">
+        <use href="#redshiftlgo"></use> </svg> </h1>
+    <!-- page 1 -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2 class="css-1qgaovm">Retrieval
+                                    Augmented Generation (RAG)</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Pre-trained language models
+                              don't have access to external data sources
+                              - their understanding comes purely from
+                              their training data.<br>
+                              In RAG, a user query is embedded and used
+                              to retrieve the most relevant documents
+                              from the database. Then, these documents
+                              are added to the model's prompt so that
+                              the model has extra context to inform its
+                              response. <br>
+                              <br>
+                              There are three primary steps to RAG
+                              development in LangChain. <br>
+                              1: is loading the documents into LangChain
+                              with document loaders. <br>
+                              2: is splitting the documents into chunks
+                              that we can index and process
+                              individually. <br>
+                              3: is encoding and storing the chunks for
+                              retrieval, which could utilize a vector
+                              database if that meets the needs of the
+                              use case. <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Rag 1: Document loaders<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">LangChain document loaders
+                              are classes designed to load and configure
+                              documents for integration with AI systems.
+                              <br>
+                              LangChain provides document loader classes
+                              for common file types such as CSV PDFS.
+                              HTML ect. additionaly third parties
+                              loaders are provided for formatlis like
+                              amazon s33 buckets and audio transcipts
+                              (.ipynb, .wav).<br>
+                              <br>
+                              All the loaders work similarly first you
+                              use the loader class from the
+                              langchain_community.document_loaders eg.
+                              PyPDFLoader<br>
+                              and give it the file than you use the
+                              .load() function to load the document.
+                              ofteh these loaders have as depency that
+                              another python library is installed eg.
+                              PyPdf for the pypdfloader and unstrucutred
+                              for the html loader.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (.pdf)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langchain_community.document_loaders
+                              import PyPDFLoader<br>
+                              <br>
+                              loader =
+                              PyPDFLoader("pathto/pdf/file.pdf")<br>
+                              data = loader.load()<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (.csv)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langchain_community.document_loaders
+                              import CSVLoader<br>
+                              <br>
+                              loader = CSVLoader("pathto/csv/file.csv"<br>
+                              data = loader.load()<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (.html)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langchain_community.document_loaders
+                              importUnstructuredHTMLLoader<br>
+                              <br>
+                              loader =
+                              UnstructuredHTMLLoader("path/to/thml/file.html")<br>
+                              data = loader.load()<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Rag 2: Document splitting<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Document splitting splits
+                              the loaded document into smaller parts,
+                              which are also called chunks. Chunking is
+                              particularly useful for breaking up long
+                              documents so that they fit within an LLM's
+                              context window.<br>
+                              One naive splitting option would be to
+                              separate the document by-line. but as
+                              sentences are often split over multiples
+                              context might be lost. for this reason
+                              chunk overlap is often
+                              implemented.resulting in that part of the
+                              setence is in both chuinks. the size of
+                              the overlap can be tweeked to improve
+                              understanding. <br>
+                              There are many splitting methods examples
+                              are CharacterTextSplitter and
+                              ResursiveCharacterTextSplitter<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">quote = """One machine can
+                              do the work of fifty ordinary humans. \nNo
+                              machine can do the work of one
+                              extraordinary human."""<br>
+                              len(quote) <font color="#666666">#103</font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">CharacterTextSplitter is a
+                              method that splits on a sperator, e.g. a
+                              period, first then if chcunks are smaller
+                              than the given chunk size it uses the
+                              chunks_size and chunk_overlap to combine
+                              the small chunks into larger once. WARNING
+                              if chunks are larger than the chunk_size
+                              it does not split the chunk up.<br>
+                              <br>
+                              for this the CharacterTextSplitter class
+                              is used which requires:<br>
+                              seperater = the intended seperator for
+                              initial splitting<br>
+                              chunk_size = amount of chracters per chunk<br>
+                              chunk_overlap = the amount of overlap
+                              chracter<br>
+                              <br>
+                              after this the splitter can be used, using
+                              the .split_text() function which takes the
+                              text to be split.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (CharacterTextSplitter())</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langchain_text_splitters import
+                              CharacterTextSplitter<br>
+                              <br>
+                              ct_splitter = CharacterTextSplitter(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; seperator=".",<br>
+                              &nbsp;&nbsp;&nbsp; chunk_size =&nbsp; 24<br>
+                              &nbsp;&nbsp;&nbsp; chunk_overlap = 3 )<br>
+                              <br>
+                              docs = ct_splitter.split_text(quote)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To resolve the problem of
+                              chunks remaining to large the
+                              RecursiveCharacterTextSplitter class can
+                              be used instead. its basicaully the same
+                              as the characterTextSpliter but instead of
+                              1 seperater it takes a list of seperators.
+                              and it goes down that list 1 one by 1 till
+                              the chunks are small enough to fit the
+                              chunk_size.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (
+                                RecursiveCharacterTextSplitter())</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langchain_text_splitters import
+                              RecursiveCharacterTextSpliter<br>
+                              <br>
+                              rc_splitter =
+                              RecursiveCharacterTextSplitter( <br>
+                              &nbsp;&nbsp;&nbsp; seperator = ["n\n\n",
+                              |\n", " ", ""]],<br>
+                              &nbsp;&nbsp;&nbsp; chunk_size = 24,<br>
+                              &nbsp;&nbsp;&nbsp; chunk_overlap = 3) <br>
+                              docs = rc_splitter.split_text(quote)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To split documents instead
+                              of text the .split_ducments() can be used.
+                              which works teh same as the split_text()
+                              function.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (.split_ducments())</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">..... (see rag 1: document
+                              loader for the loading of the documents)<br>
+                              rc_spliter = .... (see above0<br>
+                              docs = rc_splitter.split_documents(data)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>RAG 3: Storage<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The most optimal way to
+                              store the documents is to store in a
+                              vector database e.g. Chromadb (see
+                              chromadb notes).&nbsp; This requires
+                              embedding our text documents to create
+                              vectors that capture the semantic meaning
+                              of the text.<br>
+                              There are many vector databases and
+                              Embedding models e.g. chromadb and
+                              openaiembeddings( see openai advance
+                              notes) available directly in LangChain.
+                              which can be used in the chains.<br>
+                              <br>
+                              these generally work the same as their own
+                              libraries but function/class might be
+                              called different.<br>
+                              <br>
+                              for chromadb there is an additional
+                              funtion classes which lets you import the
+                              chunked docs directly into the
+                              vectordatabase. being the from_documents()
+                              class which combined the client and
+                              create_collection functions of chromadb.
+                              from_documents requires 2 variables<br>
+                              documents = the document objects <br>
+                              embedding = the embedding function<br>
+                              furthermore it has several optional
+                              variables among which but not limited too:<br>
+                              presist_directory =&nbsp; takes a file
+                              path in the form of a string to store the
+                              db at.without it the db is saved in local
+                              storage <br>
+                              client =a chromadb.client can be given if
+                              the client has been premae using the
+                              chromadb pythonpackage (see chromadb
+                              notes)<br>
+                              collection_name = the name of the
+                              collection default to langchain.<br>
+                              ids = list of uniue string ids for the
+                              documents (must be same amount as number
+                              of documents.<br>
+                              collection__metadata = a dict same as
+                              metadata in chromadb package.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from langchain_openai
+                              import OpenAIEmbeddings<br>
+                              from langchain_chroma import Chroma<br>
+                              <br>
+                              embedding_function =
+                              OpenAIEmbeddigns(api_key = "*******",
+                              model = "text-embedding-3-small")<br>
+                              <br>
+                              vectorstroe = Chroma.from_documents(<br>
+                              &nbsp;&nbsp;&nbsp; documents= docs,<br>
+                              &nbsp;&nbsp; embedding=
+                              embedding_function,<br>
+                              &nbsp;&nbsp;&nbsp; presist_directory =
+                              "path/to/directory" )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>A2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>RAG 4: Retrieval<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A user query can be
+                              embedded to retrieve the most similar
+                              documents from the database and insert
+                              them into the model prompt. <br>
+                              <br>
+                              to integrate the database with other
+                              langchain components the vectordatabase
+                              needs to e converted into a retriever
+                              using the .as_retriever() function <br>
+                              the .as_retriever() function requires 2
+                              variables <br>
+                              search_type = the search method default is
+                              "similarity" which ranks documents purely
+                              on how ismilar their vector embbedigns are
+                              to the query vector, other options are
+                              "mmr" maximal marginal relevanse which
+                              also takes into account that the result
+                              should be diverse so first if its relevant
+                              tkaes the best of that and the rest should
+                              be relevant but not to similar to the
+                              first one.<br>
+                              search_kwargs = adictionary containing
+                              depending on the search_type different
+                              kwargs need to be iven for similarity only
+                              a "k" key with a value of the amount of
+                              results is needed for mmr also "fetch_k" =
+                              the initial amount of results before
+                              selecting just the best and diverse of
+                              those and "lambda_mult" the balance of
+                              diversity and relevance in teh form of a
+                              number 0 to 1 e.g. 0.5<br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">.... (see rag 3)<br>
+                              <br>
+                              retrieve = vectorstore.as_retriever(<br>
+                              &nbsp;&nbsp;&nbsp; search_type="mmr",<br>
+                              &nbsp;&nbsp;&nbsp; search_kwargs={"k": 10,
+                              "fetch_k": 20, "lambda_mult": 0.5}<br>
+                              )<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">after a retriever is setup
+                              it can be combined with the other
+                              langchain componetns like a prompt
+                              template.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from langchain_core.prompt
+                              import ChatPromptTemplate<br>
+                              from langchain_core.runnable improt
+                              RunnablePassthrough<br>
+                              <br>
+                              message = """ <br>
+                              &nbsp;&nbsp; review and fix the followign
+                              techStack marketing copy with the
+                              following guidelines in consderingartion:<br>
+                              <br>
+                              Guidelines: <br>
+                              &nbsp;&nbsp; {Guidelines}<br>
+                              <br>
+                              Copy:<br>
+                              &nbsp;&nbsp; {copy}<br>
+                              <br>
+                              Fixed copy:<br>
+                              """<br>
+                              prompt_template =
+                              ChatPromptTemplate.from_messages([("human",
+                              message )])<br>
+                              <br>
+                              rag_chain = ({"guidelines": retriever,
+                              "copy": RunnablePassthrouhg()} |
+                              prompt_template | llm )<br>
+                              <br>
+                              response = rag_chain.invoke("here at
+                              techstack, our users are the best in teh
+                              worlrd") <br>
+                              print(response.content)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <footer style="text-align: center; margin-top: 20px;">
+      <p style="text-align: center;"> This website is a collection of my
+        personal study notes, created to help me and others learn and
+        organize information effectively. Feel free to <strong>download</strong>,
+        <strong>print</strong>, or <strong>use</strong> any of the
+        notes for your own purposes. </p>
+      <p style="text-align: center;"> <br>
+        Want to keep your own notes in the same format? Check out the <a
+          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+          text-decoration: underline;">Notes Template</a>! </p>
+      <p style="text-align: center;"> Interested in forking this
+        website? Visit my <a
+          href="https://github.com/Doemsdagding/CheatSheets"
+          target="_blank" style="color: #1E90FF; text-decoration:
+          underline;">GitHub Repository</a> to get the full source code.
+      </p>
+      <p style="text-align: center;"> Happy learning and dont forget to
+        share, follow and star the repository! -DoemsDagDing </p>
+    </footer>
+  </body>
+</html>

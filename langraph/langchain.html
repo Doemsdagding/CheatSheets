@@ -117,8 +117,14 @@
                             <td valign="top">Langchain compresises of a
                               larger ecosystemt that also includes: <br>
                               * LangSmith = for deploying applications
-                              into production,<br>
+                              into production, (paid)<br>
                               * LangGraph = for creating Ai agents.<br>
+                              * Langserve = deploying simple langcchain
+                              application (can do cocmplex stuff but
+                              have to setup everything yourself)<br>
+                              *Langraph platform = replacement of
+                              langserve for complex and simpeler setup
+                              (paid)<br>
                               <br>
                               LangChain is used to create components
                               (like llms, decision making processes,
@@ -513,16 +519,20 @@
                               &nbsp;&nbsp; [<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+
                               ("system", ÿou are a calculator that
                               responds with math."),<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
                               ("human", "Answer this math question: What
                               is two plus two ?"),<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+
                               ("ai" , "2+2=4"),<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
                               ("human", Änswer this math question:
                               {math}")<br>
@@ -771,8 +781,7 @@
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>B2<br>
-                                  </h2>
+                                  <h2>RunnablePassThrough()</h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -788,9 +797,32 @@
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
-                              <br>
+                            <td valign="top">Runnablepassthrouhg is a
+                              langhain function used in a chain to pass
+                              the original input of a step through to
+                              the next step.<br>
+                              its is useful for when the next step
+                              requires both the original input and a
+                              retrieved or processed data or jus the
+                              original prompt for example so the next
+                              step can complete another part of the
+                              original prompt)<br>
                             </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langchain_core.runnable improt
+                              RunnablePassthrough<br>
+                              ....<br>
+                              <br>
+                              rag_chain = ({"guidelines": retriever,
+                              "copy": RunnablePassthrouhg()} |
+                              prompt_template | llm )</td>
                           </tr>
                         </tbody>
                       </table>
