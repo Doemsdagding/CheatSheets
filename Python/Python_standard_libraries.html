@@ -471,239 +471,292 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td rowspan="1" colspan="3" valign="top"><br>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>strftime()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td rowspan="1" colspan="3" valign="top"><br>
+                            <td rowspan="1" colspan="3" valign="top">strftime
+                              allow us to create human formatted strings
+                              out of a Python datetime object.<br>
                             </td>
                           </tr>
                           <tr>
-                            <td rowspan="1" colspan="3" valign="top"><br>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td rowspan="1" colspan="3" valign="top"><br>
+                            <td rowspan="1" colspan="3" valign="top">from
+                              datetime import datetime<br>
+                              now = datetime.now()<br>
+                              now # datetime.datetime(2022, 7, 23, 20,
+                              31, 19, 751479)<br>
+                              now.strftime("%d-%b-%Y") <font
+                                color="#666666"># '23-Jul-2022'</font><br>
+                              now.strftime("%m/%d/%Y") <font
+                                color="#666666"># '07/23/2022'</font><br>
+                              now.strftime("%b/%d/%Y - %H:%M:%S")<font
+                                color="#666666"> # 'Jul/23/2022 -
+                                20:31:19'</font><br>
                             </td>
                           </tr>
                           <tr>
-                            <td rowspan="1" colspan="3" valign="top"><br>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>strptime()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td rowspan="1" colspan="3" valign="top"><br>
+                            <td rowspan="1" colspan="3" valign="top">The
+                              strptime method creates a datetime object
+                              from a string.
+                              obj.strptime(datetime_string, format)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td rowspan="1" colspan="3" valign="top"><br>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td rowspan="1" colspan="3" valign="top"><br>
+                            <td rowspan="1" colspan="3" valign="top">from
+                              datetime import datetime<br>
+                              datetime_str = '12-Jul-2023'<br>
+                              datetime.strptime(datetime_str,
+                              '%d-%b-%Y') <font color="#666666">#
+                                datetime.datetime(2023, 7, 12, 0, 0)</font><br>
                             </td>
                           </tr>
                           <tr>
-                            <td rowspan="1" colspan="3" valign="top"><br>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Format ccodes</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Directive</h3>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Meaning</h3>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%a<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Weekday as locale’s
+                              abbreviated name.<br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">Sun, Mon, …, Sat (en_US)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%A<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Weekday as locale’s full
+                              name.<br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">Sunday, Monday, …, Saturday
+                              (en_US)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%w<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Weekday as a decimal
+                              number, where 0 is Sunday and 6 is
+                              Saturday.<br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">0, 1, …, 6<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%d<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Day of the month <br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">01, 02, …, 31<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%b<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Month as locale’s
+                              abbreviated name.<br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">Jan, Feb, …, Dec (en_US)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%B<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Month as locale’s full
+                              name.<br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">January, February, …,
+                              December (en_US)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%m<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Month as a zero-padded
+                              decimal number.<br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">01, 02, …, 12<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%y<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Year without century <br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">00, 01, …, 99<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%Y<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Year with century as a
+                              decimal number.<br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">0001, 0002, …, 2013, 2014,
+                              …, 9998, 9999<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%H<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Hour (24-hour clock) <br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">00, 01, …, 23<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%I<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Hour (12-hour clock) <br>
                             </td>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
-                            </td>
-                            <td valign="top"><br>
+                            <td valign="top">01, 02, …, 12<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">%p<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">Locale’s equivalent of
+                              either AM or PM.<br>
                             </td>
-                            <td valign="top"><br>
+                            <td valign="top">AM, PM (en_US)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%M<br>
+                            </td>
+                            <td valign="top">Minute as a zero-padded
+                              decimal number.<br>
+                            </td>
+                            <td valign="top">00, 01, …, 59<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%S<br>
+                            </td>
+                            <td valign="top">Second as a zero-padded
+                              decimal number.<br>
+                            </td>
+                            <td valign="top">00, 01, …, 59<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%f<br>
+                            </td>
+                            <td valign="top">Microsecond as a decimal
+                              number<br>
+                            </td>
+                            <td valign="top">000000, 000001, …, 999999<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%z<br>
+                            </td>
+                            <td valign="top">UTC offset in the form
+                              ±HHMM[SS[.ffffff]] (empty string if the
+                              object is naive).<br>
+                            </td>
+                            <td valign="top">(empty), +0000, -0400,
+                              +1030, +063415, -030712.345216<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%Z<br>
+                            </td>
+                            <td valign="top">Time zone name <br>
+                            </td>
+                            <td valign="top">(empty), UTC, GMT<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%j<br>
+                            </td>
+                            <td valign="top">Day of the year <br>
+                            </td>
+                            <td valign="top">001, 002, …, 366<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%U<br>
+                            </td>
+                            <td valign="top">Week number of the year
+                              (Sunday as the first day of the week) <br>
+                            </td>
+                            <td valign="top">00, 01, …, 53<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%W<br>
+                            </td>
+                            <td valign="top">Week number of the year
+                              (Monday as the first day of the week) <br>
+                            </td>
+                            <td valign="top">00, 01, …, 53<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%c<br>
+                            </td>
+                            <td valign="top">Locale’s appropriate date
+                              representation.<br>
+                            </td>
+                            <td valign="top">Tue Aug 16 21:30:00 1988
+                              (en_US)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%x<br>
+                            </td>
+                            <td valign="top">Locale’s appropriate date
+                              representation.<br>
+                            </td>
+                            <td valign="top">08/16/88 (None)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%X<br>
+                            </td>
+                            <td valign="top">Locale’s appropriate date
+                              representation.<br>
+                            </td>
+                            <td valign="top">21:30:00 (en_US)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">%%<br>
+                            </td>
+                            <td valign="top">A literal '%' character.<br>
+                            </td>
+                            <td valign="top">%<br>
                             </td>
                           </tr>
                         </tbody>
@@ -754,19 +807,50 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>timedelta()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">The timedelta object
+                              represents the difference between two
+                              dates or times. timedelta can add and
+                              subtract days, seconds and microseconds
+                              to/from a datetime object.<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">from datetime import
+                              datetime<br>
+                              <br>
+                              difference = date_2 - date_1<br>
+                              difference&nbsp; <font color="#666666">#
+                                datetime.timedelta(days=173)</font><br>
+                              difference.days <font color="#666666">#
+                                173</font><br>
+                              <br>
+                              now = datetime.now()<br>
+                              now <font color="#666666">#
+                                datetime.datetime(2022, 7, 23, 21, 25,
+                                2, 341081)</font><br>
+                              now + timedelta(days=10, seconds=15) <font
+                                color="#666666">#
+                                datetime.datetime(2022, 8, 2, 21, 25,
+                                17, 341081)</font><br>
+                              <br>
+                              now = datetime.now()<br>
+                              now <font color="#666666">#
+                                datetime.datetime(2022, 7, 23, 21, 25,
+                                2, 341081)</font><br>
+                              now - timedelta(days=10, seconds=15) <font
+                                color="#666666">#
+                                datetime.datetime(2022, 7, 13, 21, 59,
+                                41, 100883)</font><br>
                             </td>
                           </tr>
                         </tbody>
@@ -802,39 +886,79 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Copy Module is a set of
+                              functions that are related to copying
+                              different elements of a list, objects,
+                              arrays, etc. It can be used to create
+                              shallow copies as well as deep copies.<br>
+                              Assignment statements in Python do not
+                              copy objects, they create bindings between
+                              a target and an object. A copy is
+                              sometimes needed so one can change one
+                              copy without changing the other.<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Shallow copy</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Shallow copy constructs a
+                              new compound object and then (to the
+                              extent possible) inserts references into
+                              it to the objects found in the original.<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">import copy<br>
+                              <br>
+                              a = [[1],[2],[3]]<br>
+                              b = copy.copy(a) <font color="#666666">#
+                                this will copy the list a to list b</font><br>
+                              <br>
+                              print( a) <font color="#666666">#[[1],
+                                [2], [3]]</font><br>
+                              print( b) <font color="#666666">#[[1],
+                                [2], [3]]</font><br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Deep copy</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">A deep copy constructs a
+                              new compound object and then, recursively,
+                              inserts copies into it of the objects
+                              found in the original.<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">import copy<br>
+                              a = [[1],[2],[3]]<br>
+                              b = copy.deepcopy(a) <font
+                                color="#666666"># this will copy the
+                                list a to list b</font><br>
+                              <br>
+                              a[0][0] = 0<br>
+                              a[1] = None<br>
+                              <br>
+                              print(a) <font color="#666666">#[[0],
+                                None, [3]]</font><br>
+                              print(b) <font color="#666666">#[[1],
+                                [2], [3]]</font><br>
                             </td>
                           </tr>
                         </tbody>
@@ -885,71 +1009,139 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">The itertools module is a
+                              collection of tools intended to be fast
+                              and use memory efficiently when handling
+                              iterators (like lists or dictionaries).<br>
+                              import itertools<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>accumulate()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Makes an iterator that
+                              returns the results of a function.
+                              itertools.accumulate(iterable[, func])<br>
+                              passing a function is optional but will
+                              result in the items being summed.<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">data = [1, 2, 3, 4, 5]<br>
+                              result = itertools.accumulate(data,
+                              operator.mul)<br>
+                              for each in result:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              print(each) <br>
+                              <font color="#666666"># 1 # 2&nbsp; # 6
+                                #24 #120</font><br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Combinations() /
+                                combinations_with_replacement()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Takes an iterable and a
+                              integer. This will create all the unique
+                              combination that have r members.
+                              itertools.combinations(iterable, r)<br>
+                              The with replacement allows individual
+                              elements to be repeated more than once.<br>
+                              itertools.combinations_with_replacement(iterable,
+                              r)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">shapes = ['circle',
+                              'triangle', 'square',]<br>
+                              result = itertools.combinations(shapes, 2)<br>
+                              for each in result:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; print(each) <font
+                                color="#666666"># ('circle', 'triangle')
+                                # ('circle', 'square') # ('triangle',
+                                'square')</font><br>
+                              <br>
+                              shapes = ['circle', 'triangle', 'square']<br>
+                              result =
+                              itertools.combinations_with_replacement(shapes,
+                              2)<br>
+                              for each in result:<br>
+                              &nbsp;&nbsp;&nbsp; print(each) <br>
+                              <font color="#666666"># ('circle',
+                                'circle') # ('circle', 'triangle') #
+                                ('circle', 'square') # ('triangle',
+                                'triangle') # ('triangle', 'square') #
+                                ('square', 'square')</font><br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>count()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Makes an iterator that
+                              returns evenly spaced values starting with
+                              number start. itertools.count(start=0,
+                              step=1)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">for i in
+                              itertools.count(10,3):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; print(i)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; if i &gt; 20:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              break <br>
+                              <font color="#666666"># 10 # 13 # 16 # 19
+                                # 22</font><br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>cycle()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">This function cycles
+                              through an iterator endlessly.
+                              itertools.cycle(iterable)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">colors = ['red', 'orange',
+                              'yellow', 'green', 'blue', 'violet']<br>
+                              for color in itertools.cycle(colors):<br>
+                              &nbsp;&nbsp;&nbsp; print(color)<br>
+                              <font color="#666666">&nbsp;# red # orange
+                                # yellow # green # blue&nbsp; # violet #
+                                red # orange #.....</font><br>
                             </td>
                           </tr>
                         </tbody>
@@ -1000,83 +1192,145 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Chain()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Take a series of iterables
+                              and return them as one long iterable.
+                              itertools.chain(*iterables)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">colors = ['red', 'orange',
+                              'yellow', 'green', 'blue']<br>
+                              shapes = ['circle', 'triangle', 'square',
+                              'pentagon']<br>
+                              result = itertools.chain(colors, shapes)<br>
+                              for each in result:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; print(each)<br>
+                              <font color="#666666"># red # orange #
+                                yellow # green # blue # circle #
+                                triangle # square # pentagon</font><br>
+                              <br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Compress()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Filters one iterable with
+                              another. itertools.compress(data,
+                              selectors)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">shapes = ['circle',
+                              'triangle', 'square', 'pentagon']<br>
+                              selections = [True, False, True, False]<br>
+                              result = itertools.compress(shapes,
+                              selections)<br>
+                              for each in result:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; print(each)<br>
+                              <font color="#666666"># circle # square</font>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Dropwhile()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Make an iterator that drops
+                              elements from the iterable as long as the
+                              predicate is true; afterwards, returns
+                              every element.
+                              itertools.dropwhile(predicate, iterable)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">data = [1, 2, 3, 4, 5, 6,
+                              7, 8, 9, 10, 1]<br>
+                              result = itertools.dropwhile(lambda x:
+                              x&lt;5, data)<br>
+                              for each in result:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; print(each)<br>
+                              <font color="#666666"># 5 # 6 # 7 # 8 # 9
+                                # 10 # 1</font> </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Filterfalse()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Makes an iterator that
+                              filters elements from iterable returning
+                              only those for which the predicate is
+                              False. itertools.filterfalse(predicate,
+                              iterable)<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">data = [1, 2, 3, 4, 5, 6,
+                              7, 8, 9, 10, 1]<br>
+                              result = itertools.filterfalse(lambda x:
+                              x&lt;5, data)<br>
+                              for each in result:<br>
+                              &nbsp;&nbsp;&nbsp; print(each)<font
+                                color="#666666"><br>
+                                # 5 # 6 # 7 # 8 # 9 # 10</font><br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Islice()</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">This function is very much
+                              like slices. This allows you to cut out a
+                              piece of an iterable.
+                              itertools.islice(iterable, start, stop[,
+                              step])<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td valign="top"><br>
+                            <td valign="top">colors = ['red', 'orange',
+                              'yellow', 'green', 'blue',]<br>
+                              &nbsp;few_colors =
+                              itertools.islice(colors, 2)<br>
+                              &nbsp;for each in few_colors:<br>
+                              &nbsp;&nbsp;&nbsp; print(each)<br>
+                              <font color="#666666"># red # orange</font><br>
                             </td>
                           </tr>
                         </tbody>
