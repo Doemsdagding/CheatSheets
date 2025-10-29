@@ -197,6 +197,10 @@
                               another python library is installed eg.
                               PyPdf for the pypdfloader and unstrucutred
                               for the html loader.<br>
+                              <br>
+                              * The unstructuredhtmlloader does remove
+                              html formatting and just keeps the plain
+                              text<br>
                             </td>
                           </tr>
                           <tr>
@@ -236,7 +240,7 @@
                           <tr>
                             <td valign="top">from
                               langchain_community.document_loaders
-                              importUnstructuredHTMLLoader<br>
+                              import UnstructuredHTMLLoader<br>
                               <br>
                               loader =
                               UnstructuredHTMLLoader("path/to/thml/file.html")<br>
@@ -518,7 +522,7 @@
                               OpenAIEmbeddigns(api_key = "*******",
                               model = "text-embedding-3-small")<br>
                               <br>
-                              vectorstroe = Chroma.from_documents(<br>
+                              vectorstore = Chroma.from_documents(<br>
                               &nbsp;&nbsp;&nbsp; documents= docs,<br>
                               &nbsp;&nbsp; embedding=
                               embedding_function,<br>
@@ -547,7 +551,8 @@
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>A2</h2>
+                                  <h2>Document loaders 2: markdown files<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -563,7 +568,9 @@
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">The
+                              UnstrucutredMarkdownLoader can be used to
+                              load markdown files.<br>
                             </td>
                           </tr>
                           <tr>
@@ -572,7 +579,14 @@
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">from
+                              langchain_comunity.document_loaders import
+                              UnstructuredMarkdownLoader<br>
+                              <br>
+                              loader =
+                              UnstructuredMarkdownLoader("README.md")<br>
+                              markdown_content = loader.load()<br>
+                              print(markdown_content[0])<br>
                             </td>
                           </tr>
                         </tbody>
@@ -715,6 +729,897 @@
                       </table>
                     </div>
                   </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 3 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Document loaders 3: python files<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To load in python files the
+                              PythonLoader can be used the difference
+                              between the plaintext loader and the
+                              python loader is that it detets&nbsp;
+                              classes and defs seperatly so this
+                              information can be used durring
+                              splitting.. other than that it works the
+                              same as the text loader.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langchain_community.document_loaders
+                              import PythonLoader<br>
+                              <br>
+                              loader = PythonLoader('script.py')<br>
+                              <br>
+                              python_data = loader.load()<br>
+                              print(python_data[0])<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Document loaders 4:
+                                    SQLDatabaseLoader<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To load data from a sql
+                              database&nbsp; instead of a vector
+                              database the SQLdatabase and
+                              SQLDatabaseLoader can be used. the
+                              SQLDatabase class takes a database engine
+                              from the sqlalchmy library. <br>
+                              <br>
+                              the SQLDatabaseLoader takes a query and an
+                              SQLDatabase class the query is than run
+                              and the output can be loaded using the
+                              regular .load() function.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import sqlite3<br>
+                              from sqlalchemy import create_engine<br>
+                              from langchain_community.utilities import
+                              SQLDatabase<br>
+                              from langchain_community.document_loaders
+                              import SQLDatabaseLoader<br>
+                              <br>
+                              <font color="#666666"># Minimal database
+                                setup (required for a runnable example)</font><br>
+                              engine =
+                              create_engine("sqlite:///:memory:")<br>
+                              conn =
+                              sqlite3.connect(engine.url.database)<br>
+                              conn.executescript("CREATE TABLE items
+                              (name TEXT); INSERT INTO items (name)
+                              VALUES ('Widget A');")<br>
+                              conn.close()<br>
+                              <br>
+                              <font color="#666666"># The core LangChain
+                                steps</font><br>
+                              db = SQLDatabase(engine)<br>
+                              query = "SELECT name FROM items"<br>
+                              loader = SQLDatabaseLoader(query=query,
+                              db=db)<br>
+                              documents = loader.load()<br>
+                              <br>
+                              print(documents[0].page_content)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Document splitting 2: Splitting
+                                    code files<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To be able to better split
+                              files in code languages the
+                              .from_language() method can be used on top
+                              of the RecursiveCharacterTextSpliter.<br>
+                              <br>
+                              this adds an additional argument to the
+                              textplitter which should be set to the
+                              language that is being tried to split. <br>
+                              in short what this does is replace the
+                              seperators argument where you could add
+                              your own specific seperators to language
+                              specific seperators eg \nclas \ndef ect
+                              for python. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langhain_text_splitters import
+                              RecursiveCharacterTextSplitter, Language<br>
+                              <br>
+                              python_splitter =
+                              RecursiveCharaterTextSplitter.from_language(<br>
+                              &nbsp;&nbsp;&nbsp; language=
+                              Language.PYTHON,chunk_size = 150,
+                              cchunk_overlap = 10 <br>
+                              )<br>
+                              <br>
+                              chunks =
+                              python_splitter.split_documents(python_data)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Document spliting 3: splitting on
+                                    tokens<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Another method to split a
+                              document is splitting it on llms tokens to
+                              do this the TokenTextSplitter class can be
+                              used it requires 3 arguments:<br>
+                              encoding_name = should be the encoding
+                              used but the model (retrieval by using
+                              tiktoken.encoding_for_model.<br>
+                              chunk_size = this indicates the amount of
+                              tokens per chunk <br>
+                              chunk_overlap = is the amount of tokes
+                              that should overlap<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import tiktoken<br>
+                              from langchain_text_splitters import
+                              TokenTextSplitter<br>
+                              <br>
+                              example_string = "mary had a little lamb,
+                              its a fleece was with as snow."<br>
+                              encoding =
+                              tiktoken.encoding_for_model("gpt-4o-mini")<br>
+                              splitter = TokenTextSplitter(encoding_name
+                              = encoding.name,<br>
+                              &nbsp;&nbsp;&nbsp; chunk_size = 10, <br>
+                              &nbsp;&nbsp;&nbsp; chunk_overlap=2)<br>
+                              <br>
+                              chunks =
+                              splitter.split_text(example_string)<br>
+                              <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Document splitting 4: Semantic
+                                    splitting<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Rather than splitting on
+                              specific chunk_sizes semantic splitters
+                              detect shifts in semantic meaning and
+                              perform the splits in these locations. To
+                              perform an semantic splitting first the
+                              text needs to be embeded e.g.
+                              OpenAiEmbeddings. after which the
+                              SemanticChunker can be used to achieve the
+                              semantic splitting. this requires 3
+                              arguments:<br>
+                              embeddings = is the embeding<br>
+                              breakpoint_threshold_type = sets the
+                              metric at which embeddings are ompared<br>
+                              breakpoint_threshold_amount = whih sets
+                              the metrics threshold at which the split
+                              is performed.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from langchain_openai impot
+                              OpenAIEmbeddings<br>
+                              from langchain_experimental.text_splitter
+                              import SemanticChunker<br>
+                              <br>
+                              embeddings =
+                              OpenAiEmbeddings(api_key="*****",
+                              model="text-embedding-3-small")<br>
+                              <br>
+                              semantic_splitter = Semantichunker(<br>
+                              &nbsp;&nbsp;&nbsp; embeddings= embeddings,<br>
+                              &nbsp;&nbsp;&nbsp;
+                              breakpoint_threshold_type= "gradient",<br>
+                              &nbsp;&nbsp;&nbsp;
+                              breakpoint_threshold_amount = "0.8"<br>
+                              )<br>
+                              <br>
+                              chunks =
+                              semantic_splitter.split_doccuments(data)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Retrieval 2: Sparse retrieval<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">while de basic retriever
+                              (see rag: retrieval)&nbsp; uses a dense
+                              retrieval method (encoding chunks as a
+                              single vector) which can be used to
+                              capture semantic meaning but is more
+                              ocmputionally expesnive.&nbsp; using a
+                              sparse retreival method (encode usign word
+                              mathing ) being more precise explainable
+                              and better at rare-word handeling.but has
+                              the con of generalizability. <br>
+                              <br>
+                              to use a sparse vector method the BM25
+                              encoding method can be used. it measures a
+                              specific terms frequency in a document and
+                              rarity in other documents. to identiy if
+                              this document is what is searched for.<br>
+                              <br>
+                              the BM25Retrives accepts 2 arguments <br>
+                              chunks = containing the data to retreive
+                              from and<br>
+                              k = which is the number of item returned
+                              by the retriever when invoked.<br>
+                              * instead of using from_texts also
+                              from_documents can be used&nbsp; which
+                              than requires teh chunks to be documents.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langchain_community.retrievers import
+                              BM25Retriever<br>
+                              <br>
+                              chunks = ["python was created by guido van
+                              rossum and released in 1991", "python is a
+                              popular language for machien elarning
+                              (ML).", "The PyTorch library is a popular
+                              Python library for Ai and Ml." ] <br>
+                              <br>
+                              bm25_retriever =
+                              BM25Retriever.from_texts(chunks, k=3)<br>
+                              <br>
+                              results = bm25_retriever.invoke("when was
+                              python created?")<br>
+                              print("Most Relavant Document: \n" +
+                              results[0].page_content)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>RAG 5: RAG evaluation<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to make sure the RAG works
+                              as intended it needs to be evaluated for
+                              this an exmple query with a know predicted
+                              anwser can be used to evaluate this to
+                              each other to see if the output is the
+                              same as predicted.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>String evaluation</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">o perform string
+                              evaluation, we need to define a prompt
+                              template and large language model to use
+                              for evaluation. The prompt template
+                              instructs the model to compare the strings
+                              and evaluate the model output for
+                              correctness, returning correct or
+                              incorrect. The model temperature is also
+                              set to zero to minimize variability.<br>
+                              <br>
+                              after this thLangChainStringevaluator can
+                              be used. This evaluator first takes "qa",
+                              which sets the evaluator to assess
+                              correctness, and also the LLM and prompt
+                              template to use.the .evaluate_strings()
+                              method used on top of the evaluator
+                              takes&nbsp; the model prediction,
+                              reference answer, and input query to
+                              perform the evaluation</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">prompt_template = """ you
+                              are an export professors specializedi
+                              ngradign studetns anwser to you are
+                              grading the followign questions [query]
+                              here is the real anwser: {answer}} you are
+                              gradign the following predicted answer:
+                              {result} respond with correct or
+                              incorrect: grade:"""<br>
+                              <br>
+                              prompt = PromptTemplate(<br>
+                              &nbsp;&nbsp;&nbsp; input_varliables = [
+                              "query", "answer", "result"],<br>
+                              &nbsp;&nbsp;&nbsp;
+                              template=prompt_template<br>
+                              )<br>
+                              <br>
+                              eval_llm = ChatOpenAi(temperature=0,
+                              model="gpt-40-mini", openai_api_key=
+                              '*******'<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from langsmith.evaluation
+                              import LangChainStringEvaluator<br>
+                              <br>
+                              qa_evaluator = LangChainStringEvaluator(
+                              "qa",<br>
+                              &nbsp;&nbsp;&nbsp; config={ "llm":
+                              eval_llm,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              "prompt": PROMPT}<br>
+                              )<br>
+                              score =
+                              qa_evaluator.evaluator.evaluate_strings(<br>
+                              &nbsp;&nbsp;&nbsp; prediction =
+                              predicted_answer,<br>
+                              &nbsp;&nbsp;&nbsp; reference= ref_answer,<br>
+                              &nbsp;&nbsp;&nbsp; input= query<br>
+                              )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 5 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>RAG evaluation 2: RAGAS<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">RAGAS was designed to
+                              evaluate both the retrieval and generation
+                              components of a RAG
+                              application.(faithfulness,
+                              anwserrelavnacy, ccontext precision and
+                              cotnext recall.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Faithfulness assesses
+                              whether the generated output represents
+                              the retrieved documents well. It is
+                              calculated using LLMs to assess the ratio
+                              of faithful claims that can be derived
+                              from the context to the total number of
+                              claims. Because faithfulness is a
+                              proportion, it is normalized to between
+                              zero and one, where a higher score
+                              indicates greater faithfulness. <br>
+                              <br>
+                              to evalue the RAG using RAGAS the ragas
+                              library can be used using the
+                              EvaluatorChain wit the metric you want to
+                              evaluate the rag can be evaluate for each
+                              of the 4 metrics.<br>
+                              <br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from langchain_openai
+                              import ChatOpenAi, OpenAIEmbeddings<br>
+                              from ragas.integrations.langchain import
+                              EvaluatorChain<br>
+                              from ragas.metrics import faithfulness<br>
+                              <br>
+                              llm = chatOpenAi(model = "gpt-40-mini",
+                              api_key = "****")<br>
+                              embeddings = OpenAiEmbeddings(model=
+                              "text-embedding-3-small", api_key="****")
+                              <br>
+                              <br>
+                              faithfulness_chain = EvaluatorChain(
+                              metric= faithfulness,<br>
+                              &nbsp;&nbsp;&nbsp; llm=llm,<br>
+                              &nbsp;&nbsp;&nbsp; embeddings=embeddings<br>
+                              )<br>
+                              <br>
+                              eval_result = faithfulness_chain( { <br>
+                              "question" : "How does the rag model
+                              imrpvoe question answering with llms?", <br>
+                              "answer": "The rag model imrpoves question
+                              anwserign by comining the retrieval of
+                              ducments... ",<br>
+                              "ccontexts": [ "the rag model integrates
+                              document retreival with llms by first
+                              retreiving relevant pasages..", "By
+                              incoperating retrieval mecchanisms rag
+                              leverage extnal knwoeldge soruces
+                              alloweing the ... , ]]})<br>
+                              print(eval_result)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell A2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B1</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
                 </tr>
               </tbody>
             </table>
