@@ -241,7 +241,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>ReAct agent<br>
+                                  <h2>ReAct agent (prebuild one line
+                                    quick setup agent)<br>
                                   </h2>
                                 </div>
                                 <div style="position: absolute; right:
@@ -258,14 +259,20 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">ReAct stand for reasoning
-                              and acting. a ReAct agent prompts the
-                              model using a repeated loop of thinking,
-                              acting, and observing. e.g. asking the
-                              weather to an agent it first interpertrs
-                              the questions than use its tool to call
-                              for the weather api, than observers the
-                              results and then gives the awnser.<br>
+                            <td valign="top">Using prebuild agents comes
+                              with benefit of not having to setup a
+                              graph (see below) but come with the
+                              downside of less customaziation and often
+                              speed.<br>
+                              <br>
+                              ReAct stand for reasoning and acting. a
+                              ReAct agent prompts the model using a
+                              repeated loop of thinking, acting, and
+                              observing. e.g. asking the weather to an
+                              agent it first interpertrs the questions
+                              than use its tool to call for the weather
+                              api, than observers the results and then
+                              gives the awnser.<br>
                               <br>
                               besides making your own agents provide
                               langgraph a variaty of prebuilt agents
@@ -677,6 +684,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
 
 
 
+
                                 for strucutering text</font><br>
                               from typing import Annotated<br>
                               from typing_extentions import TypeDict<br>
@@ -751,6 +759,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                           </tr>
                           <tr>
                             <td valign="top"> <font color="#666666">#define
+
 
 
 
@@ -853,6 +862,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
 
 
 
+
                                 to execute chatbot</font><br>
                               def stream_graph_updates(user_input: str):<br>
                               &nbsp;&nbsp;&nbsp; for event in
@@ -866,8 +876,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
 
 
 
+
                               for value in even.values():<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -998,7 +1010,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                               given the value of the tools_condition
                               function, this lets the chatbot decide if
                               a tools is needed and if so use it if not
-                              continue the graph.<br>
+                              continue the graph its options are given
+                              in a list of possible next nodes.<br>
                               5. to make the chatbot return a response
                               after using a tol the tools edge has to be
                               greconnected to the chatbots edge creating
@@ -1026,8 +1039,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                               <font color="#666666">#seting up llm</font><br>
                               ....<br>
                               <br>
-                              #intiialze wikipedia api wrapper to fatch
-                              top 1 result<br>
+                              <font color="#666666">#intiialze wikipedia
+                                api wrapper to fatch top 1 result</font><br>
                               api_wrapper =
                               WikipediaAPIWrapper(top_k_results=1)<br>
                               <br>
@@ -1054,10 +1067,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                               tool_node = ToolNode(tools=tools) <br>
                               graph_builder.add_node("tools", tool_node)<br>
                               <br>
-                              # setup a condition to direct from chat to
-                              tool or end node<br>
+                              <font color="#666666"># setup a condition
+                                to direct from chat to tool or end node</font><br>
                               graph_builder.add_conditional_edges(
-                              "chatbot", tools_conditions)<br>
+                              "chatbot", tools_conditions, ["tools",
+                              END])<br>
                               <br>
                               <font color="#666666">#connect tools
                                 back&nbsp; to chat bot and add start and
@@ -1081,6 +1095,7 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAAGfCAYAAADxmrMKAAAAAXNSR
 
 
 
+
                                 a function to execute the chatbot with
                                 the tool</font><br>
                               def stream_tool_responses(user_input:str):<br>
@@ -1092,8 +1107,10 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAAGfCAYAAADxmrMKAAAAAXNSR
 
 
 
+
                               for value in event.values():<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1205,13 +1222,16 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAAGfCAYAAADxmrMKAAAAAXNSR
 
 
 
+
                               #return the agents last response<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
+
                               for value in event.values():<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1221,12 +1241,14 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAAGfCAYAAADxmrMKAAAAAXNSR
 
 
 
+
                               print(ägent:", value["messages"])<br>
                               <br>
                               stream_memory_responses("what is the
                               colloseum?)<br>
                               stream_memory_responses("who built it?")<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1301,6 +1323,7 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAAGfCAYAAADxmrMKAAAAAXNSR
 
 
 
+
                               answer = llm.invoke(f"List important
                               historiccal events that occured on
                               {date}.")<br>
@@ -1308,10 +1331,12 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAAGfCAYAAADxmrMKAAAAAXNSR
 
 
 
+
                               return answer.content<br>
                               &nbsp;&nbsp;&nbsp;&nbsp; except Exception
                               as e: <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1416,6 +1441,7 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAAGfCAYAAADxmrMKAAAAAXNSR
                               last_message.tool_calls: <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
+
                               return "tools"<br>
                               &nbsp;&nbsp;&nbsp;&nbsp; return END<br>
                             </td>
@@ -1479,6 +1505,7 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAAGfCAYAAADxmrMKAAAAAXNSR
                               instance(last_message, AIMessage) and
                               last_message.tools_calls: <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
                               return {"messages":
                               [AIMessage(content=last_message.tool_calls[0]]["response"])]}<br>
@@ -1588,19 +1615,23 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAAGfCAYAAADxmrMKAAAAAXNSR
                               &nbsp;&nbsp; inputs = {"messages":
                               [HumanMessage(content=query)]} <br>
                               &nbsp;&nbsp; <font color="#666666">#stream
+
                                 message and metadata from the chatbot
                                 application</font><br>
                               &nbsp;&nbsp; for msg, metadata in
                               app.steram(inputs, config, stream_mode =
                               "messages"):<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               <font color="#666666">#check if the
                                 message has content and is not from a
                                 human</font><br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               if msg.ontent and not isinstance(msg,
                               HumanMessage): <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               print(msg.content, end= "", flush= True)<br>
                               &nbsp;&nbsp;&nbsp; print("\n")<br>
                               <br>
@@ -1682,13 +1713,17 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAAGfCAYAAADxmrMKAAAAAXNSR
                               {"messages":[HumanMessage(content=query)]},
                               config, <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               stream_node"messages") &nbsp; <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               #filter o ut the human message to print
                               agent messages<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               if msg.content and not isinstance(msg,
                               HumanMessage)) + "\n")<br>
                               <br>
