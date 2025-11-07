@@ -137,24 +137,198 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                               database provider and querying language.<br>
                               <br>
                               how it works:<br>
-                              1 Given a natural language user input, a
+                              1. the agent will take the prompt input
+                              and forward this to the LLM, which is the
+                              brain of the agent<br>
+                              2.The LLM will likely realize that it
+                              requires tools to respond, and begins by
+                              identifying which tool to call The LLM
+                              also identifies the arguments for the tool
+                              call.<br>
+                              3 Given a natural language user input, a
                               text-to-query application first needs to
                               identify which collection(tables for non
                               document storage) has the most relevant
                               information to answer the question, since
                               typically, your database will have
                               multiple collections.<br>
-                              2 Then, it needs to determine the schema
+                              4 Then, it needs to determine the schema
                               of the documents in the identified
                               collection.<br>
-                              3. Using this information, the application
+                              5.The outcome of the tool execution is
+                              returned to the LLM, <br>
+                              5. Using this information, the application
                               can translate the natural language user
                               input into a valid MongoDB query.<br>
-                              4. It's good practice to also validate the
+                              6. It's good practice to also validate the
                               generated query before executing it.<br>
-                              5. And finally, the query is executed
-                              against the identified collection to
-                              return a result.
+                              7. And finally, the query is executed
+                              by a seperate tool against the identified
+                              collection to return a result to the llm<br>
+                              <br>
+                              to do all this the text-to-query agent
+                              besides needing to be a chatbot that can
+                              generate the code needs mulitple tools for
+                              example for a MongoDb text-to-query agents
+                              the needs:<br>
+                              * DISCOVERY TOOL mongodb_list_collection
+                              which list the tables present in the
+                              database which helpts the agent identfy
+                              which collection(table) to query and
+                              obtain infromation for a particular user
+                              query<br>
+                              * SCHEMA UNDERSTANDING TOOL
+                              mongodb_schema. given a list of
+                              collections( tables) output the schema and
+                              sample documents from the collection.
+                              helps the agent identify what field names
+                              to use when generating the mongodb queries<br>
+                              * QUERY VALIDATION TOOL
+                              mongodb_query_checker validates the
+                              mongodb query generted by the llm<br>
+                              * EXECUTION TOOL mongodb_query executes
+                              the mongodb query<br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (building toolbox using
+                                premade tools for mongodb text-to-query
+                                agent)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import os<br>
+                              from
+                              langchain_mongodb.agent_toolkit.database
+                              import MongoDBDatabase<br>
+                              from
+                              langchain_mongodb.agent_toolkit.toolkit
+                              import MongoDBDatabaseToolkit<br>
+                              from langchain_openai import ChatOpenAI<br>
+                              import json<br>
+                              <br>
+                              <font color="#666666">#connect to mongodb
+                                environment</font><br>
+                              MONGODB_URI = os.environ["MONGODB_URI"]<br>
+                              <br>
+                              <font color="#666666"># Access the
+                                sample_mflix database using the
+                                MongoDBDatabase class</font><br>
+                              db =
+                              MongoDBDatabase.from_connection_string(connection_string=MONGODB_URI,
+                              database="sample_mflix")<br>
+                              <br>
+                              llm = ChatOpenAI(<br>
+                              &nbsp;&nbsp;&nbsp; model="gpt-4o-mini",<br>
+                              &nbsp;&nbsp;&nbsp; temperature=0<br>
+                              )<br>
+                              <br>
+                              <font color="#666666"># Initialize the
+                                MongoDB database toolkit</font><br>
+                              toolkit = MongoDBDatabaseToolkit(db=db,
+                              llm=llm)<br>
+                              <br>
+                              <font color="#666666"># Extract the tools
+                                from the toolkit</font><br>
+                              tools = toolkit.get_tools()<br>
+                              <br>
+                              <font color="#666666"># Map tool names to
+                                tool objects</font><br>
+                              tool_map = {tool.name:tool for tool in
+                              tools}<br>
+                              <br>
+                              <font color="#666666"># See what each tool
+                                does</font><br>
+                              {tool.name:tool.description for tool in
+                              tools}<br>
+                              <br>
+                              <font color="#666666"># Test the
+                                mongodb_list_collections tool</font><br>
+tool_map["mongodb_list_collections"].invoke({})<br>
+                              <br>
+                              <font color="#666666"># Test the
+                                mongodb_query_checker tool</font><br>
+                              query = [{"$unwind": "$directors"},<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {"$group": {"_id": "$directors",
+                              "filmCount": {"$sum": 1}, "avgRating":
+                              {"$avg": "$imdb.rating"}}},<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {"$match": {"filmCount": {"$gte": 20}}},<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {"$sort": {"avgRating": -1}},<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {"$limit": 5}]<br>
+                              <br>
+tool_map["mongodb_query_checker"].invoke(json.dumps(query))<br>
+                              <font color="#666666"><br>
+                                # Test the mongodb_query tool</font><br>
+                              print(tool_map["mongodb_query"].invoke(f"db.movies.aggregate({json.dumps(query)}"),
+                              end="")<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (creating the text-to-query
+                                agent using a premade imported prompt)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langchain_mongodb.agent_toolkit import
+                              MONGODB_AGENT_SYSTEM_PROMPT<br>
+                              from langchain_core.prompts import
+                              ChatPromptTemplate, MessagesPlaceholder<br>
+                              <br>
+                              <font color="#666666"># preview the pre
+                                made agent prompt template</font><br>
+                              MONGODB_AGENT_SYSTEM_PROMPT<br>
+                              <br>
+                              <font color="#666666"># Add aditional
+                                instructions to the premade prompt
+                                template</font><br>
+                              prompt = ChatPromptTemplate.from_messages(<br>
+                              &nbsp;&nbsp;&nbsp; [<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ("system", MONGODB_AGENT_SYSTEM_PROMPT),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ("system", "Do not re-run tools unless
+                              absolutely necessary. If you are not able
+                              to get enough information using the tools,
+                              reply with I DON'T KNOW. You have access
+                              to the following tools: {tool_names}."),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MessagesPlaceholder(variable_name="messages"),<br>
+                              &nbsp;&nbsp;&nbsp; ]<br>
+                              )<br>
+                              <br>
+                              <font color="#666666"># Pre-fill top_k and
+                                tool_names in the prompt template</font><br>
+                              prompt = prompt.partial(top_k=5,
+                              tool_names=", ".join([tool.name for tool
+                              in tools]))<br>
+                              <br>
+                              <font color="#666666"># Bind tools to the
+                                LLM</font><br>
+                              tool_augmented_llm = llm.bind_tools(tools)<br>
+                              <br>
+                              <font color="#666666"># Chain the prompt
+                                and tool-augmented LLM</font><br>
+                              llm_with_tools = prompt |
+                              tool_augmented_llm<br>
+                              <br>
+                              <font color="#666666"># Test the
+                                llm_with_tools chain</font><br>
+                              llm_with_tools.invoke({"messages":
+                              [("user", "Give me the top 5 directors by
+                              IMDB rating, who have made more than 20
+                              movies")]}).tool_calls<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
                             </td>
                           </tr>
                         </tbody>
