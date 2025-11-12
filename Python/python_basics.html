@@ -874,10 +874,57 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td>keyword<br>
+                            <td>argument/ <br>
+                              *args/<br>
+                              **kwargs<br>
                             </td>
-                            <td>Def name (keyword = variable): can use
-                              both the order or use = to indicate<br>
+                            <td>Def name (keyword = value): can use both
+                              the order or use = to indicate what
+                              argument is what<br>
+                              <br>
+                              *args it allows to suply of any variable
+                              amount of arguments to the
+                              function.(automatically converts any
+                              number of given arguments to a tuple)
+                              (needs to be taken into mind when using it
+                              in a function)<br>
+                              e.g. def average(*args):..&nbsp; use:
+                              print(average(1,2,3,4)) or multiple *args
+                              like print(average(*[14,20,14], *[22,3]))<br>
+                              <br>
+                              **kwargs like *args accepts any number
+                              values to the argumnts but isntead of a
+                              range of values takes a range of key value
+                              paris (like a dictionary) it then
+                              automacally converts it to a dictionary
+                              (needs to be taken into mind when using it
+                              in a function)<br>
+                              e.g. average(**kwargs):... use:
+                              print(average a= 15, b= 29, c=4)) or
+                              print(average**{"a":1, "b":2} **{"c":3}))<br>
+                              <br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docstring<br>
+                            </td>
+                            <td valign="top">"""A short, one-line
+                              summary of what the function does.<br>
+                              <br>
+                              This optional second paragraph provides a
+                              slightly more detailed explanation,<br>
+                              but keep it brief.<br>
+                              <br>
+                              Args:<br>
+                              param_a (Type): Description of the first
+                              parameter.<br>
+                              param_b (Type, optional): Description of
+                              the second parameter. Defaults to X.<br>
+                              <br>
+                              Returns:<br>
+                              Type: Description of the return value.<br>
+                              """<br>
                             </td>
                           </tr>
                           <tr>
@@ -899,6 +946,18 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                           </tr>
                           <tr>
                             <td colspan="2">def plusone( keyword):<br>
+                              &nbsp;&nbsp;&nbsp; """ add one to given
+                              value and keep old value as old_value<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              args: <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              keyword = int a number where one needs to
+                              be added to<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              returns:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              int : the keyword + 1 <br>
+                              &nbsp;&nbsp; """<br>
                               &nbsp;&nbsp;&nbsp; global old_value<br>
                               &nbsp;&nbsp;&nbsp; oldvalue = keyword<br>
                               &nbsp;&nbsp;&nbsp; return keyword + 1<br>
@@ -1340,7 +1399,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                           </tr>
                           <tr>
                             <td colspan="2">A single line anonymous
-                              function<br>
+                              function useful to do something simple
+                              once<br>
                             </td>
                           </tr>
                           <tr>
@@ -1348,12 +1408,18 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                             </td>
                             <td>Function_name = lambda keyword, keyword:
                               actual function<br>
+                              can both be stored as a variable or
+                              executed immediatly<br>
                             </td>
                           </tr>
                           <tr>
                             <td colspan="2">add = lambda x, y: x + y<br>
-                              add(5, 3)&nbsp;<font color="#666666"> # 8</font><br>
-                            </td>
+                              print(add(5, 3))&nbsp;<font
+                                color="#666666"> # 8<br>
+                                <br>
+                                <font color="#000000">print( (lambda x,y
+                                  :x + y)(5,3))</font> # 8<br>
+                              </font> </td>
                           </tr>
                         </tbody>
                       </table>
@@ -1618,7 +1684,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Template Strings</h2>
+                                  <h2>T</h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -1634,18 +1700,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td>Library which allows to create reusable
-                              templates for the creation of strings
-                              using variables.<br>
+                            <td><br>
                             </td>
                           </tr>
                           <tr>
-                            <td>from string import Template<br>
-                              <br>
-                              name = "robin"<br>
-                              t = Template("hey $name!")<br>
-                              t.substitute(name=name)<br>
-                              <font color="#666666"># hey robin</font><br>
+                            <td>f<br>
                               <br>
                             </td>
                           </tr>
