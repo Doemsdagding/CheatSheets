@@ -162,8 +162,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAAXNS
                               input into a valid MongoDB query.<br>
                               6. It's good practice to also validate the
                               generated query before executing it.<br>
-                              7. And finally, the query is executed
-                              by a seperate tool against the identified
+                              7. And finally, the query is executed by a
+                              seperate tool against the identified
                               collection to return a result to the llm<br>
                               <br>
                               to do all this the text-to-query agent
@@ -252,20 +252,25 @@ tool_map["mongodb_list_collections"].invoke({})<br>
                                 mongodb_query_checker tool</font><br>
                               query = [{"$unwind": "$directors"},<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               {"$group": {"_id": "$directors",
                               "filmCount": {"$sum": 1}, "avgRating":
                               {"$avg": "$imdb.rating"}}},<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               {"$match": {"filmCount": {"$gte": 20}}},<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               {"$sort": {"avgRating": -1}},<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               {"$limit": 5}]<br>
                               <br>
 tool_map["mongodb_query_checker"].invoke(json.dumps(query))<br>
                               <font color="#666666"><br>
                                 # Test the mongodb_query tool</font><br>
                               print(tool_map["mongodb_query"].invoke(f"db.movies.aggregate({json.dumps(query)}"),
+
                               end="")<br>
                             </td>
                           </tr>
@@ -328,7 +333,154 @@ MessagesPlaceholder(variable_name="messages"),<br>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">
+                              <h3>Example Orchestrating the
+                                text-to-query agent</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import os<br>
+                              from pymongo import MongoClient<br>
+                              from typing import Annotated<br>
+                              from langgraph.graph.message import
+                              add_messages<br>
+                              from typing_extensions import TypedDict<br>
+                              from langchain_core.messages import
+                              ToolMessage<br>
+                              from langgraph.graph import StateGraph<br>
+                              from langgraph.graph import START, END<br>
+                              from langgraph.prebuilt import
+                              tools_condition<br>
+                              <br>
+                              mongodb_client = MongoClient(MONGODB_URI)<br>
+                              <br>
+                              <font color="#666666">#Define the graph
+                                state using the GraphState class, with a
+                                single attribute called messages.</font><br>
+                              class GraphState(TypedDict):<br>
+                              &nbsp;&nbsp;&nbsp; messages:
+                              Annotated[list, add_messages]<br>
+                              <br>
+                              <font color="#666666"># Define the agent
+                                node</font><br>
+                              def agent_node(state):<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Read "messages" from the graph state</font><br>
+                              &nbsp;&nbsp;&nbsp; messages =
+                              state["messages"]<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Invoke the tool-augmented LLM to
+                                determine next action</font><br>
+                              &nbsp;&nbsp;&nbsp; result =
+                              llm_with_tools.invoke(messages)<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Append the result to the graph state</font><br>
+                              &nbsp;&nbsp;&nbsp; return {"messages":
+                              [result]}<br>
+                              <br>
+                              <font color="#666666"># Define the tool
+                                node</font><br>
+                              def tool_node(state: GraphState):<br>
+                              &nbsp;&nbsp;&nbsp; result = []<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Read the tool invocation payload from
+                                the graph state</font><br>
+                              &nbsp;&nbsp;&nbsp; tool_calls =
+                              state["messages"][-1].tool_calls<br>
+                              &nbsp;&nbsp;&nbsp; for tool_call in
+                              tool_calls:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666"># Extract the name
+                                of the tool to execute</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              tool = tool_map[tool_call["name"]]<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666"># Invoke the tool
+                                with the arguments extracted from the
+                                payload</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              observation =
+                              tool.invoke(tool_call["args"])<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666"># Create a
+                                ToolMessage to log the result of the
+                                tool execution</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              result.append(ToolMessage(content=observation,
+                              tool_call_id=tool_call["id"]))<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Append the result to the graph state</font><br>
+                              &nbsp;&nbsp;&nbsp; return {"messages":
+                              result}<br>
+                              <br>
+                              <font color="#666666">#Build the graph<br>
+                                # Initialize the graph with graph state</font><br>
+                              graph = StateGraph(GraphState)<br>
+                              <br>
+                              <font color="#666666"># Add a node called
+                                "agent" that calls the agent_node()
+                                function</font><br>
+                              graph.add_node("agent", agent_node)<br>
+                              <font color="#666666"># Add a node called
+                                "tools" that calls the tool_node()
+                                function</font><br>
+                              graph.add_node("tools", tool_node)<br>
+                              <br>
+                              <font color="#666666"># Add a fixed edge
+                                from the START node to the "agent" node</font><br>
+                              graph.add_edge(START, "agent")<br>
+                              <font color="#666666"># Add a fixed edge
+                                from the "tool" node to the "agent" node</font><br>
+                              graph.add_edge("tools", "agent")<br>
+                              <font color="#666666"># Add conditional
+                                edges from the "agent" node to the
+                                "tool" and "END" nodes</font><br>
+                              graph.add_conditional_edges(<br>
+                              &nbsp;&nbsp;&nbsp; "agent",<br>
+                              &nbsp;&nbsp;&nbsp; tools_condition,<br>
+                              &nbsp;&nbsp;&nbsp; {"tools": "tools", END:
+                              END},<br>
+                              )<br>
+                              <br>
+                              <font color="#666666"># Compile and
+                                visualize the graph</font><br>
+                              app = graph.compile()<br>
+                              app<br>
+                              <font color="#666666"><br>
+                                #Test the agent</font><br>
+                              def execute_graph(user_input: str) -&gt;
+                              None:<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              &nbsp;&nbsp;&nbsp; Stream outputs from the
+                              graph<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; Args:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              user_input (str): User query string<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Stream outputs from each step in the
+                                graph</font><br>
+                              &nbsp;&nbsp;&nbsp; for step in app.stream(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {"messages": [{"role": "user", "content":
+                              user_input}]},<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666"># Stream full value
+                                of the state after each step</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              stream_mode="values",<br>
+                              &nbsp;&nbsp;&nbsp; ):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                                color="#666666"> # Print the latest
+                                message from the step</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              step["messages"][-1].pretty_print()<br>
+                              <br>
+                              <font color="#666666">#test prompt</font><br>
+                              execute_graph("Give me the top 5 directors
+                              by IMDB rating, who have made at least 20
+                              movies")<br>
                             </td>
                           </tr>
                         </tbody>
@@ -348,7 +500,8 @@ MessagesPlaceholder(variable_name="messages"),<br>
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>cell a2</h2>
+                                  <h2>Adding memory 1: Short-term memory<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -361,6 +514,131 @@ MessagesPlaceholder(variable_name="messages"),<br>
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">short term memory holds
+                              context during the conversation only
+                              lasting a single session.<br>
+                              <br>
+                              memory in langchain consistes of
+                              checkpoints on threads with a thread being
+                              a conversion and checkpoints being save
+                              states aka agent states that can be made
+                              at any given time durring the thread,
+                              these are typically stored in-memory (as
+                              short term memory).<br>
+                              <br>
+                              these checkpoints can also be saved so the
+                              track can be resumed another time in a
+                              second session (this does not fall under
+                              long-term memory as it doesnt extract
+                              specific insights from conversation for
+                              long-term use) to setup this short-term
+                              memory MongDBSaver can be used for storing
+                              checkpoints across runs when using
+                              MongoDB. checkpoints can be used in
+                              various ways you can use them to analyuze
+                              and debug agents, reset the agent to a
+                              previous state (checkpoint) or even modify
+                              information in acheckpoint afterwards to
+                              imrpove follow up questions.<br>
+                              <br>
+                              short-term memory helps agents have
+                              effective multi-turn conversations with
+                              users and prevents agents from repeating
+                              actions ( as it can look through its own
+                              answers) and losing context between
+                              interactions<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from
+                              langgraph.checkpoint.mongodb import
+                              MongoDBSaver<br>
+                              from uuid import uuid4<br>
+                              import pprint<br>
+                              <font color="#666666">#setup all tools and
+                                nodes and setup the edges ect.</font><br>
+                              ...<br>
+                              <br>
+                              <font color="#666666">#setup checkpointer</font><br>
+                              checkpointer =
+                              MongoDBSaver(mongodb_client)<br>
+                              <br>
+                              app =
+                              graph.compile(checkpointer=checkpointer)<br>
+                              <br>
+                              <font color="#666666"><br>
+                                # set up the agent function (now
+                                including thread_id) </font><br>
+                              def execute_graph_with_memory(thread_id:
+                              str, user_input: str) -&gt; None:<br>
+                              &nbsp; """<br>
+                              &nbsp;&nbsp;&nbsp; Execute the
+                              memory-augmented agent<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; Args:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              thread_id (str): Thread ID for which to
+                              retrieve memory<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              user_input (str): User query<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              <font color="#666666">&nbsp; # Configure
+                                the thread ID</font><br>
+                              &nbsp; config = {"configurable":
+                              {"thread_id": thread_id}}<br>
+                              <font color="#666666">&nbsp; # Stream
+                                outputs from each step in the graph</font><br>
+                              &nbsp; for step in app.stream(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {"messages": [{"role": "user", "content":
+                              user_input}]},<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; config,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              stream_mode="values",<br>
+                              &nbsp; ):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font
+                                color="#666666"># Print the latest
+                                message from the step</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              step["messages"][-1].pretty_print()<br>
+                              <br>
+                              <font color="#666666">#execute test</font><br>
+                              thread_id = str(uuid4())<br>
+                              execute_graph_with_memory(thread_id,
+                              "Which states have the most theaters?")<br>
+                              execute_graph_with_memory(thread_id, "How
+                              many theaters does California have?")<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (retrieving the checkpoints)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">config = {"configurable":
+                              {"thread_id": thread_id}}<br>
+                              <br>
+                              <font color="#666666"># Reset agent to a
+                                specific checkpoint</font><br>
+                              checkpointer.get(config)<br>
+                              app =
+                              graph.compile(checkpointer=checkpointer)<br>
+                              <br>
+                              execute_graph_with_memory(thread_id, "How
+                              many theaters does California have?")<br>
+                              <font color="#666666"><br>
+                                # List and analyze checkpoints</font><br>
+                              pprint.pprint(list(checkpointer.list(config,
+                              limit=5)))<br>
                             </td>
                           </tr>
                         </tbody>
@@ -376,23 +654,393 @@ MessagesPlaceholder(variable_name="messages"),<br>
                         <tbody>
                           <tr>
                             <td>
-                              <div style="display: flex;
-                                justify-content: center; align-items:
-                                center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>cell a3 </h2>
-                                </div>
-                                <div style="position: absolute; right:
-                                  -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
-                                  15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
+                              <h2>Adding memory 2: long-term memory</h2>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Long-term memory stores
+                              knowledge over multiple sessions which can
+                              be recalled. This is done through saving
+                              checkpoints and using them to extract
+                              insights that can be used in later
+                              conversations.<br>
+                              <br>
+                              To set this up, the extracted knowledge is
+                              saved into a persistent and searchable
+                              database. In the context of using MongoDB,
+                              this is achieved by storing the vectorized
+                              knowledge in what is often referred to
+                              conceptually as a MongoDBStore.
+                              Specifically, key facts, entities, and
+                              summaries are extracted from the
+                              conversation history, converted into
+                              vector embeddings, and stored in a
+                              searchable knowledge base (typically
+                              implemented using MongoDB Atlas Vector
+                              Search).<br>
+                              <br>
+                              This extracted knowledge is then retrieved
+                              (RAG) at the start of any new session and
+                              injected into the agent's prompt, allowing
+                              the agent to maintain consistency,
+                              leverage a shared knowledge base, and
+                              recall relevant details across completely
+                              separate threads<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import json<br>
+                              from uuid import uuid4<br>
+                              from typing import TypedDict, Annotated,
+                              List<br>
+                              from langgraph.graph import StateGraph,
+                              END<br>
+                              from langgraph.checkpoint.mongodb import
+                              MongoDBSaver<br>
+                              <br>
+                              <font color="#666666">#setup all tools and
+                                nodes and setup the edges ect.</font><br>
+                              ...<br>
+                              <br>
+                              <br>
+                              <font color="#666666"># --- 1. Conceptual
+                                MongoDB Vector Store for Long-Term
+                                Memory ---</font><br>
+                              <br>
+                              class ConceptualMongoDBVectorStore:<br>
+                              &nbsp;&nbsp;&nbsp; """A conceptual class
+                              simulating a MongoDB Vector Store (RAG
+                              Knowledge Base)."""<br>
+                              &nbsp;&nbsp;&nbsp; def __init__(self):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666"># In a real app,
+                                this would connect to MongoDB Atlas
+                                Vector Search</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              print("Initialised
+                              ConceptualMongoDBVectorStore for RAG.")<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              self.db = []&nbsp; # In-memory storage for
+                              demonstration<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; def add_documents(self,
+                              documents: List[str], metadata:
+                              List[dict]):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              """Simulates storing facts/summaries as
+                              searchable vectors."""<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              for doc, meta in zip(documents, metadata):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              self.db.append({"content": doc,
+                              "metadata": meta})<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              print(f"--- Extracted and stored
+                              {len(documents)} facts into Long-Term KB.
+                              ---")<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; def retrieve(self,
+                              query: str) -&gt; List[str]:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              """Simulates querying the Vector Store for
+                              relevant context."""<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              print(f"--- Retrieving Long-Term Context
+                              for query: '{query[:50]}...' ---")<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666"># Simple keyword
+                                matching for demo; a real Vector Store
+                                uses embeddings</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              results = [d['content'] for d in self.db
+                              if query.lower() in
+                              d['content'].lower()][:2]<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              if results:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              print(f"--- Found {len(results)} relevant
+                              long-term facts. ---")<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              return [f"Fact from past conversation:
+                              {r}" for r in results]<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              return ["Fact from past conversation: No
+                              relevant long-term context found."]<br>
+                              <br>
+                              # --- 2. Define Agent State and Nodes ---<br>
+                              <br>
+                              <font color="#666666"># Define the state
+                                for the LangGraph</font><br>
+                              class AgentState(TypedDict):<br>
+                              &nbsp;&nbsp;&nbsp; messages:
+                              Annotated[List[dict], lambda x, y: x + y]<br>
+                              &nbsp;&nbsp;&nbsp; long_term_context: str
+                              # New field for RAG-retrieved context<br>
+                              <font color="#666666"><br>
+                                # Initialize the conceptual Long-Term
+                                Knowledge Base</font><br>
+                              long_term_knowledge_base =
+                              ConceptualMongoDBVectorStore()<br>
+                              <br>
+                              <br>
+                              def retrieve_long_term_context(state:
+                              AgentState) -&gt; AgentState:<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              &nbsp;&nbsp;&nbsp; Node to query the
+                              Long-Term KB (Vector Store) based on the
+                              current user input.<br>
+                              &nbsp;&nbsp;&nbsp; Runs at the start of
+                              the graph.<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              &nbsp;&nbsp;&nbsp; latest_user_message =
+                              state['messages'][-1]['content']<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Retrieve context from the conceptual RAG
+                                system</font><br>
+                              &nbsp;&nbsp;&nbsp; retrieved_facts =
+                              long_term_knowledge_base.retrieve(latest_user_message)<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666"><br>
+                                &nbsp;&nbsp;&nbsp; # Join the facts into
+                                a string to inject into the LLM prompt</font><br>
+                              &nbsp;&nbsp;&nbsp; context_string =
+                              "\n".join(retrieved_facts)<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp; return
+                              {"long_term_context": context_string}<br>
+                              <br>
+                              def llm_node(state: AgentState) -&gt;
+                              AgentState:<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              &nbsp;&nbsp;&nbsp; Node simulating the LLM
+                              that uses both short-term history (from
+                              'messages') <br>
+                              &nbsp;&nbsp;&nbsp; and long-term RAG
+                              context ('long_term_context').<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              &nbsp;&nbsp;&nbsp; user_query =
+                              state['messages'][-1]['content']<br>
+                              &nbsp;&nbsp;&nbsp; context =
+                              state['long_term_context']<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp;<font color="#666666"> #
+                                The LLM's full prompt incorporates the
+                                retrieved long-term context</font><br>
+                              &nbsp;&nbsp;&nbsp; llm_response = (<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              f"Retrieved Long-Term Context:
+                              {context}\n\n"<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              f"Agent Response to '{user_query}': "<br>
+                              &nbsp;&nbsp;&nbsp; )<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Simple simulated response based on the
+                                presence of context</font><br>
+                              &nbsp;&nbsp;&nbsp; if "California" in
+                              user_query and "California has 500" in
+                              context:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              llm_response += "Based on my long-term
+                              memory from a previous discussion,
+                              California has 500 theaters."<br>
+                              &nbsp;&nbsp;&nbsp; elif "the most
+                              theaters" in user_query:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              llm_response += "I'll first search for the
+                              latest data on which states have the most
+                              theaters."<br>
+                              &nbsp;&nbsp;&nbsp; else:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              llm_response += "Processing the query
+                              using the available short-term and
+                              long-term context."<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Update state with the new message</font><br>
+                              &nbsp;&nbsp;&nbsp; new_message = {"role":
+                              "assistant", "content": llm_response}<br>
+                              &nbsp;&nbsp;&nbsp; return {"messages":
+                              [new_message]}<br>
+                              <br>
+                              def fact_extraction_node(state:
+                              AgentState) -&gt; AgentState:<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              &nbsp;&nbsp;&nbsp; Node that runs at the
+                              end of a successful thread to extract and
+                              store facts <br>
+                              &nbsp;&nbsp;&nbsp; into the Long-Term KB.<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Simulate extracting a key fact from the
+                                conversation history<br>
+                                &nbsp;&nbsp;&nbsp; # In a real app, this
+                                would use a separate LLM call to
+                                summarize the thread</font><br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666"><br>
+                                &nbsp;&nbsp;&nbsp; # Check the last
+                                message content to decide what 'fact' to
+                                save</font><br>
+                              &nbsp;&nbsp;&nbsp; last_message =
+                              state['messages'][-1]['content']<br>
+                              &nbsp;&nbsp;&nbsp; if "500 theaters" in
+                              last_message:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              fact = "California has 500 theaters, as
+                              discussed on this thread."<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              metadata = {"thread_id":
+                              "completed_thread", "topic": "theaters"}<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              long_term_knowledge_base.add_documents([fact],
+                              [metadata])<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                Return the state unchanged for the next
+                                step</font><br>
+                              &nbsp;&nbsp;&nbsp; return state<br>
+                              <br>
+                              <br>
+                              <font color="#666666"># --- 3. Build and
+                                Compile the Graph ---<br>
+                                <br>
+                                # This represents your conceptual
+                                MongoDB client connection</font><br>
+                              mongodb_client = None<br>
+                              <br>
+                              <font color="#666666"># Setup checkpointer
+                                (Short-Term Memory)</font><br>
+                              checkpointer =
+                              MongoDBSaver(mongodb_client)<br>
+                              <br>
+                              workflow = StateGraph(AgentState)<br>
+                              <br>
+                              <font color="#666666"># 1. Start by
+                                retrieving long-term context</font><br>
+                              workflow.add_node("retrieve_context",
+                              retrieve_long_term_context)<br>
+                              <font color="#666666"># 2. Run the main
+                                LLM agent</font><br>
+                              workflow.add_node("llm", llm_node)<br>
+                              <font color="#666666"># 3. Extract facts
+                                for long-term storage</font><br>
+                              workflow.add_node("fact_extractor",
+                              fact_extraction_node)<br>
+                              <br>
+                              <font color="#666666"># Define edges</font><br>
+workflow.set_entry_point("retrieve_context")<br>
+                              workflow.add_edge("retrieve_context",
+                              "llm")<br>
+                              workflow.add_edge("llm", "fact_extractor")<br>
+                              workflow.add_edge("fact_extractor", END)<br>
+                              <br>
+                              app_long_term =
+                              workflow.compile(checkpointer=checkpointer)<br>
+                              <br>
+                              <font color="#666666"># --- 4. Execution
+                                Example ---</font><br>
+                              <br>
+                              def execute_long_term_agent(thread_id:
+                              str, user_input: str):<br>
+                              &nbsp;&nbsp;&nbsp; """Execute the
+                              long-term memory agent and print
+                              output."""<br>
+                              &nbsp;&nbsp;&nbsp;
+                              print(f"\n====================== THREAD:
+                              {thread_id} ======================")<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              <font color="#666666">&nbsp;&nbsp;&nbsp; #
+                                Configure the thread ID for short-term
+                                memory (checkpointer)</font><br>
+                              &nbsp;&nbsp;&nbsp; config =
+                              {"configurable": {"thread_id": thread_id}}<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp;<font color="#666666"> #
+                                Stream outputs</font><br>
+                              &nbsp;&nbsp;&nbsp; for step in
+                              app_long_term.stream(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              {"messages": [{"role": "user", "content":
+                              user_input}]},<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              config,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              stream_mode="values",<br>
+                              &nbsp;&nbsp;&nbsp; ):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                                color="#666666"> # Print the latest
+                                message content and the retrieved
+                                context</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              print(f"Long-Term Context used:
+                              {step.get('long_term_context', 'N/A')}")<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              if step['messages'][-1]['role'] ==
+                              'assistant':<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              print(f"Agent Output:
+                              {step['messages'][-1]['content']}")<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              print("-" * 20)<br>
+                              <br>
+                              <br>
+                              <font color="#666666"># --- TEST 1:
+                                Initial conversation and fact extraction
+                                (Saving Long-Term Memory) ---</font><br>
+                              thread_id_1 = str(uuid4())<br>
+                              <br>
+                              print("--- PHASE 1: Conversation 1 (Thread
+                              1: Saving a new fact) ---")<br>
+                              execute_long_term_agent(thread_id_1, "I
+                              was recently looking at California theater
+                              data, and they have 500.")<br>
+                              <font color="#666666"># The
+                                fact_extraction_node will detect the
+                                '500' and save it to the conceptual KB.</font><br>
+                              <br>
+                              <br>
+                              <font color="#666666"># --- TEST 2: New
+                                conversation thread (Retrieving
+                                Long-Term Memory) ---</font><br>
+                              thread_id_2 = str(uuid4())<br>
+                              <br>
+                              print("\n\n--- PHASE 2: Conversation 2
+                              (Thread 2: Retrieving the saved fact)
+                              ---")<br>
+                              <font color="#666666"># This thread knows
+                                nothing about thread_id_1, but the RAG
+                                node will retrieve the fact<br>
+                                execute_long_term_agent(thread_id_2,
+                                "How many theaters does California
+                                have?")<br>
+                                <br>
+                                # --- List and analyze checkpoints
+                                (Still the short-term function) ---</font><br>
+                              print("\n\n--- LISTING SHORT-TERM
+                              CHECKPOINTS FOR THREAD 2 ---")<br>
+                              config_t2 = {"configurable": {"thread_id":
+                              thread_id_2}}<br>
+                              <font color="#666666"># This shows the
+                                session state of Thread 2 only</font><br>
+                              print("Checkpoints for Thread 2
+                              (Short-Term Memory):")<br>
+                              <font color="#666666"># NOTE: Cannot run
+                                checkpointer.list() without a real
+                                MongoDB client, so we will<br>
+                                # only print the expected structure
+                                based on the conceptual KB updates.<br>
+                                #
+                                pprint.pprint(list(checkpointer.list(config_t2,
+                                limit=5)))</font><br>
+                              <br>
+                              print("\n--- Listing Conceptual Long-Term
+                              Facts Stored ---")<br>
+                              print(json.dumps(long_term_knowledge_base.db,
+                              indent=2))<br>
                             </td>
                           </tr>
                         </tbody>
