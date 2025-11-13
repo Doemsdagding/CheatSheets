@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>API_IN_PYTHON</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="../script.js"> </script>
+    <style>
+        /* Containers */
+        .container1 {
+            border: 6px solid #004080;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container2 {
+            border: 6px solid #383e4f;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container3 {
+            border: 6px solid #5474cc;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container4 {
+            border: 6px solid #a0b3e8;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+    </style>
+  </head>
+  <body class="light-mode">
+    <!-- Back Button --> <button class="back-button"
+      onclick="window.location.href='../'" title="Back to Home page"> ×
+    </button>
+    <!--ICON-->
+    <svg style="display: none;">
+      <symbol id="myBase64Image" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <svg style="display: none;">
+      <symbol id="redshiftlgo" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button"
+      onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+        class="icon"></span> </button>
+    <!--PRINT BUTTON--> <button class="print-button" onclick="if
+      (document.body.classList.contains('dark-mode')) toggleMode();
+      window.print();" title="Print this page"> <span class="icon">🖨️</span>
+    </button>
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+      <div class="modal-content"> <button class="modal-close"
+          onclick="closeModal()" title="close modal">×</button>
+        <!--next and back buttons--> <button class="modal-back"
+          onclick="previousModal()" title="previous modal">&lt;</button>
+        <button class="modal-next" onclick="nextModal()" title="next
+          modal">&gt;</button> </div>
+    </div>
+    <!-- Swipe Hint -->
+    <div id="swipe-hint" style="display: none; position: fixed; bottom:
+      30px; left: 50%; transform: translateX(-50%); background-color:
+      rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px;
+      border-radius: 10px; font-size: 30px; z-index: 2000; text-align:
+      center; justify-content: center; align-items: center;"> Swipe left
+      or right to navigate </div>
+    <!--HEADER h1-->
+    <h1>APIS IN PYTHON
+      <svg width="55" height="55">
+        <use href="#redshiftlgo"></use> </svg> </h1>
+    <!-- page 1 -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>API</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">API stands for application
+                              programming interface. in shor its an set
+                              of comunication rules and abilities which
+                              enables interactions between software
+                              applicatons.<br>
+                              <br>
+                              Web Apis communication over the internet
+                              using HTTP. meaning the client sens a
+                              request to a server and the server returns
+                              a message to the client.<br>
+                              <br>
+                              The tree most common types of web apis
+                              are:<br>
+                              * Soap = focus on strict formal api design
+                              (enterprise applciations use this)<br>
+                              * REST = focus on simplicity and
+                              scalabilty (is the most common
+                              architecture)<br>
+                              *GrapQL = focus on flexibility and
+                              optimized for performance<br>
+                              <br>
+                              when it comes to integrating apis in
+                              python there are two common libraries <br>
+                              <br>
+                              * requests<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>urllib</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">is a standard library in
+                              python (powerful but not very
+                              developer-friendly.<br>
+                              you use it by<br>
+                              * requestign data using the urlopen()
+                              function providing it with the api request<br>
+                              * taking the response and applying the
+                              read() method on it to read the response<br>
+                              * than applying the decode method on the
+                              data to&nbsp; extract the raw human
+                              redable data<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example urrlib</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">for urllib.requests import
+                              urlopen<br>
+                              api = "http://api.music-catalog.com/"<br>
+                              <br>
+                              with urlopen(api) as reponse:<br>
+                              &nbsp;&nbsp;&nbsp; data = response.read()<br>
+                              &nbsp;&nbsp;&nbsp; string = data.decode()<br>
+                              &nbsp;&nbsp;&nbsp; print(string)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>requests</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">requests offers many
+                              built-features which urllib needs
+                              additional steps or packages for. making
+                              it easier to use<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example requests</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#same
+                                results as urrlib<br>
+                                <font color="#000000">import requests</font><br>
+                                <br>
+                              </font>api =
+                              "http://api.music-catalog.com/"<br>
+                              <br>
+                              reponse = requests.get(api)<br>
+                              print(response.text)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>url</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">URL = uniform resource
+                              locator, is the structured address to an
+                              api resource. the url can be customized to
+                              interact with specific api resources. a
+                              url consists out of 5 components<br>
+                              e.g. for http:// 305.5th-ave.com :80
+                              /unit/243 ?floor=77<br>
+                              <br>
+                              *http:// = protocol = means of
+                              transporation to use<br>
+                              *305.5th-ave.com = domain = the address of
+                              the api server<br>
+                              *:88&nbsp; = port = the entrance of teh
+                              api server<br>
+                              */unit/243 = path = is the unit of the api
+                              server each resource has its own unique
+                              location of the uniton the server<br>
+                              *?floor=77 = query = contain additional
+                              instructions<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Adding query parameters with
+                                    requests<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">adding a query paramter to
+                              to a request is easy you can just write in
+                              the url string<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">reponse =
+                              requests.get('https://robin.com/cozyflix?movie=1
+                              <br>
+                              print(response.url)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Or you can provide to the
+                              requests.get() method as its onw seperate
+                              parameter indicated by params in the form
+                              of a dictionary.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#set
+                                paramter dictionary</font><br>
+                              query_params = {"tv_show": 7, "episode":
+                              2} <br>
+                              <br>
+                              <font color="#666666">#pass it to the
+                                get() method</font><br>
+                              response =
+                              requests.get("https://robin.com/cozyflix",
+                              params = query_params)<br>
+                              <br>
+                              print(response.rul)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td rowspan="1" colspan="3">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>HTTP verbs<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">There
+
+
+
+                              are 9 different actions you can take with
+                              apis these are called HTTP verbs.<br>
+                              These are:<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Verb</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>Acction</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>Description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">GET<br>
+                            </td>
+                            <td valign="top">Read<br>
+                            </td>
+                            <td valign="top">Retrieve the contents of
+                              something<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">POST<br>
+                            </td>
+                            <td valign="top">Create<br>
+                            </td>
+                            <td valign="top">Creates content at that
+                              location<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">PUT<br>
+                            </td>
+                            <td valign="top">Update<br>
+                            </td>
+                            <td valign="top">Updates content by
+                              overwriting the old one with a new one<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">DELETE<br>
+                            </td>
+                            <td valign="top">Delete<br>
+                            </td>
+                            <td valign="top">Removes the content at the
+                              location<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">PATCH<br>
+                            </td>
+                            <td valign="top">partial update<br>
+                            </td>
+                            <td valign="top">applies partial
+                              modification to a resource<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">HEAD<br>
+                            </td>
+                            <td valign="top">Get metadata<br>
+                            </td>
+                            <td valign="top">Requests headers only
+                              without body<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">OPTIONS<br>
+                            </td>
+                            <td valign="top">Get supported Methods<br>
+                            </td>
+                            <td valign="top">Describes the Http verbs
+                              that are avaiable for a target resource<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">CONNECT<br>
+                            </td>
+                            <td valign="top">Establish Tunnel<br>
+                            </td>
+                            <td valign="top">Establishes a tunnel to teh
+                              server, (often used for proxies (streaming
+                              services) and HTTPS)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">TRACE<br>
+                            </td>
+                            <td valign="top">loop-back test<br>
+                            </td>
+                            <td valign="top">Performs a message
+                              loop-back test for diagnostic purposes.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">different
+
+
+
+                              requests their methods are structured
+                              differntly for e.g. the POST and PUT
+                              requests an additional argument is needed
+                              called data which takes a dictionary
+                              containing the data to be created or
+                              updated<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">response
+
+
+
+                              =
+                              request.post('http://localhost:3000/playlists/2"
+                              , data={"key": "value"})<br>
+                              <br>
+                              response =
+                              request.put('https://robin.com/cozyflix" ,
+                              data={"key": "value"})<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Reading messages<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Both request and response
+                              messages can be split in 3 individual
+                              parts<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Start-line</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">in the request = the
+                              startline is refered to as the request
+                              line and contains the request type e.g.
+                              GET along with the path <br>
+                              <br>
+                              in response message the startline = the
+                              status-line it contains a 3 digit number
+                              indicatign the status code and a status
+                              message.<br>
+                              the status cods are grouped in 5
+                              categories indicated by the starting int<br>
+                              1XX = informational responses<br>
+                              2XX = successful responses<br>
+                              3XX = Redirection message<br>
+                              4XX = client error response<br>
+                              5XX = Server error response<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Headers</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">headers contains the
+                              information that describe the mesage or
+                              data beign send or receivd. like the type
+                              <br>
+                              its formated as a dictionary. e.g.
+                              {"accept": "application/json"} indicates
+                              to the api that the request a json in
+                              return. but some prefer things like xml or
+                              other datatypes (application//xml) it
+                              depends on the api what is possible<br>
+                              <br>
+                              using requests library you can add and
+                              reads headers as each verb method accepts
+                              an addtion argumetn called headers which
+                              takes an dictionary.<br>
+                              <br>
+                              the response will have its on headers
+                              which you can access through .headers as
+                              it is iterable you can get specific value<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (adding header to a request)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">response =
+                              requests.get("https://api.datacamp.com",
+                              headers =&nbsp; {"accept":
+                              "application/json"} )<br>
+                              <br>
+                              <font color="#666666">#reading specific
+                                response headers</font><br>
+                              print(response.headers["content-type"])<br>
+                              <font color="#666666"># read all</font><br>
+                              print(response.headers)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>body</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the body contains the
+                              response data generally in the form of a
+                              json.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Authentication</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">there several methods to
+                              add authentication to an api request<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>basic authentication</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">has a high ease of
+                              mplementation&nbsp; but lacks in security
+                              as it sends passwords unencrypted over the
+                              itnernet to the server.<br>
+                              <br>
+                              to use basic authentication an
+                              authorization key needs to be added to the
+                              header of a api request.<br>
+                              this header must contain a base64-encoded
+                              combination of the username and password.<br>
+                              or <br>
+                              you can add an additional argument called
+                              auth to the request takign a tuple
+                              containg the username and password without
+                              any encoding.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">requests.get("http://api.music-catalog.com",
+
+
+                              auth=("username", "password"))<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>api key / token authenticatio</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">works by attaching a unique
+                              authentication key or token to each
+                              request.aka an api_key, it has simple
+                              implemenation but still have a lower
+                              security reating as data is transomited
+                              unencrypted.<br>
+                              <br>
+                              there are 2 methods to supply an api key
+                              in a requests <br>
+                              1* = adding it to the query in the url <br>
+                              2*= generatie the prefered method adding a
+                              authorziation header containgin the api
+                              key. thsi is done through adding directly
+                              in the header.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666"># api
+                                token in the request</font><br>
+                              api =
+                              "http://api.music-catalog.com/bin?access_toke=asdfasd;fjasdf"<br>
+                              reponse = requests.get(api)<br>
+                              <br>
+                              #auth method<br>
+                              headers = {"Authorization": "bearer
+                              sadjf;asdfas;lkdfj"}<br>
+                              request.get("http://api.music-catalog.com/albums,
+
+
+                              headers=headers)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>JWT authentication</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">also know as json web token
+                              authetnicaion simillar to api key
+                              authentication, differnce is that the jwt
+                              tokens have a limitd lifespan and can
+                              contain additional encrypted data such as
+                              user information<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>OAuth 2.0</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">is a high security
+                              authentication but is more difficult to
+                              implement. that allows fine-grained access
+                              to resources without sharing credentials<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Working with json<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Most apis work with json.
+                              while dictionaries are similiar to json
+                              its not the same therefore the json libary
+                              can be used to <br>
+                              * encode a python object o a json string<br>
+                              * decode a json string (retruned by the
+                              api) to a python object<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import json<br>
+                              album = {"id": 42, "title":"back in
+                              black"} <br>
+                              <font color="#666666">#encode</font><br>
+                              string = json.dumps(album)<br>
+                              <font color="#666666">#decode</font><br>
+                              album = json.loads(string)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">within the request libary
+                              you can use the .json() method on a
+                              response to convert the json output into a
+                              python object (using the json libary)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">response =
+                              requests.get("https://api.datacamp.com",
+                              headers =&nbsp; {"accept":
+                              "application/json"} )<br>
+                              <br>
+                              <font color="#666666">#decode into a
+                                python objec</font>t<br>
+                              data = response.json()<br>
+                              print(data)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">when the api needs json
+                              formatted data for the request (e.g post
+                              request) instead of the data argument a
+                              json argument can be used to provide data
+                              in the form of a dictionary.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">playlist = {"name": "road
+                              trip", "genere" : "rock", "private":
+                              "true"}<br>
+                              <br>
+                              response =
+                              requests.post("http://api.music-catalog.com/playlists",
+                              json=playlists)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell A2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td rowspan="1" colspan="2">
+                              <h2>Error handling</h2>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>4XX Client errors (most common)<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">401 Unauthorized<br>
+                            </td>
+                            <td valign="top">The requet lacks valid
+                              authenticiation credentials for the
+                              request resource. add the correct
+                              authentication or check if apikey/pw are
+                              correct.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">404 not found<br>
+                            </td>
+                            <td valign="top">indicates that the server
+                              ccannot find the resource that was
+                              requested. check the path url is correct
+                              and the query isnt to selective.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">429 too many requests<br>
+                            </td>
+                            <td valign="top">the client has sent to many
+                              requests in a given amount of time. change
+                              the code so it doesnt retry to quick or
+                              put a wait between your requests.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>5XX Server errors (most common)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">500 internal server error<br>
+                            </td>
+                            <td valign="top">the server experience an
+                              unexpected issue which prevents it from
+                              responding.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">502 bad gateway<br>
+                            </td>
+                            <td valign="top">the api server could not
+                              successfully reach another server it
+                              needed to complete the response<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">504 gateway timeout<br>
+                            </td>
+                            <td valign="top">the server (which acts as a
+                              gateway) did not get a response from the
+                              upstream server in time<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <footer style="text-align: center; margin-top: 20px;">
+      <p style="text-align: center;"> This website is a collection of my
+        personal study notes, created to help me and others learn and
+        organize information effectively. Feel free to <strong>download</strong>,
+        <strong>print</strong>, or <strong>use</strong> any of the
+        notes for your own purposes. </p>
+      <p style="text-align: center;"> <br>
+        Want to keep your own notes in the same format? Check out the <a
+          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+          text-decoration: underline;">Notes Template</a>! </p>
+      <p style="text-align: center;"> Interested in forking this
+        website? Visit my <a
+          href="https://github.com/Doemsdagding/CheatSheets"
+          target="_blank" style="color: #1E90FF; text-decoration:
+          underline;">GitHub Repository</a> to get the full source code.
+      </p>
+      <p style="text-align: center;"> Happy learning and dont forget to
+        share, follow and star the repository! -DoemsDagDing </p>
+    </footer>
+  </body>
+</html>
