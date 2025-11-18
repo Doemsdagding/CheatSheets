@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>REDSHIFT</title>
+    <title>FASTAPI</title>
     <link rel="stylesheet" href="../stylesheet.css">
     <script src="../script.js"> </script>
     <style>
@@ -36,43 +35,37 @@
 
         }
     </style>
-</head>
-
-<body class="light-mode">
-    <!-- Back Button --> <button class="back-button" onclick="window.location.href='../'" title="Back to Home page"> ×
+  </head>
+  <body class="light-mode">
+    <!-- Back Button --> <button class="back-button"
+      onclick="window.location.href='../'" title="Back to Home page"> ×
     </button>
     <!--ICON-->
     <svg style="display: none;">
-        <symbol id="myBase64Image" viewBox="0 0 1 1">
-            <image
-                href="data:image/png;base64,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"
-                width="1" height="1"></image>
-        </symbol>
-    </svg>
+      <symbol id="myBase64Image" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
     <svg style="display: none;">
-        <symbol id="redshiftlgo" viewBox="0 0 1 1">
-            <image
-                href="data:image/png;base64,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"
-                width="1" height="1"></image>
-        </symbol>
-    </svg>
-    <!--TOGGLE BUTTON--> <button class="toggle-button" onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
-            class="icon"></span> </button>
+      <symbol id="redshiftlgo" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button"
+      onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+        class="icon"></span> </button>
     <!--PRINT BUTTON--> <button class="print-button" onclick="if
       (document.body.classList.contains('dark-mode')) toggleMode();
       window.print();" title="Print this page"> <span class="icon">🖨️</span>
     </button>
     <!-- Modal Structure -->
     <div id="modal" class="modal">
-        <div class="modal-content"> <button class="modal-close" onclick="closeModal()" title="close modal">×</button>
-            <div id="modal-table-container"></div>
-            <!--next and back buttons--> <button class="modal-back" onclick="previousModal()"
-                title="previous modal">&lt;</button> <button class="modal-next" onclick="nextModal()"
-                title="next modal">&gt;</button>
-            <div class="modal-zone modal-left" onclick="previousModal()"></div>
-            <div class="modal-zone modal-middle"></div>
-            <div class="modal-zone modal-right" onclick="nextModal()"></div>
-        </div>
+      <div class="modal-content"> <button class="modal-close"
+          onclick="closeModal()" title="close modal">×</button>
+        <!--next and back buttons--> <button class="modal-back"
+          onclick="previousModal()" title="previous modal">&lt;</button>
+        <button class="modal-next" onclick="nextModal()" title="next
+          modal">&gt;</button> </div>
     </div>
     <!-- Swipe Hint -->
     <div id="swipe-hint" style="display: none; position: fixed; bottom:
@@ -80,308 +73,1236 @@
       rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px;
       border-radius: 10px; font-size: 30px; z-index: 2000; text-align:
       center; justify-content: center; align-items: center;"> Swipe left
-        or right to navigate </div>
+      or right to navigate </div>
     <!--HEADER h1-->
-    <h1>Title – INTRODUCTION
-        <svg width="55" height="55">
-            <use href="#redshiftlgo"></use>
-        </svg>
-    </h1>
+    <h1>FASTAPI – INTRODUCTION
+      <svg width="55" height="55">
+        <use href="#redshiftlgo"></use> </svg> </h1>
     <!-- page 1 -->
-    <table style="width: 765px; height: 898px;">
-        <tbody>
-            <tr>
-                <td style="width: 375px; padding-right: 0px;word-break: break-word; ">
-                    <!-- left side -->
-                    <table style="width: 375px; height: 839px;">
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
                         <tbody>
-                            <tr>
-                                <th>
-                                    <!--cell a1 -->
-                                    <div class="container2">
-                                        <table class="inner">
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <div style="display: flex;
+                          <tr>
+                            <td>
+                              <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>Title</h2>
-                                                            </div>
-                                                            <div style="position: absolute; right:
+                                <div style="text-align: center;">
+                                  <h2>FastAPI</h2>
+                                </div>
+                                <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">text<br>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h3>subtitle</h3>
-                                                    </td>
-                                                    <td>
-                                                        <h3>subtitle</h3>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text </td>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text </td>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text </td>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <h3>subtitle</h3>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">text<span style="color:
-                                #666666;"></span><br>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <!--cell a2 -->
-                                    <div class="container1">
-                                        <table class="inner">
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <div style="display: flex;
-                                justify-content: center; align-items:
-                                center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>Title</h2>
-                                                            </div>
-                                                            <div style="position: absolute; right:
-                                  -28px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h3><span style="color: #999999;"></span>subtitle</h3>
-                                                    </td>
-                                                    <td>
-                                                        <h3>subtitle</h3>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text</td>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text</td>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <h3>subtitle</h3>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2">text </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <!--cell a3 -->
-                                    <div class="container4">
-                                        <table class="inner">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div style="display: flex;
-                                justify-content: center; align-items:
-                                center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>Title</h2>
-                                                            </div>
-                                                            <div style="position: absolute; right:
-                                  -28px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h3>subtitle</h3>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Fastapi is a fast way to
+                              build high performance apis using python.
+                              its fast robus and low code. it is seen as
+                              a python web framework<br>
+                              competing python web frameworks are flask
+                              and django the main difference is that
+                              flask and djagno also are used for web GUI
+                              frontends while fastapi just builds apis.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Setting up fastapi is
+                              simple and quick using the python fastapi
+                              library. to run the server you cant just
+                              press play but have to run it in the
+                              terminal. (ctrl +c to stop running) <br>
+                              <br>
+                              the file is genrealy called main.py.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (create app)<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import FastAPI<br>
+                              <br>
+                              <font color="#666666">#creaete fast api
+                                application</font><br>
+                              app = FastAPI()<br>
+                              <br>
+                              @app.get("/")<br>
+                              def read_root():<br>
+                              &nbsp;&nbsp;&nbsp; return {"message":
+                              "hello world"}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (run the server)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#in
+                                terminal to run in dev mode</font><br>
+                              fastapi dev &lt;filename&gt;py <br>
+                            </td>
+                          </tr>
                         </tbody>
-                    </table>
-                </td>
-                <td style="width: 199px; padding-left: 0px; word-break: break-word;">
-                    <!-- right side -->
-                    <table none="" style="width: 316px; height: 839px;">
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
                         <tbody>
-                            <tr>
-                                <th>
-                                    <!--cell b1 -->
-                                    <div class="container3">
-                                        <table class="inner" style="width: 357px; height:
-                        684px;">
-                                            <tbody>
-                                                <tr>
-                                                    <td style="text-align: center;" colspan="2">
-                                                        <div style="display: flex;
+                          <tr>
+                            <td>
+                              <div style="display: flex;
                                 justify-content: center; align-items:
                                 center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>Title</h2>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h3>subtitle</h3>
-                                                    </td>
-                                                    <td>
-                                                        <h3>subtitle</h3>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text </td>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text</td>
-                                                    <td>Ptext </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Ptext </td>
-                                                    <td>Btext </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text </td>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text </td>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text </td>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text </td>
-                                                    <td>text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>text </td>
-                                                    <td>text </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <!--cell b2 -->
-                                    <div class="container1">
-                                        <table class="inner">
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="3">
-                                                        <div style="display: flex;
-                                justify-content: center; align-items:
-                                center; position: relative;">
-                                                            <div style="text-align: center;">
-                                                                <h2>Title</h2>
-                                                            </div>
-                                                            <div style="position: absolute; right:
+                                <div style="text-align: center;">
+                                  <h2>GET requests<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
-                                                                <svg width="34" height="34">
-                                                                    <use href="#myBase64Image"></use>
-                                                                </svg>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3">text </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3">
-                                                        <h3>subtitle</h3>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="3">text </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                            </tr>
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to retrieve data using an
+                              api you use get requests.<br>
+                              to provide support for get requests in
+                              your fastapi application you do this
+                              through:<br>
+                              a&nbsp; &lt;app&gt;.get(&lt;redirect
+                              folder path&gt;)&nbsp; decorator above a
+                              function on top of a function called
+                              root() which returns the response.<br>
+                              <br>
+                              the return is a dictionary which FastApi
+                              encodes as a json on durring its response.<br>
+                              <br>
+                              while the .get doesnt force the function
+                              to be used for retrieval only as you can
+                              do anything in the def. it tells the
+                              fastapi that that this is the get function
+                              for this endpoint.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import FastAPI<br>
+                              <br>
+                              app = FastAPI()<br>
+                              <br>
+                              <font color="#666666"># handle get
+                                requests to root</font><br>
+                              @app.get("/")<br>
+                              def read_root():<br>
+                              &nbsp;&nbsp;&nbsp; return {"message":
+                              "hello world"}</td>
+                          </tr>
                         </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>cURL</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cURL makes it easy to in a
+                              terminal test the api code without a
+                              browser. <br>
+                              the only required argument&nbsp; is a URL
+                              but you can add additional arguments.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">$ curl -h<br>
+                              Usage: curl [options.....] &lt;url&gt; <br>
+                              &nbsp;&nbsp; -v, --verbose&nbsp; <font
+                                color="#666666">#makes the operation
+                                more talkative</font><br>
+                              &nbsp;&nbsp; -H,&nbsp; --header
+                              &lt;header/@file&gt;&nbsp;&nbsp;&nbsp; <font
+                                color="#666666">#pass customer header(s)
+                                to&nbsp; <br>
+                                \&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                                server</font><br>
+                              &nbsp;&nbsp; -d, --data &lt;data&gt;&nbsp;
+                              <font color="#666666">#HTTP POST data</font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Example<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">$ curl
+                              http://localhost:8000 <font
+                                color="#666666">#{"message":"hello
+                                world"}</font><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Additional endpoints<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to add additional endpoints
+                              you can add aditioan path inside the
+                              decorator and use this as the name of the
+                              function<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">@app.get("/hello") <br>
+                              def hello():<br>
+                              &nbsp;&nbsp;&nbsp; return {"message":
+                              "hello"}<br>
+                              <br>
+                              curl _H 'Content-Type: application/json'
+                              http://localhost:8000<br>
+                              <font color="#666666">#{"message":"hello"}</font><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Query Parameters<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">by adding arguments to the
+                              function under the decorator you can
+                              create query parameters.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">@app.get("/hello") <br>
+                              def hello(name: str = "robin"):<br>
+                              &nbsp;&nbsp;&nbsp; return {"message":
+                              "hello {name}"}<br>
+                              <br>
+                              <br>
+                              curl _H 'Content-Type: application/json'
+                              http://localhost:8000<br>
+                              <font color="#666666">#{"message":"hello
+                                robin"}</font><br>
+                              <br>
+                              <br>
+                              curl _H 'Content-Type: application/json'
+                              http://localhost:8000?name=sabra<br>
+                              <font color="#666666">#{"message":"hello
+                                sabra"}</font></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>put operations<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">used to update an existing
+                              object, can use both query string and
+                              request body for parameters like post
+                              operations cant be done through just
+                              browser requires cURL or request libary.
+                              unlike for django to the operation
+                              requires for all objects to have a unique
+                              id, which is generally found back in the
+                              json format too.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">@app.put("/reviews",
+                              response_model=DbReview)<br>
+                              def update_review(review: DbReview):<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#update
+
+
+
+
+                                the movie review in the database</font><br>
+                              &nbsp;&nbsp;&nbsp; db_review =
+                              crud.update_review(review)<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#return
+
+
+
+
+                                the update review</font><br>
+                              &nbsp;&nbsp;&nbsp; return db_review<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">curl -X PUT \<br>
+                              &nbsp; -H 'Content-Type: application/json'
+                              \<br>
+                              &nbsp; -d <span class="hljs-string"><span
+                                  class="hljs-string">'{ "movie":
+                                  "Starship Troopers", "num_stars": 4,
+                                  "text": "A classic satirical sci-fi
+                                  movie. Would you like to know more?",
+                                  "review_id": 101 }'</span>'</span>\<br>
+                              &nbsp; http://localhost:8000/items<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Post operation<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Post Operations is used to
+                              create new objects rathern than using an
+                              URL query like for get requests POST can
+                              als obe send using the request body.
+                              meaning that while get requests can be
+                              done inside a browser for POST you need
+                              cURL or the requests python library.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">as python doesnt have a
+                              build in json data type to create a json
+                              schema the pydantic python library is used
+                              which builds like a class and creates a
+                              json schema <br>
+                              <br>
+                              by using classes inside classes you can
+                              nest them inside each other and cerate
+                              levels<br>
+                              <br>
+                              to make an attribute optional you speccify
+                              FALSE after specifying the required
+                              datatype.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import FastAPI<br>
+                              from pydantic import BaseModel<br>
+                              <br>
+                              # Define model Item<br>
+                              class Item(BaseModel):<br>
+                              &nbsp;&nbsp;&nbsp; name: str<br>
+                              <br>
+                              app = FastAPI()<br>
+                              <br>
+                              <br>
+                              @app.post("/")<br>
+                              def root(item: Item):<br>
+                              &nbsp;&nbsp;&nbsp; name = item.name<br>
+                              &nbsp;&nbsp;&nbsp; return {"message": f"We
+                              have {name}"}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">curl -X POST \<br>
+                              &nbsp; -H 'Content-Type: application/json'
+                              \<br>
+                              &nbsp; -d '{"name": "bananas"}' \<br>
+                              &nbsp; http://localhost:8000<br>
+                              <font color="#666666">#{"message": "we
+                                have bananas"}</font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (nestng)<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from pydantic import
+                              BaseModel<br>
+                              <br>
+                              class Review(BaseModel): <br>
+                              &nbsp;&nbsp;&nbsp; num_stars: int<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; text: str<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; public: bool =
+                              False<br>
+                              <br>
+                              class MovieReview(BaseModel): <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; movie: str<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font
+                                color="#666666"># nest review in
+                                moviereview</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              review: Review<br>
+                              <br>
+                              class DbReview(BaseModel)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; movie: str<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; num_stars: int<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; text: str<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; review_id: int<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">handeling the post
+                              operations works in similar maner as the
+                              get operatation but using .post()
+                              which&nbsp; takes another argument in the
+                              creator being response-model which takes
+                              another json schema as value which can
+                              than be used to return the confirumation.<br>
+                              <br>
+                              inside the function the actual function
+                              that does the pushing to the database can
+                              be used ofthen the main.py hold the app
+                              while a crud.py hold the create ,reade,
+                              update, delete logic<br>
+                              <br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666"># ---
+                                Hypothetical contents of a file named
+                                'crud.py' ---<br>
+                                <br>
+                                # This function knows how to talk to the
+                                database</font><br>
+                              def create_review(review: MovieReview)
+                              -&gt; DbReview:<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                1. Logic to convert the Pydantic
+                                'review' object <br>
+                                &nbsp;&nbsp;&nbsp; #&nbsp;&nbsp;&nbsp;
+                                into a format your database understands
+                                (e.g., an </font>SQLAlchemy model).<br>
+                              &nbsp;&nbsp;&nbsp; db_item =
+                              convert_to_db_format(review)<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                2. Add the item to the database session.</font><br>
+                              &nbsp;&nbsp;&nbsp; db.add(db_item)<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp;<font color="#666666"> #
+                                3. Commit the changes to make them
+                                permanent.</font><br>
+                              &nbsp;&nbsp;&nbsp; db.commit()<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                4. Refresh or fetch the new data,
+                                including the unique ID generated by the
+                                database.</font><br>
+                              &nbsp;&nbsp;&nbsp; db.refresh(db_item)<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                5. Return the database object</font>.<br>
+                              &nbsp;&nbsp;&nbsp; return db_item <br>
+                              <br>
+                              <font color="#666666"># --- End of
+                                'crud.py' ---</font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import crud<br>
+                              <br>
+                              @app.post("/reviews", response_model =
+                              DbReview)<br>
+                              def create_review(review: MovieReview): <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                                color="#666666"> #use a function from
+                                the crud.py</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; db_review =
+                              crud.create_review(review) <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; return db_review<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>delete operations<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">used to delete an existing
+                              object can use both query string and
+                              request body for parameters. like post
+                              operations cant be done through just
+                              browser requires cURL or request libar.
+                              unlike for django to the operation
+                              requires for all objects to have a unique
+                              id, which is generally found back in the
+                              json format too </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">@app.delete("/reviews") <br>
+                              def delete_review(review: DbReview):<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                delete the movie review from the
+                                database</font><br>
+                              &nbsp;&nbsp;&nbsp;
+                              crud.delete_review(review) <br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#return
+
+
+
+
+                                nothing since data is gone</font><br>
+                              &nbsp;&nbsp;&nbsp; return {}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">curl -X DELETE
+                              "http://127.0.0.1:8000/reviews" \<br>
+                              &nbsp; -H "Content-Type: application/json"
+                              \<br>
+                              &nbsp; -d '{<br>
+                              &nbsp;&nbsp;&nbsp; "movie": "The Great
+                              Adventure",<br>
+                              &nbsp;&nbsp;&nbsp; "num_stars": 5,<br>
+                              &nbsp;&nbsp;&nbsp; "text": "This data will
+                              be deleted.",<br>
+                              &nbsp;&nbsp;&nbsp; "review_id": 101<br>
+                              &nbsp; }'<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (simplied call)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">@app.delete("/reviews/{review_id}")
+
+
+
+
+                              <br>
+                              def delete_review_by_id(review_id: int): <font
+                                color="#666666"># &lt;-- Only review_id
+                                is passed<br>
+                                &nbsp;&nbsp;&nbsp; # Now you can
+                                directly use the ID</font><br>
+                              &nbsp;&nbsp;&nbsp;
+                              crud.delete_review_by_id(review_id) <br>
+                              &nbsp;&nbsp;&nbsp; return {}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">curl -X DELETE
+                              "http://127.0.0.1:8000/reviews/101"<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Handeling errors<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to handele errors the raise
+                              function can be given arguments to provide
+                              the correct error message, this is done
+                              through importing the exception and
+                              provding it the status_code and detail
+                              arguments.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import
+                              FastAPI, HTTPException<br>
+                              import crud <font color="#666666">#crud.py</font><br>
+                              <br>
+                              app = FastAPI()<br>
+                              <br>
+                              @app.delete("/items") <br>
+                              def delete_item(item: Item):<br>
+                              &nbsp;&nbsp; if item.id not in item_ids:<br>
+                              &nbsp;&nbsp;<font color="#666666"> #raise
+                                error cause what you want to delete
+                                doenst exist</font><br>
+                              &nbsp;&nbsp; raise
+                              HTTPException(status_code=404, detail=
+                              "item not found.") <br>
+                              &nbsp;&nbsp; else:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              crud.delete_item_in_database(item)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              return {}<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Async<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">asyncc is quite easy with
+                              FastAPI. if all external functions can be
+                              called using away you can just add async
+                              before the function after the decorator<br>
+                              <br>
+                              this is useful when the application needs
+                              to wait for other systems to respond like
+                              external apis and databases. but not when
+                              it is a cpu-heavy task (like machine
+                              learning and image processing)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">@app.get('/')<br>
+                              async def read_results():<br>
+                              &nbsp;&nbsp;&nbsp; results = await
+                              &lt;some_function&gt;()<br>
+                              &nbsp;&nbsp;&nbsp; return results<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Testing</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Unit tests</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">focuses isolatd code to
+                              validate specific code functions. for fast
+                              api this means it tests a function or a
+                              created method. this requires an isolated
+                              python env. oftne saved as unit_test.py<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">def test_main(): <br>
+                              &nbsp;&nbsp;&nbsp; response = main()<br>
+                              &nbsp;&nbsp;&nbsp; assert response ==
+                              {"msg": "hello"}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>System tests</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">focuses on isolated system
+                              operations to validate specific parts of
+                              the system function. for fast api this
+                              means testing an endpoint. this requires
+                              an python env with the app running. often
+                              saved as system_test.py<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">def test_read_main():<br>
+                              &nbsp;&nbsp;&nbsp; response =
+                              client.get("/")<br>
+                              &nbsp;&nbsp;&nbsp; assert
+                              response.status_code == 200<br>
+                              &nbsp;&nbsp;&nbsp; assert response.json()
+                              == {"msg": "hello"}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Functional tests</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">focsues on integrated
+                              systems wit the purpose of validating the
+                              overall system. they test the whole
+                              applciation. testing the interaction
+                              between two or more endpoints (these
+                              generally run outside the test framework)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">def test_delete_then_read()<br>
+                              &nbsp;&nbsp;&nbsp; response =
+                              client.delete("/items/1") <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; assert
+                              response.status_code == 200<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; response =
+                              client.get("/items/1")<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; assert
+                              response.status_code == 404<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>TestClient</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Fastapi allows for the
+                              creation ofa testClient&nbsp; for the use
+                              of system tests, this is doen trhough
+                              using TestClient whcih takes the app as
+                              its argument. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi.testclient
+                              import TestClient<br>
+                              from .main import app #main.py<br>
+                              <br>
+                              client = TestClient(app)<br>
+                              <br>
+                              def test_main()<br>
+                              &nbsp;&nbsp;&nbsp; response =
+                              client.get("/") <br>
+                              &nbsp;&nbsp;&nbsp; assert
+                              response.status_code == 200<br>
+                              &nbsp;&nbsp;&nbsp; assert response.json()
+                              == {"msg": "hello"}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example testing error </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">def
+                              test_delete_nonexistent_item():<br>
+                              &nbsp;&nbsp;&nbsp; response&nbsp; =
+                              client.delete( "/items", json= {"id": -
+                              999} <font color="#666666"># defeinitly
+                                non existent</font><br>
+                              &nbsp;&nbsp;&nbsp; assert
+                              response.status_ccode == 404<br>
+                              &nbsp;&nbsp;&nbsp; json = response.json()<br>
+                              &nbsp;&nbsp;&nbsp; assert json ==
+                              ["detail": "item not found. "} <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>CRUD</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
     </table>
     <footer style="text-align: center; margin-top: 20px;">
-        <p style="text-align: center;"> This website is a collection of my
-            personal study notes, created to help me and others learn and
-            organize information effectively. Feel free to <strong>download</strong>,
-            <strong>print</strong>, or <strong>use</strong> any of the
-            notes for your own purposes.
-        </p>
-        <p style="text-align: center;"> <br>
-            Want to keep your own notes in the same format? Check out the <a href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+      <p style="text-align: center;"> This website is a collection of my
+        personal study notes, created to help me and others learn and
+        organize information effectively. Feel free to <strong>download</strong>,
+        <strong>print</strong>, or <strong>use</strong> any of the
+        notes for your own purposes. </p>
+      <p style="text-align: center;"> <br>
+        Want to keep your own notes in the same format? Check out the <a
+          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
           text-decoration: underline;">Notes Template</a>! </p>
-        <p style="text-align: center;"> Interested in forking this
-            website? Visit my <a href="https://github.com/Doemsdagding/CheatSheets" target="_blank" style="color: #1E90FF; text-decoration:
+      <p style="text-align: center;"> Interested in forking this
+        website? Visit my <a
+          href="https://github.com/Doemsdagding/CheatSheets"
+          target="_blank" style="color: #1E90FF; text-decoration:
           underline;">GitHub Repository</a> to get the full source code.
-        </p>
-        <p style="text-align: center;"> Happy learning and dont forget to
-            share, follow and star the repository! -DoemsDagDing </p>
+      </p>
+      <p style="text-align: center;"> Happy learning and dont forget to
+        share, follow and star the repository! -DoemsDagDing </p>
     </footer>
-</body>
-
+  </body>
 </html>

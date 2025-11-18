@@ -393,6 +393,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               are 9 different actions you can take with
                               apis these are called HTTP verbs.<br>
                               These are:<br>
@@ -496,6 +497,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               requests their methods are structured
                               differntly for e.g. the POST and PUT
                               requests an additional argument is needed
@@ -511,6 +513,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td rowspan="1" colspan="3" valign="top">response
+
 
 
 
@@ -733,6 +736,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             <td valign="top">requests.get("http://api.music-catalog.com",
 
 
+
                               auth=("username", "password"))<br>
                             </td>
                           </tr>
@@ -774,6 +778,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               headers = {"Authorization": "bearer
                               sadjf;asdfas;lkdfj"}<br>
                               request.get("http://api.music-catalog.com/albums,
+
 
 
                               headers=headers)<br>
@@ -982,6 +987,46 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           <tr>
                             <td rowspan="1" colspan="2">
                               <h2>Error handling</h2>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>2XX Success (most common)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">200 OK<br>
+                            </td>
+                            <td valign="top">default success response<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">201 created<br>
+                            </td>
+                            <td valign="top">specific to post operation<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">202 accepted<br>
+                            </td>
+                            <td valign="top">noncommittal <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">204 no content<br>
+                            </td>
+                            <td valign="top">success <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>3XX redirection</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">301 moved permantently<br>
+                            </td>
+                            <td valign="top">the uri changed permanently<br>
                             </td>
                           </tr>
                           <tr>
