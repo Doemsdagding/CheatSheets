@@ -62,15 +62,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
     <div id="modal" class="modal">
       <div class="modal-content"> <button class="modal-close"
           onclick="closeModal()" title="close modal">×</button>
-        <div id="modal-table-container"></div>
         <!--next and back buttons--> <button class="modal-back"
           onclick="previousModal()" title="previous modal">&lt;</button>
         <button class="modal-next" onclick="nextModal()" title="next
-          modal">&gt;</button>
-        <div class="modal-zone modal-left" onclick="previousModal()"></div>
-        <div class="modal-zone modal-middle"></div>
-        <div class="modal-zone modal-right" onclick="nextModal()"></div>
-      </div>
+          modal">&gt;</button> </div>
     </div>
     <!-- Swipe Hint -->
     <div id="swipe-hint" style="display: none; position: fixed; bottom:
@@ -156,6 +151,310 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               flet.app(target = main)<br>
                             </td>
                           </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>setting up a mobile app</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to create a mobile
+                              application a slight different method
+                              should be used as there are additional
+                              dependencies for this purpose the best
+                              option is to use a terminal command in an
+                              empty folder (see example)<br>
+                              <br>
+                              this command will generate&nbsp; a project
+                              structure including:<br>
+                              * assets/: = a directory for media files
+                              such as images, sound&nbsp; (if only
+                              icon.png is provided it will be used as
+                              source image to genree icons and splash
+                              screens for all platforms)<br>
+                              * main.py = the file that serves as the
+                              entry point of the application<br>
+                              * requirements.txt = file containing al
+                              lteh depencies requried for creating the
+                              flet app (if file is not provided only
+                              flet dependencys are installed durring
+                              packaiging) <br>
+                              * pyproject.toml =&nbsp; file meatn for
+                              readin dependencies.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet create
+                              &lt;project_name&gt;<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Run app</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">For desktop:<br>
+                              to run the app there are multiple ways you
+                              can press the play button in the ide or
+                              use the command "flet run main.py" <br>
+                              <br>
+                              For mobile:<br>
+                              make sure your phone and pc are on the
+                              same wifi. download the flet app on your
+                              test phone and run the command "flet run
+                              --android "or "flet run --iOS"<br>
+                              a QR code will be generated which can than
+                              be scanned using your phone.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Building Ui: Introduction<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">In flet the UI is composed
+                              of widgets known as controls each being
+                              the child of a parent class except for
+                              page. each control has its on set of
+                              unique methods and functions reffered to
+                              as properties (some are shared some are
+                              unique to the control)<br>
+                              <br>
+                              the base of the application is the main()
+                              functions which contains the primary logic
+                              of the application. <br>
+                              the page parameter serves as the parent
+                              control for all other controls.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">controls can be added,
+                              removed or manipulated within the page,
+                              using methods such as add, insert, remove.
+                              <br>
+                              <br>
+                              additionally the page control can contain
+                              nested pages. by default the page control
+                              applies acolumn layout from top to bottom.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Packaging and publishing apps<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>flet pack (desktop: mac,windows,
+                                linux)<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">for desktop flet has an
+                              Pyinstaller integration which can make
+                              executables compatible for windows, macos
+                              and linux. <br>
+                              <br>
+                              in order for an unique icon the pillow
+                              library needs to be installed (pip install
+                              pillow)<br>
+                              <br>
+                              to initiate go into the project directory
+                              and use the command. <br>
+                              &nbsp;"flet pack main.py --name &lt;app
+                              name&gt;&nbsp; --icon &lt;path to
+                              icon&gt;"<br>
+                              <br>
+                              the executable for each desktop env can be
+                              found in the dist folder.<br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>flet publish: (static websit) </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">for static website use:<br>
+                              "flet publish main.py<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>flet build: (mobile, website, desktop
+                                )<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet build supersedes both
+                              publish and pack. instead of pyinstaller
+                              it uses the Flutter SDK. for this reason
+                              Flutter SDK needs to be installed and the
+                              bin directory needs to be added to the
+                              systems path environment.and than in a
+                              terminal run "flutter doctor"(onlinux
+                              there is also the requirment fro Gstreamer
+                              to be installed ( apt install libgtk-3-dev
+                              libgstreamer1.0-dev
+                              libgstreamer-plugins-base1.0-dev)<br>
+                              <br>
+                              to build for a system your os is important
+                              to build apple you need to be on macos, to
+                              build for windows you need to be on
+                              windows to build for android, linux or web
+                              any os will do.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Building android APK</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Use " flet build apk
+                              &lt;path/to/app folder&gt;" <br>
+                              (the folder path is optionally if your in
+                              the path allready with your terminal).to
+                              generate an Android APK file from your
+                              app. This command builds the release
+                              version, which doesn't support debugging
+                              and is suitable for deployment to app
+                              stores.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>building apple ipa</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">On a macOS host, you can
+                              use&nbsp; flet build ipa or&nbsp; flet
+                              build ipa /path/to/app to build an iOS
+                              archive bundle and IPA file for
+                              distribution. To generate the IPA
+                              successfully, ensure you provide correct
+                              values for the following arguments:<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; --org: Organization
+                              name in reverse domain name notation
+                              (e.g., com.mycompany). It's combined with
+                              --project to form the iOS and Android
+                              bundle ID. Default is com.flet.<br>
+                              &nbsp;&nbsp;&nbsp; --project: Project name
+                              in C-style identifier format (lowercase
+                              alphanumerics with underscores). Used to
+                              build bundle ID and as a name for bundle
+                              executable. By default, it's the name of
+                              the Flet app directory.<br>
+                              &nbsp;&nbsp;&nbsp; --team: Team ID to
+                              locate the provisioning profile. If no
+                              team ID is provided, an unsigned iOS
+                              archive will be generated<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>building desktop</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to build for windows use <br>
+                              "flet build windows"<br>
+                              for macos use:<br>
+                              "flet build macos"<br>
+                              for linux use:<br>
+                              "flet build linux"<br>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -217,7 +516,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell B1</h2>
+                                  <h2>packaging and publishing apps 2:
+                                    icon<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -230,6 +531,40 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">You can customize app icons
+                              for all platforms (excluding Linux) using
+                              images in the assets directory of your
+                              Flet app.<br>
+                              <br>
+                              iOS: Use icon_ios.png (or any supported
+                              image format). Recommended minimum size is
+                              1024 px. (defautls to icon.png with
+                              alpha-channel automatically removed)<br>
+                              <br>
+                              Android: Utilize icon_android.png (or any
+                              supported image format). Recommended
+                              minimum size is 192 px. (defaults t
+                              icon.png)<br>
+                              <br>
+                              Web: Employ icon_web.png (or any supported
+                              image format). Recommended minimum size is
+                              512 px. Defaults to icon.png.<br>
+                              <br>
+                              Windows: Use icon_windows.png (or any
+                              supported image format). An ICO file of
+                              256 px size will be produced. Defaults to
+                              icon.png. If icon_windows.ico file is
+                              provided, it will be copied to
+                              windows/runner/resources/app_icon.ico
+                              unmodified.<br>
+                              <br>
+                              macOS: Utilize icon_macos.png (or any
+                              supported image format). Recommended
+                              minimum size is 1024 px. Defaults to
+                              icon.png.<br>
                             </td>
                           </tr>
                         </tbody>
