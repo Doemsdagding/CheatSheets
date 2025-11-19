@@ -132,7 +132,14 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               press play but have to run it in the
                               terminal. (ctrl +c to stop running) <br>
                               <br>
-                              the file is genrealy called main.py.<br>
+                              what this does is use uvicorn to host the
+                              api (this is the simpelest method but if
+                              you want to customize the port or amount
+                              of worker cores ect you need to use
+                              uvicorn)<br>
+                              <br>
+                              the file containg the app is genrealy
+                              called main.py.<br>
                             </td>
                           </tr>
                           <tr>
@@ -295,6 +302,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 color="#666666">#pass customer header(s)
                                 to&nbsp; <br>
                                 \&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
 
 
 
@@ -511,10 +523,20 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
+
+
+
+
                                 the movie review in the database</font><br>
                               &nbsp;&nbsp;&nbsp; db_review =
                               crud.update_review(review)<br>
                               &nbsp;&nbsp;&nbsp; <font color="#666666">#return
+
+
+
+
+
 
 
 
@@ -597,7 +619,12 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               build in json data type to create a json
                               schema the pydantic python library is used
                               which builds like a class and creates a
-                              json schema <br>
+                              json schema .<br>
+                              Combining this with the List class from
+                              the typing library creates a variable
+                              amount nest meaning that there could be
+                              multiple of the same class object nested
+                              under the main class object<br>
                               <br>
                               by using classes inside classes you can
                               nest them inside each other and cerate
@@ -605,7 +632,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               <br>
                               to make an attribute optional you speccify
                               FALSE after specifying the required
-                              datatype.</td>
+                              datatype. or you can use the Optional
+                              class from the typing library<br>
+                            </td>
                           </tr>
                           <tr>
                             <td valign="top">
@@ -615,10 +644,13 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           <tr>
                             <td valign="top">from fastapi import FastAPI<br>
                               from pydantic import BaseModel<br>
+                              from typing import Optional<br>
                               <br>
                               # Define model Item<br>
                               class Item(BaseModel):<br>
                               &nbsp;&nbsp;&nbsp; name: str<br>
+                              &nbsp;&nbsp;&nbsp; second-name:
+                              Optional[str]<br>
                               <br>
                               app = FastAPI()<br>
                               <br>
@@ -663,6 +695,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 moviereview</font><br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               review: Review<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                                color="#666666"> #multiple reviews
+                                nested in MovieReview</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              critic_review: List[Review]<br>
                               <br>
                               class DbReview(BaseModel)<br>
                               &nbsp;&nbsp;&nbsp;&nbsp; movie: str<br>
@@ -819,6 +856,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
+
+
+
+
                                 nothing since data is gone</font><br>
                               &nbsp;&nbsp;&nbsp; return {}<br>
                             </td>
@@ -845,6 +887,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td valign="top">@app.delete("/reviews/{review_id}")
+
+
+
+
+
 
 
 
@@ -938,8 +985,18 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
+
+
+
+
                               crud.delete_item_in_database(item)<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
 
 
 
@@ -995,6 +1052,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               external apis and databases. but not when
                               it is a cpu-heavy task (like machine
                               learning and image processing)<br>
+                              <br>
+                              by adding awaits to the def python know
+                              where it can wait for other code to finish
+                              thereby creating multiple threats.<br>
                             </td>
                           </tr>
                           <tr>
@@ -1003,11 +1064,98 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">@app.get('/')<br>
+                            <td valign="top">import asyncio <br>
+                              <br>
+                              @app.get('/')<br>
                               async def read_results():<br>
                               &nbsp;&nbsp;&nbsp; results = await
                               &lt;some_function&gt;()<br>
                               &nbsp;&nbsp;&nbsp; return results<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Fastapi also has its own
+                              function to support the running of Async
+                              tasks. BackgroundTasks can be used to
+                              manage the task processing queue as it
+                              hndles post-response processing.<br>
+                              <br>
+                              to add it to an async function it needs to
+                              be added as a argument background_tasks:
+                              backgroundTasks. within the function that
+                              actualy does the intended transformation.
+                              <br>
+                              after which this function can be added to
+                              the schedule using ".add_task" method<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (BackgroundTasks)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import
+                              BackgroundTasks<br>
+                              from typing import List <br>
+                              <br>
+                              @app.post("/analyze_batch") <br>
+                              async def analyze_batch(comments:
+                              Comments, <br>
+                              &nbsp;&nbsp; background_tasks:
+                              BackgroundTasks):<br>
+                              &nbsp;&nbsp;&nbsp; try:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; async
+                              def process_comment(text: list[str]): <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp; &nbsp;&nbsp; for text in texts: <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              result = away asyncio.to_thread(
+                              sentiment_model, <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              text) <br>
+                              &nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              background_task.add_task(process_comments,
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              comments.texts)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              return {"messag": "processing started"} <br>
+                              &nbsp;&nbsp;&nbsp; except
+                              asyncio.TimeoutError:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              raise HTTpException( status_code =408,
+                              detail = "analyse <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              timed ot"<br>
+                              &nbsp;&nbsp;&nbsp; except Exception: <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              raise HTTPException( status_code =500,
+                              detail "analysis <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              fialed")<br>
                             </td>
                           </tr>
                         </tbody>
@@ -1219,7 +1367,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>CRUD</h2>
+                                  <h2>Pydantic field validator<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -1235,7 +1384,1030 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">We can se Pydantics field
+                              validators to validate the input, as it
+                              allows to set constraints on the data
+                              models<br>
+                              <br>
+                              this allows to add field validators to the
+                              BaseModel this is done through adding a =
+                              Field behind the field definition and
+                              giving it the validation arguments with<br>
+                              ... = indicating that the field is
+                              mandatory<br>
+                              min_lenght= minimal lengh of the value<br>
+                              max_lengt = maximum lenght of the field<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from pydantic import
+                              BaseModel, Field<br>
+                              <br>
+                              class User(BaseModel):<br>
+                              &nbsp;&nbsp;&nbsp; username: str =
+                              Field(..., min_lenght=3, max_lenght=50)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Pydantic field validator 2: custom
+                                    validator<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">by making a fucntion with
+                              the @field_validator(&lt;field name&gt;)
+                              decorator inside your BaseModel class you
+                              can create your own custom validations <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from pydantic import
+                              BaseModel, Field<br>
+                              <br>
+                              class User(BaseModel):<br>
+                              &nbsp;&nbsp;&nbsp; username: str =
+                              Field(..., min_lenght=3, max_lenght=50)<br>
+                              &nbsp;&nbsp; age: int<br>
+                              &nbsp;&nbsp; @field_validator('age') <br>
+                              &nbsp;&nbsp; def age_criteria(cls,age):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              if age &lt; 13: <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              raise ValueError("user must be at least
+                              13"<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              return age<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Pydantic field validator 3: model
+                                    validator<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">with the @field_validator
+                              you only validate one field if you want to
+                              validate the entire set of fields the
+                              @model_validator is used. by supplying it
+                              with the mode argument filled with "after"
+                              it runs after all the field_valdiators and
+                              defautl validators by pydantic self.<br>
+                              (you can also use "before" to check before
+                              all other checks)<br>
+                              <br>
+                              the function under the decorator takes
+                              self as argument&nbsp; to access all
+                              fields, and should return the self aswell.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import
+                              FastAPI&nbsp; <br>
+                              from fastapi.exception import
+                              RequestValidationError<br>
+                              from pydantic import(Basemodel,
+                              model_valdiator) <br>
+                              from tying import List<br>
+                              <br>
+                              Class OrderItem(BaseModel): <br>
+                              &nbsp;&nbsp;&nbsp; name: str<br>
+                              &nbsp;&nbsp;&nbsp; quantity: int<br>
+                              <br>
+                              class RestauranOrder(BaseModel):<br>
+                              &nbsp;&nbsp;&nbsp; customer_name: str<br>
+                              &nbsp;&nbsp;&nbsp; item: List[OrderItem]<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; @model_valdiator(mode=
+                              "after") <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; def
+                              validate_after(self): <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              if len(self.items) == 0 : <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              Raise RequestValidationError( "no items in
+                              order") <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              return self<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <h2>APIKeyHeader</h2>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">FastAPI provides a
+                              specialzied class to define and extract
+                              API keys in request headers.it takes the
+                              arguments<br>
+                              * name = the header field that contains
+                              the api key<br>
+                              *auto_error = ensures FastAPI autmatically
+                              handles missing keys<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import FastAPI<br>
+                              from fastapi.securty import APIKeyHeader<br>
+                              <br>
+                              header_scheme = APIKeyHeader(<br>
+                              &nbsp;&nbsp;&nbsp; name = 'X--API-Key'<br>
+                              &nbsp;&nbsp;&nbsp; auto_error= True<br>
+                              )<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to implement the api logic
+                              the Depends&nbsp; function can be used
+                              which adds the header scheme to the
+                              endpoint definition. <br>
+                              <br>
+                              furthermore the api keys need to be
+                              retrieved somewhere to check against.<br>
+                              <br>
+                              this verify api function can than be used
+                              inside the creation of the FastApi app <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import
+                              depends, HTTPException<br>
+                              <br>
+                              API_KEY = "&lt;api key&gt;"<br>
+                              <br>
+                              def verify_api_key(&nbsp; api_key: str =
+                              Depends( header_scheme) : <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; if api_key !=
+                              API_KEY:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              raise HTTPException( Status_code =403, <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              detail="invalid_api_key") <br>
+                              &nbsp;&nbsp;&nbsp; return&nbsp; api_key<br>
+                              <br>
+                              #create Fastap app<br>
+                              app =
+                              FastAPI(dependencies=[Depends(verify_api_key)]
+                              ) <br>
+                              <br>
+                              @app.post("/predict") <br>
+                              def predict_sentiment(text: str):<br>
+                              &nbsp;&nbsp; return {"text": text,
+                              "sentiment": "positive", "status":"sucess"
+                              }<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">curl -X POST \ <br>
+                              &nbsp;&nbsp; http://localhost:8000/predict
+                              \ <br>
+                              &nbsp;&nbsp; -H "X-API-Key:
+                              13490safsdklj"\<br>
+                              &nbsp;&nbsp; -H "Content-Type:
+                              appplication/json"\<br>
+                              &nbsp;&nbsp; -d '{"text": "This product is
+                              amazing!"}'<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Documentation</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">FastApi auto generates
+                              Swagger API documentation which is build
+                              on OpenAPI standard. providing metadata
+                              for API endpoints.<br>
+                              to access the documentation you can use an
+                              browser and go to "/docs" endpoint e.g
+                              "http://localhost:8000/docs"<br>
+                              <br>
+                              resulting in an screen with the
+                              documentation of each endpoint<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to add documentation to the
+                              app it self the description argument can
+                              be given durring the creation of the app<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">app = FastAPI(<br>
+                              &nbsp;&nbsp;&nbsp;
+                              dependencies=[Depends(verify_and_rate_limit)]
+                              <br>
+                              &nbsp;&nbsp; ,description=" Ai job API" )</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Global custom exception<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">FastApi allows to creation
+                              and overwriting of exceptions&nbsp; this
+                              is doen through the
+                              @app.exceltion_handler(&lt;error&gt;)
+                              decorator<br>
+                              by providing it an error type can you edit
+                              what is returned upon occurence of the
+                              error .<br>
+                              <br>
+                              by using the PlainTextResponse you make
+                              the error returning a plain text tesponse
+                              rather than the error itself.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import FastAPI<br>
+                              from fastapi.exception import
+                              RequestValidationError<br>
+                              from fastapi.responses import
+                              PlanTextResponse<br>
+                              <br>
+                              app = FastAPI()<br>
+                              <br>
+@app.exception_handler(RequestValidationError)<br>
+                              async def
+                              validation_exception_handler(request,
+                              exc):<br>
+                              &nbsp;&nbsp;&nbsp; msg = "input validation
+                              error, see the documentation: <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              http://127.0.1:8000/docs"<br>
+                              &nbsp;&nbsp;&nbsp; return
+                              PlainTextResponse(msg, status_code 422)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Rate limiting<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">rate limiting helps to
+                              control the flow of requests to prevent
+                              overload, and is used as an additional
+                              protection besides the api key. this is
+                              achieved by making a python function that
+                              checks the rate per api_key and combining
+                              it iwth the api authentication and adding
+                              it as a dependency to the app creation.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import
+                              FastAPI, Depends, HTTPException<br>
+                              from fastapi.security import APIKeyHeader<br>
+                              from collections import defaultdict<br>
+                              from datetime import datetime, timedelta<br>
+                              from typing import Tuple<br>
+                              <br>
+                              <font color="#666666"># --- Configuration
+                                ---<br>
+                                # You'll likely want to load this from
+                                environment variables in a real app</font><br>
+                              API_KEY = "&lt;api key&gt;"<br>
+                              REQUESTS_PER_MINUTE = 10 <br>
+                              <br>
+                              # Define the security scheme globally<br>
+                              API_KEY_HEADER =
+                              APIKeyHeader(name="X-API-Key",
+                              auto_error=True)<br>
+                              <br>
+                              <font color="#666666"># --- Rate Limiter
+                                Class (Improved) ---</font><br>
+                              class RateLimiter:<br>
+                              &nbsp;&nbsp;&nbsp; def __init__(self,
+                              requests_per_min: int):<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              self.requests_per_min = requests_per_min<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                                color="#666666"> # Stores request times
+                                for each API key<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                                # Key: API key (str), Value: List of
+                                datetime objects<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                                self.requests = defaultdict(list)</font><br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; def
+                              is_rate_limited(self, api_key: str) -&gt;
+                              Tuple[bool, int]:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              """<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              Checks if the API key has exceeded the
+                              rate limit.<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              Returns: (is_limited, requests_remaining)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              """<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              now = datetime.now()<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              minute_ago = now - timedelta(minutes=1)<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                                color="#666666"> # 1. Clean up old
+                                requests (keep only requests from the
+                                last minute</font>)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              self.requests[api_key] = [<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              req_time for req_time in
+                              self.requests[api_key] <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              if req_time &gt; minute_ago<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ]<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              recent_requests =
+                              len(self.requests[api_key])<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666"># 2. Check for rate
+                                limit</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              if recent_requests &gt;=
+                              self.requests_per_min:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              # Limit exceeded: return True and 0
+                              remaining<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              return True, 0<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                                color="#666666">&nbsp; # 3. Record the
+                                current request time (only if not
+                                limited)</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              self.requests[api_key].append(now)<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666"># 4. Return the
+                                remaining allowance<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                                requests_remaining =
+                                self.requests_per_min - (recent_requests
+                                + 1)</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              return False, requests_remaining<br>
+                              <br>
+                              <br>
+                              rate_limiter =
+                              RateLimiter(requests_per_min=REQUESTS_PER_MINUTE)<br>
+                              <br>
+                              <font color="#666666"># --- Dependency
+                                Function (Combines Auth and Rate
+                                Limiting) ---</font><br>
+                              def verify_and_rate_limit(api_key: str =
+                              Depends(API_KEY_HEADER)):<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              &nbsp;&nbsp;&nbsp; Dependency that
+                              performs API Key verification and rate
+                              limiting.<br>
+                              &nbsp;&nbsp;&nbsp; """<br>
+                              <font color="#666666">&nbsp;&nbsp;&nbsp; #
+                                1. API Key Verification</font><br>
+                              &nbsp;&nbsp;&nbsp; if api_key != API_KEY:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              raise HTTPException(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              status_code=403, <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              detail="Invalid API Key"<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              )<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#
+                                2. Rate Limiting Check</font><br>
+                              &nbsp;&nbsp;&nbsp; is_limited,
+                              requests_remaining =
+                              rate_limiter.is_rate_limited(api_key)<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; if is_limited:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              raise HTTPException(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              status_code=429, <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              detail="Rate limit exceeded. Please try
+                              again later."<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              )<br>
+                              &nbsp;&nbsp;&nbsp; <br>
+                              <font color="#666666">&nbsp;&nbsp;&nbsp; #
+                                Store the remaining requests in the
+                                request state, <br>
+                                &nbsp;&nbsp;&nbsp; # so the endpoint can
+                                access it (optional, but useful for
+                                response headers)<br>
+                                &nbsp;&nbsp;&nbsp; # The actual API key
+                                is returned, which is required by
+                                Depends</font><br>
+                              &nbsp;&nbsp;&nbsp; return {"api_key":
+                              api_key, "requests_remaining":
+                              requests_remaining}<br>
+                              <font color="#666666"><br>
+                                # --- FastAPI App Initialization ---</font><br>
+                              <br>
+                              <font color="#666666"># Add the combined
+                                dependency to the app's global
+                                dependencies</font><br>
+                              app = FastAPI(<br>
+                              &nbsp;&nbsp;&nbsp;
+                              dependencies=[Depends(verify_and_rate_limit)]
+                              <br>
+                              )<br>
+                              <br>
+                              <font color="#666666"># --- Endpoints ---</font><br>
+                              <span class="hljs-meta">@app.post(<span
+                                  class="hljs-params"><span
+                                    class="hljs-string">"/predict"</span></span>)<br>
+                              </span><span class="hljs-function"><span
+                                  class="hljs-keyword">def</span> <span
+                                  class="hljs-title">predict_sentiment</span>(<span
+                                  class="hljs-params">text: <span
+                                    class="hljs-built_in">str</span></span>):</span>
+                              <span class="hljs-comment"><br>
+                                &nbsp;&nbsp;<font color="#666666">&nbsp;&nbsp;
+
+
+
+                                  # This code only runs if&nbsp;&nbsp;
+                                  verify_and_rate_limit did NOT raise <br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; an
+                                  exception</font></span><font
+                                color="#666666"> </font><span
+                                class="hljs-keyword"><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return</span>
+                              {<span class="hljs-string">"text"</span>:
+                              text, <span class="hljs-string">"sentiment"</span>:
+                              <span class="hljs-string">"positive"</span>,
+                              <span class="hljs-string">"status"</span>:
+                              <span class="hljs-string"><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "success"</span>}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Logging</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to start logging with
+                              FastAPI you can utilzie the uvicorn logger
+                              using logging.getlogger() function<br>
+                              <br>
+                              after which the logging is done through
+                              the regular logging library function like
+                              logger.info() and logger.debug() through
+                              out the code which can be done when e.g.
+                              starting of the server or running a
+                              function.<br>
+                              log levels are: debug, info, warning,
+                              error, critical<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import FastAPI<br>
+                              import logging<br>
+                              <br>
+                              logger =
+                              logging.getLogger("uvicorn.error") <br>
+                              <br>
+                              app = FastAPI()<br>
+                              logger.info("app is running") <br>
+                              <br>
+                              @app.get("/") <br>
+                              async def main():<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; logger.debug("GET
+                              /") <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; return "ok"<br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the @app.middleware()
+                              decorator can be used to measure the time
+                              between reciving any ttp request and
+                              sending a response .<br>
+                              <br>
+                              it needs to receive a requests and a
+                              function than call_next is used that will
+                              receive the request as a parameter. which
+                              will pas the request to the corresponding
+                              path and return the response.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import
+                              FastAPI, Request<br>
+                              import logging <br>
+                              import time<br>
+                              <br>
+                              logger =
+                              logging.getLogger("uvicorn.error") <br>
+                              app = FastAPI()<br>
+                              <br>
+                              @app.middleware("http") <br>
+                              async def log_process_time( request:
+                              Request, call_next): <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stat_time =
+                              time.perf_counter() <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; response =
+                              await call_next(request)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              process_time = time.perf_counter() -
+                              start_time<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              logger.info(f"process time was
+                              {process_time} seconds."} <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return
+                              response.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Monitoring</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">In the case of APIs, it is
+                              standard practice to simply provide a GET
+                              endpoint at "/health" that basically says,
+                              "I'm ok!" <br>
+                              meaning that app is active. <br>
+                              <br>
+                              often it also provides additional info
+                              like what model is running with which
+                              paramters<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">from fastapi import FastAPI<br>
+                              import joblib<br>
+                              <br>
+                              model =
+                              joblib.load("penquin_classifier.pkl")<br>
+                              app = FastAPI()<br>
+                              <br>
+                              @app.get("/health") <br>
+                              asynic def get_health(): <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; params =
+                              model.get_params()<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; return
+                              {"status":"ok", "params": params} <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B1</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
                             </td>
                           </tr>
                         </tbody>
