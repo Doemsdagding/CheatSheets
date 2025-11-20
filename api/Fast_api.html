@@ -314,6 +314,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                                 server</font><br>
                               &nbsp;&nbsp; -d, --data &lt;data&gt;&nbsp;
                               <font color="#666666">#HTTP POST data</font><br>
@@ -528,10 +529,12 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                                 the movie review in the database</font><br>
                               &nbsp;&nbsp;&nbsp; db_review =
                               crud.update_review(review)<br>
                               &nbsp;&nbsp;&nbsp; <font color="#666666">#return
+
 
 
 
@@ -861,6 +864,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                                 nothing since data is gone</font><br>
                               &nbsp;&nbsp;&nbsp; return {}<br>
                             </td>
@@ -887,6 +891,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td valign="top">@app.delete("/reviews/{review_id}")
+
 
 
 
@@ -990,8 +995,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               crud.delete_item_in_database(item)<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1113,9 +1120,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               result = away asyncio.to_thread(
                               sentiment_model, <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1128,6 +1137,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               comments.texts)<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               return {"messag": "processing started"} <br>
@@ -1137,9 +1147,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               raise HTTpException( status_code =408,
                               detail = "analyse <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1149,9 +1161,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               raise HTTPException( status_code =500,
                               detail "analysis <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1480,6 +1494,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               raise ValueError("user must be at least
                               13"<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1569,13 +1584,16 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
+
                               if len(self.items) == 0 : <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
                               Raise RequestValidationError( "no items in
                               order") <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
                               return self<br>
@@ -1670,8 +1688,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               raise HTTPException( Status_code =403, <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1752,9 +1772,15 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">to add documentation to the
-                              app it self the description argument can
-                              be given durring the creation of the app<br>
+                            <td valign="top">the name of the app can be
+                              set using the title argument<br>
+                              and the version of the app using the
+                              version argument.<br>
+                              <br>
+                              Additionally&nbsp; to add documentation to
+                              the app it self the description argument
+                              can be given durring the creation of the
+                              app.<br>
                             </td>
                           </tr>
                           <tr>
@@ -1763,9 +1789,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">app = FastAPI(<br>
+                            <td valign="top">app = FastAPI( title =
+                              "test api"<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; ,version = "1.0"<br>
                               &nbsp;&nbsp;&nbsp;
-                              dependencies=[Depends(verify_and_rate_limit)]
+                              ,dependencies=[Depends(verify_and_rate_limit)]
                               <br>
                               &nbsp;&nbsp; ,description=" Ai job API" )</td>
                           </tr>
@@ -1842,6 +1870,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               &nbsp;&nbsp;&nbsp; msg = "input validation
                               error, see the documentation: <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
                               http://127.0.1:8000/docs"<br>
                               &nbsp;&nbsp;&nbsp; return
@@ -1939,9 +1968,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                                 # Key: API key (str), Value: List of
                                 datetime objects<br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1974,9 +2005,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               req_time for req_time in
                               self.requests[api_key] <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -1998,9 +2031,11 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               # Limit exceeded: return True and 0
                               remaining<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -2018,6 +2053,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               <font color="#666666"># 4. Return the
                                 remaining allowance<br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -2050,8 +2086,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               status_code=403, <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -2072,8 +2110,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
                               status_code=429, <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 
 
@@ -2117,6 +2157,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                     class="hljs-built_in">str</span></span>):</span>
                               <span class="hljs-comment"><br>
                                 &nbsp;&nbsp;<font color="#666666">&nbsp;&nbsp;
+
 
 
 
@@ -2395,7 +2436,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell B1</h2>
+                                  <h2>logging 2: Prometheus<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -2408,6 +2450,122 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Prometheus is a popular
+                              tool for monitoring and alerting. It can
+                              be integrated with FastAPI to collect
+                              metrics and provide insights into the
+                              application's performance.&nbsp; its
+                              common to use Prometheus as a data source
+                              for Grafana dashboards.<br>
+                              <br>
+                              to get started install the prometheus
+                              client "pip install promtheus_client"<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to setup prometheus first
+                              you need to start the prompetheus server
+                              this is done throuhg supplying the
+                              "start_http_server(&lt;port&gt;)" function
+                              with an available port<br>
+                              <br>
+                              than metrics can be defined using the
+                              summary function by suppling it with a
+                              metric name and description.<br>
+                              <br>
+                              after which prometheus can be added to the
+                              main.py using the @app.middlewair
+                              decorator (see logging)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import time<br>
+                              from prometheus_client import
+                              start_http_server, Summary<br>
+                              from fastapi.middleware import Middleware<br>
+                              <br>
+                              # Start Prometheus server<br>
+                              start_http_server(8001)<br>
+                              <br>
+                              # Define a Prometheus metric<br>
+                              REQUEST_TIME =
+                              Summary('request_processing_seconds',
+                              'Time spent processing request')<br>
+                              <br>
+                              app = FastAPI()<br>
+                              <br>
+                              # Middleware for tracking request
+                              processing time<br>
+                              @app.middleware("http")<br>
+                              async def
+                              add_prometheus_middleware(request:
+                              Request, call_next):<br>
+                              &nbsp;&nbsp;&nbsp; start_time =
+                              time.time()<br>
+                              &nbsp;&nbsp;&nbsp; response = await
+                              call_next(request)<br>
+                              &nbsp;&nbsp;&nbsp; duration = time.time()
+                              - start_time<br>
+                              &nbsp;&nbsp;&nbsp;
+                              REQUEST_TIME.observe(duration)<br>
+                              &nbsp;&nbsp;&nbsp; return response<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Alerts with Prometheus<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Prometheus can be
+                              configured to trigger alerts based on
+                              certain conditions, and Grafana can be
+                              used to visualize these metrics.<br>
+                              for example an "aler.rules" can be
+                              created.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (alert.rules)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">groups:<br>
+                              - name: example<br>
+                              &nbsp; rules:<br>
+                              &nbsp; - alert: HighRequestLatency<br>
+                              &nbsp;&nbsp;&nbsp; expr:
+                              request_processing_seconds_bucket{le="0.5"}
+                              &gt; 0.5<br>
+                              &nbsp;&nbsp;&nbsp; for: 5m<br>
+                              &nbsp;&nbsp;&nbsp; labels:<br>
+                              &nbsp; &nbsp;&nbsp;&nbsp; severity: page<br>
+                              &nbsp;&nbsp;&nbsp; annotations:<br>
+                              &nbsp; &nbsp;&nbsp;&nbsp; summary: High
+                              request latency<br>
+                              &nbsp; &nbsp;&nbsp;&nbsp; description:
+                              "Request latency is above 0.5 seconds for
+                              more than 5 minutes."<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">aftre which the lines :<br>
+                              "<br>
+                              rule_files:<br>
+                              &nbsp; - "alert.rules"<br>
+                              "<br>
+                              need to be added to the prometheus.yml in
+                              order for prometheus to use the alert rule<br>
                             </td>
                           </tr>
                         </tbody>

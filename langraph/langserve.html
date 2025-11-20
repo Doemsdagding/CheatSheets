@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>LANGSERVE</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="../script.js"> </script>
+    <style>
+        /* Containers */
+        .container1 {
+            border: 6px solid #004080;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container2 {
+            border: 6px solid #383e4f;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container3 {
+            border: 6px solid #5474cc;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container4 {
+            border: 6px solid #a0b3e8;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+    </style>
+  </head>
+  <body class="light-mode">
+    <!-- Back Button --> <button class="back-button"
+      onclick="window.location.href='../'" title="Back to Home page"> ×
+    </button>
+    <!--ICON-->
+    <svg style="display: none;">
+      <symbol id="myBase64Image" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <svg style="display: none;">
+      <symbol id="redshiftlgo" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button"
+      onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+        class="icon"></span> </button>
+    <!--PRINT BUTTON--> <button class="print-button" onclick="if
+      (document.body.classList.contains('dark-mode')) toggleMode();
+      window.print();" title="Print this page"> <span class="icon">🖨️</span>
+    </button>
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+      <div class="modal-content"> <button class="modal-close"
+          onclick="closeModal()" title="close modal">×</button>
+        <!--next and back buttons--> <button class="modal-back"
+          onclick="previousModal()" title="previous modal">&lt;</button>
+        <button class="modal-next" onclick="nextModal()" title="next
+          modal">&gt;</button> </div>
+    </div>
+    <!-- Swipe Hint -->
+    <div id="swipe-hint" style="display: none; position: fixed; bottom:
+      30px; left: 50%; transform: translateX(-50%); background-color:
+      rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px;
+      border-radius: 10px; font-size: 30px; z-index: 2000; text-align:
+      center; justify-content: center; align-items: center;"> Swipe left
+      or right to navigate </div>
+    <!--HEADER h1-->
+    <h1>LANGSERVE – INTRODUCTION
+      <svg width="55" height="55">
+        <use href="#redshiftlgo"></use> </svg> </h1>
+    <!-- page 1 -->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Langserve<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Langserve is used to deploy
+                              langgraph agents. before deployment first
+                              some hurdles need to be passed and thought
+                              about being:<br>
+                              <br>
+                              * resource management llms are
+                              computationall intensive, high memory and
+                              processing power is required to run a llm<br>
+                              <br>
+                              * latency and performance. LLMs can be
+                              slow to process requests, especially under
+                              heavy loads. Optimizing performance
+                              involves strategies such as model
+                              compression, efficient serving frameworks,
+                              and possibly offloading some processing
+                              tasks to edge devices.<br>
+                              <br>
+                              *Once deployed, continuous monitoring of
+                              the LLM application is necessary. This
+                              includes tracking performance metrics,
+                              detecting anomalies, and managing model
+                              drift<br>
+                              <br>
+                              *Integrating LLMs with existing systems
+                              and workflows can be challenging. Ensuring
+                              compatibility with various software
+                              environments, APIs, and data formats
+                              requires meticulous planning and
+                              execution.<br>
+                              <br>
+                              *The high computational demands of LLMs
+                              can lead to significant operational costs.
+                              Balancing performance with cost efficiency
+                              is a vital consideration. Strategies to
+                              manage costs include optimizing resource
+                              allocation, using cost-effective cloud
+                              services, and regularly reviewing usage
+                              patterns to identify areas for savings<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">There are several
+                              approaches to deploying LLMs into
+                              production, each with its advantages and
+                              challenges.:<br>
+                              <br>
+                              * On-premises deployment involves hosting
+                              the LLM on local servers or data centers,
+                              offering greater control over data and
+                              infrastructure but requiring significant
+                              investment in hardware and maintenance.<br>
+                              <br>
+                              * Cloud-based deployment leverages cloud
+                              services to host the LLM, providing
+                              scalability, flexibility, and reduced
+                              upfront costs, although it can introduce
+                              concerns about data privacy and ongoing
+                              operational costs.<br>
+                              <br>
+                              * Hybrid deployment combines on-premises
+                              and cloud resources, offering a balance
+                              between control and scalability, allowing
+                              organizations to optimize performance and
+                              cost based on their specific needs.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Langserve VS FastAPI<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">While <span
+                                class="listed-menu css-lkkqax">LangServe
+                                is a specialized tool designed to
+                                simplify the process of deploying LLM
+                                applications making it quicker to set up
+                                with less lines of code than using e.g.
+                                FastAPI,.<br>
+                                <br>
+                                Due to the company behind langserve
+                                wanting to make a profit langserve is no
+                                longer in development (replaced with a
+                                paid cloud service). Therefore in the
+                                future the deployment of complicated
+                                agents and graph might have to directly
+                                be done using FastApi without langserve
+                                due to competability issues.<br>
+                                <br>
+                                Another reason to use FastApi directly
+                                instead of Langserve is because
+                                deployment using langserve will create a
+                                set amount of default API endpoints,
+                                which using FastApi is fully
+                                customizable. <br>
+                              </span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Deploying using Langserve<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Installation</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">you can install langserve
+                              using pip through "pip install
+                              "langserve[all]" if you just want the
+                              client or server replace "all" with
+                              "client" or "server"<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Setup</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">using the LangChain
+                              Commandline interface&nbsp; create a new
+                              application using the following command
+                              and add the third-party packages (using
+                              Poetry) and set up environment variables<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">app new &lt;app_name&gt;
+                              #this creates a new directory<br>
+                              <br>
+                              <font color="#666666">#go to the directory</font><br>
+                              &lt;app_name&gt;<br>
+                              <br>
+                              <font color="#666666">#add third party
+                                packages</font><br>
+                              add langchain-openai langchain langchain
+                              community<br>
+                              <br>
+                              <font color="#666666">#set environment
+                                variables</font><br>
+                              OPENAI_API_KEY="&lt;api key&gt;"<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Setup Server</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The "server.py" will
+                              contain the main logic for the LangServe
+                              application. it utilises FastApi to create
+                              the webserver and uvicorn to host the app.
+                              langserve itself is used in the way of its
+                              add_route() classes which are used to
+                              create "routes" to the fast api app
+                              (thereby creating fastapi endponts)<br>
+                              <br>
+                              the add_routes() requires 3 arguments<br>
+                              1- the fastapi app<br>
+                              2 the langgraph&nbsp;
+                              graph_builder.compile() compiled graph, or
+                              straight up a langchain supported model or
+                              other langchain runnables<br>
+                              3- path = the endpoint path.<br>
+                              <br>
+                              you can add as many routes (endpoints) as
+                              needed<br>
+                              <br>
+                              in the end Uvicorn is used to host the
+                              Fastapi app and can thus be accessed using
+                              Curl (see Uvicorn notes) (as it is in the
+                              _name_ == __main__ part this can be used
+                              for testing purposes or to run fully
+                              through python.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">fastapi import FastAPI<br>
+                              from langchain.prompts import
+                              ChatPromptTemplate<br>
+                              from langchain.chat_models import
+                              ChatOpenAI<br>
+                              from langserve import add_routes<br>
+                              import uvicorn<br>
+                              <br>
+                              app = FastAPI(<br>
+                              &nbsp;&nbsp;&nbsp; title="LangChain
+                              Server",<br>
+                              &nbsp;&nbsp;&nbsp; version="1.0",<br>
+                              &nbsp;&nbsp;&nbsp; description="A simple
+                              API server using Langchain's Runnable
+                              interfaces",<br>
+                              )<font color="#666666"><br>
+                                # Define a route for the OpenAI chat
+                                model</font><br>
+                              add_routes(<br>
+                              &nbsp;&nbsp;&nbsp; app,<br>
+                              &nbsp;&nbsp;&nbsp; ChatOpenAI(),<br>
+                              &nbsp;&nbsp;&nbsp; path="/openai",<br>
+                              )<br>
+                              <font color="#666666"># Define a route
+                                with a custom prompt</font><br>
+                              summarize_prompt =
+                              ChatPromptTemplate.from_template("Summarize
+                              the following text: {text}")<br>
+                              add_routes(<br>
+                              &nbsp;&nbsp;&nbsp; app,<br>
+                              &nbsp;&nbsp;&nbsp; summarize_prompt |
+                              ChatOpenAI(),<br>
+                              &nbsp;&nbsp;&nbsp; path="/summarize",<br>
+                              )<br>
+                              if __name__ == "__main__":<br>
+                              &nbsp;&nbsp;&nbsp; uvicorn.run(app,
+                              host="localhost", port=8000)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Running the server (using Poetry)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Going back to the Langchain
+                              CLI the application can also be run using
+                              Poetry with the command " run langchain
+                              serve --port=&lt;port number&gt;"<br>
+                              ths will run the langserve app server on
+                              the given port <br>
+                              once application startup is complete you
+                              can go too "http://&lt;server
+                              ip&gt;:&lt;server
+                              port&gt;/summarize/playground/"&nbsp; to
+                              execute runables, view streaming output
+                              and observe intermediat steps straight
+                              from your browser.<br>
+                              the playground&nbsp; facilitates easy
+                              interaction for debugigng purposes.<br>
+                              <br>
+                              as the underlying app server is still
+                              FastApi you can go to "http://&lt;server
+                              ip&gt;:&lt;server port&gt;/docs"&nbsp; to
+                              see the fastapi generated documentation.
+                              allowing for aditional testing of
+                              endpoints and reading the documentation.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Logging</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">logging is setup almost
+                              idenitlaly as for fastapi bu rather than
+                              using the Uvicorn logger it uses the
+                              "lanchain_server" logger. other than that
+                              it uses pythons logging library. the log
+                              levels are in order (debug, info,
+                              warning,error, critical) and by using
+                              logger.&lt;log_level&gt; you can write
+                              logs throughout the code.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import logging<br>
+                              <br>
+                              <font color="#666666"># Configure logging</font><br>
+                              logging.basicConfig(level=logging.INFO)<br>
+                              logger =
+                              logging.getLogger("langchain_server")<br>
+                              <br>
+                              app = FastAPI()<br>
+                              <font color="#666666"><br>
+                                # Example of logging within a route</font><br>
+                              @app.get("/status")<br>
+                              async def status():<br>
+                              &nbsp;&nbsp;&nbsp; logger.info("Status
+                              endpoint was called")<br>
+                              &nbsp;&nbsp;&nbsp; return {"status":
+                              "Running"}<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Prometheus</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>cell a3 </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <footer style="text-align: center; margin-top: 20px;">
+      <p style="text-align: center;"> This website is a collection of my
+        personal study notes, created to help me and others learn and
+        organize information effectively. Feel free to <strong>download</strong>,
+        <strong>print</strong>, or <strong>use</strong> any of the
+        notes for your own purposes. </p>
+      <p style="text-align: center;"> <br>
+        Want to keep your own notes in the same format? Check out the <a
+          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+          text-decoration: underline;">Notes Template</a>! </p>
+      <p style="text-align: center;"> Interested in forking this
+        website? Visit my <a
+          href="https://github.com/Doemsdagding/CheatSheets"
+          target="_blank" style="color: #1E90FF; text-decoration:
+          underline;">GitHub Repository</a> to get the full source code.
+      </p>
+      <p style="text-align: center;"> Happy learning and dont forget to
+        share, follow and star the repository! -DoemsDagDing </p>
+    </footer>
+  </body>
+</html>
