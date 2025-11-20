@@ -224,6 +224,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               host<br>
                               it will then respond something like <br>
                               <font color="#666666">INFO:&nbsp;&nbsp;&nbsp;&nbsp;
+
                                 Uvicorn running on http://127.0.0.1:8000
                                 (Press CTRL+C to quit)<br>
                                 INFO:&nbsp;&nbsp;&nbsp;&nbsp; Started
@@ -237,6 +238,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               and using curl or terminal you can now do
                               curl http://127.00.0.1:8000 which will
                               respond <font color="#666666">#{"message":
+
                                 "Hello, World from FastAPI!"}<br>
                                 <br>
                                 <font color="#000000">another way to
@@ -324,10 +326,13 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               application/json"\<br>
                               &nbsp;&nbsp; -d '{"culmen_lenght_mm":39.1,<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               "culmen_depth_mm: 18.7.<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               "flipper_lenght_mm": 181,<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               "body_mass_g": 3750}'<br>
                               <br>
                             </td>
@@ -342,8 +347,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               <br>
                               response = requests.posts( <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               "http://localhost:8000/predict", <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                               json={"text": "great product"} <br>
                               ) <br>
                               print(response.json())<br>
