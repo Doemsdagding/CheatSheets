@@ -124,6 +124,16 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               ready to accept the next command<br>
                             </td>
                           </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Cancel a command</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">while a command is running
+                              press CTRL + C to cancel it.<br>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -214,6 +224,14 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td valign="top">ls <font color="#666666">#backup
+
+
+
+
+
+
+
+
 
                                 bin course.txt&nbsp; seasonal</font><br>
                               ls seasonal <br>
@@ -471,8 +489,24 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           <tr>
                             <td valign="top">man head <br>
                               <font color="#666666">#HEAD(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
                                 BSD General Commands
                                 Manual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
                                 HEAD(1)<br>
                                 <br>
                                 NAME<br>
@@ -538,7 +572,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Files in shell<br>
+                                  <h2>Files in shell 1<br>
                                   </h2>
                                 </div>
                                 <div style="position: absolute; right:
@@ -660,13 +694,37 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">Example<br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
                             <td valign="top">cut -f 2-5,8 -d ,
                               values.csv<br>
                             </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>paste</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">paste is than used to paste
+                              the cut column<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cut -f 2-5,8 -d ,
+                              values.csv &gt; extracted_cols.txt<br>
+                              paste -d , labels.txt extracted_cols.txt<br>
+                              <font color="#666666"># or in one line</font><br>
+                              paste -d , labels.txt &lt;(cut -f 2-5,8 -d
+                              , values.csv)</td>
                           </tr>
                         </tbody>
                       </table>
@@ -710,6 +768,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               id.<br>
                               using !&lt;id&gt; will execute the same
                               command iwth that id again<br>
+                              (you can also use arrow up to go through
+                              your history of commands)<br>
                             </td>
                           </tr>
                           <tr>
@@ -718,7 +778,995 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">cd seasonal<br>
+                              cd spring<br>
+                              history<br>
+                              <font color="#666666"># 1 cd seasonal<br>
+                                # 2 cd spring</font><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Files in shell 2: grep<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">grep selects lines
+                              according to what they contain it acts as
+                              head but than with a filter. by using 1 or
+                              more flags different filters can be used.
+                              without any flags it just prints all the
+                              line that contains the search word.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">grep molar
+                              seasonal/autumn.csv<br>
+                              <font color="#666666">#2017-02-01,molar<br>
+                                #2017-02-25,molar</font></td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>-c</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">print a count of matching
+                              lines rather than the lines themselves<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">grep -c incisor
+                              seasonal/autumn.csv seasonal/winter.csv<br>
+                              #<font color="#666666">seasonal/autum.csv:3<br>
+                                #seasonal/winter.csv:6</font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>-h</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">do <em>not</em> print the
+                              names of files when searching multiple
+                              files. returning it like both are 1 file
+                              together<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">grep -h molar
+                              seasonal/autumn.csv seasonal/winter.csv<br>
+                              <font color="#666666">#2017-02-01,molar<br>
+                                #2017-02-25,molar<br>
+                                #2017-10-01,molar<br>
+                                #2017-10-25,molar</font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>-i</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">ignore case (e.g., treat
+                              "Regression" and "regression" as matches)</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">grep -i molar
+                              seasonal/autumn.csv<br>
+                              <font color="#666666">#2017-02-01,molar<br>
+                                #2017-02-25,molar<br>
+                                #2017-02-26,Molar</font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>-l</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">print the names of files
+                              that contain matches, not the matches</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">grep -l molar
+                              seasonal/autumn.csv seasonal/winter.csv<br>
+                              <font color="#666666">#seasonal.autum.csv<br>
+                                #seasoonal.winter.csv</font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>-n</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">print line numbers for
+                              matching lines</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">grep -n molar
+                              seasonal/autumn.csv<br>
+                              <font color="#666666">#1:2017-02-01,molar<br>
+                                #5:2017-02-25,molar</font></td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>-v</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">invert the match, i.e.,
+                              only show lines that <em>don't</em> match</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">grep -v molar
+                              seasonal/autumn.csv<br>
+                              #2017-02-01,canine<br>
+                              #2017-02-25,wisdom<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 3 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Files in shell 3: storing output<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to store the out put of a
+                              head,cut ect in a file insteado of
+                              printing it in the terminal the "&gt;" is
+                              used if the command started with the &gt;
+                              it will still output the files just as
+                              when used in the middle (using it in the
+                              middle and writing the file after it is
+                              best practise)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">head -n 5
+                              seasonal/summer.csv &gt; top.csv<br>
+                              <br>
+                              &gt; result.txt head -n 3
+                              seasonal/winter.csv<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Running multiple commands in one
+                                    line<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to run multiple commands in
+                              one line and using the output of one
+                              command as the input for the next command
+                              the "|" is used. this can be done as many
+                              times as wanted.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cut -d , -f 2
+                              seasonal/summer.csv | grep -v Tooth<br>
+                              <font color="#666666">#Cainen<br>
+                                #canine<br>
+                                #wisdom<br>
+                                <br>
+                              </font>cut -d , -f 2 seasonal/summer.csv |
+                              grep -v Tooth | head -n 1<br>
+                              <font color="#666666">#Cainen</font></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Files in shell 4: Word count<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To get the word count of a
+                              fle the "wc" command is used.<br>
+                              by itself it print the *number of
+                              chracters *words, *line ocunt<br>
+                              to print just one of these values its
+                              flags -c, -w, -l can be used<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">grep 2017-07
+                              seasonal/spring.csv | wc -l<br>
+                              <font color="#666666">#3</font><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Files in shell 5: wildcards<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>*</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To run a command normally
+                              with multiple files there are two
+                              options&nbsp; using " " and writing each
+                              file name seperate <br>
+                              <br>
+                              or using "foldername/*" to apply it to all
+                              files in a folder.<br>
+                              <br>
+                              by adding an file extention or any letters
+                              after the * you can filter it further to
+                              e.g all csv files in a folder or ends with<br>
+                              <br>
+                              by adding anything before the * you can
+                              filter on starts with<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cut -d , -f 1
+                              seasonal/winter.csv seasonal/spring.csv
+                              seasonal/summer.csv seasonal/autumn.csv<br>
+                              <br>
+                              cut -d , -f 1 seasonal/*<br>
+                              <br>
+                              cut -d , -f 1 seasonal/*.csv<br>
+                              <br>
+                              cut -d , -f 1 seasonal/s*<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>?</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the "?" wild card is used
+                              to create a match question where single
+                              chracters could be that "?" e.g 201?.txt
+                              matches with 2010.txt, 2011.txt ec<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cut -d, -f 1
+                              sales/sales_year_201?<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>[]</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to make the "?" wildcard
+                              more specific "[..]" can be used anything
+                              written within the brackets will be seen
+                              as an option so [12] only matches the
+                              values 1 and 2.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cut -d, -f 1
+                              sales/sales_year_201[12]<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>{}</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">if you want the match to be
+                              more than one charachter "{,}"can be used.
+                              comma seperated anything written with then
+                              curly brakcets is checked durring the
+                              match check. eg {2010,2011} will only
+                              match with 2010 and 2011 <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cut -d, -f 1
+                              sales/sales_year_{2010,2011}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Files in shell 6: sort<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">using the "sort" command
+                              the output rows are sorted in order (by
+                              default ascending alphabetical order)
+                              using the flags<br>
+                              -n is used to sort numerically<br>
+                              -r is used to sort in reverse order<br>
+                              -b is used to ignore leading spaces<br>
+                              -f is used to sort case insensitive<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cut -d , -f 2
+                              seasonal/winter.csv | grep -v Tooth | sort
+                              -r<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>uniq</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">when dealing with data you
+                              often find duplicates using "uniq" these
+                              duplicates can be filetered out. the
+                              downside of uniq is that you need to order
+                              the data first as it only removes adjecent
+                              duplicates so without sort it is less
+                              strong.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cut -d , -f 2
+                              seasonal/winter.csv | grep -v Tooth | sort
+                              | uniq -c<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td rowspan="1" colspan="3">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Shell variables<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">the
+                              shell stores all its knowledge in
+                              variables some are set on startup examples
+                              of these are the environment variables to
+                              retrieve all variables you can use set.
+                              variables are always written using just
+                              capitals<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">set<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Variable</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>Purpose</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>value</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">HOME<br>
+                            </td>
+                            <td valign="top">users home directory<br>
+                            </td>
+                            <td valign="top">/home/repl<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">PWD<br>
+                            </td>
+                            <td valign="top">present workign directory<br>
+                            </td>
+                            <td valign="top">pwd<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">SHELL<br>
+                            </td>
+                            <td valign="top">which shell program is
+                              being used<br>
+                            </td>
+                            <td valign="top">/bin/bash<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">USER<br>
+                            </td>
+                            <td valign="top">Users ID<br>
+                            </td>
+                            <td valign="top">repl<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Echo</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">Echo
+
+
+                              is used to print anything in the terminal
+                              but by adding a $ before the print text it
+                              will try to print the variable with that
+                              name.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">echo
+
+
+                              USER <font color="#666666">#USER</font><br>
+                              echo $USER <font color="#666666">#repl</font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Setting a variable</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">you
+                              can also set your own variable just using
+                              &lt;variable_name&gt;=&lt;value&gt; <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">training=seasonal/summer.csv<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>shell variables 2: loops<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Like most programming
+                              language you can use loop with variables
+                              to run multiple command using less code.
+                              the big difference you seperate the loop
+                              and the functions with "; do" and end the
+                              command with "; done"<br>
+                              <br>
+                              you can also use wildcards to have a for
+                              loop run over multipel files<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666"># for
+                                loop</font><br>
+                              for filetype in gif jpg png; do echo
+                              $filetype; done<br>
+                              <br>
+                              for filename in seasonal/*.csv; do echo
+                              $filename; done<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Creating editing file<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">nano is used for editing
+                              files by doing "naon &lt;(optional
+                              path)filename&gt;" if exists the file will
+                              be opened in the terminal if not an empty
+                              file is created. after which it works like
+                              a normal text editor with a few keybinds
+                              being:<br>
+                              CTRL+K = delete a line<br>
+                              CTRL+U = un-delete a line<br>
+                              CTRL+O = save file<br>
+                              CTRL+X = exit editor<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Run saved commands<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">by using "bash" you can run
+                              a prewritten bash file containing commands
+                              recognisable by the .sh extention. you can
+                              still combine this with &gt; to write the
+                              output to a file.<br>
+                              <br>
+                              if the .sh uses variables by using $@
+                              suppling the variable value after the bash
+                              command it automatically set these
+                              variables <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">bash dates.sh
+                              &gt;output.out<br>
+                              <br>
+                              bash unique-lines.sh seasonal/summer.csv<br>
                             </td>
                           </tr>
                         </tbody>
