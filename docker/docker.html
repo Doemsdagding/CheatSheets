@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>REDSHIFT</title>
+    <title>DOCKER</title>
     <link rel="stylesheet" href="../stylesheet.css">
     <script src="../script.js"> </script>
     <style>
@@ -171,7 +171,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell A2</h2>
+                                  <h2>Docker</h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -184,6 +184,86 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker has several
+                              important components making up docker<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Docker desktop</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A gui of docker (not
+                              necessary but handy for basic commands)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Docker engine</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">accessed through the
+                              terminal used for all the docker commands
+                              (more than you can do through the gui).<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Docker Daemon</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">runs the docker actions
+                              that apply to the docker objects<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Docker objects</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Docker objects are the
+                              actual containers and images. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Images</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">An image is like a recipe
+                              it contains instrutions on how to build a
+                              container. the image takes form in the
+                              form of a docker file.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Container</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Whats build from the docker
+                              images and is the virtualisation layer
+                              that runs the programs <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Docker registry</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker registries are
+                              centralized locations for storing and
+                              managign container images, e.g. docker hub<br>
                             </td>
                           </tr>
                         </tbody>
@@ -211,7 +291,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell B1</h2>
+                                  <h2>Orchestration</h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -224,6 +304,526 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Container orchestration
+                              comes in when you have multiple
+                              containers. orchesjtration is the
+                              automated management and coordination of
+                              multiple containers. for this an
+                              orchestrator is used. to achieve this a
+                              config file is written which describes the
+                              desired autocome. with this config file
+                              the orchestrator will allocate cpu memory
+                              ect over the containers that need it <br>
+                              <br>
+                              To achieve this you can use docker swarm
+                              mode or kubernetes. <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Starting a container<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to start a container from
+                              an image you can use the "run" command. by
+                              adding the flag:<br>
+                              -it = will run image but create an
+                              interactive shell inside the container to
+                              communicate with.<br>
+                              -d = will run the container in background
+                              so you continue using the terminal
+                              (otherwise you have to use "exit" to leave
+                              the shell)<br>
+                              --name &lt;container name&gt; = lets you
+                              set the container name <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker run &lt;image
+                              name&gt;<br>
+                              <br>
+                              <font color="#666666">#test image will
+                                just print helloworld and then shutdown</font><br>
+                              docker run hello-world<br>
+                              <br>
+                              <font color="#666666">#running ubuntu</font><br>
+                              docker run -it ubuntu<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>List running containers<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the "ps" command returns a
+                              table containing all the dockers that are
+                              running including their container id to
+                              identify them by.<br>
+                              the flags:<br>
+                              -f "name=&lt;container_name&gt;" =
+                              allowing the search of a specific
+                              container with the container name<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker ps <br>
+                              <font color="#666666">#container_id image
+                                command create status ports names<br>
+                                14465626, postgres, "docker-entrpint..."
+                                1 minute, up, 5432, posty</font><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Stop containers <br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the "stop" command in
+                              combination with the container id or name
+                              is used to stop a container from running<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker stop 14465626<br>
+                              docker stop posty<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Container logs<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To see the logs that are
+                              being created by the docker container you
+                              can use the the "logs"
+                              &lt;container-id&gt; command. this will
+                              print all the logs made by the container.
+                              <br>
+                              <br>
+                              by providing it with the flags:<br>
+                              -f = allows you to print the logs in
+                              real-time.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Example<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker logs -f 132253545<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cleaning up (deleting a container)<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Stopping a container will
+                              result in just the container being turned
+                              off to delete all its data so you say
+                              rebuild or just to make space <br>
+                              you cna use the "container rm
+                              &lt;contianer_id/name&gt;" command<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"> docker container rm
+                              13354543451<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>pruning</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to completely remove all
+                              stopped containers all at once you can use
+                              the "prune" command.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker container prune<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Docker hub<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Docker hub is a website
+                              where you can download user made images,
+                              for things like databases and variety of
+                              programs.<br>
+                              <br>
+                              downloading image is also called pulling.
+                              and can be done through locker using the
+                              "pull &lt;image_name&gt;" command. it will
+                              automatically download the latest version
+                              by adding<br>
+                              ":&lt;version_name&gt;" behind the name
+                              you can download a specific version<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              docker pull ubuntu:22.04<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>seeing all pulled images</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">By using the command
+                              "images" you can see all images available
+                              on your machine. it will return the name,
+                              version, image_id, when its created and
+                              size.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker images<br>
+                              <font color="#666666">#repository tag
+                                image id created size<br>
+                                hello-world latest 14632531534 7months
+                                9kb</font><br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Delete an image</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to delete an image you can
+                              use "image rm &lt;image-name/id" to
+                              completely remove the image. (you can only
+                              delete image of which there are no more
+                              containers running)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker image rm ubuntu<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>pruning</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to remove all unused images
+                              at once you can use the "prune -a" command
+                              which will delete all unused images.
+                              without the -a it will only remove old
+                              versions of own made images.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker image prune -a<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>P</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">t<br>
                             </td>
                           </tr>
                         </tbody>
