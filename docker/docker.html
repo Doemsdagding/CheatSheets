@@ -708,8 +708,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">
-                              docker pull ubuntu:22.04<br>
+                            <td valign="top"> docker pull ubuntu:22.04<br>
                             </td>
                           </tr>
                           <tr>
@@ -807,7 +806,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>P</h2>
+                                  <h2>Distributing docker images 1:
+                                    private registry<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -823,7 +824,776 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">t<br>
+                            <td valign="top">There are multiple ways to
+                              distribute your created docker image. you
+                              can setup a private docker registry in
+                              dockerhub you can recognise these by that
+                              the name starts with the url of the
+                              private registry (these are not maintained
+                              by docker organization itself).<br>
+                              <br>
+                              to push an image to a private registry
+                              first you have to rename your image to
+                              start with the regstiry name (using tag)
+                              and then use docker image push and the
+                              full name of the image.<br>
+                              <br>
+                              when creating a private docker repostiry
+                              the owner can choose if you need to login
+                              to access the registry or not to login you
+                              can usse the "docker login
+                              &lt;registry&gt;" command<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#
+                                login</font><br>
+                              docker login
+                              dockerhub.myprivateregistry.com<br>
+                              <font color="#666666">#username: student<br>
+                                # password: *****<br>
+                                #Login succeeded</font><br>
+                              <br>
+                              <font color="#666666"># pull from a
+                                private registry</font><br>
+                              docker pull
+                              dockerhub.&lt;myprivateregistry.com&gt;/classify_spam:v1<br>
+                              <br>
+                              <font color="#666666"># pushing to a
+                                registry</font><br>
+                              docker tag classify_spam:v1
+                              dockerhub.myprivateregistry.com/classify_spam:v1<br>
+                              <br>
+                              docker image push
+                              dockerhub.myprivateregistry.com/classify_spawm:v1<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Distributing docker images 2:
+                                    images as files<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Another way to share docker
+                              image is just sending them as a file. this
+                              can be achieved using the "docker save -o
+                              &lt;target name&gt;.tar &lt;docker
+                              image&gt;" (the -o flag is used to be
+                              allowed to set the name of the file)<br>
+                              <br>
+                              to load an file you use the "docker load
+                              -i &lt;file_name&gt;" command<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker save -o
+                              &lt;image&gt;.tar &lt;dockerimage:v1&gt; <br>
+                              <br>
+                              docker load -i &lt;dockerimage.tar&gt; <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Creating a docker image 1: basic<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Docker file</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A docker file is a text
+                              file with instruction to create an image.<br>
+                              an image is the blue print to create a
+                              container.<br>
+                              <br>
+                              a docker file is always execute from top
+                              to bottom and if based on another image
+                              starts with the "from
+                              &lt;dockerimage:(optional version)&gt;"
+                              instructions to import this other images.<br>
+                              <br>
+                              after which you can continue upon it by
+                              customizing it using the "RUN
+                              &lt;command&gt;" command <br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">From ubuntu<br>
+                              RUN apt-get update<br>
+                              RUN apt-get install -y python3<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Creating the docker image</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To create an image you need
+                              to build a docker file using the "docker
+                              build &lt;file location&gt;" command this
+                              builds the image<br>
+                              using the -t flag you can give the image
+                              an unique name <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker build -t &lt;name
+                              image:v&lt;versionnumbe&gt;r&gt;
+                              /location/to/dockerfile<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Creating a docker image 2:
+                                    additional instructions<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Besides the "from" and
+                              "run" instructions you can use several
+                              other instructions in the docker file<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>adding files (COPY + download)<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">"COPY &lt;file location
+                              input&gt; &lt;file location docker
+                              image&gt;" is used to move files from the
+                              local machine into the image. this can
+                              also be used to copy entire folder to the
+                              image by not specifiying a specific
+                              file.&nbsp; <br>
+                              <br>
+                              as not everyone might have the file on
+                              their local machine there fore they need
+                              to download it to do this multiple "run
+                              commands" starting with a curl to get the
+                              file and then unzip to unzip it and than
+                              rm to delete the zip file again. its is
+                              best practise to do this in one "RUN"
+                              command chained using "\ &amp;&amp;" as
+                              otherwise the space the zip file takes
+                              doesnt get released when removed<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#local
+
+                                file</font><br>
+                              COPY /project/pipeline_v3/pipeline.py
+                              /app/pipeline.py<br>
+                              <br>
+                              <font color="#666666">#downloading files</font><br>
+                              RUN curl &lt;file-url&gt; -o
+                              &lt;destination in image&gt; \ &amp;&amp;<br>
+                              &nbsp;unzip
+                              &lt;dest-folder&gt;/&lt;filename&gt;.zip \
+                              &amp;&amp;<br>
+                              &nbsp;rm
+                              &lt;copy_directory&gt;/&lt;filename&gt;.zip<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Shell commands (CMD)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">You can also run any shell
+                              commands using "CMD &lt;shell-command&gt;"
+                              instruction this will execute the shell
+                              command on start up of the image.
+                              Therefore only one cmd command can exist
+                              in a docker file as only the last one will
+                              be executed.<br>
+                              But its use is often essential to execute
+                              actual script or startup an application
+                              which accepts outside connections like a
+                              database.<br>
+                              <br>
+                              another use case is using it to execute a
+                              .sh or .py script that then in turn start
+                              multiple applications.<br>
+                              <br>
+                              the docker run command can also be
+                              overwritten durring the run command of the
+                              docker iamge "docker run &lt;image&gt;
+                              &lt;shell-command&gt;" <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">CMD python3 my_pipeline.py<br>
+                              CMD postgres<br>
+                              <br>
+                              CMD start.sh<br>
+                              CMD python3 start_pipeline.py<br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"># over writing the CMD
+                              command<br>
+                              docker run -it ubuntu bash</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Docker caching<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">When building an image
+                              docker will execute the docker image
+                              docker file commands. it will keep in its
+                              cache all the downloaded materials if
+                              after a stop it gets build again it does
+                              not check if those files have been updated
+                              and thus will not install the latest
+                              version. <br>
+                              <br>
+                              therefore its best practise to write the
+                              dockerfile instructions from least
+                              changign to most changing so more cached
+                              lines can be used when rebuilding the
+                              image<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Creating a docker image 3: affect
+                                    other</h2>
+                                  <h2>&nbsp;instructions </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Most instructions dont have
+                              any affect on the instructions that follow
+                              them. WORKDIR and USER are exceptions to
+                              this.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>WORKDIR</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">THe "WORKDIR" instruction
+                              changes the working directory for all
+                              following instructions. this can be used
+                              to shorts commands like the "copy" and
+                              "run" instructions<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">WORKDIR
+                              /home/my_user/with_a_long_name/work?projects/<br>
+                              <br>
+                              COPY /projects/pipelien_v3 app/<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>USER</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the "USER" instruction
+                              changes the user for all following
+                              instructions. this allow for commands that
+                              can only be ran by specific users cause
+                              they have the rights to access certain
+                              folders. Thereby making it possible to not
+                              have to run the docker file as root. (by
+                              default ubuntu is set to the root user
+                              when launched)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">From ubuntu<br>
+                              USER repl<br>
+                              RUN apt-get update<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Creating a docker image 4:
+                                    Variables<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">using the "ARG
+                              &lt;var_name&gt; = &lt;Var_value&gt;"
+                              instructions a variable can be set that
+                              could be used further down in the
+                              dockerfile. To than use it in the script
+                              the "$&lt;variable_name&gt;" dollar sign
+                              can be used. <br>
+                              <br>
+                              the big downside of arg is that after the
+                              container has been build the variable is
+                              no long available to use.<br>
+                              <br>
+                              general use of arg is to make it possible
+                              to use the same value multiple times
+                              without typing it out fully inside the
+                              dockerfile.<br>
+                              <br>
+                              an additional use case is of varaibles is
+                              like mentioned before in the build command
+                              to set it there in this case the arg gets
+                              overwritten by the build command <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">ARG path=/home/repl<br>
+                              <br>
+                              Copy /local/pah $path<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker build --build-arg
+                              project_folder=/rep/pipeline<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>ENV</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The "ENV
+                              &lt;variable_name&gt; = &lt;var_value&gt;
+                              " solves the problem "ARG" has being that
+                              even after building the docker image.<br>
+                              typical use cage is setting variable used
+                              by application when they are starting like
+                              database directories or users.<br>
+                              <br>
+                              "ENV"s downside is that it cant be
+                              overwritten in the build command. but it
+                              is possible to overwrite the variable in
+                              the run command. using "docker run --env
+                              &lt;key&gt;=&lt;value&gt;
+                              &lt;image-name&gt;"<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">ENV Db_USER= pipeline_user<br>
+                              <br>
+                              CMD psql -U $DB_USER<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker run --env
+                              postgres_user=test_db --env
+                              Postgres_password=test_deb postgres<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>DOCKER HISTORY<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">"docker history
+                              &lt;image-name" is used to show the entire
+                              build history it will show all the steps
+                              taken including all the set variables and
+                              their values. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Example<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker build history
+                              &lt;image-name&gt;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell A2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B1</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
                             </td>
                           </tr>
                         </tbody>
