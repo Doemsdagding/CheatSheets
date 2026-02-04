@@ -144,7 +144,10 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           <tr>
                             <td valign="top">While kubernetes can run
                               docker images it does not use the docker
-                              engine to so but its own egine.<br>
+                              engine to so but its own egine. docker is
+                              generally used for creating and updating
+                              docker images and starting the containers
+                              from such images<br>
                             </td>
                           </tr>
                         </tbody>
@@ -237,6 +240,22 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td valign="top">
+                              <h3>Kubernetes service</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A cluster can have mulple
+                              services running on them. a service is a
+                              resource to expose network connectivity.
+                              its needed for when pods need to talk to
+                              each other or we want to talk to a pod a
+                              single service can connect to multiple
+                              pods even once seperated over multiple
+                              nodes.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
                               <h3>Cluster<br>
                               </h3>
                             </td>
@@ -312,6 +331,63 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                 </tr>
               </tbody>
             </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Stateful applications<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Stateful applications need
+                              pods that belogn together in a set they
+                              might work on different tasks and use
+                              different data. they save some internal
+                              state when interupted or stopped a new
+                              replica pod can read this saved state and
+                              continue operation from this state. An
+                              example is the hosting of a database that
+                              deliveres data to a frontend.<br>
+                              <br>
+                              the kind tag in the manifest for a
+                              stateful application is "StatefulSet" what
+                              makes it different from the "Deployment"
+                              kind is that the pods are created in order
+                              and get predicatable names "pod-0, pod-1"
+                              ect making it possible for pods to take on
+                              different roles.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </td>
           <td style="width: 50%; padding-left: 0px; word-break:
             break-word;">
@@ -330,7 +406,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>On</h2>
+                                  <h2>Manifests</h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -346,7 +422,520 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">&nbsp;<br>
+                            <td valign="top">&nbsp;kuberenets objests
+                              are als ocalled kubernetes manifests.
+                              manifets are stored in the form of a .YAML
+                              file similar to docker compose yaml files.
+                              containing th objects and how they shoudl
+                              be configured, where they should be
+                              scheduled.<br>
+                              <br>
+                              in here several types of tags can be found
+                              inlcuding:<br>
+                              apiVersion = defines the kubuernets API
+                              and version (for deploymnets this is
+                              apps/v1<br>
+                              kind = indicates it will create a
+                              deloyment<br>
+                              metadata = contains its owntags like name
+                              and labels<br>
+                              spec =&nbsp; defines detailed
+                              specification of the deployment like <br>
+                              &nbsp;&nbsp;&nbsp; replicas = number of
+                              replicated pods<br>
+                              &nbsp;&nbsp;&nbsp; select =&nbsp; used to
+                              defined how pods are managed<br>
+                              &nbsp;&nbsp;&nbsp; template =&nbsp; how
+                              new pods are created it uses this template
+                              to add labels, create containers with
+                              specific names, docker image and other
+                              ports (just like the docker yml)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><span class="hljs-attr">apiVersion:
+
+
+
+
+                                apps/v1<br>
+                                kind: Deployment<br>
+                                metadata:<br>
+                                &nbsp; name: nginx-deployment<br>
+                                &nbsp; labels:<br>
+                                &nbsp;&nbsp;&nbsp; app: web<br>
+                                spec:<br>
+                                &nbsp; replicas: 3<br>
+                                &nbsp; selector:<br>
+                                &nbsp;&nbsp;&nbsp; matchLabels:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; app: web<br>
+                                &nbsp; template:<br>
+                                &nbsp;&nbsp;&nbsp; metadata:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; labels:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                                app: web<br>
+                                &nbsp;&nbsp;&nbsp; spec:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                containers:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - name:
+                                nginx<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                                image: nginx:1.14.2<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                                ports:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                                - containerPort: 80</span><span
+                                class="hljs-number"></span><br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>kubectl create -f</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the command "kubectl create
+                              -f &lt;manifest.yml&gt;" is sued to create
+                              a&nbsp; new manifest file. with the -f
+                              flag indicating file name.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">kubectl create -f
+                              fiest_manifest.yml<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>kubectl apply -f</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the command "kubectl apply
+                              -f &lt;filename&gt;" is used to send or
+                              update the manifest to the kubernetes
+                              installation. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">kubectl apply -f
+                              first_manifest.yml<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>kubectl get</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the command "kubectl get
+                              &lt;resource name&gt; &lt;specific
+                              resource&gt;" gives an overview of the
+                              resources deployed on kubernetes options
+                              are for example (pods, services (get svc),
+                              nodes, deployments and all (retrieves all
+                              info)<br>
+                              <br>
+                              for storage get can be used with sc (for
+                              storge classes) pvc ( for presistent
+                              volume claimes) and pv (to retrieve all
+                              deployed presisten volumes)<br>
+                              <br>
+                              a optional argument is the specific
+                              resource you want to get the information
+                              of a specific resource.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">kubectl get all<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>kubectl describe</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">"kubectl describe
+                              &lt;resource name&gt; &lt;specific
+                              resource&gt;" is the same as the "get"
+                              command but will give a more detailed
+                              information about an object<br>
+                              <br>
+                              a option argument is the sepcific resource
+                              you want to get the information of a
+                              specific resource.a optional argument is
+                              the sepcific resource you want to get the
+                              information of a specific resource.</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Stateless application<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A stateless application is
+                              an application is an application that does
+                              save an internal state or context of
+                              processed data, therefore its perfects for
+                              applications that just need to do a single
+                              query and return it. each pod of the
+                              application therefore has the exact same
+                              task. <br>
+                              <br>
+                              the kind tag in the manifest is
+                              "Deployment"<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Scaling kubernetes<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">scaling is a technique to
+                              add or remove resources. scale up
+                              increases the load and scale down saves
+                              resources. there are 2 ways to scale a pod
+                              you can change the number of replicas in
+                              the manifest or use the " scale deployment
+                              &lt;deployment -name&gt; --replicas
+                              &lt;number&gt;" command<br>
+                              similiarly for stateful application the
+                              command "kubectl scale statefulsets
+                              &lt;deployment_name&gt; --replicas
+                              (number)" is used. when scaling down the
+                              order of creation is usedso last created
+                              gets deleted first.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#for
+                                stateless application</font><br>
+                              kubectl scale deployment web-server
+                              --replicas=5<br>
+                              <br>
+                              <font color="#666666"># stateful
+                                application</font><br>
+                              kubectl scale statefulsets mysql-db
+                              --replicas=3<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Kubernetes storage<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The fundamental object for
+                              storage for uburnetes is Presistent
+                              volumens (PV) maintained in parallel to
+                              pods, their mapped to pods using
+                              presistent volume claims (pvc).<br>
+                              <br>
+                              pvs allow data presistence when the pod is
+                              stopped, killed or estarted, they als
+                              enable the seperation of sotrage and
+                              computing.<br>
+                              <br>
+                              There are two ways to setups presistent
+                              volumes.<br>
+                              1. manually by a kuberentes admin<br>
+                              2 dynamically by regular user.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Dynamic</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Dynamic provisioning
+                              happens via storage classes (Sc) without
+                              human intervention. they define basic
+                              proporties of pvs to be dynamically
+                              provisioned. There are 3 objects that make
+                              storage work in kubernetes.<br>
+                              <br>
+                              PresistentVolumeClaim = is what a pod uses
+                              to demand for presisted data<br>
+                              PresistentVolume = The pvc creates a
+                              presistentvolume for a pod claiming
+                              presistent volume<br>
+                              SotrageClass = what is used to define
+                              details like latency and back up strategy
+                              of the pv <br>
+                              <br>
+                              in the manifest the declaration of a claim
+                              is done using the volumeMounts; tag. than
+                              under the volumes tag more details are
+                              given like the name and the
+                              presisitetnVolumeClaim itself<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (pod with PresistentVolume)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">apiVersion: v1<br>
+                              kind: Pod<br>
+                              ...<br>
+                              spec:<br>
+                              &nbsp; containers:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; ...<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              volumeMounts:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              -name: pv-mydata<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              mountPath: /mydata<br>
+                              &nbsp;&nbsp; volumes:<br>
+                              &nbsp;&nbsp; - name: pv-mydata<br>
+                              &nbsp; presistentVolumeClaim:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; claimName:
+                              datacamp-pvc<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (presistenVolumeClaim with
+                                StorageClass)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">apiVersion: v1<br>
+                              kind: PersistentVolumeClaim<br>
+                              metadata;<br>
+                              &nbsp;&nbsp; name: datacamp-pvc<br>
+                              spec:<br>
+                              &nbsp;&nbsp; storageClassName: "standard"<br>
+                              &nbsp;&nbsp; accessModes:<br>
+                              &nbsp;&nbsp; - ReadWriteOnce<br>
+                              &nbsp; resources:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; requests:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              storage: 5Gi<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Load balancer<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A load balancer is part of
+                              a kuberentes service, it main purpose is
+                              to distribute the load over pods to
+                              increase efficiency and lower reponse
+                              times as they are a type of service they
+                              can be specified in the spec section of
+                              the service manifest.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">apiVersion: v1<br>
+                              kind: Service<br>
+                              metadata:<br>
+                              &nbsp;&nbsp;&nbsp; name: &lt;service
+                              name&gt;<br>
+                              spec:<br>
+                              &nbsp;&nbsp;&nbsp; type: LoadBalancer<br>
+                              &nbsp;&nbsp;&nbsp; selector:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &lt;key1&gt;: &lt;value1&gt;<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &lt;key2&gt;: &lt;value2&gt;<br>
                             </td>
                           </tr>
                         </tbody>
@@ -370,7 +959,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell B2</h2>
+                                  <h2>Kubectl</h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
