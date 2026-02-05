@@ -273,6 +273,61 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                 </tr>
               </tbody>
             </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Docker --help<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The "docker --help" command
+                              provides a list of potential docker
+                              commands.to get information about a
+                              specific command you can also add the
+                              "--help" flag behind a command.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker --help<br>
+                              docker run --help<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </td>
           <td style="width: 50%; padding-left: 0px; word-break:
             break-word;">
@@ -437,6 +492,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               -f "name=&lt;container_name&gt;" =
                               allowing the search of a specific
                               container with the container name<br>
+                              -a alows you to get additional information
+                              about exisiting containers like tthe ports
+                              that the container uses.<br>
                             </td>
                           </tr>
                           <tr>
@@ -1121,6 +1179,23 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           <tr>
                             <td valign="top"><font color="#666666">#local
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 file</font><br>
                               COPY /project/pipeline_v3/pipeline.py
                               /app/pipeline.py<br>
@@ -1512,7 +1587,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">Example<br>
+                            <td valign="top">
+                              <h3>Example</h3>
                             </td>
                           </tr>
                           <tr>
@@ -1541,7 +1617,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell A2</h2>
+                                  <h2>Temporary containers<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -1554,6 +1631,197 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">By default a container
+                              doenst get cleaned up even after
+                              stopping/exiting when you use the "docker
+                              run" command. when you just want a
+                              container to run a script this is
+                              problematic. to solve this you can use the
+                              "--rm" flag which removes the containers
+                              upon exit<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker run --rm
+                              alpine:letets /bin/sh<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Attaching files/directories to
+                                    containers<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">For data to be available
+                              for multiple containers and for data to
+                              become presistent even after exiting. a
+                              bind-mount can be used. a bind-mount can
+                              be set to read-only or read/write access.<br>
+                              when a file or a directory is attached to
+                              a container they are not accessible to the
+                              host under the container is stopped.<br>
+                              <br>
+                              the bindmount often used in the form of
+                              the "-v
+                              &lt;source&gt;:&lt;destination&gt;" flag
+                              you can use multiple "-v" flags per
+                              container<br>
+                              <br>
+                              another option is the "--mount" flag which
+                              gives additional options<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker run -v
+                              ~/html:/var/www/html nginx<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Port mapping<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Port mapping also called
+                              port fowarding/translation is the act of
+                              connecting an unique unused port on the
+                              host machine to a port on the container.
+                              this is done through using the "-p
+                              &lt;host port&gt;:&lt;container port&gt;"
+                              flag in the run command. there can be
+                              multiple "-p" flags in one run command if
+                              multiple ports need to be connected.<br>
+                              <br>
+                              Alternatively "-P" upper case p can be
+                              used without any designated ports than a
+                              high port number is used to map the ports.
+                              (need to use docker ps -a to see which was
+                              used<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#
+                                choose the port yourselve</font><br>
+                              docker run -p 5501:80 nginx<br>
+                              <font color="#666666"># let docker choose
+                                the port</font><br>
+                              docker run -P pyserver<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Docker file</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To expose a port using a
+                              docker file the "EXPOSE &lt;number&gt;"
+                              instruction is used. optionally you can
+                              put "/tcp" or "/upd" behind the port
+                              number. you can use the "EXPOSE"
+                              instruction multiple times<br>
+                              <br>
+                              exposing the port is generally used as a
+                              documentation method as it doesnt actually
+                              expose the ports withouth using the "-p"
+                              flag in the "docker run" command. (but
+                              without this users cant know which port
+                              should be mapped)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (docker file)<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">From python:3.11-slim<br>
+                              ENTRYPOINT ["python", "-mhttp.server"]<br>
+                              EXPOSE 8000<br>
                             </td>
                           </tr>
                         </tbody>
@@ -1581,7 +1849,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell B1</h2>
+                                  <h2>Presistent volumes<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -1594,6 +1863,374 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A volume is another way to
+                              store data in docker that is not related
+                              to container images or the host file
+                              system. volumes can be shared between
+                              multiple containers and i more powerful
+                              than the bind method but take more
+                              processing resources. volume mounts
+                              continue to exist till they are deleted
+                              themselves deleting the connected
+                              containers doesnt automatically delete the
+                              volume mount.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>docker volume create</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to create a volume mount
+                              the "docker volume create
+                              &lt;volumename&gt;" command is used.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker volume create
+                              sqldata<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>docker volume ls</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to retrieve a list of all
+                              existing volume mounts the "docker volume
+                              ls" command is used. (it will retrieve
+                              just the names of the volumes)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker volume ls<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>docker volume inspect</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to further retrieve
+                              metadata of a volume mount the "docker
+                              volume inspect &lt;volume_name&gt;" can be
+                              used.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker volume inspect
+                              sqldata<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>docker volume rm</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to remove a volume the
+                              "docker volume rm" command is used.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker volume rm sqldata<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>attaching volumes to containers</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to attach the volume to a
+                              container in the run command the "-v
+                              &lt;volumename&gt;:&lt;destionationpath&gt;:&lt;options&gt;"
+                              flag is used.<br>
+                              for options you can use e.g. "ro" to set
+                              it to read only<br>
+                              <br>
+                              an alternative is using the "--mount" flag
+                              which has additional options.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker run -v sqldata:/data
+                              postgres<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Docker networks<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Docker can create networks
+                              to make it possible to be there
+                              communicate between containers, the host
+                              and other exernal systems.<br>
+                              Docker supports different networking types
+                              using drivers.<br>
+                              * bridge: default driver allows
+                              connections out, connection in if exposed.<br>
+                              * host: allows full communication between
+                              host and containers<br>
+                              * none: Isolate container from network
+                              communications<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>docker network ls &amp; inspect<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The "docker network ls"
+                              command is used to list all docker
+                              networks on the host. the "docker network
+                              inspect &lt;networkname&gt;" command can
+                              than be used to get further info about a
+                              network<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker network ls<br>
+                              docker network inspect mynetwork<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>docker network create</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the "docker network create
+                              &lt;network name&gt;" command is used to
+                              create a network<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker network create
+                              mynetwork<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>docker network rm</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The "docker network rm"
+                              command is used to remove a network<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker network rm mynetwork<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Attaching a container to a network</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to attach a container to a
+                              net work using multiple methods. <br>
+                              * you can use the "--network &lt;network
+                              name&gt;" flag in a "docker run" command.
+                              <br>
+                              if the container is allready running you
+                              can use the "docker network connect
+                              &lt;networkname&gt; &lt;container&gt;"
+                              command<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker run --network
+                              mynetwork ubuntu bash<br>
+                              docker network connect mynetwork ubuntu-B<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Multi-stage builds </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">multi stage builds use
+                              multiple containers to build a single
+                              final container image. it typically has
+                              one or more build stage and final
+                              components are copied into this image.<br>
+                              <br>
+                              the purpose of this is minimizing the size
+                              of the container image as the previous
+                              build steps are cleaned up afterwards
+                              automatically.<br>
+                              <br>
+                              Muli stage builds use unique instructions
+                              in the docker file.including "AS
+                              &lt;alias&gt;" = is used to allow<br>
+                              <br>
+                              &nbsp;and "COPY --from=&lt;alias&gt;" =
+                              used to copy data from the previous stage
+                              container image into a following or final
+                              container image.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#initial
+
+
+
+
+
+
+                                build stage</font><br>
+                              FROM ubuntu AS stage1<br>
+                              run apt install gcc -y<br>
+                              run make<br>
+                              <br>
+                              <font color="#666666">#final stage</font>
+                              <br>
+                              FROM alpine-base<br>
+                              COPY --from=stage1 /data_app /data_app<br>
+                              <font color="#666666">#run application on
+                                container start</font><br>
+                              CMD ["data_app"]<br>
                             </td>
                           </tr>
                         </tbody>
@@ -1617,7 +2254,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell B2</h2>
+                                  <h2>Multi-platform dockerfile<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -1632,10 +2270,606 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               </div>
                             </td>
                           </tr>
+                          <tr>
+                            <td valign="top">To ensure the dockerfile
+                              can be run on any plarform seperate tags
+                              and instructions can be used:<br>
+                              <br>
+                              "--platform=$BUILDPLATFORM" flag is used
+                              in the "from" instruction to ensure the
+                              program is donwloaded for the platform the
+                              build is ran on.<br>
+                              <br>
+                              to pass local environment variables into
+                              the docker build system "TARGETOS" and
+                              "TARGETARCH" are used which can be set
+                              using the "env" command.<br>
+                              <br>
+                              to build a multi-platform build the
+                              "docker buildx --platform &lt;linux/amd64,
+                              linx/arm64, ect&gt; -t &lt;appname&gt; ."
+                              command needs to be used instead of
+                              "docker build"<br>
+                              <br>
+                              prior to the build command you need to run
+                              "docker buildx create --bootstrap --use"
+                              command<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (docker file)<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">FROM
+                              --platform=$BUILDPLATFORM golang:1.21 AS
+                              build<br>
+                              <br>
+                              WORKDIR / src<br>
+                              COPY . . <br>
+                              <br>
+                              ARG TARGETOS TARGETARCH<br>
+                              <br>
+                              RUN env G00S=$TARGETOS GOARCH=$TARGETARCH
+                              go build -o /final/app .<br>
+                              <br>
+                              FROM alpine<br>
+                              COPY --from=build /final/app /bin<br>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
                   </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Docker compose<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Docker compose is an
+                              aditional command-line tool for docker
+                              used to define and manage multi-container
+                              applications. this is done by specifying
+                              containors networks and storage volumes in
+                              a single compose.yml/yaml file.<br>
+                              <br>
+                              compose.yaml files have the big benifit of
+                              being easy to share and demo applications.<br>
+                              <br>
+                              a typical yaml file is setup as follows<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#define
+
+
+
+
+                                the services (only required component)</font><br>
+                              services:<br>
+                              &nbsp;&nbsp; <font color="#666666">#define
+
+
+
+
+                                the contaiers by name</font><br>
+                              &nbsp;&nbsp; postgres:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666">#container name
+                                (otherwise random if not defined)</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              container_name: postgres<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666">#define the image to
+                                use and optionaly its version</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              image: "postgres:latest"<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              <font color="#666666">#optionally define
+                                the port forwarding</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              ports:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              - "5432:5432"<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              <font color="#666666">#what to do when a
+                                container crashes options (no, always,
+                                unless-stopped (most commun one),
+                                on-failure)</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              restart: unless-stopped<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              <font color="#666666">#condition defines
+                                how to decide when a resource is ready
+                                and fully started (service_started=
+                                resource has started normally is the
+                                default, service_completed_successfully
+                                = resource ran to completion such as
+                                initial configuration, service_healthy =
+                                resource meets a criteria defined by
+                                healthcheck can be defined in the docker
+                                compose file itself)</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              condition: service_started<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              # any resources like volums networks
+                              configs and secrets fall under the
+                              resources. they be assinged here or ocnce
+                              defined below in their sections can be
+                              referenced here e.g if multiple contianers
+                              use the same volume volume mount<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              resource:.<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              <font color="#666666">#volumes section be
+                                used to volume mount a host directory or
+                                file to a container directory </font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              volumes:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              &nbsp; &nbsp;&nbsp; - &lt;host
+                              directory&gt;:&lt;container directory&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+                                color="#666666"> #another resource is
+                                networks</font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              networks:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              network_name:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              net1:<br>
+                              &nbsp;&nbsp;&nbsp; <font color="#666666">#if
+
+
+
+
+                                there are more services defien them too</font><br>
+                              &nbsp;&nbsp;&nbsp; webapp:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              image: "webapp"<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ports:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              - "8000:5000"<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <font color="#666666">#if one containers
+                                needs to be started before an other or
+                                needs to be stopped before anoter use
+                                (in reveres order) </font><br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              depends_on:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+                              -postgres<br>
+                              <font color="#666666">#optionally define
+                                any networks (to setup networks)
+                                multiple contaienrs might want to use
+                                and could reference from here</font><br>
+                              networks:<br>
+                              &nbsp;&nbsp; ...<br>
+                              <font color="#666666">#optionally define
+                                volume sectionto control any volume
+                                mounting that&nbsp; </font><font
+                                color="#666666">multiple contaienrs
+                                might want to use </font><font
+                                color="#666666">and could reference from
+                                here</font><br>
+                              volumes:<br>
+                              &nbsp;&nbsp; ...<br>
+                              <font color="#666666">#optionally define
+                                configuration options without custom
+                                images that </font><font
+                                color="#666666">multiple contaienrs
+                                might want to use </font><font
+                                color="#666666">and could reference from
+                                here</font><br>
+                              configs:<br>
+                              &nbsp;&nbsp; ...<br>
+                              <font color="#666666">#optionally the
+                                secret section provides options to
+                                handle passwords, tokes and api keys
+                                ect. </font><font color="#666666">that
+                                multiple contaienrs might want to use </font><font
+                                color="#666666">and could reference from
+                                here</font><br>
+                              secrets:<br>
+                              &nbsp;&nbsp; ...<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Starting a docker compose
+                                    application<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to start the compose.yaml
+                              applications you use the "docker compose
+                              up"&nbsp; inorder to not block the entire
+                              terminal till all containers exit the "-d"
+                              flag can be used. <br>
+                              <br>
+                              to use a yaml file located in a other
+                              directory than the working directory the
+                              "-f &lt;yaml location&gt;" flag can be
+                              used to to provide a file location.<br>
+                              <br>
+                              generally the docker comose will create
+                              network by itself if not specified inside
+                              the .yaml file.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker compose up -d<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>status of running compose</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">you can check the status of
+                              a docker compose using "docker compose ls"<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker compose ls<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Docker compose stop /down<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">There are two ways to stop
+                              a running docker compose, each with their
+                              own benifites.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Docker compose stop</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">"docker compose stop" is
+                              the gentle way of stopping a docker
+                              compose. it stops the processes inside the
+                              containers but the container objects
+                              remain intact (thus will not update next
+                              time you up as they remain in the cache.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker compose stop<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>docker compose down</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">"docker compose down" is
+                              used to cleanup everything it stops all
+                              the containers and then deletes them,
+                              including the internal created network.the
+                              only thing that remains is the data if
+                              stored in volumes and the image files.<br>
+                              it is used to cleanup after a project is
+                              finished or not needed anymore.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docke compose down<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Docker compose logs<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the "docker compose logs
+                              &lt;optional resourcename&gt; "&nbsp; is
+                              used as a troubleshooting tool and gather
+                              output from all resources in the
+                              application. if you give it a resourcename
+                              it will only return the logs for that
+                              resource.<br>
+                              <br>
+                              to see the live log of the containers the
+                              "-f" flag can be added to the command.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker compose logs<br>
+                              <br>
+                              docker compose logs -f postgres<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Docker compose top<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">"docker compose top"
+                              command is used for observation purposes
+                              as it will return the statuses,ids and
+                              uptimes of each of the running containers<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">docker compose top<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
                 </tr>
               </tbody>
             </table>
