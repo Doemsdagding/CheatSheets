@@ -301,7 +301,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Flutter SDK<br>
+                                  <h2>Required packages<br>
                                   </h2>
                                 </div>
                                 <div style="position: absolute; right:
@@ -318,13 +318,22 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top">To package you often need
-                              the flutter sdk this you can install using
-                              the flutter extention in VScode (by dart
-                              code) and then typing "flutter" inside the
-                              command pellete<br>
+                            <td valign="top">To package/build you often
+                              need the flutter sdk this you can install
+                              using the flutter extention in VScode (by
+                              dart code) and then typing "flutter"
+                              inside the command pellete<br>
                               then select "flutter: new project"<br>
                               then select "download sdk"<br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Aditionally on Linux
+                              GStreamer is required for debian use "<br>
+                              apt install libgtk-3-dev
+                              libgstreamer1.0-dev
+                              libgstreamer-plugins-base1.0-dev"<br>
                             </td>
                           </tr>
                         </tbody>
@@ -454,7 +463,13 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               app. This command builds the release
                               version, which doesn't support debugging
                               and is suitable for deployment to app
-                              stores.<br>
+                              stores. <br>
+                              <br>
+                              if wanted to publish to the google play
+                              store using Android App bundles (AAb) is
+                              recommended to keep file size small.
+                              achieved through the "flet build aab
+                              &lt;path/to/app&gt;"<br>
                             </td>
                           </tr>
                           <tr>
@@ -506,42 +521,6 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                       </table>
                     </div>
                   </th>
-                </tr>
-              </tbody>
-            </table>
-            <table style="width: 100%; table-layout: fixed;">
-              <tbody>
-                <tr>
-                  <td>
-                    <!--cell A2 -->
-                    <div class="container2">
-                      <table class="inner" style="table-layout: fixed;">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div style="display: flex;
-                                justify-content: center; align-items:
-                                center; position: relative;">
-                                <div style="text-align: center;">
-                                  <h2>Cell A2</h2>
-                                </div>
-                                <div style="position: absolute; right:
-                                  -28px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                                <div style="position: absolute; right:
-                                  15px; top: -28px; z-index: 1;">
-                                  <svg width="34" height="34">
-                                    <use href="#myBase64Image"></use> </svg>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </td>
                 </tr>
               </tbody>
             </table>
@@ -636,6 +615,279 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 center; position: relative;">
                                 <div style="text-align: center;">
                                   <h2>Cell B2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 3 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>FLET objects 1: Page<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The base of a flet app is
+                              the page. when creating a new app you
+                              start with a page, the page can contain
+                              other objects(also called controls) and
+                              other pages.<br>
+                              by default the Column layout is used (used
+                              to add objects in a single column
+                              top-to-down.<br>
+                              <br>
+                              Typically the page is defined in the def
+                              main.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">import flet<br>
+                              <br>
+                              def main(page: flet.Page):<br>
+                              &nbsp; page.title = "test"<br>
+                              &nbsp; page.bgcolor = flet.colors/WHITE<br>
+                              &nbsp; <br>
+                              &nbsp; text = flet.Text("hello world")<br>
+                              &nbsp; page.update()<br>
+                              <br>
+                              Flet.app(target = main)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A page can have many
+                              attributes the most common are:</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.title</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.title sets the
+                              name of the application. it takes a
+                              string(in desktop app program title)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.title = "my app"<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.bgcolor</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the page.bgcolor allwos to
+                              set of a page is background color it takes
+                              a named color or a hex code<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.bgcolor =
+                              flet.colors.Blue<br>
+                              page.bgcolor = "#ff0000"<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.add()/ page.add_async()/
+                                page.insert() / page.update()<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">There are multiple methods
+                              to add other objects to a page. this can
+                              be done using "page.add(&lt;object&gt;)"
+                              or "page.add_async(&lt;object&gt;)"
+                              difference between the two is that the
+                              "add" adds them in the arrangemetn and
+                              priority set by the deverloper and that
+                              the "add_async" add them asynchronously.<br>
+                              To add an object to an existing list of
+                              page object at a particular position
+                              (specified by index) the
+                              "page.insert(&lt;index&gt;,&lt;object&gt;")
+                              is used.<br>
+                              <br>
+                              after adding a object "page.update()" is
+                              used to refresh the app and show the added
+                              objects. often its best to batch any made
+                              changes to do one big update.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&nbsp;&nbsp; text =
+                              flet.text("hello world")<br>
+                              &nbsp;&nbsp; page.add(text)<br>
+                              &nbsp;&nbsp; page.add_async(text) <br>
+                              &nbsp;&nbsp; page.insert(2, text)<br>
+                              page.update()<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.remove()/ page.remove_at() /
+                                page.clean()<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">When a object is not needed
+                              anymore to be shown on the screen the
+                              "page.remove(&lt;object&gt;)" can be used.
+                              To remove an object with a specific index
+                              from the list of added controls
+                              "page.remove_at(&lt;index&gt;)" is used.<br>
+                              if you want to remove all objects from a
+                              page you can use the "page.clean()" the
+                              app returns then to a blank page.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.remove(text)<br>
+                              page.remove_at(2)<br>
+                              page.update()<br>
+                              <br>
+                              page.clean()<br>
+                              page.update()<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.controls</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>cell a2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>cell a3 </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
