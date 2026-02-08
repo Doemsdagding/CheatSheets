@@ -148,7 +148,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               def main(page: flet.Page):<br>
                               &nbsp;&nbsp;&nbsp; pass<br>
                               <br>
-                              flet.app(target = main)<br>
+                              flet.run(main)<br>
                             </td>
                           </tr>
                           <tr>
@@ -703,9 +703,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               &nbsp; page.bgcolor = flet.colors/WHITE<br>
                               &nbsp; <br>
                               &nbsp; text = flet.Text("hello world")<br>
-                              &nbsp; page.update()<br>
+                              &nbsp; page.add(text)<br>
                               <br>
-                              Flet.app(target = main)<br>
+                              Flet.run(main)<br>
                             </td>
                           </tr>
                           <tr>
@@ -756,30 +756,20 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td valign="top">
-                              <h3>page.add()/ page.add_async()/
-                                page.insert() / page.update()<br>
+                              <h3>page.add()/ page.insert() <br>
                               </h3>
                             </td>
                           </tr>
                           <tr>
                             <td valign="top">There are multiple methods
                               to add other objects to a page. this can
-                              be done using "page.add(&lt;object&gt;)"
-                              or "page.add_async(&lt;object&gt;)"
-                              difference between the two is that the
-                              "add" adds them in the arrangemetn and
-                              priority set by the deverloper and that
-                              the "add_async" add them asynchronously.<br>
+                              be done using "page.add(&lt;object&gt;)" <br>
+                              <br>
                               To add an object to an existing list of
                               page object at a particular position
                               (specified by index) the
                               "page.insert(&lt;index&gt;,&lt;object&gt;")
                               is used.<br>
-                              <br>
-                              after adding a object "page.update()" is
-                              used to refresh the app and show the added
-                              objects. often its best to batch any made
-                              changes to do one big update.<br>
                             </td>
                           </tr>
                           <tr>
@@ -791,9 +781,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                             <td valign="top">&nbsp;&nbsp; text =
                               flet.text("hello world")<br>
                               &nbsp;&nbsp; page.add(text)<br>
-                              &nbsp;&nbsp; page.add_async(text) <br>
                               &nbsp;&nbsp; page.insert(2, text)<br>
-                              page.update()<br>
                             </td>
                           </tr>
                           <tr>
@@ -823,19 +811,3558 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           <tr>
                             <td valign="top">page.remove(text)<br>
                               page.remove_at(2)<br>
-                              page.update()<br>
                               <br>
                               page.clean()<br>
-                              page.update()<br>
                             </td>
                           </tr>
                           <tr>
                             <td valign="top">
-                              <h3>page.controls</h3>
+                              <h3>page.controls <br>
+                              </h3>
                             </td>
                           </tr>
                           <tr>
-                            <td valign="top"><br>
+                            <td valign="top">Sometimes it is better to
+                              group multiple additions to a app so no
+                              many loose updates happen but instead
+                              larger updates for this page.controls...
+                              is used. it has a bunch of equivelants for
+                              previous mangement objects but instead of
+                              updating the app on read it requires the
+                              use of page.update(). <br>
+                              not all of the control commands have their
+                              shortcut equivelants some are exclusive to
+                              the page.controls. command.<br>
+                              <br>
+                              after adding a object "page.update()" is
+                              used to refresh the app and show the added
+                              objects. often its best to batch any made
+                              changes to do one big update.<br>
+                              <br>
+                              a list of options see below:<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">text = flet.Text("test")<br>
+                              page.controls.append(text) <font
+                                color="#666666"># same as page.add(text)</font><br>
+                              page.controls.remove(text) <font
+                                color="#666666"># same a page.remove()</font><br>
+                              page.controls.pop() <font color="#666666">#removes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                the last control from the list of
+                                objects on a page.</font><br>
+                              page.controls.insert(1, text) <font
+                                color="#666666"># same as page.insert()</font><br>
+                              page.controls.reverse() <font
+                                color="#666666"># arranges the list of
+                                objects in reverse order</font><br>
+                              page.controls.sort() <font
+                                color="#666666">#is a method to sort the
+                                objects of page.</font><br>
+                              page.controls.index(&lt;object&gt;,
+                              &lt;index1&gt;, &lt;index2&gt;) <font
+                                color="#666666"># returns the index of a
+                                object within a given range.</font><br>
+                              page.controls.count(&lt;object&gt;) <font
+                                color="#666666">#returns the number of
+                                occurrences of a perticular object</font><br>
+                              page.controls.copy() <font
+                                color="#666666">#returns a copy of the
+                                list of objects of a page.</font><br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.update()</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">"page.update()" is used as
+                              a refresh of page, there by ensuring all
+                              changes are executed<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.update()<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.auto_scroll</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.auto_scroll
+                              property is a Boolean method. When set to
+                              True, it automatically moves the scrollbar
+                              position to the end when children are
+                              updated.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.auto_scroll = True<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.scroll</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.scroll property
+                              allows for vertical scrolling to prevent
+                              page content (controls) from overflowing.
+                              There are five ScrollMode options
+                              available:<br>
+                              &nbsp;&nbsp;&nbsp; None (default): The row
+                              is non-scrollable, and its content could
+                              overflow.<br>
+                              &nbsp;&nbsp;&nbsp; AUTO: Scrolling is
+                              enabled, and the scrollbar is only shown
+                              when scrolling occurs.<br>
+                              &nbsp;&nbsp;&nbsp; ADAPTIVE: Scrolling is
+                              enabled, and the scrollbar is always shown
+                              when running the app as web or desktop.<br>
+                              &nbsp;&nbsp;&nbsp; ALWAYS: Scrolling is
+                              enabled, and the scrollbar is always
+                              shown.<br>
+                              &nbsp;&nbsp;&nbsp; HIDDEN: Scrolling is
+                              enabled, but the scrollbar is always
+                              hidden<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.scroll =
+                              flet.ScrollMode.ALWAYS<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.padding</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.padding property
+                              creates space between controls and their
+                              edges. The default value is 10 pixels from
+                              each side (top, bottom, right, left).<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.padding = 30<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>height / width</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.height and
+                              page.width return the height and width of
+                              the page. The page.window_height and
+                              page.window_width are similar to height
+                              and width, but these return the actual
+                              height&nbsp; and width of the application
+                              or windows<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">height = page.height<br>
+                              width = page.width<br>
+                              height = page.window_height<br>
+                              width = page.window_width<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.platform</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.platform returns
+                              the operating system on which the
+                              application is running. Values could be
+                              PagePlatform.WINDOWS, PagePlatform.LINUX,
+                              PagePlatform.ANDROID, PagePlatform.IOS <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">platform = page.platform<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Desktop only objects and attributes.<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">There a few attributes of
+                              teh app that only available for desktop
+                              applications<br>
+                              *The page.window_bgcolor sets the
+                              background color of the application
+                              window.<br>
+                              *The page.window_left sets the horizontal
+                              position of the window application on the
+                              desktop screen .<br>
+                              *The page.window_top sets the vertical
+                              position of the window application on the
+                              desktop screen.<br>
+                              *The page.window_center() position the
+                              application at the center of the screen.<br>
+                              *The page.window_close() method closes the
+                              window.<br>
+                              *The page.window_resizable is set to True
+                              to make the window application resizable.<br>
+                              *The page.window_minimizable is set to
+                              True to allow the application to be
+                              minimized.<br>
+                              *The page.window_maximizable is set to
+                              True to allow the application to be
+                              maximized.<br>
+                              *The page.window_movable is set to False
+                              to prevent the application from changing
+                              its position.<br>
+                              *The page.window_visible is set to False
+                              to hide the application from view<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.window_bgcolor =
+                              flet.colors.RED<br>
+                              page.window_left = 10<br>
+                              pagen.window_top = 10<br>
+                              page.window_center()<br>
+                              page.window_close()<br>
+                              page.window_resizable - True<br>
+                              page.window_minimizable = True<br>
+                              page.window_maximizable = True<br>
+                              page.window_movable = true<br>
+                              page.window_visible= True<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.get_clipboard()</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.get_clipboard()
+                              gets the last text value saved to the
+                              clipboard.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.get_clipboard()<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>AppBar()</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.appbar adds an
+                              AppBar to the page. The AppBar is a
+                              control that bears the title, leading
+                              control, and action buttons.<br>
+                              it has a few unique attributes that other
+                              objects dont have:<br>
+                              <br>
+                              leading = control<br>
+                              The leading is the control at the left
+                              side of the AppBar, often comprises
+                              buttons represented by icons.<br>
+                              <br>
+                              title = control<br>
+                              The title property specifies the title of
+                              the page within the app.<br>
+                              <br>
+                              leading_width = float<br>
+                              The leading_width sets the width or space
+                              between the leading control and the title.<br>
+                              <br>
+                              center_title = bool<br>
+                              When the center_title is set to True, the
+                              AppBar’s title is aligned or positioned at
+                              the center<br>
+                              <br>
+                              automatically_imply_leading = bool<br>
+                              The AppBar has a leading control by
+                              default. When automatically_imply_leading
+                              is set to False, Flet removes the leading
+                              control.<br>
+                              <br>
+                              elevation = int<br>
+                              The elevation property adds shadow effect
+                              to AppBar control.<br>
+                              <br>
+                              color = string<br>
+                              The color property applies color to the
+                              title, leading control and actions
+                              controls.<br>
+                              <br>
+                              bgcolor = string<br>
+                              The bgcolor specifies the background color
+                              of the AppBar.<br>
+                              <br>
+                              actions = List[controls]<br>
+                              The actions property is a list of
+                              controls, usually consisting of buttons
+                              intended for specific actions.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&nbsp;page.appbar =
+                              flet.AppBar(<br>
+                              &nbsp;&nbsp;&nbsp; leading =
+                              flet.IconButton(icon=flet.icons.MENU)<br>
+                              &nbsp;&nbsp; actions= [<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+                              flet.IconButton(<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+                              icon = flet.icons.NOTIFICATIONS,<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+                              on_click = noti_fun #A callback function<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+                              ),<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+                              flet.IconButton(<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+                              icon = flet.icons.ACCOUNT_CIRCLE_OUTLINED,<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+                              on_click = account_fun #A callback
+                              function<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+
+
+                              )<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]<br>
+                              &nbsp;&nbsp; )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Banner()<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.banner adds the
+                              Banner control to the page.<br>
+                              The page.show_banner() is used to display
+                              the banner at the top of the page.<br>
+                              The page.close_banner() closes the active
+                              banner.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.banner = flet.Banner()<br>
+                              page.show_banner(banner=flet.Banner())<br>
+                              page.close_banner()<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>NavigationDrawer()<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.drawer implements
+                              the drawer control. The drawer is a
+                              control bearing a list of menus that
+                              slides from the start edge of the page.<br>
+                              The page.show_drawer() method displays the
+                              application drawer.<br>
+                              The page.close_drawer() closes the
+                              application drawer.<br>
+                              <br>
+                              the navigation drawer has its own
+                              attributres:<br>
+                              controls = List[*Controls]<br>
+                              The controls property is utilized to add
+                              control or content to the
+                              NavigationDrawer.<br>
+                              <br>
+                              The Flet NavigationDrawerDestination
+                              component facilitates the creation of
+                              button items, allowing for the
+                              specification of icons and their
+                              corresponding labels, along with changes
+                              upon selection. The available options
+                              include:<br>
+                              label = string<br>
+                              The label assigns meaning to the icon,
+                              typically positioned beside it, aiding in
+                              user comprehension.<br>
+                              icon = string<br>
+                              The icon method specifies the icon used
+                              along with labels.<br>
+                              <br>
+                              selected_icon = flet.icons<br>
+                              The selected_icon method specifies the
+                              icon to display when the item is selected
+                              or clicked.<br>
+                              <br>
+                              open = bool<br>
+                              The open property keeps the drawer open
+                              all the times. By default, it is set to
+                              False.<br>
+                              <br>
+                              selected_index = int<br>
+                              This is the index of the currently
+                              selected drawer item in the control list.<br>
+                              <br>
+                              elevation = int<br>
+                              The elevation property adds shadow effect
+                              to the NavigationDrawer control.<br>
+                              <br>
+                              shadow_color = string<br>
+                              This property defines the color of the
+                              drawer’s shadow.<br>
+                              <br>
+                              surface_tint_color = string<br>
+                              The surface_tint_color provides a faded
+                              background color to the NavigationDrawer<br>
+                              <br>
+                              indicator_color = string<br>
+                              The indicator_color property specifies the
+                              color of the selection indicator,
+                              highlighting the active item within the
+                              drawer.<br>
+                              <br>
+                              indicator_shape = OutlinedShape<br>
+                              The indicator_shape property specifies the
+                              shape of the selection indicator.<br>
+                              <br>
+                              tile_padding = float, flet.padding.all,
+                              flet.padding.only<br>
+                              The tile_padding adds space between drawer
+                              items or content and the edges of the
+                              drawer.<br>
+                              <br>
+                              on_change = function<br>
+                              The on_change property assigns a function
+                              that triggers actions when a drawer item
+                              is selected.<br>
+                              <br>
+                              on_dismiss = function<br>
+                              The on_dismiss property assigns a callback
+                              function that triggers actions when the
+                              drawer item is closed.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.drawer =
+                              flet.NavigationDrawer(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              controls=[<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              flet.NavigationDrawerDestination(),<br>
+                              &nbsp;flet.NavigationDrawerDestination(),
+                              ]),<br>
+                              <br>
+                              page.show_drawer(drawer =
+                              flet.NavigationDrawer())<br>
+                              page.close_drawer()<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>FloatingActionButton()</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The
+                              page.floating_action_button returns a
+                              floating button control on top of the page
+                              content. usually remaining fixed in place
+                              and not scrolling with the page content.
+                              This button is consistently available for
+                              immediate use.<br>
+                              <br>
+                              the actionbutton has a few attributes that
+                              not all other objects have:<br>
+                              <br>
+                              text = string<br>
+                              The text property adds text to the
+                              FloatingActionButton.<br>
+                              <br>
+                              icon = string<br>
+                              This property specifies the icon of the
+                              FloatingActionButton.<br>
+                              <br>
+                              bgcolor = string<br>
+                              The bgcolor sets the background color to a
+                              desired color.<br>
+                              <br>
+                              content = Control<br>
+                              The content property replaces the
+                              FloatingActionButton’s icon and text with
+                              a control<br>
+                              <br>
+                              on_click = function<br>
+                              The on_click property defines the purpose
+                              of the button by assigning it to a
+                              function which trigger an action.<br>
+                              <br>
+                              shape= flet.OutlinedShape<br>
+                              The shape defines the appearance of the
+                              FloatingActionButton by specifying the
+                              shape. The available shapes include:<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.RoundedRectangleBorder(type: str,
+                              radius: int)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.StadiumBorder(type: str)<br>
+                              &nbsp;&nbsp;&nbsp; flet.CircleBorder(type:
+                              str)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.BeveledRectangleBorder(type: str,
+                              radius: int)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.OutlinedBorder(type: str)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.ContinousRectangleBorder(type: str,
+                              radius: int)<br>
+                              <br>
+                              autofocus = bool<br>
+                              Setting the autofocus property to True
+                              ensures that the button remains active or
+                              focused at all times.<br>
+                              <br>
+                              url = string<br>
+                              The url property assigns a web URL to the
+                              button, enabling it to open a web page
+                              when clicked.<br>
+                              <br>
+                              mini = bool<br>
+                              Setting the mini property to True keeps
+                              the button small in size.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.floating_action_button
+                              = flet.FloatingActionButton()<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Events</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">In flet there are several
+                              responses functions can be called up on.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.on_resize</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#The
+                                page.on_resize fires when the
+                                application is resized.</font><br>
+                              &nbsp;&nbsp;&nbsp; def resized():<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              print("size changed")<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; page.on_resize =
+                              resized()<br>
+                              &nbsp;&nbsp;&nbsp; page.update()<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>page.on_close</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#The
+                                page.on_close fires when the application
+                                is closed.</font><br>
+                              &nbsp;&nbsp;&nbsp; def closed():<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              print("closed")<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; page.on_close = close()<br>
+                              &nbsp;&nbsp;&nbsp; page.update()<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>on_scroll (column &amp; row)<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the on_scroll event fires
+                              when the scroll position is altered by a
+                              user.<br>
+                              The Column and or row receives an instance
+                              of the flet.OnScrollEvent class with the
+                              following properties:<br>
+                              <br>
+                              event_type: Describes the type of scroll
+                              event (start, update, end, user, over).<br>
+                              &nbsp;&nbsp;&nbsp; start – control has
+                              started scrolling.<br>
+                              &nbsp;&nbsp;&nbsp; update – control has
+                              changed its scroll position.<br>
+                              &nbsp;&nbsp;&nbsp; end – control has
+                              stopped scrolling.<br>
+                              &nbsp;&nbsp;&nbsp; user – user has changed
+                              the direction in which they are scrolling.<br>
+                              &nbsp;&nbsp;&nbsp; over – control has not
+                              changed its scroll position because the
+                              change would have caused its scroll
+                              position to go outside its scroll bounds.<br>
+                              pixels: Current scroll position in logical
+                              pixels.<br>
+                              min_scroll_extent: Minimum in-range value
+                              for pixels.<br>
+                              max_scroll_extent: Maximum in-range value
+                              for pixels.<br>
+                              viewport_dimension: Extent of the
+                              viewport.<br>
+                              scroll_delta: Distance scrolled by the
+                              scrollable, set for update events.<br>
+                              direction: Direction of user scrolling
+                              (idle, forward, reverse), set for user
+                              events.<br>
+                              overscroll: Number of logical pixels the
+                              scrollable avoided scrolling, set for over
+                              events.<br>
+                              velocity: Velocity at which the
+                              ScrollPosition was changing when
+                              overscroll happened, set for over events.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet.Column(<br>
+                              <br>
+                              &nbsp;on_scroll = flet.OnScrollEvent(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              t=5,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              p=2,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              minse=10,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              maxse= 10,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              vd=10,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              sd=5,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              dir=1,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              os=6,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              v=20,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              )<br>
+                              )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>BottomSheet</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Displays a temporary
+                              surface anchored to the bottom of the
+                              screen that presents supplemental content
+                              or actions. Prevents interaction with the
+                              underlying app while visible.<br>
+                              The page.show_bottom_sheet() method
+                              displays the bottom sheet.<br>
+                              The page.close_bottom_sheet() closes the
+                              active bottom sheet.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.show_bottom_sheet(bottom_sheet
+
+
+
+
+
+
+
+
+
+
+
+                              = flet.BottomSheet())<br>
+                              page.close_bottom_sheet()<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>AlertDialog<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.show_dialog()
+                              method displays dialog on the page.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&nbsp;page.show_dialog(dialog
+
+
+
+
+
+
+
+
+
+
+
+                              = flet.AlertDialog())<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>SnackBar<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The page.show_snack_bar()
+                              method displays the snackbar. The snackbar
+                              is a panel that displays a piece of
+                              message at the bottom of the application
+                              when an event occurs<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&nbsp;page.show_snack_bar(snack_bar
+
+
+
+
+
+
+
+
+
+
+                              = flet.SnackBar(content=
+                              flet.Text('Hello')))<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Properties (attributes for all
+                                    objects)<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Flet Controls offer various
+                              properties and methods for customization,
+                              some unique to specific controls while
+                              others are shared among all. Common
+                              methods are uniformly applied across
+                              controls. Here are some common methods and
+                              their application approach.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">key = string<br>
+                              In Flet, a key is an identifier for a
+                              Control, allowing Flet to uniquely
+                              identify and track them. Keys are used for
+                              control state management, efficient
+                              control updates, and handling rendering.<br>
+                              <br>
+                              ref = flet.Ref<br>
+                              In Flet ref is reference to a specific
+                              control or element within the UI
+                              hierarchy.<br>
+                              <br>
+                              height = float<br>
+                              The height property is utilized to set the
+                              vertical dimension of the control.<br>
+                              <br>
+                              width = float<br>
+                              The width property sets the horizontal
+                              dimension of the control.<br>
+                              <br>
+                              top = float<br>
+                              This property is used to set the distance
+                              of the control from the top of the Stack
+                              control.<br>
+                              <br>
+                              bottom = float<br>
+                              The bottom sets the distance from the
+                              bottom edge of the control to the bottom
+                              of a Stack control.<br>
+                              <br>
+                              right = float<br>
+                              The distance that the child’s right edge
+                              is inset from the right of the edge. It
+                              works only in Stack controls.<br>
+                              <br>
+                              left = float<br>
+                              The distance that the child’s left edge is
+                              inset from the left of the stack. It is
+                              effective inside Stack only.<br>
+                              <br>
+                              adaptive = true<br>
+                              It is the ability of a control to adjust
+                              its appearance or behavior based on the
+                              device’s characteristics, such as screen
+                              size, orientation and platform.<br>
+                              <br>
+                              rotate = float<br>
+                              The rotate property turns control around
+                              an axis. It requires float value.<br>
+                              <br>
+                              disabled = bool<br>
+                              Every control has disabled property which
+                              is False by default. Disabled property is
+                              mostly used with data entry controls like
+                              TextField, Dropdown, Checkbox and buttons.<br>
+                              <br>
+                              data = Any<br>
+                              Arbitrary data that can be attached to a
+                              control.<br>
+                              <br>
+                              rtl = bool<br>
+                              The right to left (rtl) property applies
+                              right alignment or changes the direction
+                              of the text from right to left when set to
+                              true.<br>
+                              <br>
+                              visible = bool<br>
+                              Setting visible to False completely
+                              prevents control (and all its children if
+                              any) from rendering on a page canvas.
+                              Thus, control is hidden. Every control has
+                              visible property set to True by default.<br>
+                              <br>
+                              tooltip = string<br>
+                              A textual display that provides
+                              information about a control and its
+                              purpose<br>
+                              <br>
+                              expand = bool<br>
+                              This property determines whether the stack
+                              should expand to fill its parent. If set
+                              to true, the stack will grow to fill the
+                              available space.<br>
+                              <br>
+                              opacity = float<br>
+                              The opacity defines the degree of
+                              visibility of a control<br>
+                              <br>
+                              offset = flet.Offset(x, y)<br>
+                              The offset property sets the initial
+                              position of a control where the x
+                              determines the horizontal axis and y
+                              determines the vertical axis.<br>
+                              <br>
+                              tooltip = string<br>
+                              The tooltip adds an extra information to a
+                              control which is only visible when that
+                              control gains focus.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">text = flet.Text(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              'Hello World!',<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              height=100,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              width= 200,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              disabled= True,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              adaptive= True<br>
+                              &nbsp;&nbsp;&nbsp; ) <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>NavigationBar</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The Flet NavigationBar
+                              serves as a convenient panel located at
+                              the bottom of the application, housing a
+                              series of buttons (NavigationDestination),
+                              each designated to execute specific
+                              functions for user ease.<br>
+                              <br>
+                              The special attributes for the navigation
+                              bar are: <br>
+                              destinations = [
+                              flet.NavigationDestination ]<br>
+                              The destinations defines the list of
+                              button items within the navigation bar. <br>
+                              <br>
+                              label = string<br>
+                              The label assigns meaning to the icon,
+                              typically positioned beneath it, aiding in
+                              user comprehension.<br>
+                              <br>
+                              icon = string<br>
+                              The icon method specifies the icon serving
+                              as button.<br>
+                              <br>
+                              icon_content = flet.Icon<br>
+                              Alternatively, icon_content offers a
+                              different method for utilizing icons
+                              through the flet.Icon().<br>
+                              <br>
+                              selected_icon = string<br>
+                              The selected_icon method specifies the
+                              icon to display when the item is selected
+                              or clicked.<br>
+                              <br>
+                              selected_index = int<br>
+                              This is the index of the currently
+                              selected button item in the
+                              NavigationDestination List. The
+                              selected_index is None if no destination
+                              is selected<br>
+                              <br>
+                              bgcolor = string<br>
+                              The bgcolor property specifies the
+                              background color of the navigation bar.<br>
+                              <br>
+                              label_behavior =
+                              flet.NavigationBarLabelBehavior<br>
+                              The label_behavior specifies how the label
+                              should behave within the navigation bar.
+                              Labels can always be shown, hidden or
+                              shown only when it’s selected. The
+                              available methods include:<br>
+                              &nbsp;&nbsp;&nbsp; ALWAYS_SHOW<br>
+                              &nbsp;&nbsp;&nbsp; ALWAYS_HIDE<br>
+                              &nbsp;&nbsp;&nbsp; ONLY_SHOW_SELECTED <br>
+                              <br>
+                              elevation = int<br>
+                              The elevation property sets the navigation
+                              bar’s background shadow effect.<br>
+                              <br>
+                              shadow_color = string<br>
+                              The shadow_color specifies the navigation
+                              bar’s shadow color.<br>
+                              <br>
+                              indicator_color = string<br>
+                              The indicator_color specifies the color of
+                              the indicator, highlighting the active
+                              navigation button.<br>
+                              <br>
+                              surface_tint_color = string<br>
+                              The surface_tint_color applies faded color
+                              to the navigation bar.<br>
+                              <br>
+                              on_change = function<br>
+                              The on_change assigns a function which is
+                              called on button item selection.<br>
+                              <br>
+                              indicator_shape= flet.OutlinedShape<br>
+                              The indicator_shape defines the appearance
+                              of the indicator by specifying the shape.
+                              The available shapes include<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.RoundedRectangleBorder(type: str,
+                              radius: int)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.StadiumBorder(type: str)<br>
+                              &nbsp;&nbsp;&nbsp; flet.CircleBorder(type:
+                              str)<br>
+                              flet.BeveledRectangleBorder(type: str,
+                              radius: int)<br>
+                              flet.OutlinedBorder(type: str)<br>
+                              flet.ContinousRectangleBorder(type: str,
+                              radius: int)<br>
+                              <br>
+                              border = flet.border.all, flet.border.only<br>
+                              The border sets boundary edges of the
+                              navigation bar.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">page.navigation_bar =
+                              flet.NavigationBar(<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              surface_tint_color= flet.colors.BLUE,<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              indicator_color= flet.colors.GREEN,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; on_change =
+                              buttonSelected,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              destinations= [<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              flet.NavigationDestination(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              label='Dashboard',<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              icon=flet.icons.DASHBOARD,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              ),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              flet.NavigationDestination(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              icon=flet.icons.WEB,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              ),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              flet.NavigationDestination(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              label='News',<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              icon=flet.icons.NEWSPAPER,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+
+                              )<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ],)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Text</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The text control is
+                              utilized to display textual information
+                              within a Flet application.<br>
+                              The text object has a few of its own
+                              attributes:<br>
+                              <br>
+                              value = string<br>
+                              The value property represents the actual
+                              content of the text control.<br>
+                              <br>
+                              color = string<br>
+                              This property is used to set the color of
+                              the text.<br>
+                              <br>
+                              bgcolor = string<br>
+                              The bgcolor property is used to give the
+                              text a background color.<br>
+                              <br>
+                              size = int<br>
+                              This property sets the size of the text.
+                              It requires an integer value<br>
+                              <br>
+                              weight = flet.FontWeight<br>
+                              This applies boldness or thickness to
+                              text. The values include BOLD and NORMAL.<br>
+                              <br>
+                              italic = bool<br>
+                              This property is used to give text an
+                              italic or slant style. It requires Boolean
+                              value<br>
+                              <br>
+                              max_lines = int<br>
+                              The max_lines restricts text to a number
+                              of lines it can occupy. It requires
+                              integer value.<br>
+                              <br>
+                              rotate = float<br>
+                              The rotate property turns text around an
+                              axis. It requires float value<br>
+                              <br>
+                              opacity = float<br>
+                              The opacity sets the level or degree of
+                              text visibility.<br>
+                              <br>
+                              rtl = bool<br>
+                              The right to left (rtl) property applies
+                              right alignment or changes the direction
+                              of the text from left-to-right to
+                              right-to-left when set to True.<br>
+                              <br>
+                              text_align = flet.TextAlign<br>
+                              The text_align is utilize to apply
+                              alignment to text, offering options such
+                              as LEFT, RIGHT, CENTER, END, JUSTIFY,
+                              START and NONE.<br>
+                              <br>
+                              overflow = flet.TextOverFlow<br>
+                              This property is utilized to handle text
+                              when it exceeds the space available for it
+                              to be displayed. The available options
+                              include FADE, VISIBLE, CLIP, ELLIPSIS and
+                              NONE.<br>
+                              <br>
+                              font_family = string<br>
+                              The font_family property sets font for
+                              styling the text. <br>
+                              <br>
+                              style = flet.TextStyle<br>
+                              This property provides a very simple and
+                              alternative ways to format or style text.
+                              <br>
+                              <br>
+                              decoration = flet.TextDecoration<br>
+                              This property decorates text with lines.
+                              Decoration values include UNDERLINE,
+                              OVERLINE, LINE_THROUGH and NONE<br>
+                              <br>
+                              decoration_style =
+                              flet.TextDecorationStyle<br>
+                              After applying decoration to text,
+                              decoration_style let you choose line
+                              styles to apply to the text. This includes
+                              WAVY, DASHED, DOTTED, DOUBLE and SOLID.<br>
+                              <br>
+                              decoration_thickness = int<br>
+                              This property is utilized to add boldness
+                              or thickness to decorated lines.<br>
+                              <br>
+                              shadow = flet.BoxShadow<br>
+                              The shadow property adds shadow effects to
+                              text enhancing its visual appeal. It
+                              offers various methods which include<br>
+                              <br>
+                              letter_spacing<br>
+                              This property sets the spaces between the
+                              individual character of text content.<br>
+                              <br>
+                              spans =[ *flet.TextSpan]<br>
+                              The spans method offers a means to enrich
+                              text content by applying textual effects
+                              to individual segments within the text<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet.Text(value = "Awesome
+                              Flet")<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Icon</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">In Flet Icons are small
+                              images or graphics utilized to convey
+                              meaning within messages or information.
+                              Flet offers a variety of icons organized
+                              into different categories such as
+                              navigation, files, communication, media,
+                              social, action device, alert,
+                              miscellaneous and more, facilitating
+                              intuitive visual communication within
+                              applications.<br>
+                              <br>
+                              The icon object also has its won
+                              attributes:<br>
+                              name = string<br>
+                              The name property specifies the icon name.<br>
+                              <br>
+                              color = string<br>
+                              The color property adds color to the icon.<br>
+                              <br>
+                              size = int<br>
+                              This property sets the size of the text.
+                              It requires an integer value.<br>
+                              <br>
+                              semantic_lable = string<br>
+                              This property adds a descriptive
+                              identifier to the Icon control.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet.Icon(name=
+                              flet.icons.FACEBOOK_OUTLINED, )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Image</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Flet Image serves as a
+                              control designed for incorporating visual
+                              content, specifically pictures, into
+                              applications.<br>
+                              Images have their own attributes too.<br>
+                              <br>
+                              src = string<br>
+                              The src property specifies the path to the
+                              image file.<br>
+                              <br>
+                              error_content = Control<br>
+                              The error_content&nbsp; adds control to
+                              replace the image if an error occurs
+                              whiles loading the image.<br>
+                              <br>
+                              repeat = flet.ImageRepeat<br>
+                              The repeat property defines how the image
+                              should repeat both horizontally and
+                              vertically. The available options incude<br>
+                              &nbsp;&nbsp;&nbsp; REPEAT,<br>
+                              &nbsp;&nbsp;&nbsp; REPEAT_X,<br>
+                              &nbsp;&nbsp;&nbsp; REPEAT_Y<br>
+                              &nbsp;&nbsp;&nbsp; NO_REPEA<br>
+                              <br>
+                              fit = flet.ImageFit<br>
+                              The image_fit specifies how an image
+                              behaves within its layout, offering
+                              options such as CONTAIN, COVER, FILL,
+                              FIT_HEIGHT, FIT_WIDTH, NONE and
+                              SCALE_DOWN.<br>
+                              <br>
+                              border_radius = flet.border_radius.all<br>
+                              The border_radius property defines the
+                              curvature at the meeting point of two
+                              adjacent edges of the image.<br>
+                              <br>
+                              color = string<br>
+                              The color property is used to set color of
+                              the image. It is mostly used with the
+                              color_blend_mode property to add effects
+                              to the image.<br>
+                              <br>
+                              color_blend_mode = flet.BlendMode<br>
+                              The color_blend_mode property specifies
+                              how the color of one layer interacts with
+                              the colors of underlying layers. The
+                              available methods of the BlendMode
+                              include,<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Column</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The Column control
+                              organizes or arranges its children in a
+                              vertical orientation, arranging them one
+                              below the other. The children are list of
+                              controls including other column controls.<br>
+                              Columns have their own attributes:<br>
+                              <br>
+                              controls = [*Controls]<br>
+                              The controls method represents a list of
+                              children or controls. (objects)<br>
+                              <br>
+                              wrap = bool<br>
+                              When wrap is True, the column will
+                              distribute child controls into additional
+                              columns(runs) if they exceed the available
+                              space of a single column.<br>
+                              <br>
+                              spacing = int<br>
+                              This method sets the horizonal space or
+                              gap between the children.<br>
+                              <br>
+                              alignment = MainAxisAlignment<br>
+                              The alignment method controls the
+                              alignment of child Controls along the main
+                              axis of a layout. There are several
+                              options <br>
+                              <br>
+                              available:horizontal_alignment =
+                              CrossAxisAlignment&nbsp; <br>
+                              The horizontal_alignment method controls
+                              the alignment of child controls along the
+                              cross axis of a layout<br>
+                              <br>
+                              run_spacing = int<br>
+                              The run_spacing creates spaces between the
+                              runs(columns) when wrap is True. By
+                              default, it has a value of 10.<br>
+                              <br>
+                              tight = bool<br>
+                              This property defines the vertical space
+                              allocation. By default, it’s set to False,
+                              meaning all available space is allocated
+                              to the children.<br>
+                              <br>
+                              scrollbar = bool<br>
+                              The scrollbar is set to true if it should
+                              automatically move its position to the end
+                              when children are updated.<br>
+                              <br>
+                              scroll = flet.ScrollMode<br>
+                              The scroll method enables vertical
+                              scrolling for the Column to prevent its
+                              content from overflowing the available
+                              space. The default value is None <br>
+                              None(default): the column is
+                              non-scrollable and its content could
+                              overflow.<br>
+                              AUTO: scrolling is enabled and scroll bar
+                              is only shown when scrolling occurs.<br>
+                              ADAPTIVE: scrolling is enabled and
+                              scrollbar is always shown when running app
+                              as web or desktop.<br>
+                              ALWAYS: scrolling is enabled and scroll
+                              bar is always shown.<br>
+                              HIDDEN: scrolling is enabled, but scroll
+                              bar is always hidden.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet.Column(wrap=True )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Row</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The Row control organizes
+                              or arranges its children in a horizontal
+                              orientation. The children are list of
+                              controls including row controls.<br>
+                              the row shares its attributes with the
+                              column object.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet.Row(wrap=True)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Stack</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The Stack is layout control
+                              that adds controls by placing one control
+                              over another. The Stack control allows it
+                              contents to use the left, right, top and
+                              bottom properties to position items.<br>
+                              while the stack its attributes are similar
+                              to the row and column it isnt 100% the
+                              same.<br>
+                              <br>
+                              controls = List[*Control]<br>
+                              A list of controls to be added to the
+                              stack. The controls are placed on top of
+                              each other according to their index in the
+                              list.<br>
+                              <br>
+                              width = float<br>
+                              The width defines the horizontal dimension
+                              of the stack layout.<br>
+                              <br>
+                              height = float<br>
+                              This property specifies the vertical
+                              dimension of the stack layout.<br>
+                              <br>
+                              top = float<br>
+                              The top defines the distance from the top
+                              edge of the stack layout for a given
+                              control.<br>
+                              <br>
+                              bottom = float<br>
+                              The bottom defines the distance from the
+                              bottom edge of the stack layout for a
+                              given control<br>
+                              <br>
+                              left = float<br>
+                              The left defines the distance from the
+                              left edge of the stack layout for a given
+                              control.<br>
+                              <br>
+                              right = float<br>
+                              This defines the distance from the right
+                              edge of the stack layout for a given
+                              control.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">stack = flet.Stack(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              controls=[<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              flet.Image(src="path\to\image"),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                              flet.Text('Stack')<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ])<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Container</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The Container component
+                              enables the decoration of a control with
+                              features such as background color and
+                              borders, while also providing options for
+                              positioning using padding, margin, and
+                              alignment properties.<br>
+                              the container has several unique
+                              attributes:<br>
+                              <br>
+                              content = control<br>
+                              The content property adds a child control
+                              to the container.<br>
+                              <br>
+                              padding = flet.padding<br>
+                              The padding method creates a space (top,
+                              right, bottom, left) between the child and
+                              the edges of the Container. Padding can be
+                              set with<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.padding.all(value=float)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.padding.symmetric(vertical,
+                              horizontal)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.padding.only(left=float, top=float,
+                              right=float, bottom=float)<br>
+                              <br>
+                              margin = flet.margin<br>
+                              The margin method creates a space (top,
+                              right, bottom, left) between the Container
+                              and other controls within the page. Margin
+                              can be set with<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.margin.all(value=float)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.margin.symmetric(vertical,
+                              horizontal)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.margin.only(left=float, top=float,
+                              right=float, bottom=float)<br>
+                              <br>
+                              bgcolor = string<br>
+                              The bgcolor property sets the background
+                              color of the container.<br>
+                              <br>
+                              alignment = flet.alignment<br>
+                              The alignment method aligns the child
+                              control within the container. The
+                              alignment offers several options which
+                              include<br>
+                              <br>
+                              shadow = flet.BoxShadow<br>
+                              The shadow property is used to add shadow
+                              effect to the container with preferred
+                              shadow color and degree.<br>
+                              <br>
+                              The gradient property provides away to
+                              apply gradient background to containers.
+                              These gradients are composed of a series
+                              of colors. Flet supports three distinct
+                              types of gradients.<br>
+                              &nbsp;&nbsp;&nbsp; LinearGradient:<br>
+                              Linear gradients blend colors in a
+                              straight line, either horizontally,
+                              vertically or at an angle between two
+                              defined points.<br>
+                              &nbsp;&nbsp;&nbsp; RadialGradient:<br>
+                              This gradient type radiates outward from a
+                              central point, smoothly blending colors in
+                              a circular or elliptical pattern.<br>
+                              &nbsp;&nbsp;&nbsp; SweepGradient:<br>
+                              Sweep gradients blend colors in a circular
+                              pattern around center point, akin to
+                              radial gradient but without the transition
+                              to transparency in the center.<br>
+                              <br>
+                              In Flet, the Border feature allows
+                              customization of a container’s outer
+                              edges, and it has its won customizations<br>
+                              border_radius<br>
+                              The border_radius property defines the
+                              curvature at the meeting point of two
+                              adjacent edges. It is only visible when
+                              the border property is implemented.<br>
+                              <br>
+                              shape = flet.BoxShape<br>
+                              The shape property is used to define the
+                              shape of the container. There are two
+                              shapes available: CIRCLE and RECTANGLE<br>
+                              <br>
+                              image_src = path\to\image<br>
+                              This property adds image to the container.<br>
+                              image_fit = flet.ImageFit<br>
+                              The image_fit specifies how an image
+                              behaves within a container, offering
+                              options such as CONTAIN, COVER, FILL,
+                              FIT_HEIGHT, FIT_WIDTH, NONE and
+                              SCALE_DOWN. .<br>
+                              image_opacity = float<br>
+                              The image_opacity determines the
+                              visibility degree of the image within the
+                              container, requiring a float value.<br>
+                              <br>
+                              on_click = function<br>
+                              The on_click property assigns a callback
+                              function that is triggered whenever any
+                              area within the container is clicked. <br>
+                              <br>
+                              on_hover = function (Desktop only)<br>
+                              The on_hover assigns a callback function
+                              that fires when the mouse passes over the
+                              container’s area<br>
+                              <br>
+                              on_long_press<br>
+                              This method assigns a callback function
+                              which trigger actions whenever the
+                              container is clicked for an extended
+                              period.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">container = flet.Container(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              content= flet.Icon(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+                              name=flet.icons.BOOK<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ),<br>
+                              &nbsp;&nbsp;&nbsp; )&nbsp; <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Card</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A Card control typically
+                              represents a visually distinct and
+                              self-contained component used to display
+                              related content or information. It often
+                              resembles a physical card with rounded
+                              corners, providing a container for content
+                              such as text, images, or other controls.<br>
+                              <br>
+                              a card has a few own attributes:<br>
+                              content = control<br>
+                              The content property adds a child control
+                              to the Card<br>
+                              <br>
+                              elevation = int<br>
+                              The elevation property adds shadow effect
+                              to the Card control.<br>
+                              <br>
+                              shadow_color = string<br>
+                              The shadow_color specifies the Card’s
+                              shadow color.<br>
+                              <br>
+                              surface_tint_color = string<br>
+                              This property adds a faded color to the
+                              background of the Card controls.<br>
+                              <br>
+                              margin = float<br>
+                              The margin method creates a space (top,
+                              right, bottom, left) between the Card and
+                              other controls within the page. Margin can
+                              be set with<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.margin.all(value=float)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.margin.symmetric(vertical,
+                              horizontal)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.margin.only(left=float, top=float,
+                              right=float, bottom=float)<br>
+                              <br>
+                              shape = borders<br>
+                              The shape property is used to define the
+                              shape of the Card. The available shapes
+                              are: flet.RoundedRectangleBorder(type:
+                              str, radius: int)<br>
+                              flet.StadiumBorder(type: str)<br>
+                              flet.CircleBorder(type: str)<br>
+                              flet.BeveledRectangleBorder(type: str,
+                              radius: int)<br>
+                              flet.OutlinedBorder(type: str)<br>
+                              flet.ContinousRectangleBorder(type: str,
+                              radius: int)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">card = flet.Card(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; content=
+                              flet.Text('Hello
+                              World!')&nbsp;&nbsp;&nbsp; )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>ListTile<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">ListTile is a streamlined
+                              row control featuring three essential
+                              elements: the leading, title (or
+                              subtitles) and trailing components. This
+                              versatile control is ideal for crafting
+                              interactive lists, enabling the inclusion
+                              of clickable labels accompanied by icons
+                              or additional controls.<br>
+                              <br>
+                              it has several unique attributes:<br>
+                              leading = Control<br>
+                              This property adds a control at the left
+                              of the ListTile. <br>
+                              <br>
+                              title = Control<br>
+                              This property sets the title of the list
+                              tile. The title shows the purpose of the
+                              list tile. <br>
+                              <br>
+                              trailing = Control<br>
+                              This property appends a control to the
+                              rightmost position of the ListTile.<br>
+                              <br>
+                              subtitle = Control<br>
+                              This property is utilized to provide
+                              additional or supplementary context. <br>
+                              <br>
+                              content_padding = float, flet.padding.all,
+                              flet.padding.only<br>
+                              This property is used to customize the
+                              spacing between the ListTile and its
+                              content. <br>
+                              <br>
+                              bgcolor = string<br>
+                              The bgcolor specifies the background color
+                              of the ListTile.<br>
+                              <br>
+                              bgcolor_activated = string<br>
+                              The bgcolor_activated specifies the
+                              background color when list tile is
+                              clicked.<br>
+                              <br>
+                              hover_color = string<br>
+                              The hover_color property specifies a
+                              temporary background color when the mouse
+                              cursor passes over the ListTile.<br>
+                              <br>
+                              on_click = function<br>
+                              The on_click property assigns a function
+                              that executes when the ListTile is
+                              clicked.<br>
+                              <br>
+                              on_long_press = function<br>
+                              This method assigns a function which
+                              trigger actions whenever the ListTile is
+                              clicked for an extended period.<br>
+                              <br>
+                              is_three_line = bool<br>
+                              The is_three_line property modifies the
+                              appearance of the list tile to accommodate
+                              three lines of content instead of the
+                              default two.<br>
+                              <br>
+                              autofocus = bool<br>
+                              When the autofocus is set to True, the
+                              list tile gains focus automatically.<br>
+                              <br>
+                              url = string<br>
+                              The url property assigns a web URL to the
+                              list tile, enabling it to open a web page
+                              when clicked<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet.ListTile(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              leading= flet.Icon(<br>
+                              &nbsp; name= flet.icons.MESSAGE,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              color=flet.colors.BLUE ),)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>CircleAvatar</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">CircleAvatar is a circular
+                              control that can contain embedded content,
+                              with its size defined by radius.<br>
+                              it has 4 custom attributes:<br>
+                              <br>
+                              content = Control<br>
+                              The content property adds Control to the
+                              circle avatar.<br>
+                              <br>
+                              background_image_url = string<br>
+                              This property specifies the path to the
+                              background image file.<br>
+                              <br>
+                              foreground_image_url = string<br>
+                              This property specifies the path to the
+                              front image file.<br>
+                              <br>
+                              radius = float<br>
+                              The radius sets the radius of the
+                              CircleAvatar, determining its overall
+                              size.<br>
+                              <br>
+                              min_radius = float<br>
+                              This property sets the minimum radius for
+                              the CirlceAvatar, ensuring it does not
+                              shrink below a certain size.<br>
+                              <br>
+                              max_radius = float<br>
+                              This property sets the maximum radius for
+                              the CirlceAvatar, preventing it from
+                              growing beyond a defined size limit.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet.CircleAvatar( content=
+                              flet.Text('This is avatar') )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>ListView</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A ListView is a scrollable
+                              list of controls arranged linearly. It is
+                              highly efficient for displaying large
+                              lists, as it loads items on demand,
+                              ensuring smooth scrolling performance.<br>
+                              <br>
+                              it has a range of unique attributes:<br>
+                              <br>
+                              controls = List[*Control]<br>
+                              A list of controls to display inside the
+                              ListView.<br>
+                              <br>
+                              horizontal = bool<br>
+                              By default, ListView items are vertically
+                              oriented. If the horizontal property is
+                              set to True, items are laid out
+                              horizontally.<br>
+                              <br>
+                              spacing = float<br>
+                              This property sets the horizontal or
+                              vertical gap or space between items in the
+                              ListView<br>
+                              <br>
+                              item_extent = int<br>
+                              This property sets a fixed height or width
+                              (horizontal ListView) of an item to
+                              optimize rendering.<br>
+                              <br>
+                              divider_thickness = float<br>
+                              ListView alternatively creates spaces
+                              between items by implementing the divider.
+                              The divider has a default value of
+                              zero(0).<br>
+                              <br>
+                              padding = float, flet.padding.all,
+                              flet.padding.only<br>
+                              The padding adds space or gap between the
+                              ListView items or content and the edges of
+                              the ListView control<br>
+                              <br>
+                              auto_scroll = bool<br>
+                              If auto_scroll is set to True, it
+                              automatically moves the scrollbar to the
+                              end of the list when children are updated.
+                              Note, it must be False for scroll_to()
+                              method to work<br>
+                              <br>
+                              reverse = bool<br>
+                              This property determines<br>
+                              whether the ListView items are to be
+                              arranged in the opposite way. It is False
+                              by default<br>
+                              <br>
+                              first_item_prototype = bool<br>
+                              If this property is True, the dimensions
+                              of the first item should be used as a
+                              prototype for all other items. i.e. their
+                              height or width will be the same as the
+                              first item. <br>
+                              <br>
+                              on_scroll = function<br>
+                              The on_scroll property assigns a callback
+                              function which triggers action when the
+                              ListView is scrolled<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">list = flet.ListView(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; controls=[<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              flet.Text('1. United Kingdom'),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              flet.Text('2. Ghana'),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              flet.Text('3. Israel'),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]<br>
+                              &nbsp;&nbsp;&nbsp; )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>GridView</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The GridView control is a
+                              scrollable, two-dimensional array of
+                              controls arranged in rows and columns.<br>
+                              <br>
+                              its attributes:<br>
+                              controls = List[Control]<br>
+                              A list of controls to display inside the
+                              GridView.<br>
+                              <br>
+                              max_extent = int<br>
+                              This property sets the maximum height or
+                              width of the grid item.<br>
+                              <br>
+                              horizontal = bool<br>
+                              By default, GridView items are vertically
+                              oriented. If the horizontal property is
+                              set to True, items are laid out
+                              horizontally.<br>
+                              <br>
+                              padding = float, flet.padding.all,
+                              flet.padding.only<br>
+                              The padding adds space between the
+                              GridView items or content and the edges of
+                              the GridView control.<br>
+                              <br>
+                              runs_count<br>
+                              The runs_count defines the number of
+                              children or items in the cross axis.<br>
+                              <br>
+                              spacing = float<br>
+                              The spacing property defines the number of
+                              logical pixels between each child along
+                              the main axis<br>
+                              <br>
+                              run_spacing = float<br>
+                              The run_spacing property defines the
+                              number of logical pixels between each
+                              child along the cross axis.<br>
+                              <br>
+                              auto_scroll = bool<br>
+                              If auto_scroll is set to True, it
+                              automatically moves the scrollbar to the
+                              end of the list when children are updated.
+                              Note, it must be False for scroll_to()
+                              method to work.<br>
+                              <br>
+                              child_aspect_ratio = int<br>
+                              The child_aspect_ratio is the cross-axis
+                              to the main-axis extent of each child.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">gridView = flet.GridView(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; controls=[<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              flet.Text('Grid 1'),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              flet.Text('Grid 2'),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              flet.Text('Grid 3'),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]<br>
+                              &nbsp;&nbsp;&nbsp; )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>ElevatedButton</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The ElevatedButton is a
+                              material design button that has a shadow
+                              effect, giving it a raised or “elevated”
+                              appearance.<br>
+                              for it to work and look good several
+                              attributes are needed:<br>
+                              <br>
+                              text = string<br>
+                              The text property defines the text or
+                              label of the elevated button.<br>
+                              <br>
+                              icon = string<br>
+                              This specifies the icon of the elevated
+                              button<br>
+                              <br>
+                              color = string<br>
+                              The color method defines the color for
+                              both icon and text.<br>
+                              <br>
+                              icon_color = string<br>
+                              This property specifies the color of the
+                              button’s icon.<br>
+                              <br>
+                              bgcolor = string<br>
+                              The bgcolor specifies the background color
+                              of the button.<br>
+                              <br>
+                              bgcolor = string<br>
+                              The bgcolor specifies the background color
+                              of the button.<br>
+                              <br>
+                              elevation = float<br>
+                              The elevation specifies the degree of the
+                              shadow effect.<br>
+                              <br>
+                              on_click = function<br>
+                              The on_click defines a function which get
+                              fired when the button is clicked.<br>
+                              <br>
+                              on_long_press = function<br>
+                              This method defines a function to fire
+                              when the button is long-pressed.<br>
+                              <br>
+                              on_hover = function (Desktop Only)<br>
+                              It assigns a function, which is fired when
+                              the mouse passes over the button.<br>
+                              <br>
+                              adaptive = bool<br>
+                              When this property is True, it allows
+                              platform-specific design for the elevated
+                              button.<br>
+                              <br>
+                              autofocus = bool<br>
+                              When the autofocus is set to True, the
+                              ElevatedButton gains focus automatically.<br>
+                              <br>
+                              url = string<br>
+                              This property connects to the web when the
+                              button is clicked by assigning a web
+                              address.<br>
+                              <br>
+                              content = control<br>
+                              The content property is used in place of
+                              text and icon property to add more complex
+                              controls to the button, such as images and
+                              other controls.<br>
+                              <br>
+                              The ButtonStyle offers more options to use
+                              material deign to customize the button.<br>
+                              color = string<br>
+                              The color method defines the color for
+                              both icon and text.<br>
+                              <br>
+                              bgcolor = string<br>
+                              The bgcolor specifies the background color
+                              of the button.<br>
+                              <br>
+                              overlay_color = string<br>
+                              This defines the background color when the
+                              button is focused or active<br>
+                              <br>
+                              surface_tint_color = string<br>
+                              This property provides a faded background
+                              color to the button.<br>
+                              <br>
+                              elevation = float<br>
+                              The elevation specifies the degree of the
+                              shadow effect.<br>
+                              <br>
+                              padding = float, flet.padding.all,
+                              flet.padding.only<br>
+                              The padding creates space between the
+                              content and edges of the button.<br>
+                              <br>
+                              shape = flet.OutlinedBorder<br>
+                              The shape property defines the shape of
+                              the border. The available shapes include:<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.RoundedRectangleBorder(type: str,
+                              radius: int)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.StadiumBorder(type: str)<br>
+                              &nbsp;&nbsp;&nbsp; flet.CircleBorder(type:
+                              str)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.BeveledRectangleBorder(type: str,
+                              radius: int)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.OutlinedBorder(type: str)<br>
+                              &nbsp;&nbsp;&nbsp;
+                              flet.ContinousRectangleBorder(type: str,
+                              radius: int)<br>
+                              <br>
+                              side = flet.BorderSide<br>
+                              The side property allows customization of
+                              the button edges or the border by
+                              specifying the width and color.<br>
+                              <br>
+                              animation_duration = int<br>
+                              This property specifies the duration of
+                              the click effect in seconds.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet.ElevatedButton(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              text= "click me",<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              icon= flet.icons.WIFI,<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              icon_color= 'orange'<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              )<br>
+                              flet.ElevatedButton(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              text = "start",<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              style= flet.ButtonStyle(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                              color= 'black' ) )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>TextButton</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The TextButton is a
+                              material design button that does not have
+                              any elevation or shadow, making it appear
+                              flat against the interface.<br>
+                              besides the elevation and style the
+                              attributes are the same as the elevated
+                              button.<br>
+                              for textbuttons the icon property can be
+                              used alone unlike elevatedbuttons where
+                              text is required.<br>
+                              <br>
+                              The ButtonStyle offers more options to use
+                              material deign to customize the button
+                              similar to the elevated button.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet.TextButton(text=
+                              "login", )<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>IconButton</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The IconButton is a
+                              material design button that displays an
+                              icon without a label.<br>
+                              the iconbutton has the same attributes as
+                              the elevatedbuttons with the exception of
+                              that it doesnt have the text related
+                              attributes<br>
+                              it does have:<br>
+                              <br>
+                              content = control<br>
+                              The content property is used in place of
+                              icon property to add more complex controls
+                              to the button, such as images and other
+                              controls. This property lets the
+                              IconButton behave like other buttons.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>OutlinedButton</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The OutlinedButton is a
+                              material design button that displays a
+                              border outlined around its content.<br>
+                              the outlinedbutton is the same as the
+                              elevatedbutton but then by default
+                              outlined.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a3 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>RadioButton</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The RadioButton is a
+                              selection control that allows users to
+                              choose one option from a set of mutually
+                              exclusive options.<br>
+                              <br>
+                              it has several attributes to use:<br>
+                              label = string<br>
+                              The label is the text that defines the
+                              main purpose of the radio button.<br>
+                              <br>
+                              label_position<br>
+                              By default, labels are positioned on the
+                              right side of the radio icon The available
+                              options are LEFT, RIGHT, and NONE.<br>
+                              <br>
+                              value = string<br>
+                              The value associated with this radio
+                              button. Each radio button in a group
+                              should have a unique value<br>
+                              <br>
+                              fill_color = string<br>
+                              The color that fills the radio button when
+                              selected.<br>
+                              <br>
+                              active_color = string<br>
+                              The color of the radio button’s outline
+                              when it is selected.<br>
+                              <br>
+                              size = int<br>
+                              This property sets the size of the label.
+                              It requires an integer value.<br>
+                              <br>
+                              color = string<br>
+                              The color property sets the label color.<br>
+                              <br>
+                              bgcolor = string<br>
+                              The bgcolor defines the background color
+                              for the label.<br>
+                              <br>
+                              letter_spacing = int<br>
+                              The letter_spacing defines the spaces
+                              between the characters in the label.<br>
+                              <br>
+                              decoration = flet.TextDecoration<br>
+                              This property decorates label with lines.
+                              Decoration values include UNDERLINE,
+                              OVERLINE, LINE_THROUGH and NONE.<br>
+                              <br>
+                              decoration_style =
+                              flet.TextDecorationStyle<br>
+                              After applying decoration to the label,
+                              decoration_style let you choose line
+                              styles to apply to the text. This includes
+                              WAVY, DASHED, DOTTED, DOUBLE and SOLID.<br>
+                              <br>
+                              decoration_thickness = int<br>
+                              This property is utilized to add boldness
+                              or thickness to text with decorated lines<br>
+                              <br>
+                              RadioGroup is the control that adds and
+                              manages groups of radio buttons, ensuring
+                              that only one radio button in the group
+                              can be selected at any time<br>
+                              content = control<br>
+                              The content property adds a child control
+                              to the RadioGroup typically a layout
+                              control such as Column, Row, ListView, or
+                              GridView which in turn contains the radio
+                              buttons.<br>
+                              <br>
+                              value = string<br>
+                              The value represents the currently
+                              selected Radio value within the
+                              RadioGroup. This property is used to
+                              identify which radio button is selected
+                              and be used to set the initial selected
+                              value or retrieve the selected value for
+                              processing<br>
+                              <br>
+                              on_change = function<br>
+                              This is a callback function that is
+                              triggered when the selected value in the
+                              RadioGroup changes.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">flet.RadioGroup(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              content= flet.Column(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              controls =[<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              flet.Radio(label="Male", value="male",
+                              fill_color='blue'),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              flet.Radio(label="Female", value="female",
+                              fill_color='blue'),<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              ]<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                              )<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              ),<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Checkbox</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
                             </td>
                           </tr>
                         </tbody>
