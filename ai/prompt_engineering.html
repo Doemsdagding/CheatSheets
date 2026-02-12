@@ -123,6 +123,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
+
+
                               message patterns further improve prompt
                               significantly <br>
                             </td>
@@ -197,6 +200,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td rowspan="1" colspan="2" valign="top">Sometimes
+
+
+
 
 
 
@@ -386,6 +392,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
+
+
                               an AI model roleplay a specific role is a
                               good idea in prompt engineering primarily
                               because it establishes a clear context,
@@ -481,7 +490,13 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
+
+
                                 are an experienced database developer </i>with
+
+
+
 
 
 
@@ -902,6 +917,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
+
+
                               XML tags in your prompts is a form of
                               advanced prompt engineering that provides
                               structure, clarity, and control to the
@@ -918,6 +936,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td rowspan="1" colspan="2" valign="top">XML-style
+
+
+
 
 
 
@@ -1020,6 +1041,9 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td rowspan="1" colspan="2" valign="top"><i>&lt;role&gt;
+
+
+
 
 
 
@@ -1145,6 +1169,118 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               number of cars leave. then half of th
                               current numbers of cars arrive. how many
                               cars are there in the parkinglot?<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody> <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container4">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Markdown<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Since models like Gemini
+                              are trained on vast amounts of web content
+                              and code, they are "native speakers" of
+                              Markdown. Using it helps the model
+                              understand the structure, hierarchy, and
+                              intent of your prompt much more reliably.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>How</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">sing headers (#, ##) tells
+                              the model exactly what the "sections" of
+                              your prompt are. It prevents the AI from
+                              getting confused between your instructions
+                              and the data you want it to process. <br>
+                              <br>
+                              Markdown helps you "box in" specific
+                              information. Using Triple Backticks (```)
+                              or Blockquotes (&gt;) is the gold standard
+                              for separating your instructions from the
+                              user input. This prevents "instruction
+                              leakage," where the AI starts following
+                              commands found inside the text you're
+                              asking it to analyze.<br>
+                              <br>
+                              Bolding (**) can draw the model’s
+                              "attention" to critical constraints (e.g.,
+                              "Do not exceed 100 words").<br>
+                              Tables are incredibly effective for
+                              prompting the AI to output data in a
+                              specific format or for providing
+                              many-to-many examples.<br>
+                              <br>
+                              Bullet points and numbered lists are
+                              interpreted as distinct logical steps. If
+                              you give a model a paragraph of five
+                              instructions, it might miss the third one.
+                              If you provide a numbered list, the
+                              model's "attention mechanism" tracks each
+                              item as a separate requirement<br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">#Role: Professional
+                              Copywriter<br>
+                              <br>
+                              ##Task<br>
+                              Please transform the provided raw notes
+                              into a compelling product description for
+                              a website.<br>
+                              <br>
+                              ##Constraints<br>
+                              &nbsp;&nbsp;&nbsp; - **Tone**: Energetic,
+                              professional, and concise.<br>
+                              &nbsp;&nbsp;&nbsp; - **Format**: One
+                              punchy headline followed by 3 bullet
+                              points.<br>
+                              &nbsp;&nbsp;&nbsp; - **Limit**: Maximum
+                              150 words.<br>
+                              &nbsp;&nbsp;&nbsp; - **Strict Rule**: Do
+                              not use the word "revolutionary" or
+                              "game-changing."<br>
+                              <br>
+                              ##Product Details<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; **Product**:
+                              Hydro-Flask 2.0 **Notes**: Keeps water
+                              cold for 48 hours. Made of recycled steel.
+                              New handle design is easier to carry.
+                              Available in 12 colors.<br>
                             </td>
                           </tr>
                         </tbody>
