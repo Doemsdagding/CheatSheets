@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>SQL</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="../script.js"> </script>
+    <style>
+        /* Containers */
+        .container1 {
+            border: 6px solid #004080;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container2 {
+            border: 6px solid #383e4f;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container3 {
+            border: 6px solid #5474cc;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container4 {
+            border: 6px solid #a0b3e8;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+    </style>
+  </head>
+  <body class="light-mode">
+    <!-- Back Button --> <button class="back-button"
+      onclick="window.location.href='../'" title="Back to Home page"> ×
+    </button>
+    <!--ICON-->
+    <svg style="display: none;">
+      <symbol id="myBase64Image" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <svg style="display: none;">
+      <symbol id="redshiftlgo" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button"
+      onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+        class="icon"></span> </button>
+    <!--PRINT BUTTON--> <button class="print-button" onclick="if
+      (document.body.classList.contains('dark-mode')) toggleMode();
+      window.print();" title="Print this page"> <span class="icon">🖨️</span>
+    </button>
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+      <div class="modal-content"> <button class="modal-close"
+          onclick="closeModal()" title="close modal">×</button>
+        <!--next and back buttons--> <button class="modal-back"
+          onclick="previousModal()" title="previous modal">&lt;</button>
+        <button class="modal-next" onclick="nextModal()" title="next
+          modal">&gt;</button> </div>
+    </div>
+    <!-- Swipe Hint -->
+    <div id="swipe-hint" style="display: none; position: fixed; bottom:
+      30px; left: 50%; transform: translateX(-50%); background-color:
+      rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px;
+      border-radius: 10px; font-size: 30px; z-index: 2000; text-align:
+      center; justify-content: center; align-items: center;"> Swipe left
+      or right to navigate </div>
+    <!--HEADER h1-->
+    <h1>SQL– INTRODUCTION
+      <svg width="55" height="55">
+        <use href="#redshiftlgo"></use> </svg> </h1>
+    <!-- page 1 -->
+    <table style="width: 765px; height: 898px;">
+      <tbody>
+        <tr>
+          <td style="width: 375px; padding-right: 0px;word-break:
+            break-word; ">
+            <!-- left side -->
+            <table style="width: 375px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container2">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>SQL</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">sql can be used to query a
+                              sqldatabase which is a structured database
+                              which stores data in the form of tables
+                              ,rows and columns. sql has several flavors
+                              each slightly different but at the same
+                              too e.g. you have PostgreSQL used for
+                              prostgres database and T-SQL for microsoft
+                              sql server<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">tables<br>
+                            </td>
+                            <td valign="top">table names should be in
+                              lower case and use _ instead of spaces.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">columns<br>
+                            </td>
+                            <td valign="top">column name should be in
+                              lower case and use _ instead of spaces and
+                              should unique and be written in singular
+                              rather than plural (if a space is used in
+                              t-sql use [&lt;column name&gt;] in
+                              postgresql use "column name" <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">schema<br>
+                            </td>
+                            <td valign="top">schema references 2 thing
+                              the grouping of the tables by default
+                              "dbo" and the blueprint of the table it
+                              self containing the field names and its
+                              data types<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <!--cell a2 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td colspan="2">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Query</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2"> a query is used to retrieve
+                              data from a table it generally starts with
+                              "select" than column names or "*" for all
+                              column and then the "from" clause and
+                              joins to indicate from which table data
+                              should come and end with an ";" <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="2">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">select
+
+
+
+
+
+
+
+
+
+
+
+                              *<br>
+                              from table_a<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>aliasing</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">to
+                              make column names unique or just to create
+                              more clearity while querying the "as" can
+                              be used after a field name to alias it in
+                              the result.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">select<br>
+                              name as employee_name<br>
+                              from table_a ;<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>distinct and top/limit</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">right
+
+
+
+
+
+
+
+
+
+
+
+                              after the "select" you can add additional
+                              keywords to manipulate the result by
+                              adding "distinct" the result will only
+                              return unique rows.<br>
+                              by adding "top &lt;number&gt;" the result
+                              will only containing the indicated amount
+                              of rows (or less if there are less).<br>
+                              (for t-sql top is used for postgresql
+                              limit is used<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">select
+
+
+
+
+
+
+
+
+
+
+                              distinct years from table_a;<br>
+                              <font color="#666666">#t-sql</font><br>
+                              select top 10 years from table_a;<br>
+                              <font color="#666666">#postgresql</font><br>
+                              select years from table_a limit 10;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 199px; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right side -->
+            <table none="" style="width: 316px; height: 839px;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell b1 -->
+                    <div class="container3">
+                      <table class="inner" style="width: 357px; height:
+                        684px;">
+                        <tbody>
+                          <tr>
+                            <td style="text-align: center;" colspan="2">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Data types<br>
+                                  </h2>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <h3>Data type</h3>
+                            </td>
+                            <td>
+                              <h3>description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>varchar(1-max)<br>
+                            </td>
+                            <td>text data with a specific length does
+                              not support unicode characters<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>nvarchar(1-max)</td>
+                            <td>ext data with a specific length supports
+                              unicode characters</td>
+                          </tr>
+                          <tr>
+                            <td>text</td>
+                            <td>stores even longer string data but
+                              harder to deal with cause less functions
+                              work on it<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>int<br>
+                            </td>
+                            <td>numbers <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>numeric/decimal(lenght number, lenght
+                              decimal number)</td>
+                            <td>decimal numbers<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">date(YYYY-MM-DD)</td>
+                            <td valign="top">holds a date<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">datetime(YYYY-MM-DD
+                              hh:mm:ss)<br>
+                            </td>
+                            <td valign="top">holds a data and time<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>views</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">a view is a saved sql query
+                              that acts like a table they do not store
+                              data they store a query.you create one
+                              using the "create view &lt;name&gt; as
+                              &lt;query&gt;" command<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">create view
+                              employee_hire_years as<br>
+                              select id, name, year_hired <br>
+                              from employees;<br>
+                              <br>
+                              select * from employee_hire_years;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>count()</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">count is a function that
+                              returns the number of records with a value
+                              in a field (often combined with groupby to
+                              return aggregated counts per group rather
+                              than just total rows thatare not empty).<br>
+                              count(*) can be used to count total
+                              records in a table rather than non empty
+                              values in a column<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select count(birthdate) as
+                              count_birthdates from people;<br>
+                              select count(*) as total_records from
+                              people;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>aggregate function<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">besides "count" there are
+                              additional aggregate functions being
+                              "avg()" =returns the average, (only
+                              numerical data)<br>
+                              &nbsp;"sum()"= returns the summed total,
+                              (only numerical data)<br>
+                              &nbsp;"min()", returns the lowest value"<br>
+                              max()" = returns the highest value<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select min(budget) from
+                              films;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Round()</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">"round(&lt;column/float&gt;,
+
+
+
+
+
+
+                              &lt;decimal_places&gt;)" is sued to round
+                              a number to a specified decimal. <br>
+                              when providing it with a negative decimal
+                              palaces variable ti rounds the other way
+                              rather than decimal points to whole
+                              numbers e.g -5 would round to 100.000<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select round(avg(budget),
+                              2) as avg_budget from files;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Math</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">in sql you can still use
+                              math like doing "+", "-", "*","/"<br>
+                              if you devide an int it will return an int
+                              if you devide a decimal it will return a
+                              decimal.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select (4+3);<br>
+                              select (4.0 /3.0)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td rowspan="1" colspan="2">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>where</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">there
+
+
+
+
+
+
+
+
+
+                              "where" clause together with comparison
+                              operators can be used to filter results. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">select
+
+
+
+
+
+
+
+
+
+                              * from table_a where table_a.column_a =
+                              'test';<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>comparison operator</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; =
+                              &lt;column/value&gt;</td>
+                            <td valign="top">equal<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; &lt;
+                              &lt;column/value&gt;</td>
+                            <td valign="top">smaller then<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; &gt;
+                              &lt;column/value&gt;</td>
+                            <td valign="top">larger then<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; =&lt;
+                              &lt;column/value&gt;</td>
+                            <td valign="top">equal or smaller then<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; =&gt;
+                              &lt;column/value&gt;</td>
+                            <td valign="top">equal or lager then<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt;&lt;&gt; / !=
+                              &lt;column/value&gt;<br>
+                            </td>
+                            <td valign="top">not euqal to (make sure you
+                              dont compare to nulls<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; like
+                              '%&lt;t_xt%'<br>
+                            </td>
+                            <td valign="top">used for string comparison
+                              only it uses the wild cards<br>
+                              % = any lenght wildcard<br>
+                              _ = single character wild card<br>
+                              to check if part of a string equal to the
+                              value they are case sensitive<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; not like
+                              '%&lt;t_xt%'</td>
+                            <td valign="top">&nbsp;opposite of the like
+                              operator<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; in
+                              (&lt;value1&gt;, &lt;value2&gt; .. ) /
+                              (&lt;a query&gt;)<br>
+                            </td>
+                            <td valign="top">&nbsp;check if a value of a
+                              column is in the given list of values
+                              instead of a fixed list a list in the form
+                              of a single column tha results from a
+                              query can be used too.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; not in
+                              (&lt;value1&gt;, &lt;value2&gt; .. )/
+                              (&lt;a query&gt;)<br>
+                            </td>
+                            <td valign="top">opposite of the in operator<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; is null<br>
+                            </td>
+                            <td valign="top">only returns true when
+                              column is empty filled with null<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; is not null<br>
+                            </td>
+                            <td valign="top">opposite of the is null<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>multiple criteria</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">additionally
+
+
+
+
+
+
+
+
+
+                              "or", "and", "between" can be used to use
+                              multiple where queries at once.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">select
+
+
+
+
+
+
+
+
+
+                              * from table_a where table_a.column_a =
+                              'test' or column_b = 'test'; additionally
+                              you can use "()" like math to check
+                              certain combinations first before checking
+                              the other<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>operator</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>description</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;comparison query&gt;
+                              and &lt;comparison query&gt;</td>
+                            <td valign="top">both queries need to be
+                              true for the row to be returned<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;comparison query&gt; or
+                              &lt;comparison query&gt;</td>
+                            <td valign="top">either query needs to be
+                              true for the row to be returned<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;column&gt; between
+                              &lt;variable&gt; and &lt;variable&gt;<br>
+                            </td>
+                            <td valign="top">returns true if the clumn
+                              value is between the two set variabls (it
+                              is inclusive query so =&gt; and =&lt;)<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 3 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>order by<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To sort the results the
+                              "order by" clause can be used by default
+                              it is set to "asc" but by adding "desc"
+                              behind it it will order in descending
+                              order.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select title, budget<br>
+                              from films<br>
+                              order by budget, release_year desc;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>group by<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to aggreagte the data it
+                              self the "group by" clause can be used.
+                              any field that you select onwhich no
+                              aggregate function is applied should be in
+                              the group by clause when querying.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select certification,
+                              count(title) as title_count<br>
+                              from films<br>
+                              group by certification;<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>filtering groups</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">while you pre filter the
+                              data using a "where" clause before the
+                              group by is applied in order to filter the
+                              group it self the "having" clause is used.
+                              it works the same way but then you use
+                              having instead of where.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select <br>
+                              release_year, count(title) as title_count
+                              <br>
+                              from films<br>
+                              group by release_year<br>
+                              having count(title) &gt; 10;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>set operations<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">sql has 3 set operations
+                              being "union", "intersect" "except" used
+                              to combine the results from multiple
+                              queries. it requires the same amount of
+                              columns for each query as it doesn't add
+                              columns just rows together<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>union</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the "union" set operator is
+                              used to combine the results of the queries
+                              keeping all records (expect duplicates )
+                              of both queries<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select * from left_table<br>
+                              union<br>
+                              select * from right_table;<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>union all</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the "union all" is the same
+                              as union but where union removes the
+                              duplicate rows and the union al keeps the
+                              duplicate rows.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select * from left_table<br>
+                              union all<br>
+                              select * from right_table;</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>intersect</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">intersect takes two results
+                              as input and returns only the records that
+                              exist in both results<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select id, val from
+                              left_table<br>
+                              intersect<br>
+                              select id, val from right_table<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Except</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">except allows to filter the
+                              first result to keep only the records that
+                              are unique to the first result and dont
+                              exist in the second result<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select monarch,country from
+                              monarchs <br>
+                              except<br>
+                              select prime_minister, country from
+                              prime_ministers;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>joins</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">often more than one table
+                              is required for a query for this joins are
+                              used. <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>inner join</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The "inner join
+                              &lt;table&gt; as &lt;alias&gt; on
+                              &lt;column&gt; &lt;comparison oerpator&gt;
+                              &lt;column&gt;"&nbsp; joins the two tables
+                              but only returns the records of the left
+                              table of which the on statement resturns
+                              true ( can create duplicate rows)&nbsp; in
+                              postgres when the column name is the same
+                              the using clause can be used<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#
+                                t-sql and psotgres</font><br>
+                              select * <br>
+                              from presidents as p1<br>
+                              inner join prime_ministers as p2 on
+                              p1.country = p2.country<br>
+                              <br>
+                              <font color="#666666">#postgress </font><br>
+                              select * <br>
+                              from presidents as p1<br>
+                              inner join prime_ministers<br>
+                              using(country);<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>left join</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The "inner join
+                              &lt;table&gt; as &lt;alias&gt; on
+                              &lt;column&gt; &lt;comparison oerpator&gt;
+                              &lt;column&gt;" returns all records of the
+                              left table no matter if the on statement
+                              is true or not. (can create duplicate
+                              rows) in postgres when the column name is
+                              the same the using clause can be used</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select * <br>
+                              from presidents as p1<br>
+                              &nbsp; left join prime_ministers as p2 on
+                              p1.country = p2.country<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>right join</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">right join does the reverse
+                              of left join keeping all the records of
+                              the right table and adding the data from
+                              the left table to it<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select * <br>
+                              from presidents as p1<br>
+                              &nbsp; right join prime_ministers as p2 on
+                              p1.country = p2.country<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>full join</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">full join is left and right
+                              join combined resulting in that all data
+                              from both left and right tables are
+                              combined into one table .<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select * <br>
+                              from presidents as p1<br>
+                              &nbsp; full join prime_ministers as p2 on
+                              p1.country = p2.country</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>cross join</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cross join doesnt have an
+                              on clause as it joins every combination
+                              with every combination.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select id1, id2<br>
+                              from table1<br>
+                              cross join table2;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 tree columns under each other-->
+    <table style="width: 765px; height: 998px;">
+      <tbody>
+        <tr>
+          <td style="width: 765px;">
+            <!-- single row -->
+            <table width="765">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell a1 -->
+                    <div class="container1">
+                      <table class="inner">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Nested queries<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">there are several methods
+                              to apply nested quries inside quries.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>inside in operator (and not in)<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">instead of providing the in
+                              clause with a list you can provide with a
+                              column instead supplied by a query.&nbsp;
+                              to filter on just the result of the query.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select country, president <br>
+                              from presidents<br>
+                              where country not in ( <br>
+                              select country from states )<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>outer apply</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">an outer apply is used to
+                              nest a query inside a join but the query
+                              will be ran for each row seeratly in a
+                              loop. its generally used in combination
+                              with top to only add 1 specific data set
+                              to a row its acts as a left join.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">SELECT <br>
+                              &nbsp;&nbsp;&nbsp; d.DepartmentName,<br>
+                              &nbsp;&nbsp;&nbsp; e.EmployeeName,<br>
+                              &nbsp;&nbsp;&nbsp; e.HireDate<br>
+                              FROM Departments d<br>
+                              OUTER APPLY (<br>
+                              &nbsp;&nbsp;&nbsp; SELECT TOP 1
+                              EmployeeName, HireDate<br>
+                              &nbsp;&nbsp;&nbsp; FROM Employees<br>
+                              &nbsp;&nbsp;&nbsp; WHERE DepartmentId =
+                              d.DepartmentId<br>
+                              &nbsp;&nbsp;&nbsp; ORDER BY HireDate DESC<br>
+                              ) AS e;<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>cross apply</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">cross apply is the same as
+                              an outer apply but then it acts like an
+                              inner join<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">SELECT <br>
+                              &nbsp;&nbsp;&nbsp; d.DepartmentName,<br>
+                              &nbsp;&nbsp;&nbsp; e.EmployeeName,<br>
+                              &nbsp;&nbsp;&nbsp; e.HireDate<br>
+                              FROM Departments d<br>
+                              CROSS APPLY (<br>
+                              &nbsp;&nbsp;&nbsp; SELECT TOP 1
+                              EmployeeName, HireDate<br>
+                              &nbsp;&nbsp;&nbsp; FROM Employees<br>
+                              &nbsp;&nbsp;&nbsp; WHERE DepartmentId =
+                              d.DepartmentId<br>
+                              &nbsp;&nbsp;&nbsp; ORDER BY HireDate DESC<br>
+                              ) AS e;<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>exists</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">exsits can be added to the
+                              where clause to filter the table on the
+                              existence of a connection without adding
+                              the data to the original table.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">SELECT <br>
+                              &nbsp;&nbsp;&nbsp; d.DepartmentName<br>
+                              FROM Departments d<br>
+                              WHERE EXISTS (<br>
+                              &nbsp;&nbsp;&nbsp; SELECT 1 <br>
+                              &nbsp;&nbsp;&nbsp; FROM Employees e <br>
+                              &nbsp;&nbsp;&nbsp; WHERE e.DepartmentId =
+                              d.DepartmentId <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AND
+                              e.HireDate &gt;= '2024-01-01' <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AND
+                              e.HireDate &lt;= '2024-12-31'<br>
+                              );<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>inside select, where and from <br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">by using brackets and an
+                              alias you can put sub queries inside a
+                              select statement. unlike the outer apply
+                              the nested query is executed all together
+                              and stored in work memory rather than
+                              executing it for each row.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select distinct
+                              continent,&nbsp; ( select count(*) from
+                              monarchs where states.continent =
+                              monarch.continent) as monarch_count<br>
+                              from states;<br>
+                              <br>
+                              SELECT * FROM populations<br>
+                              WHERE year = 2015&nbsp; AND
+                              life_expectancy &gt; 1.15 * &nbsp; (SELECT
+                              AVG(life_expectancy)<br>
+                              &nbsp;&nbsp; FROM populations&nbsp; WHERE
+                              year = 2015)&nbsp; AND year = 2015;<br>
+                              <br>
+                              SELECT local_name, sub.lang_num<br>
+                              FROM countries,<br>
+                              &nbsp;&nbsp;&nbsp; (SELECT code, COUNT(*)
+                              AS lang_num<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; FROM languages<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; GROUP BY code) AS
+                              sub&nbsp; <br>
+                              WHERE countries.code = sub.code<br>
+                              ORDER BY lang_num DESC;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <footer style="text-align: center; margin-top: 20px;">
+      <h3 style="text-align: center;"> This website is a collection of
+        my personal study notes, created to help me and others learn and
+        organize information effectively. Feel free to <strong>download</strong>,
+        <strong>print</strong>, or <strong>use</strong> any of the
+        notes for your own purposes. </h3>
+      <p style="text-align: center;"> <br>
+        Want to keep your own notes in the same format? Check out the <a
+          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+          text-decoration: underline;">Notes Template</a>! </p>
+      <p style="text-align: center;"> Interested in forking this
+        website? Visit my <a
+          href="https://github.com/Doemsdagding/CheatSheets"
+          target="_blank" style="color: #1E90FF; text-decoration:
+          underline;">GitHub Repository</a> to get the full source code.
+      </p>
+      <p style="text-align: center;"> Happy learning and dont forget to
+        share, follow and star the repository! -DoemsDagDing </p>
+    </footer>
+  </body>
+</html>
