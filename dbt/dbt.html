@@ -143,14 +143,18 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               encompasses all components for working
                               with data. this is achieved through a
                               structured collection of files that define
-                              how to transformat and organize the data.it
-                              contains the information of where the data
-                              comes from and where it goes. it also
-                              includes the sql queries and templates
-                              that define how to access tand transform
-                              the data in the dsried
+                              how to transformat and organize the
+                              data.it contains the information of where
+                              the data comes from and where it goes. it
+                              also includes the sql queries and
+                              templates that define how to access tand
+                              transform the data in the dsried
                               formats.additionally it contains the
                               documentation.<br>
+                              <br>
+                              information related to a project such a
+                              name, version and directory locations is
+                              managed inside the dbt_project.yml<br>
                             </td>
                           </tr>
                           <tr>
@@ -201,6 +205,16 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               there are no errors in the project.<br>
                             </td>
                           </tr>
+                          <tr>
+                            <td valign="top">dbt run -f<br>
+                            </td>
+                            <td valign="top">subcommand to execute a
+                              model. if -f is added to the run command
+                              the model will be regenreated rather than
+                              used from cache (use when changes are not
+                              visible).<br>
+                            </td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -222,7 +236,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell A2</h2>
+                                  <h2>model</h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -235,6 +249,39 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">a data model is the
+                              organization and interpation of a dataset
+                              aka (database table, dataframe ect) in dbt
+                              it also represents the transformation
+                              performed on raw source datasets ( in the
+                              form of sql or ptyhon scripts) <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>creating a model</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">1: createa directory in the
+                              model directory (mkdir)<br>
+                              2: create a .sql file in the directory
+                              (touch)<br>
+                              3. add sql select statement to file<br>
+                              4. create model_properties.yml and add
+                              documentation<br>
+                              5 run "dbt run" to executer<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">the documentation of the
+                              model and other information and details
+                              are stored in model_properties.yml (can be
+                              named anything as long as it is a yaml
+                              file)<br>
                             </td>
                           </tr>
                         </tbody>
@@ -262,7 +309,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell B1</h2>
+                                  <h2>dbt docs<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -275,6 +323,35 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">dbt can automatically
+                              generate&nbsp; documentation (website) to
+                              the project using the "dbt docs" command.
+                              while serve can be used for development
+                              using something like nginx to hosted
+                              somwhere is an recommended strategy.<br>
+                              without adding documentation to tests
+                              models ect it wont show much.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>command flags and sub commands<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">dbt docs -h =&nbsp; aka
+                              help giving description of all available
+                              flags and subcommands<br>
+                              <br>
+                              dbt docs generate = creates the document
+                              website based on project <br>
+                              dbt docs serve = starts a webserver on the
+                              local system to provide access to the
+                              generated documetnation.<br>
                             </td>
                           </tr>
                         </tbody>
