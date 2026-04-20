@@ -655,6 +655,99 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                 </tr>
               </tbody>
             </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Tests 4: generic tests<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">a generic tests or reusable
+                              tests can be used in multiple situations
+                              and is always written as a jinja template.
+                              with a .sql extention and placed in the
+                              tests/generic directory.<br>
+                              <br>
+                              to apply the test to a model the test
+                              needs to be added to the
+                              model_properties.yml for each model that
+                              uses it (just like the built in tests)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">test need to start with the
+                              word "test
+                              &lt;test_name&gt;(&lt;variables&gt;)" in
+                              the jinja header and end with "{% endtest
+                              %}"<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#sql</font><br>
+                              {% test columns_equal(model, column_name,
+                              column_name2) %}<br>
+                              select *<br>
+                              from {{ model }}<br>
+                              where {{ column_name }} = {{ column_name2
+                              }}<br>
+                              {% endtest %}<br>
+                              <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#.yml</font><br>
+                              version: 2<br>
+                              <br>
+                              models:<br>
+                              - name: taxi_rides_raw<br>
+                              &nbsp; columns:<br>
+                              &nbsp;&nbsp;&nbsp; - name:
+                              tpep_pickup_datetime<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tests:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              - columns_equal:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              column_name2: tpep_dropoff_datetime<br>
+                              <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </td>
           <td style="width: 50%; padding-left: 0px; word-break:
             break-word;">
@@ -673,7 +766,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>tests 2: build in tests<br>
+                                  <h2>Tests 2: build in tests<br>
                                   </h2>
                                 </div>
                                 <div style="position: absolute; right:
@@ -747,16 +840,26 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               tests:<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
                               - not_null<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - name:
                               payment_type<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
                               tests: <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
                               - not_null<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
                               - accepted_values:<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
                               values: [1, 2, 3, 4, 5, 6]</td>
                           </tr>
                         </tbody>
@@ -780,7 +883,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
-                                  <h2>Cell B2</h2>
+                                  <h2>Tests 3: singular tests<br>
+                                  </h2>
                                 </div>
                                 <div style="position: absolute; right:
                                   -28px; top: -28px; z-index: 1;">
@@ -793,6 +897,38 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                     <use href="#myBase64Image"></use> </svg>
                                 </div>
                               </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Singular tests are sql
+                              qeuries in the .sql format placed in the
+                              "tests" directory. <br>
+                              * the tests need to return the rows that
+                              fail the condition<br>
+                              * much like when writing models jinja can
+                              be used for tests aswell<br>
+                              * the name of the tests dont have to be
+                              unique <br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To run individual tests use
+                              the "dbt tests --select &lt;testname&gt;"
+                              terminal function<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select * from order where
+                              order_total &lt; subtotal <br>
+                              <font color="#666666">#jijna template as
+                                test</font><br>
+                              select * from {{ ref('order')}} where
+                              order_total &lt; subtotal<br>
                             </td>
                           </tr>
                         </tbody>
