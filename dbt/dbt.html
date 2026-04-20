@@ -375,6 +375,411 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 justify-content: center; align-items:
                                 center; position: relative;">
                                 <div style="text-align: center;">
+                                  <h2>Jinja</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">while using dbt jnja
+                              templates can be used to standardise and
+                              template queries, for this dbt added a few
+                              custom functions to be used with jinja.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>ref()</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">This is the most important
+                              function in dbt. Instead of hard-coding
+                              table names (like analytics.orders), you
+                              use ref.<br>
+                              It looks up the name of a model and tells
+                              dbt that this specific SQL file depends on
+                              another one.<br>
+                              it is thus indicates that this model
+                              requires the output of the indicated
+                              model.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">SELECT * FROM {{
+                              ref('stg_orders') }}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>config()</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The config function is used
+                              at the top of a SQL file to tell dbt how
+                              this specific model should be built in the
+                              database.<br>
+                              It sets metadata like whether the model
+                              should be a Table, a View, or an
+                              Incremental build. It can also set tags or
+                              database-specific settings like
+                              partitions. You keep the configuration
+                              right next to the code it affects.<br>
+                              <br>
+                              the schema definition is used to define in
+                              which schema the output should be written
+                              to.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">{{
+                              config(materialized='view',
+                              schema='finance') }}<br>
+                              <br>
+                              SELECT <br>
+                              &nbsp;&nbsp;&nbsp; order_id,<br>
+                              &nbsp;&nbsp;&nbsp; status<br>
+                              FROM {{ ref('raw_orders') }}<br>
+                              WHERE status = 'completed'<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>doc()</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">he doc function allows you
+                              to pull in long-form descriptions from
+                              separate Markdown files into your
+                              project’s documentation.<br>
+                              It acts as a placeholder that gets
+                              replaced by the text content of a
+                              documentation block you've defined
+                              elsewhere. <br>
+                              <br>
+                              It keeps your YAML files clean. Instead of
+                              writing a 5-paragraph description in a
+                              configuration file, you write it in
+                              Markdown and "call" it.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">description: "{{
+                              doc('orders_table_description') }}"<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Jinja 2: DAG<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A dag aka directed acyclic
+                              graph are used to define the hierarchy in
+                              dbt. in dbt it allows model to be built/
+                              updated according to their dependencies.
+                              (aka in which order to execute the
+                              scripts) this is visualised using a
+                              lineage graph. <br>
+                              <br>
+                              Without a a DAG the models will be built
+                              in alphabetical order.<br>
+                              <br>
+                              the hierarchies are defined in dbt inside
+                              the model defintion (.sql) files. this is
+                              done through using the ref() function<br>
+                              <br>
+                              to see the DAG using the dbt docs geernate
+                              and dbt docs serve documentation functions
+                              the lineage graph can be found under the
+                              blue circle icon in the bottom right
+                              corner of the documentation website.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example (hierarchy)</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select first_name,
+                              last_name from {{ref('taxi_rides_raw') }}<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Tests</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">dbt offers tests for null
+                              values, veryfing the values are in a range
+                              or the relationships between data. dbt
+                              offers three kinds of tests<br>
+                              1. built-in, 2. signular, 3. generic<br>
+                              <br>
+                              model test are stored inside the model
+                              directory and in the
+                              model/model_properties.yml file.<br>
+                              The tests are defined under the tests
+                              subheading, under hte oclumn name option
+                              within the yaml.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Running tests<br>
+                              </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">running tests is done
+                              through cmd using the "dbt test" command<br>
+                              by adding the flag "--select
+                              &lt;modelname&gt;"&nbsp; the tests for a
+                              specific model can be ran.<br>
+                              The output will show if a test succeeded
+                              or failed.<br>
+                              <br>
+                              Than by going to the
+                              "target/compiled/&lt;projedtname&gt;/models/model_propeerties.yml"
+                              directory and copying the failed generated
+                              .sql file and running this inside the
+                              database failure cases can be found.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>tests 2: build in tests<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">there are 4 built-in tests
+                              in dbt.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>unique </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">verify all values are
+                              unique</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>not_null </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">verify all values are not
+                              null</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>accepted_values </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">verity all values are
+                              within a specific list (values: [a, b, c,
+                              d])</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>relationships </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">verifies a connecion to a
+                              specific table/ column ( t: ref
+                              ('table')&nbsp; field: id)</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">version: 2<br>
+                              <br>
+                              models:<br>
+                              &nbsp; - name: taxi_rides_raw<br>
+                              &nbsp;&nbsp;&nbsp; columns: <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - name:
+                              tpep_pickup_datetime<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              tests:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              - not_null<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - name:
+                              payment_type<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              tests: <br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              - not_null<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              - accepted_values:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              values: [1, 2, 3, 4, 5, 6]</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
                                   <h2>Cell B2</h2>
                                 </div>
                                 <div style="position: absolute; right:

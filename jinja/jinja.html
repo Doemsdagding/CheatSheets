@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>JINJA</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="../script.js"> </script>
+    <style>
+        /* Containers */
+        .container1 {
+            border: 6px solid #004080;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container2 {
+            border: 6px solid #383e4f;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container3 {
+            border: 6px solid #5474cc;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+
+        .container4 {
+            border: 6px solid #a0b3e8;
+            border-radius: 7px;
+            padding: 3px;
+
+        }
+    </style>
+  </head>
+  <body class="light-mode">
+    <!-- Back Button --> <button class="back-button"
+      onclick="window.location.href='../'" title="Back to Home page"> ×
+    </button>
+    <!--ICON-->
+    <svg style="display: none;">
+      <symbol id="myBase64Image" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <svg style="display: none;">
+      <symbol id="redshiftlgo" viewBox="0 0 1 1">
+        <image
+href="data:image/png;base64,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"
+          width="1" height="1"></image> </symbol> </svg>
+    <!--TOGGLE BUTTON--> <button class="toggle-button"
+      onclick="toggleMode()" title="Toggle Dark/Light Mode"> <span
+        class="icon"></span> </button>
+    <!--PRINT BUTTON--> <button class="print-button" onclick="if
+      (document.body.classList.contains('dark-mode')) toggleMode();
+      window.print();" title="Print this page"> <span class="icon">🖨️</span>
+    </button>
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+      <div class="modal-content"> <button class="modal-close"
+          onclick="closeModal()" title="close modal">×</button>
+        <!--next and back buttons--> <button class="modal-back"
+          onclick="previousModal()" title="previous modal">&lt;</button>
+        <button class="modal-next" onclick="nextModal()" title="next
+          modal">&gt;</button> </div>
+    </div>
+    <!-- Swipe Hint -->
+    <div id="swipe-hint" style="display: none; position: fixed; bottom:
+      30px; left: 50%; transform: translateX(-50%); background-color:
+      rgba(0, 0, 0, 0.7); color: white; padding: 20px 40px;
+      border-radius: 10px; font-size: 30px; z-index: 2000; text-align:
+      center; justify-content: center; align-items: center;"> Swipe left
+      or right to navigate </div>
+    <!--HEADER h1-->
+    <h1>JINJA – INTRODUCTION
+      <svg width="55" height="55">
+        <use href="#redshiftlgo"></use> </svg> </h1>
+    <!-- page 1 -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td rowspan="1" colspan="2">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>JINJA</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">jinja
+
+
+
+
+
+
+
+
+
+                              is a simple text based templating language
+                              used in many tools like dbt,flask, django
+                              and airflow. instead of writing a 100
+                              pages you write a single template.<br>
+                              <br>
+                              each template is writting using delmiters<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Common Delimiters</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Delimiter</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>Explanation</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">{{ &lt;expression&gt; }}<br>
+                            </td>
+                            <td valign="top">Used to print and indicate
+                              a variable or the result of a calculation.
+                              Think of this as "Output."<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">{% &lt;statement&gt; %}<br>
+                            </td>
+                            <td valign="top">Used for logic, such as
+                              loops, if-statements, and template
+                              inheritance. Think of this as "Logic.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">{# &lt;comment&gt; #}<br>
+                            </td>
+                            <td valign="top">Anything inside these
+                              symbols will be ignored by the engine.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Using variables<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Variables are passed from
+                              your Python code into the template. You
+                              access them by wrapping the variable name
+                              in double curly braces. You can also
+                              access attributes of an object or keys in
+                              a dictionary using a "dot" notation.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>jinja</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Hello {{ user.name }}!<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>python</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">user = {'name': 'robin'}</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>output</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Hello robin!<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>If-statement</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">an if statement you start
+                              with an if condition than optionaly an
+                              elif and always ending with an endif.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">{% if user.role == 'admin'
+                              %}<br>
+                              &nbsp; &lt;p&gt;Hello, Administrator.
+                              Access granted to the dashboard.&lt;/p&gt;<br>
+                              {% elif user.role == 'editor' %}<br>
+                              &nbsp; &lt;p&gt;Hello, Editor. You can
+                              view and change posts.&lt;/p&gt;<br>
+                              {% elif user.is_logged_in %}<br>
+                              &nbsp; &lt;p&gt;Welcome back,
+                              Guest!&lt;/p&gt;<br>
+                              {% else %}<br>
+                              &nbsp; &lt;p&gt;Please log in to see your
+                              profile.&lt;/p&gt;<br>
+                              {% endif %}<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td rowspan="1" colspan="3">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Operations</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">jinja
+
+
+
+
+
+
+
+                              supports most common operations and a few
+                              special once.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Comparison operators</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Operator</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>Description</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">==<br>
+                            </td>
+                            <td valign="top">equal to<br>
+                            </td>
+                            <td valign="top">{% if status == 'active' %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">!=<br>
+                            </td>
+                            <td valign="top">not equal to<br>
+                            </td>
+                            <td valign="top">{% if user != 'admin' %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&gt;<br>
+                            </td>
+                            <td valign="top">&nbsp;greater than<br>
+                            </td>
+                            <td valign="top">{% if score &gt; 80 %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&gt;=<br>
+                            </td>
+                            <td valign="top">greater than or equal to<br>
+                            </td>
+                            <td valign="top">{% if age &gt;= 18 %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;<br>
+                            </td>
+                            <td valign="top">less than<br>
+                            </td>
+                            <td valign="top">{% if price &lt; 10.00 %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;=<br>
+                            </td>
+                            <td valign="top">less than or equal to<br>
+                            </td>
+                            <td valign="top">{% if count &lt;= 5 %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;variable&gt;<br>
+                            </td>
+                            <td valign="top">by not using a operator it
+                              checks if the variable is not null<br>
+                            </td>
+                            <td valign="top">{% if messages %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Logical operators</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">and<br>
+                            </td>
+                            <td valign="top">Returns true if both
+                              statements are true<br>
+                            </td>
+                            <td valign="top">{% if user.is_logged_in and
+                              user.is_banned %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">or<br>
+                            </td>
+                            <td valign="top">Returns true if at least
+                              one statement is true<br>
+                            </td>
+                            <td valign="top">{% if user.is_logged_in or
+                              user.is_banned %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">not<br>
+                            </td>
+                            <td valign="top">Negates a statement (turns
+                              true to false and vice versa)</td>
+                            <td valign="top">{% if user.is_logged_in and
+                              not user.is_banned %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="3" valign="top">
+                              <h3>Membership&nbsp; operators</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">in<br>
+                            </td>
+                            <td valign="top">Checks if a value exists
+                              inside a list, dictionary, or string.<br>
+                            </td>
+                            <td valign="top">{% if 'pro' in
+                              user.subscriptions %}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>For-loop<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">a for loops starts with an
+                              for in statement and ends with endfor<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">{% for item in
+                              shopping_list %}<br>
+                              &nbsp; &lt;li&gt;{{ item }}&lt;/li&gt;<br>
+                              {% endfor %}<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 2 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td rowspan="1" colspan="2">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>is operator<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">the
+                              is operator can be used for a variety of
+                              tests While filters (using |) modify data,
+                              tests (using is) evaluate a condition and
+                              return a boolean (True or False). each of
+                              these tests can also be used together with
+                              "not"<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Test</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>Explanation</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Variable state tests</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">defined<br>
+                            </td>
+                            <td valign="top"> True if the variable
+                              exists.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">undefined<br>
+                            </td>
+                            <td valign="top">True if the variable has
+                              not been set.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">none<br>
+                            </td>
+                            <td valign="top">True if the variable is
+                              None (Python's null)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">iterable<br>
+                            </td>
+                            <td valign="top">True if you can loop over
+                              the variable (like a list or string).<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Mathematical and numerical tests</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">even<br>
+                            </td>
+                            <td valign="top">True if the number is even.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">odd<br>
+                            </td>
+                            <td valign="top">True if the number is odd.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">number<br>
+                            </td>
+                            <td valign="top">True if the variable is an
+                              integer or a float.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">divisibleby(n)<br>
+                            </td>
+                            <td valign="top">True if the value can be
+                              divided by n without a remainder.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>String and content tests</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">string<br>
+                            </td>
+                            <td valign="top">True if the value is text.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">lower /upper<br>
+                            </td>
+                            <td valign="top">True if the string is all
+                              lowercase or all uppercase.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">equalto(other)<br>
+                            </td>
+                            <td valign="top">True if the value is
+                              identical to other (same as ==).<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">mapping<br>
+                            </td>
+                            <td valign="top">True if the object is a
+                              dictionary or map.</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Logical and selection tests</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">sameas (other)<br>
+                            </td>
+                            <td valign="top">Checks if the variable is
+                              the exact same object in memory as another
+                              (like Python's is).<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">boolean<br>
+                            </td>
+                            <td valign="top">True if the value is True
+                              or False.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">in<br>
+                            </td>
+                            <td valign="top">While in is usually its own
+                              operator, it can be used as a test in some
+                              environments: {% if value is in [1, 2, 3]
+                              %}.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">{%
+                              if loop.index is divisibleby(3) %}<br>
+                              {% if score is not number %}<br>
+                              {% if value is in [1, 2, 3] %}.<br>
+                              {% if value is defined %} or {% if
+                              loop.index is even %}<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td rowspan="1" colspan="2">
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Filter operator<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">Filters
+
+
+
+
+
+                              are one of Jinja's most versatile
+                              features. While Tests (is) check if
+                              something is true, Filters (|) actually
+                              transform the data before it hits the
+                              screen. You can even "chain" them
+                              together: {{ name | trim | upper }}.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Filter</h3>
+                            </td>
+                            <td valign="top">
+                              <h3>Explanation</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Text and string formatting</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">upper / lower<br>
+                            </td>
+                            <td valign="top">Converts the entire string
+                              to uppercase or lowercase.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">capitalize<br>
+                            </td>
+                            <td valign="top">Capitalizes the first
+                              character and makes the rest lowercase.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">title<br>
+                            </td>
+                            <td valign="top">Capitalizes the start of
+                              every word (Title Case).</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">trim<br>
+                            </td>
+                            <td valign="top">Strips whitespace from the
+                              beginning and end.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">truncate(n)<br>
+                            </td>
+                            <td valign="top">Cuts off text after <code
+                                data-path-to-node="5,4,0"
+                                data-index-in-node="33">n</code>
+                              characters and adds an ellipsis (<code
+                                data-path-to-node="5,4,0"
+                                data-index-in-node="68">...</code>).</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>List and collection handling</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">first / last<br>
+                            </td>
+                            <td valign="top">Returns the first or last
+                              item in a list.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">lenght<br>
+                            </td>
+                            <td valign="top">Returns the number of items
+                              (the "count").</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">join('devider')<br>
+                            </td>
+                            <td valign="top"> Combines a list into a
+                              single string.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">sort<br>
+                            </td>
+                            <td valign="top">Sorts the list
+                              (alphabetically or numerically)<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">unique<br>
+                            </td>
+                            <td valign="top">Removes duplicate items
+                              from a list.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">random<br>
+                            </td>
+                            <td valign="top">Picks one random item from
+                              the list.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Numerical and math filters</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">abs<br>
+                            </td>
+                            <td valign="top">Returns the absolute value.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">round(precision)<br>
+                            </td>
+                            <td valign="top">Rounds the number to a
+                              specific decimal point.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">int / float<br>
+                            </td>
+                            <td valign="top">Converts a string or
+                              variable into an integer or a decimal
+                              number.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Security and safety</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">safe<br>
+                            </td>
+                            <td valign="top">Tells Jinja <b
+                                data-path-to-node="14,0,0"
+                                data-index-in-node="18">not</b> to
+                              escape HTML. Use this only if you trust
+                              the source.</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">escape<br>
+                            </td>
+                            <td valign="top">(or e): Specifically
+                              converts symbols like &lt; and &gt; into
+                              HTML entities so they don't break your
+                              site.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">default('fallback')<br>
+                            </td>
+                            <td valign="top">If a variable is undefined
+                              or false, it uses the fallback text
+                              instead.</td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td rowspan="1" colspan="2" valign="top">{{
+                              post.body | truncate(50) }}<br>
+                              {{ tags | join(', ') }}<br>
+                              {{ 3.14159 | round(2) }}<br>
+                              Hello, {{ name | default('Guest') }}!<br>
+                              {{ "&nbsp; welcome home&nbsp; " | trim |
+                              title }}<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Template inheritance<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Think of Template
+                              Inheritance as a skeleton. Instead of
+                              building a whole new body for every page,
+                              you build one "Master Skeleton" and just
+                              swap out the organs.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Parent template </h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">This is your master layout.
+                              E.G. You write all the standard HTML (the
+                              &lt;head&gt;, the navbar, and the footer).
+                              Crucially, you leave "empty holes" using
+                              the block tag.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;html&gt;<br>
+                              &nbsp; &lt;head&gt;<br>
+                              &nbsp;&nbsp;&nbsp; &lt;title&gt;{% block
+                              title %}My Site{% endblock
+                              %}&lt;/title&gt;<br>
+                              &nbsp; &lt;/head&gt;<br>
+                              &nbsp; &lt;body&gt;<br>
+                              &nbsp;&nbsp;&nbsp; &lt;nav&gt;Navigation
+                              Bar&lt;/nav&gt;<br>
+                              &nbsp;&nbsp;&nbsp; &lt;div
+                              id="content"&gt;<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% block
+                              content %}<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endblock
+                              %}<br>
+                              &nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+                              &nbsp;&nbsp;&nbsp; &lt;footer&gt;© 2026 My
+                              Company&lt;/footer&gt;<br>
+                              &nbsp; &lt;/body&gt;<br>
+                              &lt;/html&gt;<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Child template</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The child page "claims" the
+                              parent's structure. It doesn't need to
+                              write &lt;html&gt; or &lt;body&gt; tags at
+                              all. It only focuses on the unique parts.<br>
+                              <br>
+                              {% extends "filename" %}: This must be the
+                              very first line of your child file. It
+                              tells Jinja to go look at the parent file
+                              first<br>
+                              <br>
+                              The "Hole" and the "Plug": The {% block %}
+                              in the parent is the hole; the {% block %}
+                              in the child is the plug. If the child
+                              doesn't provide a "plug," the parent will
+                              either show nothing or use the default
+                              text you put inside the block.<br>
+                              <br>
+                              {{ super() }}: Sometimes you want to keep
+                              the content from the parent and add new
+                              stuff. Using {{ super() }} inside a child
+                              block pulls in the parent’s content so you
+                              don't overwrite it entirely.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">{% extends "base.html" %}<br>
+                              <br>
+                              {% block title %}Home Page{% endblock %}<br>
+                              <br>
+                              {% block content %}<br>
+                              &nbsp; &lt;h1&gt;Welcome to my Home
+                              Page!&lt;/h1&gt;<br>
+                              &nbsp; &lt;p&gt;This text will be injected
+                              into the 'content' block of the
+                              parent.&lt;/p&gt;<br>
+                              {% endblock %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Include</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The {% include %} tag is
+                              simpler than inheritance. It literally
+                              takes the contents of another file and
+                              drops it exactly where the tag is. I<br>
+                              <br>
+                              used for droping a static file into
+                              another<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;h1&gt;About Our
+                              Company&lt;/h1&gt;<br>
+                              &lt;p&gt;We have been around since
+                              2010...&lt;/p&gt;<br>
+                              <br>
+                              {% include "newsletter.html" %}<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Macros</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Think of Macros as the
+                              "functions" of the Jinja world. If you
+                              find yourself writing the same complex
+                              HTML snippet over and over—like a styled
+                              button, a form input, or a user profile
+                              card—you should wrap it in a macro.<br>
+                              <br>
+                              Instead of copy-pasting 10 lines of code,
+                              you just call the macro in one line.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Define a macro</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">You define a macro using
+                              the {% macro %} tag. You give it a name
+                              and, just like a Python function, you can
+                              give it arguments (inputs).<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">{% macro
+                              secondary_button(label, link='#',
+                              color='blue') %}<br>
+                              &nbsp; &lt;a href="{{ link }}"
+                              style="background-color: {{ color }};
+                              padding: 10px; border-radius: 5px;"&gt;<br>
+                              &nbsp;&nbsp;&nbsp; {{ label }}<br>
+                              &nbsp; &lt;/a&gt;<br>
+                              {% endmacro %}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Calling a macro</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Once defined, you "call" it
+                              just like a function inside an expression
+                              tag. You can pass values into the
+                              arguments you defined.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">{{ secondary_button('Click
+                              Me', link='/home', color='red') }}<br>
+                              {{ secondary_button('Submit') }}&nbsp; {#
+                              Uses the default '#' and 'blue' #}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>importing a macro filled file</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">Usually, you don't want
+                              your macros cluttering up your main
+                              template. Most developers put all their
+                              macros into a separate file (e.g.,
+                              forms.html) and import them where needed.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><font color="#666666">#
+                                import everything</font><br>
+                              {% import 'forms.html' as forms %}<br>
+                              <font color="#666666"># use imported macro</font><br>
+                              {{ forms.secondary_button('Search') }}<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Whitespace control<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">By default, Jinja leaves
+                              the blank lines and spaces from your logic
+                              tags in the final HTML, which can make
+                              your source code look messy. You can clean
+                              this up by adding a minus sign (-) to your
+                              tags.<br>
+                              <br>
+                              &nbsp;&nbsp;&nbsp; {%-: Strips whitespace
+                              before the tag.<br>
+                              &nbsp;&nbsp;&nbsp; -%}: Strips whitespace
+                              after the tag<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">&lt;ul&gt;<br>
+                              &nbsp;&nbsp;&nbsp; {%- for item in
+                              ['Apples', 'Bananas'] -%}<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &lt;li&gt;{{ item }}&lt;/li&gt;<br>
+                              &nbsp;&nbsp;&nbsp; {%- endfor -%}<br>
+                              &lt;/ul&gt;<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <footer style="text-align: center; margin-top: 20px;">
+      <p style="text-align: center;"> This website is a collection of my
+        personal study notes, created to help me and others learn and
+        organize information effectively. Feel free to <strong>download</strong>,
+        <strong>print</strong>, or <strong>use</strong> any of the
+        notes for your own purposes. </p>
+      <p style="text-align: center;"> <br>
+        Want to keep your own notes in the same format? Check out the <a
+          href="Template/HTMLTEMPLATE" style="color: #1E90FF;
+          text-decoration: underline;">Notes Template</a>! </p>
+      <p style="text-align: center;"> Interested in forking this
+        website? Visit my <a
+          href="https://github.com/Doemsdagding/CheatSheets"
+          target="_blank" style="color: #1E90FF; text-decoration:
+          underline;">GitHub Repository</a> to get the full source code.
+      </p>
+      <p style="text-align: center;"> Happy learning and dont forget to
+        share, follow and star the repository! -DoemsDagDing </p>
+    </footer>
+  </body>
+</html>
