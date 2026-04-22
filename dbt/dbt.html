@@ -427,6 +427,33 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td valign="top">
+                              <h3>source()</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">like ref the "{{
+                              source('&lt;schema&gt;', '&lt;table
+                              name&gt;') }} " function is used to
+                              indicate dependencies but wit hteh
+                              difference of also indicating the table
+                              schema. it therefore lets you also point
+                              to sources outside of dbt. (to use source
+                              the .yaml needs to be edited too (see
+                              below))<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select * from {{
+                              source('raw', 'orders') }}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
                               <h3>config()</h3>
                             </td>
                           </tr>
@@ -441,7 +468,6 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               database-specific settings like
                               partitions. You keep the configuration
                               right next to the code it affects.<br>
-                              <br>
                               the schema definition is used to define in
                               which schema the output should be written
                               to.<br>
@@ -457,9 +483,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               config(materialized='view',
                               schema='finance') }}<br>
                               <br>
-                              SELECT <br>
-                              &nbsp;&nbsp;&nbsp; order_id,<br>
-                              &nbsp;&nbsp;&nbsp; status<br>
+                              SELECT&nbsp; order_id,&nbsp; status<br>
                               FROM {{ ref('raw_orders') }}<br>
                               WHERE status = 'completed'<br>
                             </td>
@@ -478,7 +502,6 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               replaced by the text content of a
                               documentation block you've defined
                               elsewhere. <br>
-                              <br>
                               It keeps your YAML files clean. Instead of
                               writing a 5-paragraph description in a
                               configuration file, you write it in
@@ -556,7 +579,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               <br>
                               the hierarchies are defined in dbt inside
                               the model defintion (.sql) files. this is
-                              done through using the ref() function<br>
+                              done through using the ref() and source()
+                              function<br>
                               <br>
                               to see the DAG using the dbt docs geernate
                               and dbt docs serve documentation functions
@@ -737,6 +761,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               - columns_equal:<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
                               column_name2: tpep_dropoff_datetime<br>
                               <br>
                             </td>
@@ -842,22 +868,32 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
+
+
                               - not_null<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - name:
                               payment_type<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
+
+
                               tests: <br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
 
 
                               - not_null<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
+
+
                               - accepted_values:<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
 
 
                               values: [1, 2, 3, 4, 5, 6]</td>
@@ -929,6 +965,98 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 test</font><br>
                               select * from {{ ref('order')}} where
                               order_total &lt; subtotal<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>source<br>
+                                  </h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">To use the source()
+                              function in the jinja template the sources
+                              need to be added to the .yml files of the
+                              models / seeds/snapshots you want to use
+                              it in.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top"><span class="hljs-attr">version:</span>
+                              <span class="hljs-number">2</span>
+                              <span class="hljs-attr"><br>
+                                sources:</span><br>
+                              &nbsp;<span class="hljs-bullet">-</span> <span
+                                class="hljs-attr">name:</span> <span
+                                class="hljs-string">stripe</span> <font
+                                color="#666666"> <span
+                                  class="hljs-comment"># schema
+                                  argument: {{ source('stripe', ...) }}</span></font>&nbsp;
+
+                              <span class="hljs-attr"><br>
+                                &nbsp;&nbsp; database:</span> <span
+                                class="hljs-string">raw_prod</span> <font
+                                color="#666666"><span
+                                  class="hljs-comment"># The physical
+                                  database name</span> </font><span
+                                class="hljs-attr"><br>
+                                &nbsp;&nbsp; schema:</span> <span
+                                class="hljs-string">stripe_api</span> <font
+                                color="#666666"><span
+                                  class="hljs-comment"># The physical
+                                  schema name</span></font>
+                              <br>
+                              &nbsp;&nbsp; <span class="hljs-attr">tables<br>
+                                &nbsp;&nbsp;&nbsp; :</span> <span
+                                class="hljs-bullet">-</span> <span
+                                class="hljs-attr">name:</span> <span
+                                class="hljs-string">payments</span> <font
+                                color="#666666"> </font><span
+                                class="hljs-comment"><font
+                                  color="#666666"># This is the second
+                                  argument: {{ <br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  source(..., 'payments') }}</font><br>
+                                &nbsp; &nbsp;&nbsp;</span> <span
+                                class="hljs-bullet">-</span> <span
+                                class="hljs-attr">name:</span> <span
+                                class="hljs-string">customers</span>
                             </td>
                           </tr>
                         </tbody>
