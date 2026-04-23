@@ -763,6 +763,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
+
+
                               column_name2: tpep_dropoff_datetime<br>
                               <br>
                             </td>
@@ -870,10 +872,14 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
+
                               - not_null<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - name:
                               payment_type<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
 
 
 
@@ -884,14 +890,20 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
 
 
 
+
+
                               - not_null<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 
 
+
+
                               - accepted_values:<br>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
 
 
 
@@ -1019,8 +1031,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                           </tr>
                           <tr>
                             <td valign="top"><span class="hljs-attr">version:</span>
-                              <span class="hljs-number">2</span>
-                              <span class="hljs-attr"><br>
+                              <span class="hljs-number">2</span> <span
+                                class="hljs-attr"><br>
                                 sources:</span><br>
                               &nbsp;<span class="hljs-bullet">-</span> <span
                                 class="hljs-attr">name:</span> <span
@@ -1028,6 +1040,8 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 color="#666666"> <span
                                   class="hljs-comment"># schema
                                   argument: {{ source('stripe', ...) }}</span></font>&nbsp;
+
+
 
                               <span class="hljs-attr"><br>
                                 &nbsp;&nbsp; database:</span> <span
@@ -1040,8 +1054,7 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                 class="hljs-string">stripe_api</span> <font
                                 color="#666666"><span
                                   class="hljs-comment"># The physical
-                                  schema name</span></font>
-                              <br>
+                                  schema name</span></font> <br>
                               &nbsp;&nbsp; <span class="hljs-attr">tables<br>
                                 &nbsp;&nbsp;&nbsp; :</span> <span
                                 class="hljs-bullet">-</span> <span
@@ -1052,11 +1065,329 @@ href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNS
                                   color="#666666"># This is the second
                                   argument: {{ <br>
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
                                   source(..., 'payments') }}</font><br>
                                 &nbsp; &nbsp;&nbsp;</span> <span
                                 class="hljs-bullet">-</span> <span
                                 class="hljs-attr">name:</span> <span
-                                class="hljs-string">customers</span>
+                                class="hljs-string">customers</span> </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- page 4 two columns equal width -->
+    <table style="width: 765px; height: 998px; table-layout: fixed;">
+      <tbody>
+        <tr>
+          <td style="width: 50%; padding-right: 0px; word-break:
+            break-word;">
+            <!-- left column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell A1 -->
+                    <div class="container1">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Seeds</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">seeds are csv files
+                              containing fixed data their not supposed
+                              to be extracted from another process
+                              regularly (think translation tables).<br>
+                              <br>
+                              seeds are stored in the "seeds" directory
+                              of the the project each seed .csv file
+                              should start with the headers on teh first
+                              row. <br>
+                              in the "seeds" directory a properties.yml
+                              (or directly inside the dtb_project.yml)
+                              file can be added to provide information
+                              like<br>
+                              * which database schema to store seed data
+                              in<br>
+                              * what database to store seed data in<br>
+                              * which columns should be quoted<br>
+                              * defining column data types (if not
+                              defined it will be inferred by dbt from
+                              the data)<br>
+                              <br>
+                              seeds also support tests indicated through
+                              the same yaml structure as models and
+                              sources.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">version: 2 <br>
+                              <br>
+                              seeds:<br>
+                              &nbsp;&nbsp; - name: zipcodes<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; config:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              column_types:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              zipcode: varchar(5)<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; columns:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              - name: zipcode<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              tests:<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              - unique<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to access a seed you use
+                              the "{{ref()}}" jinja command as it will
+                              behave as a model after the intial import.<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">select * from {{
+                              ref('zipcodes') }}<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to load the created seeds
+                              into the project database use the "dbt
+                              seed" command in the terminal<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell A2 -->
+                    <div class="container2">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Snapshot</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">A snapshot is a look into
+                              the changes of a dataset. snapshots are
+                              implement throubh SCD2 (slowly changing
+                              dimensions type 2) in dbt it is the git of
+                              kimball-style data warehouses.<br>
+                              dbt does this by adding the column
+                              "dbt_valid_from" and "dbt_valid_to" to the
+                              data (instead of overwritign a row value
+                              it adds a new row with new valid from data
+                              and updates the valid to data in the old
+                              row.<br>
+                              <br>
+                              To implement snapshots in dbt a directory
+                              called "snapshots" need to be created
+                              after which a "snapshot_name.sql" file
+                              needs to be created representing the data
+                              that needs to be snapped.<br>
+                              the sql file needss to start with "{%
+                              snapshot &lt;snapshot name&gt; %}" and end
+                              with "{% endsnapshot %}" and the snapshot
+                              config in between containg the target
+                              schema (which should be unique to
+                              snapshots andn ot used for other tables)
+                              the startegey (being timestamp or
+                              check_cols, the unique key of the table
+                              and lastly the column in which the last
+                              updated time is being tracked.<br>
+                              after the config the query from the raw or
+                              model (using ref) order source is written<br>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">
+                              <h3>Example</h3>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">{% snapshot snapshot_orders
+                              %}<br>
+                              &nbsp; {{ config(<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              target_schema='snapshots',<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              strategy='timestamp',<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              unique_key='id'<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              update_at='last_updated'<br>
+                              &nbsp;&nbsp;&nbsp;&nbsp; ) }}<br>
+                              &nbsp;&nbsp;&nbsp; select * from {{
+                              source('raw', 'orders' }}<br>
+                              {% endsnapshot %}</td>
+                          </tr>
+                          <tr>
+                            <td valign="top">to create or update the
+                              snapshot the dbt "dbt snapshot" run
+                              command can be used (it is best to
+                              schedule the command regularly otherwise
+                              potential changes might be missed. <br>
+                              after which using ref() e.g " select *
+                              from {{ref('snapshot_orders')}}" can be
+                              used to query against the snapshot tables.<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td style="width: 50%; padding-left: 0px; word-break:
+            break-word;">
+            <!-- right column -->
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <th>
+                    <!--cell B1 -->
+                    <div class="container3">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Build</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top">The dbt "dbt build"
+                              subcommand is a shortcut method to
+                              perforum all the usual taks within a dbt
+                              project.(dbt run, dbt test, dbt seed, dbt
+                              snapshot) it does not run dbt docs.<br>
+                              <br>
+                              dbt build is often ot useful for testing
+                              but can be used to do the full run.<br>
+                              <br>
+                              the dbt command has several flags<br>
+                              * -select &lt;object&gt; =can run singular
+                              model rather than all<br>
+                              * -d = is used to provide debugging
+                              information while running dbt build<br>
+                              * --eexclude &lt;object&gt; = to exclude
+                              objects or models from being run usign dbt
+                              build<br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+            <table style="width: 100%; table-layout: fixed;">
+              <tbody>
+                <tr>
+                  <td>
+                    <!--cell B2 -->
+                    <div class="container4">
+                      <table class="inner" style="table-layout: fixed;">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div style="display: flex;
+                                justify-content: center; align-items:
+                                center; position: relative;">
+                                <div style="text-align: center;">
+                                  <h2>Cell B2</h2>
+                                </div>
+                                <div style="position: absolute; right:
+                                  -28px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                                <div style="position: absolute; right:
+                                  15px; top: -28px; z-index: 1;">
+                                  <svg width="34" height="34">
+                                    <use href="#myBase64Image"></use> </svg>
+                                </div>
+                              </div>
                             </td>
                           </tr>
                         </tbody>
